@@ -9,7 +9,11 @@
                             <i class="tio-search"></i>
                         </button>
                         <input type="text" class="js-form-search form-control view_all_hold_orders_search"
+<<<<<<< HEAD
                                placeholder="{{ translate('search_by_customer_name').'...' }}">
+=======
+                               placeholder="{{ translate('Search') }}...">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                 </div>
             </div>

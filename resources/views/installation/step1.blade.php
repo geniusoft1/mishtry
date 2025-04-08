@@ -25,7 +25,11 @@
                     {{ "Read Documentation" }}
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                           data-bs-title="Follow our documentation">
+<<<<<<< HEAD
                             <img src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}"
+=======
+                            <img src="{{ asset('public/assets/installation/assets/img/svg-icons/info.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  class="svg" alt="">
                     </span>
                 </a>
@@ -46,13 +50,21 @@
                         <div class="col-md-6">
                             <div class="d-flex gap-3 align-items-center">
                                 <img alt=""
+<<<<<<< HEAD
                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/php-version.svg') }}">
+=======
+                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/php-version.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
                                     {{ "PHP Version 8.0 +" }}
                                     @php($phpVersion = number_format((float)phpversion(), 2, '.', ''))
                                     @if ($phpVersion >= 8.0)
                                         <img width="20" alt=""
+<<<<<<< HEAD
                                              src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/check.png') }}">
+=======
+                                             src="{{ asset('public/assets/installation/assets/img/svg-icons/check.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @else
                                         <span class="cursor-pointer" data-bs-toggle="tooltip"
                                               data-bs-placement="top" data-bs-custom-class="custom-tooltip"
@@ -61,7 +73,11 @@
                                                    <a href='https://support.cpanel.net/hc/en-us/articles/360052624713-How-to-change-the-PHP-version-for-a-domain-in-cPanel-or-WHM'
                                                    class='d-block' target='_blank'>See how to update</a> ">
                                                 <img class="svg text-danger" alt=""
+<<<<<<< HEAD
                                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}">
+=======
+                                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/info.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </span>
                                     @endif
 
@@ -71,19 +87,31 @@
                         <div class="col-md-6">
                             <div class="d-flex gap-3 align-items-center">
                                 <img alt=""
+<<<<<<< HEAD
                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/curl-enabled.svg') }}">
+=======
+                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/curl-enabled.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
                                     {{ "Curl Enabled" }}
                                     @if ($permission['curl_enabled'])
                                         <img width="20" alt=""
+<<<<<<< HEAD
                                              src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/check.png') }}">
+=======
+                                             src="{{ asset('public/assets/installation/assets/img/svg-icons/check.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @else
                                         <span class="cursor-pointer" data-bs-toggle="tooltip"
                                               data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                               data-bs-html="true" data-bs-delay='{"hide":1000}'
                                               data-bs-title="Curl extension is not enabled in your server. To enable go to PHP version > extensions and select curl.">
                                                 <img class="svg text-danger" alt=""
+<<<<<<< HEAD
                                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}">
+=======
+                                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/info.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </span>
                                     @endif
 
@@ -93,19 +121,31 @@
                         <div class="col-md-6">
                             <div class="d-flex gap-3 align-items-center">
                                 <img alt=""
+<<<<<<< HEAD
                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/route-service.svg') }}">
+=======
+                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/route-service.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
                                     {{ ".env File Permission" }}
                                     @if ($permission['db_file_write_perm'])
                                         <img width="20" alt=""
+<<<<<<< HEAD
                                              src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/check.png') }}">
+=======
+                                             src="{{ asset('public/assets/installation/assets/img/svg-icons/check.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @else
                                         <span class="cursor-pointer" data-bs-toggle="tooltip"
                                               data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                               data-bs-html="true" data-bs-delay='{"hide":1000}'
                                               data-bs-title="...">
                                                 <img class="svg text-danger" alt=""
+<<<<<<< HEAD
                                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}">
+=======
+                                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/info.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </span>
                                     @endif
                                 </div>
@@ -114,19 +154,31 @@
                         <div class="col-md-6">
                             <div class="d-flex gap-3 align-items-center">
                                 <img alt=""
+<<<<<<< HEAD
                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/route-service.svg') }}">
+=======
+                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/route-service.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="d-flex align-items-center gap-2 justify-content-between flex-grow-1">
                                     {{ "RouteServiceProvider.php File Permission" }}
                                     @if ($permission['routes_file_write_perm'])
                                         <img width="20" alt=""
+<<<<<<< HEAD
                                              src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/check.png') }}">
+=======
+                                             src="{{ asset('public/assets/installation/assets/img/svg-icons/check.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @else
                                         <span class="cursor-pointer" data-bs-toggle="tooltip"
                                               data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                                               data-bs-html="true" data-bs-delay='{"hide":1000}'
                                               data-bs-title="...">
                                                 <img class="svg text-danger" alt=""
+<<<<<<< HEAD
                                                      src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}">
+=======
+                                                     src="{{ asset('public/assets/installation/assets/img/svg-icons/info.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </span>
                                     @endif
                                 </div>

@@ -5,16 +5,26 @@
     <meta charset="utf-8">
     <title>{{translate('maintenance_Mode_On')}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <link rel="apple-touch-icon" sizes="180x180" href="{{ dynamicStorage(path: 'storage/app/public/company/'.$web_config['fav_icon']->value) }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ dynamicStorage(path: 'storage/app/public/company/'.$web_config['fav_icon']->value) }}">
     <link rel="stylesheet" media="screen" href="{{dynamicAsset(path: 'public/assets/front-end/css/theme.css')}}">
+=======
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('storage/app/public/company/'.$web_config['fav_icon']->value) }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('storage/app/public/company/'.$web_config['fav_icon']->value) }}">
+    <link rel="stylesheet" media="screen" href="{{asset('public/assets/front-end/css/theme.css')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 <body>
 <div class="container rtl">
     <div class="row vh-100 align-content-center">
         <div class="col-12">
             <div class="text-center">
+<<<<<<< HEAD
                 <img loading="lazy" class="min-width-350px" src="{{dynamicAsset(path: 'public/assets/front-end/img/maintenance-mode.jpg')}}" alt="maintenance-mode">
+=======
+                <img loading="lazy" class="min-width-350px" src="{{asset('public/assets/front-end/img/maintenance-mode.jpg')}}" alt="maintenance-mode">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <h1 class="mt-3">{{translate('website_is_under_maintenance')}}</h1><br>
                 <h5>{{translate('please_come_back_later')}}</h5>
             </div>

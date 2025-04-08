@@ -4,7 +4,10 @@ namespace App\Services;
 
 use App\Traits\FileManagerTrait;
 use Illuminate\Http\RedirectResponse;
+<<<<<<< HEAD
 use Illuminate\Support\Str;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 class ShopService
 {
@@ -58,6 +61,7 @@ class ShopService
             'vacation_note' => $request['vacation_note'],
         ];
     }
+<<<<<<< HEAD
     public function getAddShopDataForRegistration(object $request,int $vendorId):array
     {
         return [
@@ -71,5 +75,7 @@ class ShopService
             'bottom_banner' => $this->upload(dir: 'shop/banner/', format: 'webp', image: $request->file('bottom_banner')),
         ];
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 }

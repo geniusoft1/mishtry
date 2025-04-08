@@ -1,8 +1,11 @@
 @extends('theme-views.layouts.app')
 @section('title', translate('vendor_Apply').' | '.$web_config['name']->value.' '.translate('ecommerce'))
+<<<<<<< HEAD
 @push('css_or_js')
     <link rel="stylesheet" href="{{ theme_asset(path: 'assets/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @section('content')
     <main class="main-content d-flex flex-column gap-3 py-3 mb-sm-5">
         <div class="container">
@@ -26,7 +29,11 @@
                             </div>
                         </div>
                         <div class="col-lg-8 col-xl-7">
+<<<<<<< HEAD
                             <form id="seller-registration" action="{{route('vendor.auth.registration.index')}}" method="POST" enctype="multipart/form-data">
+=======
+                            <form id="seller-registration" action="{{route('shop.apply')}}" method="POST" enctype="multipart/form-data">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @csrf
                                 <div class="wizard">
                                     <h3 class="text-capitalize">{{translate('vendor_info')}}</h3>
@@ -53,6 +60,7 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group mb-4">
                                                     <label for="tel">{{translate('phone')}} *</label>
+<<<<<<< HEAD
                                                     <div>
                                                         <input class="form-control form-control-user phone-input-with-country-picker"
                                                                type="tel" value="{{ old('phone') }}" id="exampleInputPhone"
@@ -60,15 +68,24 @@
 
                                                         <input type="hidden" class="country-picker-phone-number w-50" name="phone" readonly>
                                                     </div>
+=======
+                                                    <input class="form-control" type="tel" id="tel" name="phone" value="{{old('phone')}}" placeholder="{{translate('enter_phone_number')}}" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group mb-4">
+<<<<<<< HEAD
                                                     <label for="password">{{translate('password').' * '}}
                                                         <span class="text-danger mx-1 password-error"></span>
                                                     </label>
                                                     <div class="input-inner-end-ele">
                                                         <input class="form-control password-check" type="password" id="passwordID"  name="password" value="{{old('password')}}" placeholder="{{translate('enter_password')}}" required>
+=======
+                                                    <label for="password">{{translate('password')}} *</label>
+                                                    <div class="input-inner-end-ele">
+                                                        <input class="form-control" type="password" id="passwordID"  name="password" value="{{old('password')}}" placeholder="{{translate('enter_password')}}" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         <i class="bi bi-eye-slash-fill togglePassword"></i>
                                                     </div>
                                                 </div>
@@ -229,6 +246,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="modal fade registration-success-modal" tabindex="-1" aria-labelledby="toggle-modal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content shadow-lg">
@@ -251,6 +269,12 @@
     </main>
 @endsection
 @push('script')
+=======
+    </main>
+@endsection
+@push('script')
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     @if($web_config['recaptcha']['status'] == '1')
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
         <script>
@@ -279,9 +303,12 @@
     @endif
     <script src="{{theme_asset('assets/plugins/jquery-step/jquery.validate.min.js')}}"></script>
     <script src="{{theme_asset('assets/plugins/jquery-step/jquery.steps.min.js')}}"></script>
+<<<<<<< HEAD
     <script src="{{ theme_asset('assets/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
     <script src="{{ theme_asset('assets/js/country-picker-init.js') }}"></script>
     <script src="{{theme_asset('assets/js/vendor-registration.js')}}"></script>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script>
         "use strict";
         $(document).ready(function(){
@@ -340,6 +367,7 @@
                     if (response.length === 0) {
                         toastr.error("{{translate('please_check_the_recaptcha')}}");
                     }else{
+<<<<<<< HEAD
                         submitRegistration();
                     }
                 }
@@ -351,4 +379,15 @@
         initializePhoneInput(".phone-input-with-country-picker", ".country-picker-phone-number");
     </script>
     <script src="{{theme_asset('assets/js/password-strength.js')}}"></script>
+=======
+                        $('#seller-registration').submit();
+                    }
+                }
+                @else
+                $('#seller-registration').submit();
+                @endif
+            }
+        });
+    </script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

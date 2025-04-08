@@ -949,6 +949,7 @@
 [dir="rtl"] .float-end {
     float: left !important;
 }
+<<<<<<< HEAD
 
 .bg--light {
     background-color: var(--bs-body-bg);
@@ -1094,3 +1095,5 @@
     width: auto;
     object-fit: cover;
 }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

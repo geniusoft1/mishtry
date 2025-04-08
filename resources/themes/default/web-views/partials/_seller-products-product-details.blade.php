@@ -4,6 +4,7 @@
     data-link="{{ route('product',$product->slug) }}">
     @if($product->discount > 0)
     <div class="d-flex position-absolute z-2">
+<<<<<<< HEAD
         <span class="for-discount-value p-1 pl-2 pr-2 font-bold fs-13">
             <span class="direction-ltr d-block">
                 @if ($product->discount_type == 'percent')
@@ -12,6 +13,14 @@
                     -{{ webCurrencyConverter(amount: $product->discount) }}
                 @endif
             </span>
+=======
+        <span class="for-discount-value p-1 pl-2 pr-2">
+            @if ($product->discount_type == 'percent')
+            {{round($product->discount,(!empty($decimalPointSettings) ? $decimalPointSettings: 0))}}%
+            @elseif($product->discount_type =='flat')
+            {{ webCurrencyConverter(amount: $product->discount) }}
+            @endif {{ translate('off')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </span>
     </div>
     @endif
@@ -28,7 +37,10 @@
                         {{$product['name']}}
                     </span>
                 </div>
+<<<<<<< HEAD
                 @if($overallRating[0] != 0 )
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="flash-product-review">
                     @for($inc=1;$inc<=5;$inc++) @if ($inc <=(int)$overallRating[0]) <i class="tio-star text-warning">
                         </i>
@@ -40,10 +52,16 @@
                             @endif
                             @endfor
                             <label class="badge-style2">
+<<<<<<< HEAD
                                 ( {{ count($product->reviews) }} )
                             </label>
                 </div>
                 @endif
+=======
+                                ( {{$product->reviews->count()}} )
+                            </label>
+                </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="d-flex flex-wrap gap-8 align-items-center row-gap-0">
                     @if($product->discount > 0)
                     <del class="category-single-product-price">

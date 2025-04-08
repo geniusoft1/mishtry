@@ -4,7 +4,11 @@
     <title>{{ucwords('invoice')}}</title>
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/invoice.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/invoice.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>
@@ -292,18 +296,30 @@ if ($order['extra_discount_type'] == 'percent') {
                 <th class="content-position-y bg-light py-4">
                     <div class="d-flex justify-content-center gap-2">
                         <div class="mb-2">
+<<<<<<< HEAD
                             <img height="10" src="{{ dynamicAsset(path: 'public/assets/front-end/img/icons/telephone.png') }}" alt="">
+=======
+                            <img height="10" src="{{ asset('public/assets/front-end/img/icons/telephone.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             {{ucwords('phone')}}
                             : {{ $companyPhone }}
                         </div>
                         <div class="mb-2">
+<<<<<<< HEAD
                             <img height="10" src="{{ dynamicAsset(path: 'public/assets/front-end/img/icons/email.png') }}" alt="">
+=======
+                            <img height="10" src="{{ asset('public/assets/front-end/img/icons/email.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             {{ucwords('email')}}
                             : {{$companyEmail}}
                         </div>
                     </div>
                     <div class="mb-2">
+<<<<<<< HEAD
                         <img height="10" src="{{ dynamicAsset(path: 'public/assets/front-end/img/icons/web.png') }}" alt="">
+=======
+                        <img height="10" src="{{ asset('public/assets/front-end/img/icons/web.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {{url('/')}}
                     </div>
                     <div>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/pos-invoice.css') }}">
+=======
+<link rel="stylesheet" href="{{ asset('public/assets/back-end/css/pos-invoice.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 <div class="width-363px">
     <div class="text-center pt-4 mb-3">

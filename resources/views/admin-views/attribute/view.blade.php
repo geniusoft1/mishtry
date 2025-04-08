@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/attribute.png') }}" alt="">
+=======
+                <img src="{{ asset('public/assets/back-end/img/attribute.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('attribute_Setup') }}
             </h2>
         </div>
@@ -125,7 +129,11 @@
 
                     @if(count($attributes) == 0)
                         <div class="text-center p-4">
+<<<<<<< HEAD
                             <img class="mb-3 w-160" src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                            <img class="mb-3 w-160" src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{ translate('image') }}">
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>
@@ -139,5 +147,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

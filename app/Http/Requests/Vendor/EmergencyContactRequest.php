@@ -25,6 +25,7 @@ class EmergencyContactRequest extends FormRequest
     {
         return [
             'name' => 'required',
+<<<<<<< HEAD
             'country_code' => 'required',
             'phone' => 'required'
         ];
@@ -37,4 +38,9 @@ class EmergencyContactRequest extends FormRequest
             'phone.required' => translate('phone_is_required'),
         ];
     }
+=======
+            'phone' => 'required'
+        ];
+    }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

@@ -58,6 +58,10 @@
                             @endforeach
                         </div>
                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="table-responsive mt-4">
                         <div class="px-4 d-flex justify-content-lg-end">
                             {!!$products->withQueryString()->links()!!}
@@ -71,17 +75,38 @@
                     <h5 class="p-3 m-0 bg-light">{{ translate('billing_Section') }}</h5>
                     <div class="card-body">
                         <div class="d-flex justify-content-end mb-3">
+<<<<<<< HEAD
                             <button type="button" class="btn btn-outline--primary d-flex align-items-center gap-2 action-view-all-hold-orders"
                             data-toggle="tooltip" data-placement="top"
                                     title="{{translate('please_resume_the_order_from_here')}}">
                                 {{ translate('view_All_Hold_Orders') }}
                                 <span class="total_hold_orders">
                                     {{$totalHoldOrder}}
+=======
+                            <button type="button" class="btn btn-outline--primary d-flex align-items-center gap-2 action-view-all-hold-orders">
+                                {{ translate('view_All_Hold_Orders') }}
+                                <span class="badge badge-danger rounded-circle total_hold_orders">
+                                    <?php
+                                    $viewAllHoldOrders = 0;
+                                    if (session()->has('cart_name')) {
+                                        foreach (session('cart_name') as $item) {
+                                            if (session()->has($item) && count(session($item)) > 1) {
+                                                $viewAllHoldOrders++;
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    {{ $viewAllHoldOrders }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </span>
                             </button>
                         </div>
 
                         <div class="form-group d-flex gap-2">
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <?php
                             $userId = 0;
                             if (Illuminate\Support\Str::contains(session('current_user'), 'saved-customer')) {
@@ -98,7 +123,11 @@
                             </select>
 
                             <button class="btn btn-success rounded text-nowrap" id="add_new_customer" type="button"
+<<<<<<< HEAD
                                     data-toggle="modal" data-target="#add-customer" title="{{translate('add_new_customer')}}">
+=======
+                                    data-toggle="modal" data-target="#add-customer" title="Add New Customer">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{ translate('add_New_Customer') }}
                             </button>
                         </div>
@@ -176,7 +205,11 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/pos-script.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/admin/pos-script.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     <script>
         "use strict";

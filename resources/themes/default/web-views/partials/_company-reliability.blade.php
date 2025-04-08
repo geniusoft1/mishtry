@@ -3,6 +3,7 @@
         <div class="row g-3 justify-content-center mx-max-md-0">
             @foreach ($companyReliability as $key=>$value)
                 @if ($value['status'] == 1 && !empty($value['title']))
+<<<<<<< HEAD
                     <div class="col-md-3 px-max-md-0">
                         <div class="d-flex justify-content-center">
                             <div class="shipping-method-system">
@@ -14,6 +15,17 @@
                                 <div class="w-100 text-center">
                                     <p class="m-0">{{ $value['title'] }}</p>
                                 </div>
+=======
+                    <div class="col-md-3 d-flex justify-content-center px-max-md-0">
+                        <div class="shipping-method-system d-flex flex-wrap justify-content-center">
+                            <div class="w-100 d-flex justify-content-center">
+                                <img alt="" class="float-start me-2 size-60"
+                                     src="{{ getValidImage(path: 'storage/app/public/company-reliability/'.$value['image'], type: 'source', source: asset('/public/assets/front-end/img').'/'.$value['item'].'.png') }}"
+                                >
+                            </div>
+                            <div class="text-center">
+                                <p class="m-0"> {{ $value['title'] }}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>

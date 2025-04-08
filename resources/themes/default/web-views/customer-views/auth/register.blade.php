@@ -2,10 +2,13 @@
 
 @section('title',  translate('register'))
 
+<<<<<<< HEAD
 @push('css_or_js')
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @section('content')
     <div class="container py-4 __inline-7 text-align-direction">
         <div class="login-card">
@@ -28,7 +31,11 @@
                             <div class="form-group">
                                 <label class="form-label font-semibold">{{ translate('last_name') }}</label>
                                 <input class="form-control text-align-direction" type="text" value="{{old('l_name') }}" name="l_name"
+<<<<<<< HEAD
                                         placeholder="{{ translate('ex') }}: {{ translate('Doe') }}" required>
+=======
+                                        placeholder="{{ translate('Ex') }}: Doe" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="invalid-feedback">{{ translate('please_enter_your_last_name') }}!</div>
                             </div>
                         </div>
@@ -45,17 +52,28 @@
                             <div class="form-group">
                                 <label class="form-label font-semibold">{{ translate('phone_number') }}
                                     <small class="text-primary">( * {{ translate('country_code_is_must_like_for_BD') }} 880 )</small></label>
+<<<<<<< HEAD
                                 <input class="form-control text-align-direction phone-input-with-country-picker"
                                        type="tel"  value="{{ old('phone') }}"
                                        placeholder="{{ translate('enter_phone_number') }}" required>
 
                                 <input type="hidden" class="country-picker-phone-number w-50" name="phone" readonly>
 
+=======
+                                <input class="form-control text-align-direction" type="number"  value="{{old('phone') }}" name="phone"
+                                        placeholder="{{ translate('enter_phone_number') }}"
+                                        required>
+                                <div class="invalid-feedback">{{ translate('please_enter_your_phone_number') }}!</div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label class="form-label font-semibold">{{ translate('password') }} <small class="text-danger mx-1 password-error"></small></label>
+=======
+                                <label class="form-label font-semibold">{{ translate('password') }}</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="password-toggle rtl">
                                     <input class="form-control text-align-direction" name="password" type="password" id="si-password"
                                             placeholder="{{ translate('minimum_8_characters_long') }}" required>
@@ -103,7 +121,11 @@
                                     <label class="custom-control custom-checkbox m-0 d-flex">
                                         <input type="checkbox" class="custom-control-input" name="remember" id="inputChecked">
                                         <span class="custom-control-label">
+<<<<<<< HEAD
                                             <span>{{ translate('i_agree_to_Your') }}</span> <a class="font-size-sm text-primary text-force-underline" target="_blank" href="{{ route('terms') }}">{{ translate('terms_and_condition') }}</a>
+=======
+                                            <span>{{ translate('i_agree_to_Your') }}</span> <a class="font-size-sm" target="_blank" href="{{ route('terms') }}">{{ translate('terms_and_condition') }}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </label>
                                 </div>
@@ -135,6 +157,23 @@
                                 {{ translate('sign_up') }}
                             </button>
                         </div>
+<<<<<<< HEAD
+=======
+                        <div class="text-center m-3 text-black-50">
+                            <small>{{ translate('or_continue_with') }}</small>
+                        </div>
+                        <div class="d-flex justify-content-center my-3 gap-2">
+                            @foreach (getWebConfig(name: 'social_login') as $socialLoginService)
+                                @if (isset($socialLoginService) && $socialLoginService['status'])
+                                    <div>
+                                        <a class="d-block" href="{{ route('customer.auth.service-login', $socialLoginService['login_medium'])}}">
+                                            <img src="{{asset('/public/assets/front-end/img/icons/'.$socialLoginService['login_medium'].'.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                         <div class="text-black-50 mt-3 text-center">
                             <small>
@@ -163,7 +202,10 @@
         </script>
         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
     @endif
+<<<<<<< HEAD
 
     <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

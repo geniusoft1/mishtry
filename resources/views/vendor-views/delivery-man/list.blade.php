@@ -8,7 +8,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/deliveryman.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('deliveryman_List')}}
                 <span class="badge badge-soft-dark radius-50 fz-14">{{ $deliveryMen->total() }}</span>
             </h2>
@@ -25,7 +29,11 @@
                                     </div>
                                 </div>
                                 <input id="datatableSearch_" type="search" name="search" class="form-control"
+<<<<<<< HEAD
                                         placeholder="{{ translate('search_by_name_or_email_or_phone') }}" aria-label="Search" value="{{$searchValue}}" required>
+=======
+                                        placeholder="{{ translate('search') }}" aria-label="Search" value="{{$searchValue}}" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <button type="submit" class="btn btn--primary">{{translate('search')}}</button>
 
                             </div>
@@ -69,7 +77,11 @@
                             <td>
                                 <div class="d-flex flex-column gap-1">
                                     <div><a class="title-color hover-c1" href="mailto:{{$deliveryMan['email']}}"><strong>{{$deliveryMan['email']}}</strong></a></div>
+<<<<<<< HEAD
                                     <a class="title-color hover-c1" href="tel:{{$deliveryMan['country_code']}}{{$deliveryMan['phone']}}">{{$deliveryMan['country_code']. ' ' .$deliveryMan['phone']}}</a>
+=======
+                                    <a class="title-color hover-c1" href="tel:+{{$deliveryMan['country_code']}}{{$deliveryMan['phone']}}">+{{$deliveryMan['country_code']. ' ' .$deliveryMan['phone']}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             </td>
                             <td>
@@ -104,8 +116,14 @@
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">
+<<<<<<< HEAD
                                     <a  class="btn btn-outline--primary btn-sm square-btn" href="{{route('vendor.delivery-man.update',[$deliveryMan['id']])}}"
                                         title="{{translate('edit')}}">
+=======
+                                    <a  class="btn btn-outline--primary btn-sm square-btn"
+                                        title="{{translate('edit')}}"
+                                        href="{{route('vendor.delivery-man.update',[$deliveryMan['id']])}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <i class="tio-edit"></i>
                                     </a>
                                     <a title="Earning Statement"
@@ -131,7 +149,11 @@
                         <tr>
                             <td colspan="7">
                                 <div class="text-center p-4">
+<<<<<<< HEAD
                                     <img class="mb-3 w-160" src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}" alt="{{translate('image_description')}}">
+=======
+                                    <img class="mb-3 w-160" src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}" alt="{{translate('image_description')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <p class="mb-0">{{translate('no_delivery_man_found')}}</p>
                                 </div>
                             </td>
@@ -151,5 +173,9 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/deliveryman.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/vendor/deliveryman.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

@@ -1,4 +1,5 @@
 "use strict";
+<<<<<<< HEAD
 function orderStatistics(){
     $('.order-statistics').on('click', function () {
         let value = $(this).attr('data-date-type');
@@ -146,6 +147,9 @@ function UserOverViewChart(){
     chart.render();
 }
 UserOverViewChart();
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 // INITIALIZATION OF CHARTJS
 // =======================================================
 Chart.plugins.unregister(ChartDataLabels);
@@ -268,8 +272,13 @@ function earningStatisticsUpdate(t) {
     });
 }
 
+<<<<<<< HEAD
 
 $("#statistics_type").on("change", function () {
+=======
+$("#statistics_type").on("change", function () {
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     let type = $(this).val();
     let url = $('#order-status-url').data('url');
     $.ajaxSetup({
@@ -459,3 +468,7 @@ $(function () {
         options: options
     });
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

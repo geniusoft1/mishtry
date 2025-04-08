@@ -146,15 +146,22 @@
                     url: `{{route('customer.auth.login')}}`,
                     data: form.serialize(),
                     success: function (data) {
+<<<<<<< HEAD
                         console.log(data)
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         if (data.status === 'success') {
                             toastr.success(`{{translate('Login_successful')}}`);
                             data.redirect_url !== '' ? window.location.href = data.redirect_url : location.reload();
                         } else if (data.status === 'error') {
+<<<<<<< HEAD
                             toastr.error(data.message);
                             if (data.redirect_url && data.redirect_url !== '') {
                                 window.location.href = data.redirect_url
                             }
+=======
+                            data.redirect_url !== '' ? window.location.href = data.redirect_url : toastr.error(data.message);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         }
                     }
                 });

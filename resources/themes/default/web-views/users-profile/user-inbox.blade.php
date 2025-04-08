@@ -12,9 +12,13 @@
             @include('web-views.partials._profile-aside')
 
             <div class="col-lg-9">
+<<<<<<< HEAD
                 <div class="d-flex justify-content-between align-items-center gap-2 mb-3 d-lg-none">
                     <h5 class="font-bold m-0 fs-16">{{translate('inbox')}}</h5>
 
+=======
+                <div class="d-flex justify-content-end gap-2 mb-3 d-lg-none">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <button class="profile-aside-btn btn btn--primary px-2 rounded px-2 py-1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M7 9.81219C7 9.41419 6.842 9.03269 6.5605 8.75169C6.2795 8.47019 5.898 8.31219 5.5 8.31219C4.507 8.31219 2.993 8.31219 2 8.31219C1.602 8.31219 1.2205 8.47019 0.939499 8.75169C0.657999 9.03269 0.5 9.41419 0.5 9.81219V13.3122C0.5 13.7102 0.657999 14.0917 0.939499 14.3727C1.2205 14.6542 1.602 14.8122 2 14.8122H5.5C5.898 14.8122 6.2795 14.6542 6.5605 14.3727C6.842 14.0917 7 13.7102 7 13.3122V9.81219ZM14.5 9.81219C14.5 9.41419 14.342 9.03269 14.0605 8.75169C13.7795 8.47019 13.398 8.31219 13 8.31219C12.007 8.31219 10.493 8.31219 9.5 8.31219C9.102 8.31219 8.7205 8.47019 8.4395 8.75169C8.158 9.03269 8 9.41419 8 9.81219V13.3122C8 13.7102 8.158 14.0917 8.4395 14.3727C8.7205 14.6542 9.102 14.8122 9.5 14.8122H13C13.398 14.8122 13.7795 14.6542 14.0605 14.3727C14.342 14.0917 14.5 13.7102 14.5 13.3122V9.81219ZM12.3105 7.20869L14.3965 5.12269C14.982 4.53719 14.982 3.58719 14.3965 3.00169L12.3105 0.915687C11.725 0.330188 10.775 0.330188 10.1895 0.915687L8.1035 3.00169C7.518 3.58719 7.518 4.53719 8.1035 5.12269L10.1895 7.20869C10.775 7.79419 11.725 7.79419 12.3105 7.20869ZM7 2.31219C7 1.91419 6.842 1.53269 6.5605 1.25169C6.2795 0.970186 5.898 0.812187 5.5 0.812187C4.507 0.812187 2.993 0.812187 2 0.812187C1.602 0.812187 1.2205 0.970186 0.939499 1.25169C0.657999 1.53269 0.5 1.91419 0.5 2.31219V5.81219C0.5 6.21019 0.657999 6.59169 0.939499 6.87269C1.2205 7.15419 1.602 7.31219 2 7.31219H5.5C5.898 7.31219 6.2795 7.15419 6.5605 6.87269C6.842 6.59169 7 6.21019 7 5.81219V2.31219Z" fill="white"/>
@@ -25,6 +29,7 @@
                     <div class="col-lg-4 chatSel">
                         <div class="chat--sidebar-card h-100">
                             <div class="chat--sidebar-top">
+<<<<<<< HEAD
 
                                 <ul class="nav nav-tabs nav--tabs justify-content-center">
                                     @php($business_mode = getWebConfig(name: 'business_mode'))
@@ -35,6 +40,14 @@
                                             </a>
                                         </li>
                                     @endif
+=======
+                                <ul class="nav nav-tabs nav--tabs justify-content-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link {{Request::is('chat/seller')?'active': '' }}" href="{{route('chat', ['type' => 'seller'])}}">
+                                            {{translate('vendor')}}
+                                        </a>
+                                    </li>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <li class="nav-item">
                                         <a class="nav-link {{Request::is('chat/delivery-man')?'active': '' }}" href="{{route('chat', ['type' => 'delivery-man'])}}">
                                             {{translate('deliveryman')}}
@@ -52,6 +65,7 @@
                                 @endif
                             </div>
                             <div class="inbox_chat">
+<<<<<<< HEAD
 
                                 @if(isset($inhouseShop))
                                     <div class="chat_list {{ request()->has('id') && request('id') == 0 ? 'active':'' }} get-view-by-onclick"
@@ -90,6 +104,8 @@
                                     </div>
                                 @endif
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @if (isset($unique_shops))
                                     @foreach($unique_shops as $key=>$shop)
                                         @php($type = $shop->delivery_man_id ? 'delivery-man' : 'seller')
@@ -115,6 +131,7 @@
                                                             </span>
                                                         </div>
                                                         <div class="d-flex flex-wrap justify-content-between align-items-center">
+<<<<<<< HEAD
                                                             @if($shop->message)
                                                                 <span class="last-msg">{{ $shop->message }}</span>
                                                             @elseif(json_decode($shop['attachment'], true) !=null)
@@ -124,6 +141,9 @@
                                                                 </span>
                                                             @endif
 
+=======
+                                                            <span class="last-msg">{{$shop->message}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             @if($shop->unseen_message_count >0)
                                                             <span class="new-msg badge btn--primary rounded-full">
                                                                 {{ $shop->unseen_message_count }}
@@ -144,6 +164,7 @@
                         @if(isset($chattings) && count($chattings) > 0)
                             <div class="bg-white Chat __shadow h-100 rounded-left-0">
                                 <div class="messaging ">
+<<<<<<< HEAD
                                     <div class="inbox_msg position-relative">
                                         <div class="mesgs">
                                             <a class="msg-user" href="#">
@@ -177,6 +198,30 @@
                                                                         <img alt="" src="{{ getValidImage(path: 'storage/app/public/shop/'.$last_chat->shop->image, type: 'shop') }}">
                                                                     @elseif(isset($chat->sent_by_admin))
                                                                         <img alt="" src="{{ getValidImage(path: 'storage/app/public/company/'.($web_config['fav_icon']->value), type: 'shop') }}">
+=======
+                                    <div class="inbox_msg">
+                                        <div class="mesgs">
+                                            <a class="msg-user" href="#">
+
+                                                @if($shop->delivery_man_id)
+                                                    <img alt="" class="img" src="{{ getValidImage(path: 'storage/app/public/delivery-man/'.$last_chat->deliveryMan->image, type: 'avatar') }}">
+                                                @else
+                                                    <img alt="" class="img" src="{{ getValidImage(path: 'storage/app/public/shop/'.$last_chat->shop->image, type: 'shop') }}">
+                                                @endif
+
+                                                <h5 class="m-0">{{$last_chat->deliveryMan?$last_chat->deliveryMan->f_name.' '.$last_chat->deliveryMan->l_name : $last_chat->shop->name  }}</h5>
+                                            </a>
+                                            <div class=" msg_history d-flex flex-column-reverse" id="show_msg">
+                                                @if (isset($chattings))
+                                                    @foreach($chattings as $key => $chat)
+                                                        @if ($chat->sent_by_seller? $chat->sent_by_seller : $chat->sent_by_delivery_man)
+                                                            <div class="incoming_msg d-flex">
+                                                                <div class="incoming_msg_img">
+                                                                    @if($shop->delivery_man_id)
+                                                                        <img alt="" src="{{ getValidImage(path: 'storage/app/public/delivery-man/'.$last_chat->deliveryMan->image, type: 'avatar') }}">
+                                                                    @else
+                                                                        <img alt="" src="{{ getValidImage(path: 'storage/app/public/shop/'.$last_chat->shop->image, type: 'shop') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     @endif
                                                                 </div>
                                                                 <div class="received_msg">
@@ -192,7 +237,11 @@
                                                                             <div class="row g-2 flex-wrap mt-3">
                                                                                 @foreach (json_decode($chat['attachment']) as $index => $photo)
                                                                                     <div class="col-sm-6 col-md-4 position-relative img_row{{$index}}">
+<<<<<<< HEAD
                                                                                         <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/chatting/".$photo)}}"
+=======
+                                                                                        <a data-lightbox="mygallery" href="{{asset("storage/app/public/chatting/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                                            class="aspect-1 overflow-hidden d-block border rounded">
                                                                                             <img class="img-fit" alt="{{ translate('chatting') }}"
                                                                                                  src="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type: 'product') }}">
@@ -221,7 +270,11 @@
                                                                         <div class="row g-2 flex-wrap mt-3 justify-content-end">
                                                                             @foreach (json_decode($chat['attachment']) as $index => $photo)
                                                                                 <div class="col-sm-6 col-md-4 position-relative img_row{{$index}}">
+<<<<<<< HEAD
                                                                                     <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/chatting/".$photo)}}"
+=======
+                                                                                    <a data-lightbox="mygallery" href="{{asset("storage/app/public/chatting/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                                        class="aspect-1 overflow-hidden d-block border rounded">
                                                                                         <img class="img-fit" alt="{{ translate('chatting') }}"
                                                                                              src="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type: 'product') }}">
@@ -243,11 +296,18 @@
 
                                                 @endif
                                             </div>
+<<<<<<< HEAD
 
                                             <div class="type_msg">
                                                 <div class="input_msg_write">
                                                     <form class="d-flex justify-content-center align-items-center md-form form-sm active-cyan-2"
                                                           id="myForm" enctype="multipart/form-data">
+=======
+                                            <div class="type_msg">
+                                                <div class="input_msg_write">
+                                                    <form class="d-flex justify-content-center align-items-center md-form form-sm active-cyan-2"
+                                                        id="myForm" enctype="multipart/form-data">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         @csrf
                                                         <label class="py-0 px-3 d-flex align-items-center m-0 cursor-pointer">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -258,6 +318,7 @@
                                                         </label>
                                                         @if( Request::is('chat/seller') )
                                                             <input type="text" id="hidden_value" hidden
+<<<<<<< HEAD
                                                                    value="{{$last_chat->shop_id}}" name="shop_id">
                                                             @if($last_chat->shop)
                                                                 <input type="text" id="seller_value" hidden
@@ -266,6 +327,16 @@
                                                         @elseif( Request::is('chat/delivery-man') )
                                                             <input type="text" id="hidden_value_dm" hidden
                                                                    value="{{$last_chat->delivery_man_id}}" name="delivery_man_id">
+=======
+                                                                value="{{$last_chat->shop_id}}" name="shop_id">
+                                                            @if($last_chat->shop)
+                                                                <input type="text" id="seller_value" hidden
+                                                                    value="{{$last_chat->shop->seller_id}}" name="seller_id">
+                                                            @endif
+                                                        @elseif( Request::is('chat/delivery-man') )
+                                                            <input type="text" id="hidden_value_dm" hidden
+                                                                value="{{$last_chat->delivery_man_id}}" name="delivery_man_id">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         @endif
                                                         <div class="w-0 flex-grow-1">
                                                             <textarea class="form-control ticket-view-control px-0 py-3" name="message" rows="8" id="msgInputValue" placeholder="{{translate('write_your_message_here')}}..." ></textarea>
@@ -282,6 +353,7 @@
                                                     </form>
                                                 </div>
                                             </div>
+<<<<<<< HEAD
 
                                         </div>
 
@@ -304,13 +376,20 @@
                                                 </div>
                                             </div>
                                         @endif
+=======
+                                        </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
                         @else
                             <div class="card Chat __shadow h-100 d-flex flex-column justify-content-center rounded-left-0">
                                 <div class="text-center">
+<<<<<<< HEAD
                                     <img src="{{theme_asset(path: 'public/assets/front-end/img/empt-msg.png')}}" alt="">
+=======
+                                    <img src="{{asset('/public/assets/front-end/img/empt-msg.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <p class="text-body mt-4">
                                         {{translate('you_haven’t_any_conversation_yet')}}
                                     </p>
@@ -423,7 +502,11 @@
                                     )
 
                                 } else {
+<<<<<<< HEAD
                                     let img_path = element.image == 'def.png' ? `{{ dynamicStorage(path: 'storage/app/public/shop') }}/${element.image}` : `{{ (isset($shop->delivery_man_id) && $shop->delivery_man_id) ? dynamicStorage(path: 'storage/app/public/delivery-man') : dynamicStorage(path: 'storage/app/public/shop') }}/${element.image}`;
+=======
+                                    let img_path = element.image == 'def.png' ? `{{ asset('storage/app/public/shop') }}/${element.image}` : `{{ (isset($shop->delivery_man_id) && $shop->delivery_man_id) ? asset('storage/app/public/delivery-man') : asset('storage/app/public/shop') }}/${element.image}`;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                                     $(".msg_history").append(`
                                         <div class="incoming_msg d-flex" id="incoming_msg">
@@ -475,9 +558,12 @@
                     data: formData,
                     processData: false,
                     contentType: false,
+<<<<<<< HEAD
                     beforeSend: function () {
                         $('#msgSendBtn').attr('disabled', true);
                     },
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     success: function (respons) {
                         let imageContainer = ''
                         if(respons.image.length != 0){
@@ -513,9 +599,12 @@
                         $('#f_p_v_up1').val('');
                         selectedFiles = [];
                     },
+<<<<<<< HEAD
                     complete: function () {
                         $('#msgSendBtn').removeAttr('disabled');
                     },
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     error: function (error) {
                         toastr.warning(error.responseJSON)
                     }

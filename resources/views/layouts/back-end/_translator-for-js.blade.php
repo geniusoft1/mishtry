@@ -27,6 +27,7 @@
       data-on-size-err="{{ translate('file_size_too_big')}}">
 </span>
 
+<<<<<<< HEAD
 <span id="get-logout-text" data-title="{{translate('do_you_want_to_sign_out').'?'}}"
       data-confirm="{{translate('yes')}}" data-cancel="{{translate('no')}}"
       data-deny="{{translate('do_not_Logout')}}"></span>
@@ -35,3 +36,9 @@
 <span id="get-quantity-check-message" data-warning="{{translate('please_enter_a_valid_integer_for_current_stock')}}"></span>
 <span id="password-error-message" data-max-character="{{translate('at_least_8_characters').'.'}}" data-uppercase-character="{{translate('at_least_one_uppercase_letter_').'(A...Z)'.'.'}}" data-lowercase-character="{{translate('at_least_one_uppercase_letter_').'(a...z)'.'.'}}"
       data-number="{{translate('at_least_one_number').'(0...9)'.'.'}}" data-symbol="{{translate('at_least_one_symbol').'(!...%)'.'.'}}"></span>
+=======
+<span id="get-logout-text" data-title="{{translate('do_you_want_to_logout')}}"
+      data-confirm="{{translate('yes')}}" data-cancel="{{translate('no')}}"
+      data-deny="{{translate('do_not_Logout')}}"></span>
+<span id="get-select-product-text" data-text="{{translate('select_product')}}"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

@@ -6,6 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<<<<<<< HEAD
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{translate('vendor_Login')}}</title>
     <link rel="shortcut icon" href="{{ dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
@@ -17,10 +18,22 @@
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/style.css')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/custom.css')}}">
+=======
+    <title>{{translate('vendor_login')}}</title>
+    <link rel="shortcut icon" href="{{ asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/vendor.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/vendor/icon-set/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/toastr.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/style.css')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>
 <main id="content" role="main" class="main">
+<<<<<<< HEAD
     <div class="row">
         <div class="col-12 position-fixed z-9999 mt-10rem">
             <div id="loading" class="d--none">
@@ -28,6 +41,8 @@
             </div>
         </div>
     </div>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <div class="position-fixed top-0 right-0 left-0 bg-img-hero __h-32rem">
         <figure class="position-absolute right-0 bottom-0 left-0">
             <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1921 273">
@@ -35,7 +50,11 @@
             </svg>
         </figure>
     </div>
+<<<<<<< HEAD
     <div class="container py-5 py-sm-7">
+=======
+    <div class="container py-5 py-sm-7 ">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         @php($companyWebLogo=getWebConfig(name: 'company_web_logo'))
         <a class="d-flex justify-content-center mb-5" href="javascript:">
             <img class="z-index-2" height="40"
@@ -95,7 +114,11 @@
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="termsCheckbox"
                                            name="remember">
+<<<<<<< HEAD
                                     <label class="custom-control-label text-muted user-select-none" for="termsCheckbox">
+=======
+                                    <label class="custom-control-label text-muted" for="termsCheckbox">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{translate('remember_me')}}
                                     </label>
                                 </div>
@@ -119,7 +142,11 @@
                                     </div>
                                 </div>
                             @endif
+<<<<<<< HEAD
                             <button type="button" class="btn btn-lg btn-block btn--primary submit-login-form">{{translate('login')}}</button>
+=======
+                            <button type="submit" class="btn btn-lg btn-block btn--primary">{{translate('sign_in')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </form>
                     </div>
                     @if(env('APP_MODE')=='demo')
@@ -140,6 +167,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="vendor-suspend suspended-message d-none">
         <img src="{{dynamicAsset(path: 'public/assets/back-end/img/warning.png')}}" alt="">
         <div class="cont">
@@ -172,6 +200,28 @@
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/toastr.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/login.js')}}"></script>
 {!! Toastr::message() !!}
+=======
+</main>
+<span id="message-please-check-recaptcha" data-text="{{ translate('please_check_the_recaptcha') }}"></span>
+<span id="message-copied_success" data-text="{{ translate('copied_successfully') }}"></span>
+<script src="{{asset('public/assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/toastr.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/vendor/login.js')}}"></script>
+{!! Toastr::message() !!}
+@if ($errors->any())
+    <script>
+        "use strict";
+        @foreach($errors->all() as $error)
+        toastr.error('{{$error}}', Error, {
+            CloseButton: true,
+            ProgressBar: true
+        });
+        @endforeach
+    </script>
+@endif
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @if(isset($recaptcha) && $recaptcha['status'] == 1)
     <script type="text/javascript">
         "use strict";

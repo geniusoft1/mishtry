@@ -22,10 +22,17 @@
 
                                     @if($order_details->product->discount > 0)
                                         <span class="price-discount badge badge-primary position-absolute top-1 left-1">
+<<<<<<< HEAD
                                             @if ($order_details->product->discount_type == 'percent')
                                                 -{{round($order_details->product->discount)}}%
                                             @elseif($order_details->product->discount_type =='flat')
                                                 -{{ webCurrencyConverter(amount: $order_details->product->discount) }}
+=======
+                                                @if ($order_details->product->discount_type == 'percent')
+                                                {{round($order_details->product->discount)}}%
+                                            @elseif($order_details->product->discount_type =='flat')
+                                                {{ webCurrencyConverter(amount: $order_details->product->discount) }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             @endif
                                         </span>
                                     @endif

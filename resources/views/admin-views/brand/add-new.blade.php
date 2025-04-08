@@ -7,7 +7,11 @@
 
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand.png') }}" alt="">
+=======
+                <img width="20" src="{{ asset('public/assets/back-end/img/brand.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('brand_Setup') }}
             </h2>
         </div>
@@ -66,7 +70,11 @@
                                 <div class="col-md-6 mb-4">
                                     <div class="text-center">
                                         <img class="upload-img-view" id="viewer"
+<<<<<<< HEAD
                                              src="{{dynamicAsset(path: 'public\assets\back-end\img\400x400\img2.jpg') }}" alt="">
+=======
+                                             src="{{asset('public\assets\back-end\img\400x400\img2.jpg') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
@@ -85,5 +93,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

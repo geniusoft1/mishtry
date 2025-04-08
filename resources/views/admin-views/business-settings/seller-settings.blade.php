@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business-setup.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/business-setup.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('business_setup')}}
             </h2>
             <div class="btn-group">
@@ -19,7 +23,11 @@
                 </div>
                 <div class="dropdown-menu dropdown-menu-right bg-aliceblue border border-color-primary-light p-4 dropdown-w-lg">
                     <div class="d-flex align-items-center gap-2 mb-3">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/note.png')}}" alt="">
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/note.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <h5 class="text-primary mb-0">{{translate('note')}}</h5>
                     </div>
                     <p class="title-color font-weight-medium mb-0">{{ translate('please_click_the_Save_button_below_to_save_all_the_changes') }}</p>
@@ -33,7 +41,11 @@
             <div class="card">
                 <div class="border-bottom px-4 py-3">
                     <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/product_setup.png')}}" alt="">
+=======
+                        <img width="22" src="{{asset('/public/assets/back-end/img/product_setup.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {{translate('vendor_setup')}}
                     </h5>
                 </div>
@@ -46,7 +58,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('set_the_default_commission_amount_that_will_be_received_from_vendors_on_each_order')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </label>
@@ -63,7 +79,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('if_enabled_POS_will_be_available_on_the_Vendor_Panel')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -92,7 +112,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('if_enabled_vendors_can_send_registration_requests_to_admin')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -121,7 +145,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('if_enabled_Vendors_can_set_minimum_order_amount_for_their_stores_by_themselves')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -151,11 +179,19 @@
             <div class="card mt-3">
                 <div class="border-bottom px-4 py-3">
                     <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/box.png')}}" alt="">
                         {{translate('need_product_approval')}}
                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
                               title="{{translate('set_whether_Vendors_need_admin_approval_before_adding_new_products_to_their_shops')}}">
                             <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/box.png')}}" alt="">
+                        {{translate('need_product_approval')}}
+                        <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
+                              title="{{translate('set_whether_Vendors_need_admin_approval_before_adding_new_products_to_their_shops')}}">
+                            <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </h5>
                 </div>

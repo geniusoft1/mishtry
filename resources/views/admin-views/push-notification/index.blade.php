@@ -7,7 +7,11 @@
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/push-notification.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/push-notification.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('push_notification_setup')}}
             </h2>
         </div>
@@ -96,7 +100,11 @@
                                                     <input type="hidden" name="lang{{$value['id']}}[]"
                                                            value="{{ $lang }}">
                                                     <textarea name="message{{$value['id']}}[]"
+<<<<<<< HEAD
                                                               class="form-control text-area-max-min {{ $lang != $default_lang ? 'd-none' : '' }} lang-form {{ $lang }}-form">{{$translate[$lang][$value['key']]??$value['message']}}</textarea>
+=======
+                                                              class="form-control {{ $lang != $default_lang ? 'd-none' : '' }} lang-form {{ $lang }}-form">{{$translate[$lang][$value['key']]??$value['message']}}</textarea>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @endforeach
                                             </div>
                                         </div>
@@ -154,7 +162,11 @@
                                                     <input type="hidden" name="lang{{$value['id']}}[]"
                                                            value="{{ $lang }}">
                                                     <textarea name="message{{$value['id']}}[]"
+<<<<<<< HEAD
                                                               class="form-control text-area-max-min {{ $lang != $default_lang ? 'd-none' : '' }} lang-form {{ $lang }}-form">{{$translate[$lang][$value['key']]??$value['message']}}</textarea>
+=======
+                                                              class="form-control {{ $lang != $default_lang ? 'd-none' : '' }} lang-form {{ $lang }}-form">{{$translate[$lang][$value['key']]??$value['message']}}</textarea>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @endforeach
                                             </div>
                                         </div>
@@ -212,7 +224,11 @@
                                                     <input type="hidden" name="lang{{$value['id']}}[]"
                                                            value="{{ $lang }}">
                                                     <textarea name="message{{$value['id']}}[]"
+<<<<<<< HEAD
                                                               class="form-control text-area-max-min {{ $lang != $default_lang ? 'd-none' : '' }} lang-form {{ $lang }}-form">{{$translate[$lang][$value['key']]??$value['message']}}</textarea>
+=======
+                                                              class="form-control {{ $lang != $default_lang ? 'd-none' : '' }} lang-form {{ $lang }}-form">{{$translate[$lang][$value['key']]??$value['message']}}</textarea>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @endforeach
                                             </div>
                                         </div>
@@ -243,7 +259,11 @@
                 <div class="modal-body px-4 px-sm-5 pt-0">
                     <div class="d-flex flex-column gap-2">
                         <div class="text-center mb-1">
+<<<<<<< HEAD
                             <img width="80" class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/notice.png')}}"
+=======
+                            <img width="80" class="mb-4" src="{{asset('/public/assets/back-end/img/notice.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  loading="lazy" alt="">
                             <h4 class="lh-md text-capitalize">{{translate('important_notice')}}!</h4>
                         </div>
@@ -271,6 +291,10 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/notification.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/notification.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 

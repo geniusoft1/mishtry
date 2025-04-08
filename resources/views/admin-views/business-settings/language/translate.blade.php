@@ -6,17 +6,29 @@
 @section('title', translate('language_Translate'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link href="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
     @php($direction = Session::get('direction') === "rtl" ? 'right' : 'left')
+=======
+    <link href="{{asset('public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+@endpush
+
+@section('content')
+    @php($direction = Session::get('direction') === "rtl" ? 'right' : 'left');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <div class="content container-fluid">
         <nav aria-label="breadcrumb" class="w-100"
              style="text-align: {{$direction}};">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a
+<<<<<<< HEAD
                         href="{{route('admin.dashboard.index')}}">{{translate('dashboard')}}</a>
+=======
+                        href="{{route('admin.dashboard')}}">{{translate('dashboard')}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </li>
                 <li class="breadcrumb-item" aria-current="page">{{translate('language')}}</li>
             </ol>
@@ -44,6 +56,7 @@
                                     <th class="max-width-150px">{{translate('update')}}</th>
                                 </tr>
                                 </thead>
+<<<<<<< HEAD
                                 <tbody>
                                     <tr>
                                         <td colspan="5" class="text-center">
@@ -51,6 +64,9 @@
                                         </td>
                                     </tr>
                                 </tbody>
+=======
+                                <tbody></tbody>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </table>
                         </div>
                     </div>
@@ -83,6 +99,11 @@
 
 @push('script')
 
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/translate.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/translate.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

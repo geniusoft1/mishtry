@@ -36,15 +36,25 @@ class CartService
             $count = count(json_decode($product->variation));
             for ($i = 0; $i < $count; $i++) {
                 if (json_decode($product->variation)[$i]->type == $variation) {
+<<<<<<< HEAD
                     $discount = $this->getDiscountAmount(price:json_decode($product->variation)[$i]->price,discount: $product['discount'],discountType: $product['discount_type']);
                     $tax = $product->tax_model=='exclude' ? $this->getTaxAmount(price: json_decode($product->variation)[$i]->price-$discount, tax: $product['tax']) : 0;
+=======
+                    $tax = $product->tax_model=='exclude' ? $this->getTaxAmount(price: json_decode($product->variation)[$i]->price, tax: $product['tax']) : 0;
+                    $discount = $this->getDiscountAmount(price:json_decode($product->variation)[$i]->price,discount: $product['discount'],discountType: $product['discount_type']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $price = json_decode($product->variation)[$i]->price - $discount + $tax;
                     $quantity = json_decode($product->variation)[$i]->qty;
                 }
             }
         } else {
+<<<<<<< HEAD
             $discount = $this->getDiscountAmount(price:$product['unit_price'],discount:$product['discount'],discountType:$product['discount_type']);
             $tax = $product->tax_model=='exclude' ? $this->getTaxAmount(price:$product->unit_price-$discount, tax:$product['tax']) : 0;
+=======
+            $tax = $product->tax_model=='exclude' ? $this->getTaxAmount(price:$product->unit_price, tax:$product['tax']) : 0;
+            $discount = $this->getDiscountAmount(price:$product['unit_price'],discount:$product['discount'],discountType:$product['discount_type']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $price = $product['unit_price'] - $discount + $tax;
             $quantity = $product['current_stock'];
         }
@@ -64,8 +74,13 @@ class CartService
                 }
 
                 $inCartData = [
+<<<<<<< HEAD
                     'price' => usdToDefaultCurrency(amount:($cart['price']-$discount+$tax)*$cart['quantity']),
                     'discount' => $discount,
+=======
+                    'price' => currencyConverter(amount: ($cart['price']-$discount)*$cart['quantity']),
+                    'discount' => currencyConverter(amount: $discount),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     'quantity' => (int)$cart['quantity'],
                     'variant' => $cart['variant'],
                     'id' => $cart['id'],
@@ -74,9 +89,15 @@ class CartService
             }
         }
         return [
+<<<<<<< HEAD
             'price' => usdToDefaultCurrency(amount: $price * $requestQuantity),
             'discount' => $discount,
             'tax' => $product->tax_model == 'exclude' ? setCurrencySymbol(amount: usdToDefaultCurrency(amount: $tax * $requestQuantity), currencyCode: getCurrencyCode()) : 'incl.',
+=======
+            'price' => currencyConverter($price * $requestQuantity),
+            'discount' => currencyConverter($discount),
+            'tax' => $product->tax_model == 'exclude' ? currencyConverter($tax * $requestQuantity) : 'incl.',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'quantity' => $product['product_type'] == 'physical' ? $quantity : 100,
             'inCartStatus' => $inCartStatus,
             'inCartData' => $inCartData,
@@ -176,7 +197,10 @@ class CartService
         $sessionData =[
             'id' => $product['id'],
             'customerId' => $this->getUserId(),
+<<<<<<< HEAD
             'customerOnHold' => false,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'quantity' => $quantity,
             'price' => $price,
             'name' => $product['name'],
@@ -266,7 +290,11 @@ class CartService
     }
     public function getCartSubtotalCalculation(object $product,array $cartItem,array $calculation):array
     {
+<<<<<<< HEAD
         $taxCalculate = $calculation['taxCalculate'] +  ($this->getTaxAmount($cartItem['price']-$cartItem['discount'], $product['tax'])*$cartItem['quantity']);
+=======
+        $taxCalculate = $calculation['taxCalculate'] +  ($this->getTaxAmount($cartItem['price'], $product['tax'])*$cartItem['quantity']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $productSubtotal = (($cartItem['price']-$cartItem['discount']) * $cartItem['quantity']);
         return [
             'countItem' => $calculation['countItem']+1,
@@ -299,6 +327,7 @@ class CartService
             'extraDiscount' => $extraDiscount
         ];
     }
+<<<<<<< HEAD
     public function customerOnHoldStatus($status):void
     {
         $cart = session(session(SessionKey::CURRENT_USER));
@@ -322,4 +351,6 @@ class CartService
         }
         return $currentQty;
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

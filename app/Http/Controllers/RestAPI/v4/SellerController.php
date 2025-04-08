@@ -57,7 +57,10 @@ class SellerController extends Controller
         $productIds = $this->product::when($sellerId == 0, function ($query) {
             return $query->where(['added_by' => 'admin']);
         })
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when($sellerId != 0, function ($query) use ($sellerId) {
                 return $query->where(['added_by' => 'seller'])
                     ->where('user_id', $sellerId);
@@ -110,7 +113,10 @@ class SellerController extends Controller
             }, 'compareList' => function ($query) use ($customer) {
                 return $query->where('user_id', $customer->id ?? 0);
             }])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->whereHas('orderDelivered', function ($query) {
                 return $query;
             })->get();
@@ -139,7 +145,10 @@ class SellerController extends Controller
     public function get_seller_all_products($seller_id, Request $request)
     {
         $products = Product::active()->with(['rating', 'tags'])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where(['user_id' => $seller_id, 'added_by' => $request->added_by])
             ->when($request->search, function ($query) use ($request) {
                 $key = explode(' ', $request->search);

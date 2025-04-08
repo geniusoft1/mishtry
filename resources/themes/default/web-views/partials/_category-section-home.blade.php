@@ -25,7 +25,11 @@
                                                     <img alt="{{ $category->name }}"
                                                          src="{{ getValidImage(path: 'storage/app/public/category/'.$category->icon, type: 'category') }}">
                                                 </div>
+<<<<<<< HEAD
                                                 <p class="text-center fs-13 font-semibold mt-2">{{Str::limit($category->name, 12)}}</p>
+=======
+                                                <p class="text-center small mt-2">{{Str::limit($category->name, 12)}}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </a>
                                         </div>
                                     @endif

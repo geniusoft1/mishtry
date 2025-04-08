@@ -1,5 +1,6 @@
 @if(isset($product))
     @php($overallRating = getOverallRating($product->reviews))
+<<<<<<< HEAD
     <div class="flash_deal_product get-view-by-onclick" data-link="{{ route('product',$product->slug) }}">
         @if($product->discount > 0)
             <div class="d-flex">
@@ -11,6 +12,17 @@
                         -{{ webCurrencyConverter(amount: $product->discount) }}
                     @endif
                 </span>
+=======
+    <div class="flash_deal_product rtl get-view-by-onclick" data-link="{{ route('product',$product->slug) }}">
+        @if($product->discount > 0)
+            <div class="d-flex">
+            <span class="for-discount-value p-1 pl-2 pr-2">
+                @if ($product->discount_type == 'percent')
+                    {{round($product->discount,(!empty($decimal_point_settings) ? $decimal_point_settings: 0))}}%
+                @elseif($product->discount_type =='flat')
+                    {{ webCurrencyConverter(amount: $product->discount) }}
+                @endif {{translate('off')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </span>
             </div>
         @endif
@@ -38,7 +50,11 @@
                                 @endif
                             @endfor
                             <label class="badge-style2">
+<<<<<<< HEAD
                                 ( {{ count($product->reviews) }} )
+=======
+                                ( {{$product->reviews->count()}} )
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </label>
                         </div>
                     @endif

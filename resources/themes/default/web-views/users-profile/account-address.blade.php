@@ -3,10 +3,16 @@
 @section('title', translate('my_Address'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/address.css') }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+=======
+    <link rel="stylesheet" href="{{asset('public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/address.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -72,10 +78,14 @@
                                                 {{translate('phone')}}
                                                 <span class="text-danger">*</span>
                                             </label>
+<<<<<<< HEAD
 
                                             <input class="form-control phone-input-with-country-picker" id="phone" type="text"
                                                    placeholder="{{ translate('enter_phone_number') }}" required>
                                             <input type="hidden" class="country-picker-phone-number w-50" name="phone" readonly>
+=======
+                                            <input class="form-control" type="text" id="phone" name="phone" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -121,6 +131,7 @@
                                     </div>
 
                                     <div class="form-row">
+<<<<<<< HEAD
                                         <div class="col-md-12">
                                             <div class="form-group mb-1">
                                                 <label for="address">
@@ -147,6 +158,24 @@
                                             </div>
                                         </div>
 
+=======
+                                        <div class="form-group col-md-12">
+                                            <label for="address">
+                                                {{translate('address')}}
+                                                <span class="text-danger">*</span>
+                                            </label>
+
+                                            <textarea class="form-control" id="address"
+                                                      type="text" name="address" required></textarea>
+                                        </div>
+                                        @php($default_location=getWebConfig(name: 'default_location'))
+                                        <div class="form-group col-md-12">
+                                            <input id="pac-input" class="controls rounded __inline-46"
+                                                   title="{{translate('search_your_location_here')}}" type="text"
+                                                   placeholder="{{translate('search_here')}}"/>
+                                            <div class="__h-200px" id="location_map_canvas"></div>
+                                        </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                                 <input type="hidden" id="latitude"
@@ -171,6 +200,7 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="container py-2 py-md-4 p-0 p-md-2 user-profile-container px-5px">
             <div class="row ">
                 @include('web-views.partials._profile-aside')
@@ -203,6 +233,36 @@
                         @if ($shippingAddresses->count() ==0)
                             <div class="text-center text-capitalize pb-5 pt-5">
                                 <img class="mb-4" src="{{theme_asset(path: 'public/assets/front-end/img/icons/address.svg')}}"
+=======
+        <div class="container py-4 rtl">
+            <div class="row ">
+                @include('web-views.partials._profile-aside')
+                <section class="col-lg-9">
+                    <div class="d-flex justify-content-end mb-3 d-lg-none">
+                        <button class="profile-aside-btn btn btn--primary px-2 rounded px-2 py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"
+                                 fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M7 9.81219C7 9.41419 6.842 9.03269 6.5605 8.75169C6.2795 8.47019 5.898 8.31219 5.5 8.31219C4.507 8.31219 2.993 8.31219 2 8.31219C1.602 8.31219 1.2205 8.47019 0.939499 8.75169C0.657999 9.03269 0.5 9.41419 0.5 9.81219V13.3122C0.5 13.7102 0.657999 14.0917 0.939499 14.3727C1.2205 14.6542 1.602 14.8122 2 14.8122H5.5C5.898 14.8122 6.2795 14.6542 6.5605 14.3727C6.842 14.0917 7 13.7102 7 13.3122V9.81219ZM14.5 9.81219C14.5 9.41419 14.342 9.03269 14.0605 8.75169C13.7795 8.47019 13.398 8.31219 13 8.31219C12.007 8.31219 10.493 8.31219 9.5 8.31219C9.102 8.31219 8.7205 8.47019 8.4395 8.75169C8.158 9.03269 8 9.41419 8 9.81219V13.3122C8 13.7102 8.158 14.0917 8.4395 14.3727C8.7205 14.6542 9.102 14.8122 9.5 14.8122H13C13.398 14.8122 13.7795 14.6542 14.0605 14.3727C14.342 14.0917 14.5 13.7102 14.5 13.3122V9.81219ZM12.3105 7.20869L14.3965 5.12269C14.982 4.53719 14.982 3.58719 14.3965 3.00169L12.3105 0.915687C11.725 0.330188 10.775 0.330188 10.1895 0.915687L8.1035 3.00169C7.518 3.58719 7.518 4.53719 8.1035 5.12269L10.1895 7.20869C10.775 7.79419 11.725 7.79419 12.3105 7.20869ZM7 2.31219C7 1.91419 6.842 1.53269 6.5605 1.25169C6.2795 0.970186 5.898 0.812187 5.5 0.812187C4.507 0.812187 2.993 0.812187 2 0.812187C1.602 0.812187 1.2205 0.970186 0.939499 1.25169C0.657999 1.53269 0.5 1.91419 0.5 2.31219V5.81219C0.5 6.21019 0.657999 6.59169 0.939499 6.87269C1.2205 7.15419 1.602 7.31219 2 7.31219H5.5C5.898 7.31219 6.2795 7.15419 6.5605 6.87269C6.842 6.59169 7 6.21019 7 5.81219V2.31219Z"
+                                      fill="white"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="card card-body border-0">
+                        <div class="d-flex justify-content-between align-items-center mb-3 gap-2">
+                            <h5 class="font-bold m-0">{{translate('addresses')}}</h5>
+                            <button type="submit" class="btn btn--primary text-capitalize" data-toggle="modal"
+                                    data-target="#exampleModal" id="add_new_address">
+                                <img src="{{asset('/public/assets/front-end/img/add-address-icon.png')}}" class=""
+                                     alt="">
+                                {{translate('add_address')}}
+                            </button>
+                        </div>
+                        @if ($shippingAddresses->count() ==0)
+                            <div class="text-center text-capitalize pb-5 pt-5">
+                                <img class="mb-4" src="{{asset('public/assets/front-end/img/icons/address.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      alt="" width="70">
                                 <h5 class="fs-14">{{translate('no_address_found')}}!</h5>
                             </div>
@@ -215,16 +275,26 @@
                                         <div
                                             class="card-header d-flex justify-content-between d-flex align-items-center bg-aliceblue border-0">
                                             <div class="w-0 flex-grow-1">
+<<<<<<< HEAD
                                                 <h6 class="mb-0 fw-semibold">
                                                     {{translate($shippingAddress['address_type'])}}
                                                     <span class="font-semibold fs-12">( {{$shippingAddress['is_billing']==1?translate('Billing_address'):translate('shipping_address')}} )</span>
                                                 </h6>
+=======
+                                                <h6 class="mb-0 fw-semibold"> {{translate($shippingAddress['address_type'])}} {{translate('address')}}
+                                                    ({{$shippingAddress['is_billing']==1?translate('Billing_address'):translate('shipping_address')}}
+                                                    ) </h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                             <div class="d-flex justify-content-between gap-2 align-items-center">
                                                 <a class="" title="Edit Address" id="edit"
                                                    href="{{route('address-edit',$shippingAddress->id)}}">
                                                     <img
+<<<<<<< HEAD
                                                         src="{{theme_asset(path: 'public/assets/front-end/img/address-edit-icon.png')}}"
+=======
+                                                        src="{{asset('/public/assets/front-end/img/address-edit-icon.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         width="19" alt="">
                                                 </a>
 
@@ -239,54 +309,78 @@
                                             <div>
                                                 <span class="font-nameA">
                                                     <span class="fw-semibold min-w-60px">
+<<<<<<< HEAD
                                                         {{translate('Name')}} </span>
                                                     <span class="px-1">:</span>
                                                     {{$shippingAddress['contact_person_name']}}
+=======
+                                                        {{translate('Name')}} </span> :&nbsp; {{$shippingAddress['contact_person_name']}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="font-nameA">
                                                     <span class="fw-semibold min-w-60px">
                                                         {{translate('phone')}}
+<<<<<<< HEAD
                                                     </span>
                                                     <span class="px-1">:</span>
                                                     {{$shippingAddress['phone']}}
+=======
+                                                    </span> :&nbsp; {{$shippingAddress['phone']}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="font-nameA">
                                                     <span class="fw-semibold min-w-60px">
                                                         {{translate('city')}}
+<<<<<<< HEAD
                                                     </span>
                                                     <span class="px-1">:</span>
                                                     {{$shippingAddress['city']}}
+=======
+                                                    </span> :&nbsp; {{$shippingAddress['city']}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="font-nameA">
                                                     <span class="fw-semibold min-w-60px">
                                                         {{translate('zip_code')}}
+<<<<<<< HEAD
                                                     </span>
                                                     <span class="px-1">:</span>
                                                     {{$shippingAddress['zip']}}
+=======
+                                                    </span> :&nbsp;{{$shippingAddress['zip']}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="font-nameA">
                                                     <span class="fw-semibold min-w-60px">
                                                         {{translate('address')}}
+<<<<<<< HEAD
                                                     </span>
                                                     <span class="px-1">:</span>
                                                     {{$shippingAddress['address']}}
+=======
+                                                    </span> :&nbsp;{{$shippingAddress['address']}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="font-nameA">
                                                     <span class="fw-semibold min-w-60px">
                                                         {{translate('country')}}
+<<<<<<< HEAD
                                                     </span>
                                                     <span class="px-1">:</span>
                                                     {{$shippingAddress['country']}}
+=======
+                                                    </span> :&nbsp;{{$shippingAddress['country']}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </div>
 
@@ -300,12 +394,21 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <span id="system-country-restrict-status" data-value="{{ $country_restrict_status }}"></span>
 @endsection
 
 @push('script')
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/account-address.js') }}"></script>
+=======
+
+@endsection
+
+@push('script')
+    <script src="{{ asset('public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('public/assets/front-end/js/account-address.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script src="https://maps.googleapis.com/maps/api/js?key={{getWebConfig(name: 'map_api_key')}}&libraries=places&v=3.49"></script>
 
     <script>
@@ -347,12 +450,16 @@
                     if (status == google.maps.GeocoderStatus.OK) {
                         if (results[1]) {
                             document.getElementById('address').value = results[1].formatted_address;
+<<<<<<< HEAD
 
                             let systemCountryRestrictStatus = $('#system-country-restrict-status').data('value');
                             if (systemCountryRestrictStatus) {
                                 const countryObject = findCountryObject(results[1].address_components);
                                 deliveryRestrictedCountriesCheck(countryObject.long_name, '.location-map-address-canvas-area', '#address')
                             }
+=======
+                            console.log(results[1].formatted_address);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         }
                     }
                 });
@@ -411,6 +518,7 @@
         $(document).on("keydown", "input", function (e) {
             if (e.which == 13) e.preventDefault();
         });
+<<<<<<< HEAD
 
         const deliveryRestrictedCountries = @json($countriesName);
         function deliveryRestrictedCountriesCheck(countryOrCode, elementSelector, inputElement) {
@@ -427,4 +535,7 @@
     </script>
     <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+=======
+    </script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

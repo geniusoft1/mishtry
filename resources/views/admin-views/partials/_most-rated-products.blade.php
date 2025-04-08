@@ -1,7 +1,12 @@
 <div class="card-header">
     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
+<<<<<<< HEAD
         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/most-popular-product.png')}}" alt="">
         {{translate('most_Popular_Products')}}
+=======
+        <img width="20" src="{{asset('public/assets/back-end/img/featured_deal.png')}}" alt="">
+        {{translate('most_Rated_Products')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     </h4>
 </div>
 
@@ -13,7 +18,11 @@
                     @foreach($mostRatedProducts as $key => $product)
                         @if(isset($product['id']))
                             <div class="cursor-pointer grid-card basic-box-shadow get-view-by-onclick"
+<<<<<<< HEAD
                                  data-link="{{ route('admin.products.view',['addedBy'=>$product['added_by'],'id'=>$product['id']]) }}">
+=======
+                                 data-link="{{ route('admin.products.view',['id'=>$product['id']]) }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div>
                                     <img class="avatar avatar-bordered border-gold avatar-60 rounded"
                                          src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'backend-product') }}"
@@ -40,7 +49,11 @@
     @else
         <div class="text-center">
             <p class="text-muted">{{translate('no_Top_Selling_Products')}}</p>
+<<<<<<< HEAD
             <img class="w-75" src="{{dynamicAsset(path: 'public/assets/back-end/img/no-data.png')}}" alt="">
+=======
+            <img class="w-75" src="{{asset('public/assets/back-end/img/no-data.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </div>
     @endif
 </div>

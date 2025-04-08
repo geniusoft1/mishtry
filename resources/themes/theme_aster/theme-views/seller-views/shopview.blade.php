@@ -3,23 +3,39 @@
 @section('title',translate('shop_Page').' | '.$web_config['name']->value.' '.translate('ecommerce'))
 @push('css_or_js')
     @if($shop['id'] != 0)
+<<<<<<< HEAD
         <meta property="og:image" content="{{dynamicStorage(path: 'storage/app/public/shop')}}/{{$shop->image}}"/>
         <meta property="og:title" content="{{ $shop->name}} "/>
         <meta property="og:url" content="{{route('shopView',[$shop['id']])}}">
     @else
         <meta property="og:image" content="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
+=======
+        <meta property="og:image" content="{{asset('storage/app/public/shop')}}/{{$shop->image}}"/>
+        <meta property="og:title" content="{{ $shop->name}} "/>
+        <meta property="og:url" content="{{route('shopView',[$shop['id']])}}">
+    @else
+        <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <meta property="og:title" content="{{ $shop['name']}} "/>
         <meta property="og:url" content="{{route('shopView',[$shop['id']])}}">
     @endif
     <meta property="og:description"
           content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
     @if($shop['id'] != 0)
+<<<<<<< HEAD
         <meta property="twitter:card" content="{{dynamicStorage(path: 'storage/app/public/shop')}}/{{$shop->image}}"/>
+=======
+        <meta property="twitter:card" content="{{asset('storage/app/public/shop')}}/{{$shop->image}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <meta property="twitter:title" content="{{route('shopView',[$shop['id']])}}"/>
         <meta property="twitter:url" content="{{route('shopView',[$shop['id']])}}">
     @else
         <meta property="twitter:card"
+<<<<<<< HEAD
               content="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
+=======
+              content="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <meta property="twitter:title" content="{{route('shopView',[$shop['id']])}}"/>
         <meta property="twitter:url" content="{{route('shopView',[$shop['id']])}}">
     @endif
@@ -46,7 +62,11 @@
                     <div class="d-flex gap-4 flex-wrap">
                         @if($shop['id'] != 0)
                             <div class="media gap-3">
+<<<<<<< HEAD
                                 <div class="avatar rounded store-avatar overflow-hidden">
+=======
+                                <div class="avatar rounded store-avatar">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="position-relative">
                                         <img src="{{ getValidImage(path: 'storage/app/public/shop/'.$shop->image, type:'shop') }}"
                                              class="dark-support rounded img-fit" alt="">
@@ -91,7 +111,11 @@
                             </div>
                         @else
                             <div class="media gap-3">
+<<<<<<< HEAD
                                 <div class="avatar rounded store-avatar overflow-hidden">
+=======
+                                <div class="avatar rounded store-avatar">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="position-relative">
                                         <img class="dark-support rounded img-fit" alt=""
                                             src="{{ getValidImage(path: 'storage/app/public/company/'.$web_config['fav_icon']->value, type:'logo') }}">
@@ -147,8 +171,13 @@
                             <div class="card flex-grow-1">
                                 <div class="card-body grid-center">
                                     <div class="text-center">
+<<<<<<< HEAD
                                         <h2 class="fs-28 text-primary fw-extra-bold mb-2">
                                             {{ round($rattingStatusArray['positive']) }}%</h2>
+=======
+                                        <h2 class="fs-28 text-primary fw-extra-bold mb-2">{{round(($avg_rating*100)/5)}}
+                                            %</h2>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <p class="text-muted text-capitalize">{{translate("positive_review")}}</p>
                                     </div>
                                 </div>
@@ -163,6 +192,7 @@
                             </div>
                         </div>
                         <div class="d-flex flex-wrap flex-lg-column flex-lg-down-grow-1 justify-content-center gap-3">
+<<<<<<< HEAD
                             @if (auth('customer')->check())
                                 <button class="btn btn-primary flex-lg-down-grow-1 fs-16" data-bs-toggle="modal"
                                         data-bs-target="#contact_sellerModal">
@@ -174,6 +204,21 @@
                                         data-bs-target="#loginModal">
                                     <i class="bi bi-chat-square-fill text-capitalize"></i> {{translate('chat_with_vendor')}}
                                 </button>
+=======
+                            @if($seller_id!=0)
+                                @if (auth('customer')->check())
+                                    <button class="btn btn-primary flex-lg-down-grow-1 fs-16" data-bs-toggle="modal"
+                                            data-bs-target="#contact_sellerModal">
+                                        <i class="bi bi-chat-square-fill text-capitalize"></i> {{translate('chat_with_vendor')}}
+                                    </button>
+                                    @include('theme-views.layouts.partials.modal._chat-with-seller',['seller_id'=>$seller_id,'shop_id'=>$shop['id']])
+                                @else
+                                    <button class="btn btn-primary flex-lg-down-grow-1 fs-16" data-bs-toggle="modal"
+                                            data-bs-target="#loginModal">
+                                        <i class="bi bi-chat-square-fill text-capitalize"></i> {{translate('chat_with_vendor')}}
+                                    </button>
+                                @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             @endif
                         </div>
                     </div>

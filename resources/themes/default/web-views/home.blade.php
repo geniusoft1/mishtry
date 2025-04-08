@@ -3,19 +3,33 @@
 @section('title', $web_config['name']->value.' '.translate('online_Shopping').' | '.$web_config['name']->value.' '.translate('ecommerce'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <meta property="og:image" content="{{theme_asset(path: 'storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+=======
+    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <meta property="og:title" content="Welcome To {{$web_config['name']->value}} Home"/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description" content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
 
+<<<<<<< HEAD
     <meta property="twitter:card" content="{{theme_asset(path: 'storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+=======
+    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <meta property="twitter:title" content="Welcome To {{$web_config['name']->value}} Home"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{theme_asset(path: 'public/assets/front-end/css/home.css')}}"/>
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/owl.theme.default.min.css') }}">
+=======
+    <link rel="stylesheet" href="{{asset('public/assets/front-end/css/home.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/owl.theme.default.min.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -67,7 +81,11 @@
         @include('web-views.partials._category-section-home')
 
         @if($web_config['featured_deals'] && (count($web_config['featured_deals'])>0))
+<<<<<<< HEAD
             <section class="featured_deal">
+=======
+            <section class="featured_deal rtl">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="container">
                     <div class="__featured-deal-wrap bg--light">
                         <div class="d-flex flex-wrap justify-content-between gap-8 mb-3">
@@ -185,6 +203,7 @@
             @endforeach
         @endif
 
+<<<<<<< HEAD
         @if (count($footer_banner) > 0)
             <div class="container rtl d-md-block d-none">
                 <div class="row g-3 mt-3">
@@ -225,6 +244,19 @@
                             </div>
                         </div>
                     @endif
+=======
+        @if ($footer_banner->count() > 0 )
+            <div class="container rtl d-md-block d-none">
+                <div class="row g-3">
+                    @foreach($footer_banner as $banner)
+                        <div class="col-md-6">
+                            <a href="{{$banner->url}}" class="d-block" target="_blank">
+                                <img class="footer_banner_img __inline-63"  alt=""
+                                     src="{{ getValidImage(path: 'storage/app/public/banner/'.$banner['photo'], type: 'banner') }}">
+                            </a>
+                        </div>
+                    @endforeach
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
             </div>
         @endif
@@ -245,7 +277,11 @@
                 </div>
 
                 <div class="mt-sm-3 mb-3 brand-slider">
+<<<<<<< HEAD
                     <div class="owl-carousel owl-theme p-2 brands-slider">
+=======
+                    <div class="owl-carousel owl-theme p-2 brands-slider pb-5 pb-sm-0">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         @foreach($brands as $brand)
                             <div class="text-center">
                                 <a href="{{route('products',['id'=> $brand['id'],'data_from'=>'brand','page'=>1])}}"
@@ -276,7 +312,12 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{theme_asset(path: 'public/assets/front-end/js/owl.carousel.min.js')}}"></script>
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/home.js') }}"></script>
+=======
+    <script src="{{asset('public/assets/front-end/js/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('public/assets/front-end/js/home.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 

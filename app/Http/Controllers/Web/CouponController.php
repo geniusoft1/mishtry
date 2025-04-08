@@ -8,8 +8,11 @@ use App\Models\Coupon;
 use App\Models\Order;
 use App\Utils\CartManager;
 use Brian2694\Toastr\Facades\Toastr;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\Request;
 
 class CouponController extends Controller
@@ -120,6 +123,7 @@ class CouponController extends Controller
         Toastr::error(translate('invalid_coupon'));
         return back();
     }
+<<<<<<< HEAD
 
     public function removeCoupon(Request $request): JsonResponse|RedirectResponse
     {
@@ -135,4 +139,6 @@ class CouponController extends Controller
         Toastr::success(translate('coupon_removed'));
         return back();
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

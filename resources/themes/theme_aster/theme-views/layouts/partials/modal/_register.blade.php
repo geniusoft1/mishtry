@@ -82,6 +82,7 @@
                                 <div class="form-group mb-4">
                                     <label for="phone">{{ translate('phone') }}</label>
                                     <input
+<<<<<<< HEAD
                                         type="tel"
                                         id="phone"
                                         value="{{old('phone')}}"
@@ -90,13 +91,27 @@
                                         required
                                     />
                                     <input type="hidden" class="country-picker-phone-number w-50" name="phone" readonly>
+=======
+                                        type="number"
+                                        id="phone"
+                                        value="{{old('phone')}}"
+                                        name="phone"
+                                        class="form-control"
+                                        placeholder="{{ translate('enter_phone_number') }}"
+                                        required
+                                    />
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="mb-4">
+<<<<<<< HEAD
                                     <label for="password">{{ translate('password') }}
                                         <span class="text-danger mx-1 password-error"></span>
                                     </label>
+=======
+                                    <label for="password">{{ translate('password') }}</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="input-inner-end-ele">
                                         <input
                                             type="password"
@@ -168,7 +183,11 @@
                             </div>
                         @endif
                         <div class="d-flex justify-content-center mt-4">
+<<<<<<< HEAD
                             <label for="input-checked" class="d-flex gap-1 align-items-center mb-0 user-select-none">
+=======
+                            <label for="agree" class="d-flex gap-1 align-items-center mb-0">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <input type="checkbox" id="input-checked" required/>
                                 {{translate('i_agree_with_the')}} <a href="{{route('terms')}}"
                                                                      class="text-info text-capitalize">{{ translate('terms_&_conditions') }}</a>
@@ -208,7 +227,10 @@
             defer></script>
     <script>
         'use strict';
+<<<<<<< HEAD
         initializePhoneInput(".phone-input-with-country-picker", ".country-picker-phone-number");
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $('#input-checked').change(function () {
             if ($(this).is(':checked')) {
                 $('#sign-up').removeAttr('disabled');
@@ -225,7 +247,11 @@
         };
         function recaptcha_f() {
             let response = grecaptcha.getResponse($('#recaptcha-element-customer-register').attr('data-reg-id'));
+<<<<<<< HEAD
             return response.length !== 0;
+=======
+            return response.length !== 0 ;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         @else
             function reCaptchaCustomerRegister()
@@ -264,7 +290,11 @@
                             }
                         } else {
                             toastr.success(
+<<<<<<< HEAD
                                 '{{translate("Customer_Added_Successfully")}}!', {
+=======
+                                '{{translate("Customeer_Added_Successfully")}}!', {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     CloseButton: true,
                                     ProgressBar: true
                                 });
@@ -285,5 +315,8 @@
             }
         });
     </script>
+<<<<<<< HEAD
     <script src="{{theme_asset('assets/js/password-strength.js')}}"></script>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

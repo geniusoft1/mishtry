@@ -57,7 +57,11 @@
                     @endif
                 @endfor
             </span>
+<<<<<<< HEAD
             <span>({{ count($product->reviews) }})</span>
+=======
+            <span>({{$product->reviews_count}})</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </div>
 
         <div class="text-muted fs-12">

@@ -17,6 +17,7 @@ let messageWantAddOrUpdateThisProduct = $('#message-want-to-add-or-update-this-p
 let getSystemCurrencyCode = $('#system-currency-code').data('value');
 
 $(document).on('ready', function () {
+<<<<<<< HEAD
     $('.summernote').summernote({
         'height': 150,
         toolbar: [
@@ -29,6 +30,8 @@ $(document).on('ready', function () {
         ]
     });
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     getProductTypeFunctionality();
     getDigitalProductTypeFunctionality();
 
@@ -169,7 +172,10 @@ function getUpdateSKUFunctionality() {
             } else {
                 $('#quantity').show();
             }
+<<<<<<< HEAD
             removeSymbol();
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
     });
 }
@@ -335,6 +341,13 @@ $('.action-upload-color-image').on('change', function () {
     uploadColorImage(this)
 })
 
+<<<<<<< HEAD
+=======
+$('.textarea').ckeditor({
+    contentsLangDirection: $('#system-session-direction').data('value'),
+});
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 $('.delete_file_input').click(function () {
     let $parentDiv = $(this).closest('div');
     $parentDiv.find('input[type="file"]').val('');
@@ -383,6 +396,12 @@ function getProductAddRequirementsCheck() {
             });
 
             if (submitStatus === 1) {
+<<<<<<< HEAD
+=======
+                for (let instance in CKEDITOR.instances) {
+                    CKEDITOR.instances[instance].updateElement();
+                }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 let formData = new FormData(document.getElementById('product_form'));
                 $.ajaxSetup({
                     headers: {

@@ -2,7 +2,11 @@
     <a class="step-item {{$step >= 1?'active':''}} {{$step == 1?'current':''}}" href="{{route('shop-cart')}}">
         <div class="step-progress">
             <span class="step-count">
+<<<<<<< HEAD
                 <img src="{{theme_asset(path: 'public/assets/front-end/img/cart-icon.png')}}" class="mb-1" alt="">
+=======
+                <img src="{{asset('/public/assets/front-end/img/cart-icon.png')}}" class="mb-1" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </span>
         </div>
         <div class="step-label">

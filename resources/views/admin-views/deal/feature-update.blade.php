@@ -4,7 +4,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/featured_deal.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/featured_deal.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('update_feature_deal')}}
             </h2>
         </div>
@@ -89,5 +93,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deal.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/deal.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

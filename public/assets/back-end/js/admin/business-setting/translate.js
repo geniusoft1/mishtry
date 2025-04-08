@@ -1,6 +1,9 @@
 'use strict';
 $(document).ready(function () {
+<<<<<<< HEAD
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     let getDataTable = $('#get-data-table-route-and-text');
     let dataTablePageLength = [getDataTable.data('page-length'), 10, 20, 50, 100];
     dataTablePageLength.sort(function(a, b) {
@@ -23,6 +26,10 @@ $(document).ready(function () {
             infoEmpty: getDataTable.data('info-empty'),
             infoFiltered: getDataTable.data('info-filtered'),
             emptyTable: getDataTable.data('empty-table'),
+<<<<<<< HEAD
+=======
+            zeroRecords: getDataTable.data('zero-records'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             search: getDataTable.data('search'),
             lengthMenu: getDataTable.data('length-menu'),
             paginate: {

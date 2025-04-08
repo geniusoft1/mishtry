@@ -10,7 +10,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-seller.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('vendor_details')}}
             </h2>
         </div>
@@ -159,7 +163,11 @@
                                     <span class="title-color text-capitalize">
                                         {{translate('vendor_POS_permission')}}
                                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{translate('if_enabled_this_vendor_can_access_POS_from_the_website_and_vendor_app') }}">
+<<<<<<< HEAD
                                             <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                                            <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </span>
                                     <label class="switcher" for="seller-pos">

@@ -46,6 +46,7 @@ class ChattingRepository implements ChattingRepositoryInterface
 
     public function getListWhere(array $orderBy = [], string $searchValue = null, array $filters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
+<<<<<<< HEAD
         $query = $this->chatting->with($relations)
             ->when(isset($filters['user_id']), function ($query) use ($filters) {
                 return $query->where(['user_id'=>$filters['user_id']]);
@@ -89,6 +90,9 @@ class ChattingRepository implements ChattingRepositoryInterface
 
         $filters += ['searchValue' =>$searchValue];
         return $dataLimit == 'all' ? $query->get() : $query->paginate($dataLimit)->appends($filters);
+=======
+        // TODO: Implement getListWhere() method.
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function updateAllWhere(array $params, array $data) : bool

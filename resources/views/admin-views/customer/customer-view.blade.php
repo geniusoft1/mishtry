@@ -9,7 +9,11 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <div class="mb-3">
                         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
+<<<<<<< HEAD
                             <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/customer.png')}}" alt="">
+=======
+                            <img width="20" src="{{asset('/public/assets/back-end/img/customer.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             {{translate('customer_details')}}
                         </h2>
                     </div>
@@ -55,7 +59,10 @@
                                 <th>{{translate('sl')}}</th>
                                 <th>{{translate('order_ID')}}</th>
                                 <th>{{translate('total')}}</th>
+<<<<<<< HEAD
                                 <th>{{translate('order_Status')}}</th>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <th class="text-center">{{translate('action')}}</th>
                             </tr>
                             </thead>
@@ -69,6 +76,7 @@
                                     </td>
                                     <td> {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $order['order_amount']))}}</td>
                                     <td>
+<<<<<<< HEAD
                                         @if($order['order_status']=='pending')
                                             <span class="badge badge-soft-info fz-12">
                                                     {{translate($order['order_status'])}}
@@ -97,6 +105,8 @@
                                         @endif
                                     </td>
                                     <td>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div class="d-flex justify-content-center gap-10">
                                             <a class="btn btn-outline--primary btn-sm edit square-btn"
                                                title="{{translate('view')}}"
@@ -116,7 +126,11 @@
                         @if(count($orders)==0)
                             <div class="text-center p-4">
                                 <img class="mb-3 w-160"
+<<<<<<< HEAD
                                      src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                     src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      alt="{{translate('image_description')}}">
                                 <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                             </div>
@@ -132,7 +146,11 @@
                     @if($customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" alt="">
+=======
+                                <img src="{{asset('/public/assets/back-end/img/vendor-information.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('customer')}}
                             </h4>
 

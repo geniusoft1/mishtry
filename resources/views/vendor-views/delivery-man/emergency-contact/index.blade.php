@@ -4,7 +4,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-delivery-man.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-delivery-man.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('emergency_Contact')}}
             </h2>
         </div>
@@ -30,6 +34,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
+<<<<<<< HEAD
                                         <label class="title-color d-flex" for="exampleFormControlInput1">{{translate('phone')}}</label>
                                         <div class="input-group mb-3">
                                             <div>
@@ -41,6 +46,13 @@
                                             </div>
                                             <input value="{{old('phone')}}" type="text" name="phone" class="form-control" placeholder="{{translate('ex').':'.'017********'}}" required>
                                         </div>
+=======
+                                        <label class="title-color d-flex"
+                                               for="exampleFormControlInput1">{{translate('phone')}}</label>
+                                        <input type="number" name="phone" class="form-control"
+                                               placeholder="{{translate('ex').':'.'017*********'}}"
+                                               required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
@@ -80,8 +92,13 @@
                             @forelse($contacts as $contact)
                                 <tr>
                                     <th scope="row">{{ $loop->iteration }}</th>
+<<<<<<< HEAD
                                     <td class="text-center text-capitalize">{{ $contact['name'] }}</td>
                                     <td class="text-center"><a class="title-color hover-c1" href="tel:{{$contact['country_code'].$contact['phone']}}">{{$contact['country_code'].$contact['phone']}}</a></td>
+=======
+                                    <td class="text-center text-capitalize">{{ $contact->name }}</td>
+                                    <td class="text-center"><a class="title-color hover-c1" href="tel:{{$contact->phone}}">{{$contact->phone}}</a></td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <td>
                                         <form action="{{route('vendor.delivery-man.emergency-contact.index')}}" method="post" id="contact_status{{$contact['id']}}-form" class="contact_status_form">
                                             @csrf @method('patch')
@@ -119,7 +136,11 @@
                                     <td colspan="5">
                                         <div class="text-center p-4">
                                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="{{translate('image_description')}}">
                                             <p class="mb-0">{{translate('no_data_to_show')}}</p>
                                         </div>
@@ -141,5 +162,9 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/emergency-contact.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/vendor/emergency-contact.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

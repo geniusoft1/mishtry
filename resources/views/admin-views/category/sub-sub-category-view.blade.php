@@ -4,9 +4,16 @@
 
 @section('content')
     <div class="content container-fluid">
+<<<<<<< HEAD
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand-setup.png') }}" alt="">
+=======
+
+        <div class="mb-3">
+            <h2 class="h1 mb-0 d-flex gap-2">
+                <img src="{{ asset('public/assets/back-end/img/brand-setup.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('sub_Sub_Category_Setup') }}
             </h2>
         </div>
@@ -24,6 +31,10 @@
                                         </li>
                                     @endforeach
                                 </ul>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="row">
                                 @foreach($languages as $lang)
                                     <div
@@ -38,7 +49,13 @@
                                     </div>
                                     <input type="hidden" name="lang[]" value="{{ $lang}}">
                                 @endforeach
+<<<<<<< HEAD
                                     <input name="position" value="2" class="d-none">
+=======
+
+                                    <input name="position" value="2" class="d-none">
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label
@@ -55,6 +72,10 @@
                                             </select>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="title-color text-capitalize" for="name">
@@ -68,12 +89,20 @@
                                             </select>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label class="title-color text-capitalize" for="priority">
                                                 {{ translate('priority') }}
                                                 <span>
+<<<<<<< HEAD
                                                     <i class="tio-info-outined" data-toggle="tooltip" data-placement="top" title="{{ translate('the_lowest_number_will_get_the_highest_priority') }}"></i>
+=======
+                                                    <i class="tio-info" title="{{ translate('the_lowest_number_will_get_the_highest_priority') }}"></i>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </label>
                                             <select class="form-control" name="priority" id="" required>
@@ -101,10 +130,15 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <div class="row mt-20" id="cate-table">
             <div class="col-md-12">
                 <div class="card">
                     <div class="px-3 py-4">
+<<<<<<< HEAD
                         <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center">
                             <div class="">
                                 <h5 class="text-capitalize d-flex gap-1">
@@ -113,6 +147,17 @@
                                 </h5>
                             </div>
                             <div class="d-flex flex-wrap gap-3 align-items-center">
+=======
+                        <div class="row align-items-center">
+                            <div class="col-sm-5 col-md-6 col-lg-8 mb-2 mb-sm-0">
+                                <h5 class="text-capitalize d-flex gap-2">
+                                    {{ translate('sub_sub_category_list') }}
+                                    <span
+                                        class="badge badge-soft-dark radius-50 fz-12">{{ $categories->total() }}</span>
+                                </h5>
+                            </div>
+                            <div class="col-sm-7 col-md-6 col-lg-4">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <form action="{{ url()->current() }}" method="GET">
                                     <div class="input-group input-group-custom input-group-merge">
                                         <div class="input-group-prepend">
@@ -120,6 +165,7 @@
                                                 <i class="tio-search"></i>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <input id="" type="search" name="searchValue" class="form-control"
                                                placeholder="{{ translate('search_by_sub_sub_category_name') }}"
                                                value="{{ request('searchValue') }}">
@@ -147,15 +193,32 @@
                             </div>
                         </div>
                     </div>
+=======
+                                        <input id="datatableSearch_" type="search" name="searchValue"
+                                               class="form-control"
+                                               placeholder="{{ translate('search_by_Sub_Sub_Category') }}"
+                                               aria-label="Search orders" value="{{ request('searchValue') }}" required>
+                                        <button type="submit" class="btn btn--primary">{{ translate('search') }}</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="table-responsive">
                         <table class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table w-100 text-start">
                             <thead class="thead-light thead-50 text-capitalize">
                             <tr>
                                 <th>{{ translate('ID') }}</th>
                                 <th>{{ translate('sub_sub_category_name') }}</th>
+<<<<<<< HEAD
                                 <th>{{ translate('sub_category_name') }}</th>
                                 <th>{{ translate('category_name') }}</th>
                                 <th class="text-center">{{ translate('priority') }}</th>
+=======
+                                <th>{{ translate('priority') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <th class="text-center">{{ translate('action') }}</th>
                             </tr>
                             </thead>
@@ -164,9 +227,13 @@
                                 <tr>
                                     <td>{{ $category['id']}}</td>
                                     <td>{{ $category['defaultName']}}</td>
+<<<<<<< HEAD
                                     <td>{{$category?->parent?->defaultname ?? translate('sub_category_not_found') }}</td>
                                     <td>{{$category?->parent?->parent?->defaultname ??translate('sub_category_not_found') }}</td>
                                     <td class="text-center">{{ $category['priority']}}</td>
+=======
+                                    <td>{{ $category['priority']}}</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center gap-2">
                                             <a class="btn btn-outline-info btn-sm square-btn"
@@ -196,7 +263,11 @@
                     @if(count($categories)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>
@@ -210,5 +281,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

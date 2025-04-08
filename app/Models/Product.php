@@ -322,6 +322,11 @@ class Product extends Model
                 }
             }, 'reviews' => function ($query) {
                 $query->whereNull('delivery_man_id');
+<<<<<<< HEAD
+=======
+            }])->withCount(['reviews' => function ($query) {
+                $query->whereNull('delivery_man_id');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }]);
         });
     }

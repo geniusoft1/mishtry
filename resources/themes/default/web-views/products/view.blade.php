@@ -3,13 +3,21 @@
 @section('title',translate($data['data_from']).' '.translate('products'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <meta property="og:image" content="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['web_logo']}}"/>
+=======
+    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <meta property="og:title" content="Products of {{$web_config['name']}} "/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description"
           content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
 
+<<<<<<< HEAD
     <meta property="twitter:card" content="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['web_logo']}}"/>
+=======
+    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <meta property="twitter:title" content="Products of {{$web_config['name']}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description"
@@ -100,6 +108,7 @@
                         <span>{{translate('sort_by')}}</span>
                     </label>
                     <select class="product-list-filter-on-viewpage">
+<<<<<<< HEAD
                         <option value="latest" {{ request('sort_by') == 'latest' ? 'selected':'' }}>{{translate('latest')}}</option>
                         <option
                             value="low-high" {{ request('sort_by') == 'low-high' ? 'selected':'' }}>{{translate('low_to_High_Price')}} </option>
@@ -109,6 +118,17 @@
                             value="a-z" {{ request('sort_by') == 'a-z' ? 'selected':'' }}>{{translate('A_to_Z_Order')}}</option>
                         <option
                             value="z-a" {{ request('sort_by') == 'z-a' ? 'selected':'' }}>{{translate('Z_to_A_Order')}}</option>
+=======
+                        <option value="latest">{{translate('latest')}}</option>
+                        <option
+                            value="low-high">{{translate('low_to_High_Price')}} </option>
+                        <option
+                            value="high-low">{{translate('High_to_Low_Price')}}</option>
+                        <option
+                            value="a-z">{{translate('A_to_Z_Order')}}</option>
+                        <option
+                            value="z-a">{{translate('Z_to_A_Order')}}</option>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </select>
                 </div>
             </form>
@@ -233,7 +253,11 @@
                                             id="brand">
                                             <li class="flex-between __inline-39 get-view-by-onclick"
                                                 data-link="{{ route('products',['id'=> $brand['id'],'data_from'=>'brand','page'=>1]) }}">
+<<<<<<< HEAD
                                                 <div class="text-start">
+=======
+                                                <div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     {{ $brand['name'] }}
                                                 </div>
                                                 <div class="__brands-cate-badge">
@@ -340,5 +364,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
 <script src="{{ theme_asset(path: 'public/assets/front-end/js/product-view.js') }}"></script>
+=======
+<script src="{{ asset('public/assets/front-end/js/product-view.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

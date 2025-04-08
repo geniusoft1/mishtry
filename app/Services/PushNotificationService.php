@@ -20,8 +20,11 @@ class PushNotificationService
             'message_from_delivery_man',
             'message_from_seller',
             'fund_added_by_admin_message',
+<<<<<<< HEAD
             'customer_block_message',
             'customer_unblock_message',
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
         $vendor = [
             'new_order_message',
@@ -36,8 +39,11 @@ class PushNotificationService
             'order_refunded_message',
             'refund_request_canceled_message',
             'refund_request_status_changed_by_admin',
+<<<<<<< HEAD
             'product_request_approved_message',
             'product_request_rejected_message'
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
         $delivery_man = [
             'new_order_assigned_message',

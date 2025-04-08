@@ -5,7 +5,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/earning_report.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/earning_report.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('earning_Reports')}}
             </h2>
         </div>
@@ -21,7 +25,10 @@
                                 <option value="this_year" {{ $date_type == 'this_year'? 'selected' : '' }}>{{translate('this_Year')}}</option>
                                 <option value="this_month" {{ $date_type == 'this_month'? 'selected' : '' }}>{{translate('this_Month')}}</option>
                                 <option value="this_week" {{ $date_type == 'this_week'? 'selected' : '' }}>{{translate('this_Week')}}</option>
+<<<<<<< HEAD
                                 <option value="today" {{ $date_type == 'today'? 'selected' : '' }}>{{translate('today')}}</option>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <option value="custom_date" {{ $date_type == 'custom_date'? 'selected' : '' }}>{{translate('custom_Date')}}</option>
                             </select>
                         </div>
@@ -50,12 +57,20 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/cart.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/cart.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: array_sum($earning_data['total_earning_statistics'])), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">{{ translate('total_earnings')}}</h6>
                     </div>
+<<<<<<< HEAD
                     <div class="coupon__discount w-100 text-right d-flex flex-wrap justify-content-between g-1">
+=======
+                    <div class="coupon__discount w-100 text-right d-flex justify-content-between">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="text-center">
                             <strong class="text-danger break-all">{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $earning_data['total_commission']), currencyCode: getCurrencyCode()) }}</strong>
                             <div>{{ translate('commission')}}</div>
@@ -73,14 +88,22 @@
                     </div>
                 </div>
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/products.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/products.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ $earning_data['total_in_house_products'] }}</h4>
                         <h6 class="subtext">{{ translate('total_In_House_Products')}}</h6>
                     </div>
                 </div>
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/stores.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/stores.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ $earning_data['total_stores'] }}</h4>
                         <h6 class="subtext">{{ translate('total_Shop')}}</h6>
@@ -208,7 +231,11 @@
                             <li>
                                 <a class="dropdown-item"
                                    href="{{ route('admin.report.admin-earning-excel-export', ['date_type'=>$date_type, 'from'=>$from, 'to'=>$to]) }}">
+<<<<<<< HEAD
                                     <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                    <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('excel')}}
                                 </a>
                             </li>
@@ -227,7 +254,10 @@
                         <th>{{translate('in-House_Earning')}}</th>
                         <th>{{translate('commission_Earning')}}</th>
                         <th>{{translate('earn_From_Shipping')}}</th>
+<<<<<<< HEAD
                         <th>{{translate('deliveryman_incentive')}}</th>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <th>{{translate('discount_Given')}}</th>
                         <th>{{translate('VAT/TAX')}}</th>
                         <th>{{translate('refund_Given')}}</th>
@@ -245,11 +275,18 @@
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $inhouse_earning), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $admin_commission_earn[$key]), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $shipping_earn[$key]), currencyCode: getCurrencyCode()) }}</td>
+<<<<<<< HEAD
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $deliveryman_incentive[$key]), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $discount_given[$key]), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $total_tax[$key]), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $refund_given[$key]), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $inhouse_earning+$admin_commission_earn[$key]+$total_tax[$key]+$shipping_earn[$key]-$discount_given[$key]-$refund_given[$key] - $deliveryman_incentive[$key]), currencyCode: getCurrencyCode()) }}</td>
+=======
+                            <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $discount_given[$key]), currencyCode: getCurrencyCode()) }}</td>
+                            <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $total_tax[$key]), currencyCode: getCurrencyCode()) }}</td>
+                            <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $refund_given[$key]), currencyCode: getCurrencyCode()) }}</td>
+                            <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $inhouse_earning+$admin_commission_earn[$key]+$total_tax[$key]+$shipping_earn[$key]-$discount_given[$key]-$refund_given[$key]), currencyCode: getCurrencyCode()) }}</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <td>
                                 <div class="d-flex justify-content-center">
                                     <form action="{{ route('admin.report.admin-earning-duration-download-pdf') }}"
@@ -263,9 +300,14 @@
                                         <input type="hidden" name="discount_given" value="{{ $discount_given[$key] }}">
                                         <input type="hidden" name="total_tax" value="{{ $total_tax[$key] }}">
                                         <input type="hidden" name="refund_given" value="{{ $refund_given[$key] }}">
+<<<<<<< HEAD
                                         <input type="hidden" name="deliveryman_incentive" value="{{ $deliveryman_incentive[$key] }}">
                                         <input type="hidden" name="total_earning"
                                                value="{{ $inhouse_earning+$admin_commission_earn[$key]+$shipping_earn[$key]+$total_tax[$key]-$discount_given[$key]-$refund_given[$key] - $deliveryman_incentive[$key] }}">
+=======
+                                        <input type="hidden" name="total_earning"
+                                               value="{{ $inhouse_earning+$admin_commission_earn[$key]+$shipping_earn[$key]+$total_tax[$key]-$discount_given[$key]-$refund_given[$key] }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <button type="submit" class="btn btn-outline-success square-btn btn-sm"><i
                                                     class="tio-download-to"></i></button>
                                     </form>
@@ -278,7 +320,11 @@
                             <td colspan="9">
                                 <div class="text-center p-4">
                                     <img class="mb-3 w-160"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                         src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="Image Description">
                                     <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                                 </div>
@@ -311,10 +357,18 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/admin-earning-report.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/back-end/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/admin/admin-earning-report.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 

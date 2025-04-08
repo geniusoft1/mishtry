@@ -74,10 +74,13 @@ class DeliveryMan extends Model
     {
         return $this->hasMany(Order::class,'delivery_man_id');
     }
+<<<<<<< HEAD
     public function deliveredOrders():HasMany
     {
         return $this->hasMany(Order::class,'delivery_man_id')->where('order_status','delivered');
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function wallet():HasOne
     {

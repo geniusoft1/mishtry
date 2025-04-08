@@ -22,12 +22,20 @@
                                              alt="{{ translate('product') }}" width="100">
 
                                         @if($order_details->product->discount > 0)
+<<<<<<< HEAD
                                             <span
                                                 class="price-discount badge badge-primary position-absolute top-1 left-1">
                                             @if ($order_details->product->discount_type == 'percent')
                                                     -{{round($order_details->product->discount)}}%
                                                 @elseif($order_details->product->discount_type =='flat')
                                                     -{{ webCurrencyConverter(amount: $order_details->product->discount) }}
+=======
+                                            <span class="price-discount badge badge-primary position-absolute top-1 left-1">
+                                            @if ($order_details->product->discount_type == 'percent')
+                                                    {{round($order_details->product->discount)}}%
+                                                @elseif($order_details->product->discount_type =='flat')
+                                                    {{ webCurrencyConverter(amount: $order_details->product->discount) }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @endif
                                         </span>
                                         @endif
@@ -64,14 +72,19 @@
                                 </div>
                             @else
                                 <div class="text-center text-capitalize">
+<<<<<<< HEAD
                                     <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/nodata.svg')}}"
                                          alt=""
+=======
+                                    <img src="{{asset('public/assets/front-end/img/icons/nodata.svg')}}" alt=""
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          width="100">
                                     <h5>{{translate('no_product_found')}}!</h5>
                                 </div>
                             @endif
                         </div>
                     </div>
+<<<<<<< HEAD
 {{--                    @dd($order_details->reviewData);--}}
                     @if(isset($order_details->reviewData))
                         <?php
@@ -116,13 +129,63 @@
                             </div>
                         </div>
                     </div>
+=======
+
+                    <div class="d-flex flex-column gap-2 align-items-center my-4">
+                        <h5 class="text-center text-capitalize">{{translate('rate_the_quality')}}</h5>
+                        <div class="rating-label-wrap position-relative">
+                            <label class="rating-label mb-0">
+                                <input class="rating" name="rating" min="1" max="5"
+                                        oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+                                        step="1" style="--value:{{isset($order_details->product->reviewsByCustomer[0]) ? $order_details->product->reviewsByCustomer[0]->rating : 5}}"
+                                        type="range" value="5">
+                            </label>
+                            @php($style = '')
+                            @if(isset($order_details->product->reviewsByCustomer[0]))
+                                    <?php
+                                    $rating = $order_details->product->reviewsByCustomer[0]->rating;
+                                    $style = match ($rating) {
+                                        1 => 'left:5px',
+                                        2 => 'left:36px',
+                                        3 => 'left:85px',
+                                        4 => 'left:112px',
+                                        default => 'left:155px',
+                                    };
+                                    ?>
+                            @endif
+                            <span class="rating_content text-primary fs-12 text-nowrap" style="{{$style}}">
+                            @if(isset($order_details->product->reviewsByCustomer[0]))
+                                        <?php
+                                        $rating = $order_details->product->reviewsByCustomer[0]->rating;
+                                        $rating_status = match ($rating) {
+                                            1 => translate('poor'),
+                                            2 => translate('average'),
+                                            3 => translate('good'),
+                                            4 => translate('very_good'),
+                                            default => translate('excellent'),
+                                        };
+                                        ?>
+                                    {{$rating_status}}
+                                @else
+                                    {{ translate('excellent') }}!
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <h6 class="cursor-pointer">{{translate('have_thoughts_to_share')}}?</h6>
                     <div class="">
                         <input name="product_id" value="{{$order_details->product_id}}" hidden>
                         <input name="order_id" value="{{$order_details->order_id}}" hidden>
+<<<<<<< HEAD
                         <input name="review_id" value="{{$order_details->reviewData?->id}}" hidden>
                         <textarea rows="4" class="form-control text-area-class" name="comment"
                                   placeholder="{{translate('best_product,_highly_recommended')}}.">{{$order_details->reviewData?->comment ?? ''}}</textarea>
+=======
+                        <textarea rows="4" class="form-control text-area-class" name="comment"
+                                  placeholder="{{translate('best_product,_highly_recommended')}}.">{{$order_details->product->reviewsByCustomer[0]->comment ?? ''}}</textarea>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
 
                     <div class="mt-3">
@@ -130,6 +193,7 @@
                         <div class="mt-2">
                             <div class="d-flex gap-2 flex-wrap">
                                 <div class="d-flex gap-4 flex-wrap coba_review">
+<<<<<<< HEAD
                                     @if ($order_details->reviewData && isset($order_details->reviewData->attachment) && $order_details->reviewData->attachment != [])
                                         @foreach ($order_details->reviewData->attachment as $key => $photo)
                                             <div
@@ -141,6 +205,13 @@
                                                       data-route="{{ route('delete-review-image') }}">
                                                     <i class="czi-close"></i>
                                                 </span>
+=======
+                                    @if (isset($order_details->product->reviewsByCustomer[0]) && $order_details->product->reviewsByCustomer[0]->attachment && $order_details->product->reviewsByCustomer[0]->attachment != [])
+                                        @foreach (json_decode($order_details->product->reviewsByCustomer[0]->attachment) as $key => $photo)
+                                            <div class="position-relative img_row{{$key}} border rounded border-primary-light">
+                                                <span class="img_remove_icon remove-img-row-by-key" data-key="{{$key}}"><i
+                                                            class="czi-close"></i></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <div class="overflow-hidden upload_img_box_img rounded">
                                                     <img class="h-auto"
                                                          src="{{ getValidImage(path: 'storage/app/public/review/'.$photo, type: 'product') }}"
@@ -160,7 +231,11 @@
                                 <label class="py-0 d-flex align-items-center m-0 cursor-pointer">
                                         <span class="position-relative">
                                             <img class="border rounded border-primary-light h-70px"
+<<<<<<< HEAD
                                                  src="{{theme_asset(path: 'public/assets/front-end/img/image-place-holder.png')}}"
+=======
+                                                 src="{{asset('public/assets/front-end/img/image-place-holder.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="">
                                         </span>
                                     <input type="file" class="reviewFilesValue h-100 position-absolute w-100 " hidden
@@ -179,6 +254,7 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <span id="get-status-text" data-poor="{{translate('poor')}}" data-average="{{translate('average')}}" data-good="{{translate('good')}}"
       data-great="{{translate('great')}}" data-excellent="{{translate('excellent')}}"></span>
 @push('script')
@@ -208,3 +284,5 @@
         });
     </script>
 @endpush
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

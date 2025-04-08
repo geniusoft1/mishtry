@@ -34,7 +34,10 @@ class DealController extends Controller
             ->withCount(['wishList' => function($query) use($user){
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->whereIn('id', $p_ids)
             ->get();
 

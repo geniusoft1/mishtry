@@ -1,14 +1,22 @@
 @extends('layouts.back-end.app-seller')
 
 @section('title', translate('shop_Edit'))
+<<<<<<< HEAD
 @push('css_or_js')
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @section('content')
     <div class="content container-fluid">
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
             <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/shop-info.png')}}" alt="">
+=======
+            <img width="20" src="{{asset('/public/assets/back-end/img/shop-info.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             {{translate('edit_shop_info')}}
         </h2>
     </div>
@@ -31,6 +39,7 @@
                                             required>
                                 </div>
                                 <div class="form-group">
+<<<<<<< HEAD
                                     <label for="name" class="title-color">{{translate('contact')}}</label>
                                     <div class="mb-3">
                                         <input class="form-control form-control-user phone-input-with-country-picker"
@@ -40,6 +49,10 @@
                                             <input type="text" class="country-picker-phone-number w-50" value="{{$shop->contact}}" name="contact" hidden  readonly>
                                         </div>
                                     </div>
+=======
+                                    <label for="name" class="title-color">{{translate('contact')}} <span class="text-info">( {{'*'.translate('country_code_is_must_like_for_BD_880')}} )</span></label>
+                                    <input type="number" name="contact" value="{{$shop->contact}}" class="form-control" id="name" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                                 <div class="form-group">
                                     <label for="address" class="title-color">{{translate('address')}} <span class="text-danger">*</span></label>
@@ -67,7 +80,11 @@
                                     <div class="flex-start">
                                         <label for="name" class="title-color text-capitalize">{{translate('upload_banner')}} </label>
                                         <div class="mx-1">
+<<<<<<< HEAD
                                             <span class="text-info">{{ THEME_RATIO[theme_root_path()]['Store cover Image'] }}</span>
+=======
+                                            <span class="text-info">{{translate('ratio').' '.'( 6:1 )'}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </div>
                                     </div>
                                     <div class="custom-file text-left">
@@ -143,7 +160,10 @@
     </div>
     </div>
 @endsection
+<<<<<<< HEAD
 @push('script')
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
 @endpush
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

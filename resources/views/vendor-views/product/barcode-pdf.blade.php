@@ -4,7 +4,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{{ translate("product_Barcode") }}</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/bootstrap.css') }}" />
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/bootstrap.css') }}" />
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>

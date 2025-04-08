@@ -8,7 +8,11 @@
     <header id="header"
             class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container navbar-bordered">
         <div class="navbar-nav-wrap">
+<<<<<<< HEAD
             <div class="navbar-brand-wrapper d-none d-sm-block d-xl-none">
+=======
+            <div class="navbar-brand-wrapper">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 @php($shop=\App\Models\Shop::where(['seller_id'=>auth('seller')->id()])->first())
                 <a class="navbar-brand" href="{{route('vendor.dashboard.index')}}" aria-label="">
                     @if (isset($shop))
@@ -21,13 +25,21 @@
 
                     @else
                         <img class="navbar-brand-logo-mini"
+<<<<<<< HEAD
                              src="{{dynamicAsset(path: 'public/assets/back-end/img/160x160/img1.jpg')}}"
+=======
+                             src="{{asset('public/assets/back-end/img/160x160/img1.jpg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="{{translate('logo')}}" height="40">
                     @endif
                 </a>
             </div>
             <div class="navbar-nav-wrap-content-left">
+<<<<<<< HEAD
                 <button type="button" class="js-navbar-vertical-aside-toggle-invoker close mr-sm-3 d-xl-none">
+=======
+                <button type="button" class="js-navbar-vertical-aside-toggle-invoker close mr-3 d-xl-none">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <i class="tio-first-page navbar-vertical-aside-toggle-short-align"></i>
                     <i class="tio-last-page navbar-vertical-aside-toggle-full-align"
                        data-template='<div class="tooltip d-none d-sm-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
@@ -40,9 +52,15 @@
             </div>
             <div class="navbar-nav-wrap-content-right"
                  style="{{$direction === "rtl" ? 'margin-left:unset; margin-right: auto' : 'margin-right:unset; margin-left: auto'}}">
+<<<<<<< HEAD
                 <ul class="navbar-nav align-items-center flex-row gap-xl-16px">
 
                     <li class="nav-item">
+=======
+                <ul class="navbar-nav align-items-center flex-row">
+
+                    <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="hs-unfold">
                             <div>
                                 @php( $local = session()->has('local')?session('local'):'en')
@@ -55,6 +73,7 @@
                                         @foreach(json_decode($lang['value'],true) as $data)
                                             @if($data['code']==$local)
                                                 <img class="{{$direction === "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
+<<<<<<< HEAD
                                                      src="{{dynamicAsset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
                                                      alt="{{$data['name']}}">
                                                     <span class="d-none d-sm-block">{{$data['name']}}</span>
@@ -70,6 +89,22 @@
                                                         <img class="{{$direction === "rtl" ? 'ml-2' : 'mr-2'}}"
                                                             width="20"
                                                             src="{{dynamicAsset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+=======
+                                                     src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+                                                     alt="{{$data['name']}}">
+                                                {{$data['name']}}
+                                            @endif
+                                        @endforeach
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        @foreach(json_decode($lang['value'],true) as $key =>$data)
+                                            @if($data['status']==1)
+                                                <li class="change-language" data-action="{{route('change-language')}}" data-language-code="{{$data['code']}}">
+                                                    <a class="dropdown-item pb-1">
+                                                        <img class="{{$direction === "rtl" ? 'ml-2' : 'mr-2'}}"
+                                                            width="20"
+                                                            src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             alt="{{$data['name']}}"/>
                                                         <span class="text-capitalize">{{$data['name']}}</span>
                                                     </a>
@@ -82,17 +117,29 @@
                         </div>
                     </li>
 
+<<<<<<< HEAD
                     <li class="nav-item">
                         <div class="hs-unfold">
                             <a title="{{translate('website_shop_view')}}"
                                class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
                                href="{{route('shopView',['id'=>auth('seller')->id()])}}" target="_blank">
+=======
+                    <li class="nav-item d-none d-md-inline-block">
+                        <div class="hs-unfold">
+                            <a title="Website Home"
+                               class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
+                               href="{{route('home')}}" target="_blank">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <i class="tio-globe"></i>
                             </a>
                         </div>
                     </li>
 
+<<<<<<< HEAD
                     <li class="nav-item">
+=======
+                    <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="hs-unfold">
                             <a
                                 class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle media align-items-center gap-3 navbar-dropdown-account-wrapper dropdown-toggle-left-arrow dropdown-toggle-empty"
@@ -128,7 +175,11 @@
                         </div>
                     </li>
 
+<<<<<<< HEAD
                     <li class="nav-item">
+=======
+                    <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="hs-unfold">
                             <a
                                 class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle media align-items-center gap-3 navbar-dropdown-account-wrapper dropdown-toggle dropdown-toggle-left-arrow"
@@ -169,7 +220,11 @@
                             </div>
                         </div>
                     </li>
+<<<<<<< HEAD
                     <li class="nav-item">
+=======
+                    <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
                                href="{{route('vendor.orders.list',['pending'])}}">
@@ -181,7 +236,18 @@
                             </a>
                         </div>
                     </li>
+<<<<<<< HEAD
 
+=======
+                    <li class="nav-item view-web-site-info">
+                        <div class="hs-unfold">
+                            <a href="javascript:"
+                               class="bg-white js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle open-info-web">
+                                <i class="tio-info"></i>
+                            </a>
+                        </div>
+                    </li>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <li class="nav-item">
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker media align-items-center gap-3 navbar-dropdown-account-wrapper dropdown-toggle dropdown-toggle-left-arrow"
@@ -222,7 +288,11 @@
                                     <span class="text-truncate pr-2" title="Settings">{{translate('settings')}}</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
+<<<<<<< HEAD
                                 <a class="dropdown-item" href="javascript:" data-toggle="modal" data-target="#sign-out-modal">
+=======
+                                <a class="dropdown-item logout" href="javascript:" data-action="{{route('vendor.auth.logout')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <span class="text-truncate pr-2" title="{{translate('sign_out')}}">{{translate('sign_out')}}</span>
                                 </a>
                             </div>
@@ -240,7 +310,11 @@
                             @foreach(json_decode($lang['value'],true) as $data)
                                 @if($data['code']==$local)
                                     <img class="{{$direction === "rtl" ? 'ml-2' : 'mr-2'}}"  width="20"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/front-end').'/img/flags/'.$data['code']}}.png"
+=======
+                                         src="{{asset('public/assets/front-end').'/img/flags/'.$data['code']}}.png"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="{{$data['name']}}">
                                     {{$data['name']}}
                                 @endif
@@ -252,7 +326,11 @@
                                     <li class="change-language" data-action="{{route('change-language')}}" data-language-code="{{$data['code']}}">
                                         <a class="dropdown-item pb-1" href="javascript:">
                                             <img class="{{$direction === "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
+<<<<<<< HEAD
                                                 src="{{dynamicAsset(path: 'public/assets/front-end').'/img/flags/'.$data['code']}}.png"
+=======
+                                                src="{{asset('public/assets/front-end').'/img/flags/'.$data['code']}}.png"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 alt="{{$data['name']}}"/>
                                             <span class="text-capitalize">{{$data['name']}}</span>
                                         </a>
@@ -263,8 +341,13 @@
                     </div>
                 </div>
                 <div class="bg-white p-1 rounded mt-2">
+<<<<<<< HEAD
                     <a title="{{('website_shop_view')}}" class="p-2 title-color"
                        href="{{route('shopView',['id'=>auth('seller')->id()])}}" target="_blank">
+=======
+                    <a title="Website home" class="p-2 title-color"
+                       href="{{route('home')}}" target="_blank">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <i class="tio-globe"></i>
                         {{translate('view_website')}}
                     </a>

@@ -52,7 +52,10 @@ class ReportController extends Controller
         $filter_data = self::earning_common_filter('admin', $date_type, $from, $to);
         $inhouse_earn = $filter_data['earn_from_order'];
         $shipping_earn = $filter_data['shipping_earn'];
+<<<<<<< HEAD
         $deliveryman_incentive = $filter_data['deliveryman_incentive'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $admin_commission_earn = $filter_data['commission'];
         $refund_given = $filter_data['refund_given'];
         $discount_given = $filter_data['discount_given'];
@@ -62,7 +65,10 @@ class ReportController extends Controller
         $total_inhouse_earning = 0;
         $total_commission = 0;
         $total_shipping_earn = 0;
+<<<<<<< HEAD
         $total_deliveryman_incentive = 0;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $total_discount_given = 0;
         $total_refund_given = 0;
         $total_tax_final = 0;
@@ -72,12 +78,19 @@ class ReportController extends Controller
             $total_inhouse_earning += $earning;
             $total_commission += $admin_commission_earn[$key];
             $total_shipping_earn += $shipping_earn[$key];
+<<<<<<< HEAD
             $total_deliveryman_incentive += $shipping_earn[$key];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $total_discount_given += $discount_given[$key];
             $total_tax_final += $total_tax[$key];
             $total_refund_given += $refund_given[$key];
             $total_commission_statistics[$key] = $admin_commission_earn[$key];
+<<<<<<< HEAD
             $total_earning_statistics[$key] = ($earning+$admin_commission_earn[$key]+$shipping_earn[$key])-$discount_given[$key]-$refund_given[$key]-$deliveryman_incentive[$key];
+=======
+            $total_earning_statistics[$key] = ($earning+$admin_commission_earn[$key]+$shipping_earn[$key])-$discount_given[$key]-$refund_given[$key];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $total_in_house_products_query = Product::where(['added_by' => 'admin']);
@@ -90,14 +103,21 @@ class ReportController extends Controller
             'total_inhouse_earning' => $total_inhouse_earning-$total_tax_final,
             'total_commission' => $total_commission,
             'total_shipping_earn' => $total_shipping_earn,
+<<<<<<< HEAD
             'total_deliveryman_incentive' => $total_deliveryman_incentive,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'total_in_house_products' => $total_in_house_products,
             'total_stores' => $total_stores,
             'total_earning_statistics' => $total_earning_statistics,
             'total_commission_statistics' => $total_commission_statistics,
         ];
 
+<<<<<<< HEAD
         return view('admin-views.report.admin-earning', compact('earning_data', 'inhouse_earn', 'shipping_earn', 'deliveryman_incentive',
+=======
+        return view('admin-views.report.admin-earning', compact('earning_data', 'inhouse_earn', 'shipping_earn',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'admin_commission_earn', 'refund_given', 'discount_given', 'total_tax', 'from', 'to', 'date_type', 'payment_data'));
     }
 
@@ -109,7 +129,10 @@ class ReportController extends Controller
         $filter_data = self::earning_common_filter('admin', $date_type, $from, $to);
         $inhouse_earn = $filter_data['earn_from_order'];
         $shipping_earn = $filter_data['shipping_earn'];
+<<<<<<< HEAD
         $deliveryman_incentive = $filter_data['deliveryman_incentive'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $admin_commission_earn = $filter_data['commission'];
         $refund_given = $filter_data['refund_given'];
         $discount_given = $filter_data['discount_given'];
@@ -123,11 +146,18 @@ class ReportController extends Controller
                 'In-House Earning' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($inhouse_earning)),
                 'Commission Earning' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($admin_commission_earn[$key])),
                 'Earn From Shipping' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($shipping_earn[$key])),
+<<<<<<< HEAD
                 'Deliveryman Incentive' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($deliveryman_incentive[$key])),
                 'Discount Given' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($discount_given[$key])),
                 'Tax Collected' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($total_tax[$key])),
                 'Refund Given' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($refund_given[$key])),
                 'Total Earning' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($inhouse_earning+$admin_commission_earn[$key]+$total_tax[$key]+$shipping_earn[$key]-$discount_given[$key]-$refund_given[$key] - $deliveryman_incentive[$key])),
+=======
+                'Discount Given' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($discount_given[$key])),
+                'Tax Collected' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($total_tax[$key])),
+                'Refund Given' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($refund_given[$key])),
+                'Total Earning' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($inhouse_earning+$admin_commission_earn[$key]+$total_tax[$key]+$shipping_earn[$key]-$discount_given[$key]-$refund_given[$key])),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             );
         }
 
@@ -136,26 +166,47 @@ class ReportController extends Controller
 
     public function earning_common_filter($type, $date_type, $from, $to){
 
+<<<<<<< HEAD
         if($date_type == 'this_year') {
+=======
+        if($date_type == 'this_year'){ //this year table
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $number = 12;
             $default_inc = 1;
             $current_start_year = date('Y-01-01');
             $current_end_year = date('Y-12-31');
             $from_year = Carbon::parse($from)->format('Y');
 
+<<<<<<< HEAD
             return self::earning_same_year($type, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
         } elseif($date_type == 'this_month') { //this month table
+=======
+            $this_year = self::earning_same_year($type, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+            return $this_year;
+
+        }elseif($date_type == 'this_month'){ //this month table
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $current_month_start = date('Y-m-01');
             $current_month_end = date('Y-m-t');
             $inc = 1;
             $month = date('m');
             $number = date('d',strtotime($current_month_end));
 
+<<<<<<< HEAD
             return self::earning_same_month($type, $current_month_start, $current_month_end, $month, $number, $inc);
         } elseif ($date_type == 'this_week') {
             return self::earning_this_week($type);
         } elseif ($date_type == 'today') {
             return self::getEarningDataForToday(type: $type);
+=======
+            $this_month = self::earning_same_month($type, $current_month_start, $current_month_end, $month, $number, $inc);
+            return $this_month;
+
+        }elseif($date_type == 'this_week'){
+            $this_week = self::earning_this_week($type);
+            return $this_week;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }elseif($date_type == 'custom_date' && !empty($from) && !empty($to)){
             $start_date = Carbon::parse($from)->format('Y-m-d 00:00:00');
             $end_date = Carbon::parse($to)->format('Y-m-d 23:59:59');
@@ -182,6 +233,7 @@ class ReportController extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function getEarningDataForToday($type): array
     {
         $number = 1;
@@ -371,6 +423,8 @@ class ReportController extends Controller
         ];
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public function earning_common_query($request, $query){
         $from         = $request['from'];
         $to           = $request['to'];
@@ -386,9 +440,12 @@ class ReportController extends Controller
             ->when(($date_type == 'this_week'), function ($query) {
                 return $query->whereBetween('updated_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
             })
+<<<<<<< HEAD
             ->when(($date_type == 'today'), function ($query) {
                 return $query->whereBetween('updated_at', [Carbon::now()->startOfDay(), Carbon::now()->endOfDay()]);
             })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when(($date_type == 'custom_date' && !is_null($from) && !is_null($to)), function ($query) use ($from, $to) {
                 return $query->whereDate('updated_at', '>=', $from)
                     ->whereDate('updated_at', '<=', $to);
@@ -397,7 +454,11 @@ class ReportController extends Controller
 
     public function earning_same_month($type, $start_date, $end_date, $month_date, $number, $default_inc){
         $year_month = date('Y-m', strtotime($start_date));
+<<<<<<< HEAD
         $month = substr(date("F", strtotime("$year_month")), 0, 3);
+=======
+        $month = date("F", strtotime("$year_month"));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         //earn from order
         $earn_from_orders = Order::where(['order_status'=>'delivered', 'seller_is'=>$type])
@@ -442,6 +503,7 @@ class ReportController extends Controller
             }
         }
 
+<<<<<<< HEAD
         //deliveryman incentive
         $deliveryman_incentives = Order::whereHas('deliveryMan', function ($query) use($type){
                 $query->when($type=='admin', function ($query){
@@ -468,6 +530,8 @@ class ReportController extends Controller
             }
         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         //commission
         $commissions = Order::where(['seller_is'=>'seller', 'order_status'=>'delivered'])
             ->whereDate('updated_at', '>=', $start_date)
@@ -564,16 +628,28 @@ class ReportController extends Controller
             }
         }
 
+<<<<<<< HEAD
         return [
             'earn_from_order' => $earn_from_order,
             'admin_bearer_free_shipping' => $admin_bearer_free_shipping,
             'shipping_earn' => $shipping_earn,
             'deliveryman_incentive' => $deliveryman_incentive,
+=======
+        $data = array(
+            'earn_from_order' => $earn_from_order,
+            'admin_bearer_free_shipping' => $admin_bearer_free_shipping,
+            'shipping_earn' => $shipping_earn,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'commission' => $commission,
             'discount_given' => $discount_given,
             'total_tax' => $total_tax,
             'refund_given' => $refund_given,
+<<<<<<< HEAD
         ];
+=======
+        );
+        return $data;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function earning_this_week($type){
@@ -628,6 +704,7 @@ class ReportController extends Controller
             }
         }
 
+<<<<<<< HEAD
         //deliveryman incentive
         $deliveryman_incentives = Order::whereHas('deliveryMan', function ($query) use($type){
                 $query->when($type=='admin', function ($query){
@@ -655,6 +732,8 @@ class ReportController extends Controller
             }
         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         //commission
         $commissions = Order::where(['seller_is'=>'seller', 'order_status'=>'delivered'])
             ->whereBetween('updated_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
@@ -756,16 +835,27 @@ class ReportController extends Controller
             }
         }
 
+<<<<<<< HEAD
         return [
             'earn_from_order' => $earn_from_order,
             'shipping_earn' => $shipping_earn,
             'deliveryman_incentive' => $deliveryman_incentive,
+=======
+        $data = array(
+            'earn_from_order' => $earn_from_order,
+            'shipping_earn' => $shipping_earn,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'commission' => $commission,
             'discount_given' => $discount_given,
             'total_tax' => $total_tax,
             'refund_given' => $refund_given,
             'admin_bearer_free_shipping' => $admin_bearer_free_shipping,
+<<<<<<< HEAD
         ];
+=======
+        );
+        return $data;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function earning_same_year($type, $start_date, $end_date, $from_year, $number, $default_inc){
@@ -778,11 +868,19 @@ class ReportController extends Controller
             ->groupBy(DB::raw("DATE_FORMAT(updated_at, '%M')"))->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $earn_from_order[$month] = 0;
             foreach ($earn_from_orders as $match) {
                 if ($match['month'] == $inc) {
                     $earn_from_order[$month] = $match['earn_from_order'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $earn_from_order[$month.'-'.$from_year] = 0;
+            foreach ($earn_from_orders as $match) {
+                if ($match['month'] == $inc) {
+                    $earn_from_order[$month.'-'.$from_year] = $match['earn_from_order'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -804,6 +902,7 @@ class ReportController extends Controller
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $shipping_earn[$month] = 0;
             foreach ($shipping_earns as $match) {
@@ -835,6 +934,13 @@ class ReportController extends Controller
             foreach ($deliveryman_incentives as $match) {
                 if ($match['month'] == $inc) {
                     $deliveryman_incentive[$month] = $match['deliveryman_incentive'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $shipping_earn[$month.'-'.$from_year] = 0;
+            foreach ($shipping_earns as $match) {
+                if ($match['month'] == $inc) {
+                    $shipping_earn[$month.'-'.$from_year] = $match['shipping_earn'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -848,11 +954,19 @@ class ReportController extends Controller
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $commission[$month] = 0;
             foreach ($commissions as $match) {
                 if ($match['month'] == $inc) {
                     $commission[$month] = $match['commission'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $commission[$month.'-'.$from_year] = 0;
+            foreach ($commissions as $match) {
+                if ($match['month'] == $inc) {
+                    $commission[$month.'-'.$from_year] = $match['commission'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -866,11 +980,19 @@ class ReportController extends Controller
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $admin_bearer_free_shipping[$month] = 0;
             foreach ($admin_bearer_free_shippings as $match) {
                 if ($match['month'] == $inc) {
                     $admin_bearer_free_shipping[$month] = $match['free_shipping_admin_bearer'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $admin_bearer_free_shipping[$month.'-'.$from_year] = 0;
+            foreach ($admin_bearer_free_shippings as $match) {
+                if ($match['month'] == $inc) {
+                    $admin_bearer_free_shipping[$month.'-'.$from_year] = $match['free_shipping_admin_bearer'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -889,11 +1011,19 @@ class ReportController extends Controller
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $discount_given[$month] = 0;
             foreach ($discounts_given as $match) {
                 if ($match['month'] == $inc) {
                     $discount_given[$month] = $match['discount_amount'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $discount_given[$month.'-'.$from_year] = 0;
+            foreach ($discounts_given as $match) {
+                if ($match['month'] == $inc) {
+                    $discount_given[$month.'-'.$from_year] = $match['discount_amount'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -907,11 +1037,19 @@ class ReportController extends Controller
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $total_tax[$month] = 0;
             foreach ($taxes as $match) {
                 if ($match['month'] == $inc) {
                     $total_tax[$month] = $match['total_tax'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $total_tax[$month.'-'.$from_year] = 0;
+            foreach ($taxes as $match) {
+                if ($match['month'] == $inc) {
+                    $total_tax[$month.'-'.$from_year] = $match['total_tax'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -925,11 +1063,19 @@ class ReportController extends Controller
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $refund_given[$month] = 0;
             foreach ($refunds as $match) {
                 if ($match['month'] == $inc) {
                     $refund_given[$month] = $match['refund_amount'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $refund_given[$month.'-'.$from_year] = 0;
+            foreach ($refunds as $match) {
+                if ($match['month'] == $inc) {
+                    $refund_given[$month.'-'.$from_year] = $match['refund_amount'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -937,7 +1083,10 @@ class ReportController extends Controller
         $data = array(
             'earn_from_order' => $earn_from_order,
             'shipping_earn' => $shipping_earn,
+<<<<<<< HEAD
             'deliveryman_incentive' => $deliveryman_incentive,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'commission' => $commission,
             'discount_given' => $discount_given,
             'total_tax' => $total_tax,
@@ -991,6 +1140,7 @@ class ReportController extends Controller
             }
         }
 
+<<<<<<< HEAD
         //deliveryman incentive
         $deliveryman_incentives = Order::whereHas('deliveryMan', function ($query) use($type){
                 $query->when($type=='admin', function ($query){
@@ -1016,6 +1166,8 @@ class ReportController extends Controller
             }
         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         //commission
         $commissions = Order::where(['seller_is'=>'seller', 'order_status'=>'delivered'])
             ->whereDate('updated_at', '>=', $start_date)
@@ -1110,7 +1262,10 @@ class ReportController extends Controller
         $data = array(
             'earn_from_order' => $earn_from_order,
             'shipping_earn' => $shipping_earn,
+<<<<<<< HEAD
             'deliveryman_incentive' => $deliveryman_incentive,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'commission' => $commission,
             'discount_given' => $discount_given,
             'total_tax' => $total_tax,
@@ -1173,20 +1328,30 @@ class ReportController extends Controller
         $filter_data_chart = self::earning_common_filter('seller', $date_type, $from, $to);
         $seller_earn_chart = $filter_data_chart['earn_from_order'];
         $shipping_earn_chart = $filter_data_chart['shipping_earn'];
+<<<<<<< HEAD
         $deliveryman_incentive = $filter_data_chart['deliveryman_incentive'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $commission_given_chart = $filter_data_chart['commission'];
         $discount_given_chart = $filter_data_chart['discount_given'];
         $total_tax_chart = $filter_data_chart['total_tax'];
         $refund_given_chart = $filter_data_chart['refund_given'];
 
         foreach($seller_earn_chart as $key=>$earning) {
+<<<<<<< HEAD
             $chart_earning_statistics[$key] = ($earning+$shipping_earn_chart[$key])-($refund_given_chart[$key]+$commission_given_chart[$key]-$deliveryman_incentive[$key]);
+=======
+            $chart_earning_statistics[$key] = ($earning+$shipping_earn_chart[$key])-($refund_given_chart[$key]+$commission_given_chart[$key]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $filter_data_table = self::seller_earning_common_filter_table($date_type, $from, $to);
         $seller_earn_table = $filter_data_table['seller_earn_table'];
         $shipping_earn_table = $filter_data_table['shipping_earn_table'];
+<<<<<<< HEAD
         $deliveryman_incentive_table = $filter_data_table['deliveryman_incentive'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $commission_given_table = $filter_data_table['commission_given_table'];
         $total_refund_table = $filter_data_table['total_refund_table'];
         $discount_given_table = $filter_data_table['discount_given_table'];
@@ -1197,7 +1362,10 @@ class ReportController extends Controller
             'seller_earn_table' => $seller_earn_table,
             'commission_given_table' => $commission_given_table,
             'shipping_earn_table' => $shipping_earn_table,
+<<<<<<< HEAD
             'deliveryman_incentive_table' => $deliveryman_incentive_table,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'discount_given_table' => $discount_given_table,
             'discount_given_bearer_admin_table' => $discount_given_bearer_admin_table,
             'total_tax_table' => $total_tax_table,
@@ -1207,13 +1375,19 @@ class ReportController extends Controller
         $total_seller_earning = 0;
         $total_commission = 0;
         $total_shipping_earn = 0;
+<<<<<<< HEAD
         $total_deliveryman_incentive = 0;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $total_discount_given = 0;
         $total_refund_given = 0;
         $total_tax = 0;
         foreach($seller_earn_table as $key=>$earning) {
             $shipping_earn = isset($shipping_earn_table[$key]['amount']) ? $shipping_earn_table[$key]['amount'] : 0;
+<<<<<<< HEAD
             $deliveryman_incentive_given = isset($deliveryman_incentive_table[$key]['amount']) ? $deliveryman_incentive_table[$key]['amount'] : 0;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $commission_given = isset($commission_given_table[$key]['amount']) ? $commission_given_table[$key]['amount'] : 0;
             $discount_given = isset($discount_given_table[$key]['amount']) ? $discount_given_table[$key]['amount'] : 0;
             $tax = isset($total_tax_table[$key]['amount']) ? $total_tax_table[$key]['amount'] : 0;
@@ -1222,12 +1396,19 @@ class ReportController extends Controller
             $total_seller_earning += $earning['amount'];
             $total_commission += $commission_given;
             $total_shipping_earn += $shipping_earn;
+<<<<<<< HEAD
             $total_deliveryman_incentive += $deliveryman_incentive_given;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $total_discount_given += $discount_given;
             $total_tax += $tax;
             $total_refund_given += $refund_given;
         }
+<<<<<<< HEAD
         $total_earning = ($total_seller_earning+$total_shipping_earn) - ($total_commission+$total_refund_given+$total_deliveryman_incentive);
+=======
+        $total_earning = ($total_seller_earning+$total_shipping_earn) - ($total_commission+$total_refund_given);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         return view('admin-views.report.seller-earning', compact('data', 'payment_data', 'table_earning', 'total_earning', 'chart_earning_statistics', 'from', 'to', 'date_type'));
     }
@@ -1240,7 +1421,10 @@ class ReportController extends Controller
         $filter_data = self::seller_earning_common_filter_table($date_type, $from, $to);
         $seller_earn_table = $filter_data['seller_earn_table'];
         $shipping_earn_table = $filter_data['shipping_earn_table'];
+<<<<<<< HEAD
         $deliveryman_incentive_table = $filter_data['deliveryman_incentive'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $commission_given_table = $filter_data['commission_given_table'];
         $total_refund_table = $filter_data['total_refund_table'];
         $discount_given_table = $filter_data['discount_given_table'];
@@ -1250,7 +1434,10 @@ class ReportController extends Controller
         $data = array();
         foreach ($seller_earn_table as $key=>$seller_earn) {
             $shipping_earn = isset($shipping_earn_table[$key]['amount']) ? $shipping_earn_table[$key]['amount'] : 0;
+<<<<<<< HEAD
             $deliveryman_incentive = isset($deliveryman_incentive_table[$key]['amount']) ? $deliveryman_incentive_table[$key]['amount'] : 0;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $commission_given = isset($commission_given_table[$key]['amount']) ? $commission_given_table[$key]['amount'] : 0;
             $discount_given = isset($discount_given_table[$key]['amount']) ? $discount_given_table[$key]['amount'] : 0;
             $discount_given_bearer_admin = isset($discount_given_bearer_admin_table[$key]['amount']) ? $discount_given_bearer_admin_table[$key]['amount'] : 0;
@@ -1262,12 +1449,19 @@ class ReportController extends Controller
                 'Seller_Info' => $seller_earn['name'],
                 'Earn From Order' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($total_earn_from_order)),
                 'Earn From Shipping' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($shipping_earn)),
+<<<<<<< HEAD
                 'Deliveryman Incentive' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($deliveryman_incentive)),
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 'Commission Given' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($commission_given)),
                 'Discount Given' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($discount_given)),
                 'Tax Collected' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($total_tax)),
                 'Refund Given' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($refund_given)),
+<<<<<<< HEAD
                 'Total Earning' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($total_earn_from_order+$shipping_earn+$total_tax-$discount_given-$refund_given-$commission_given-$deliveryman_incentive)),
+=======
+                'Total Earning' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($total_earn_from_order+$shipping_earn+$total_tax-$discount_given-$refund_given-$commission_given)),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             );
         }
 
@@ -1276,6 +1470,7 @@ class ReportController extends Controller
 
     public function seller_earning_common_filter_table($date_type, $from, $to)
     {
+<<<<<<< HEAD
         if ($date_type == 'this_year') {
             $start_date = date('Y-01-01');
             $end_date = date('Y-12-31');
@@ -1292,6 +1487,34 @@ class ReportController extends Controller
             $start_date_custom = Carbon::parse($from)->format('Y-m-d 00:00:00');
             $end_date_custom = Carbon::parse($to)->format('Y-m-d 23:59:59');
             return self::seller_earning_query_table($start_date_custom, $end_date_custom);
+=======
+
+        if ($date_type == 'this_year') { //this year table
+            $start_date = date('Y-01-01');
+            $end_date = date('Y-12-31');
+
+            $this_year = self::seller_earning_query_table($start_date, $end_date);
+            return $this_year;
+
+        }elseif($date_type == 'this_month'){ //this month table
+            $current_month_start = date('Y-m-01');
+            $current_month_end = date('Y-m-t');
+
+            $this_month = self::seller_earning_query_table($current_month_start, $current_month_end);
+            return $this_month;
+
+        }elseif($date_type == 'this_week'){
+
+            $this_week = self::seller_earning_query_table(Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek());
+            return $this_week;
+
+        }elseif($date_type == 'custom_date' && !empty($from) && !empty($to)) {
+            $start_date_custom = Carbon::parse($from)->format('Y-m-d 00:00:00');
+            $end_date_custom = Carbon::parse($to)->format('Y-m-d 23:59:59');
+
+            $custom_date = self::seller_earning_query_table($start_date_custom, $end_date_custom);
+            return $custom_date;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
     }
 
@@ -1299,9 +1522,16 @@ class ReportController extends Controller
     *   seller earning query for table
      */
     public function seller_earning_query_table($start_date, $end_date){
+<<<<<<< HEAD
         //seller earn and admin commission
         $seller_earnings_commission = Order::where(['order_status'=>'delivered', 'seller_is'=>'seller'])
             ->whereBetween('updated_at', [$start_date, $end_date])
+=======
+        //seller earn and admin commision
+        $seller_earnings_commission = Order::where(['order_status'=>'delivered', 'seller_is'=>'seller'])
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->selectRaw('seller_id, (sum(order_amount) - sum(shipping_cost) + sum(CASE WHEN is_shipping_free=1 AND free_delivery_bearer="admin" THEN extra_discount ELSE 0 END)) as earn_from_order, sum(admin_commission) as admin_commission, seller_id, YEAR(updated_at) year, MONTH(updated_at) month')
             ->groupBy('seller_id')->latest('updated_at')->get();
 
@@ -1323,7 +1553,12 @@ class ReportController extends Controller
 
         //discount_given_bearer_admin
         $discount_given_bearer_admin = Order::where(['coupon_discount_bearer'=>'inhouse', 'discount_type'=>'coupon_discount','order_status'=>'delivered'])
+<<<<<<< HEAD
             ->whereBetween('updated_at', [$start_date, $end_date])
+=======
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->selectRaw('sum(discount_amount) as discount_amount, seller_id, YEAR(updated_at) year, MONTH(updated_at) month')
             ->groupBy('seller_id')
             ->latest('updated_at')->get();
@@ -1339,14 +1574,24 @@ class ReportController extends Controller
 
         //shipping earn
         $shipping_earns = Order::whereHas('deliveryMan', function ($query){
+<<<<<<< HEAD
                 $query->where('seller_id', '!=', '0');
             })
+=======
+            $query->where('seller_id', '!=', '0');
+        })
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where([
                 'order_type'=>'default_type',
                 'order_status'=>'delivered',
                 'seller_is'=>'seller',
             ])
+<<<<<<< HEAD
             ->whereBetween('updated_at', [$start_date, $end_date])
+=======
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->selectRaw('(sum(CASE WHEN is_shipping_free=0 THEN shipping_cost ELSE 0 END) + sum(CASE WHEN is_shipping_free=1 THEN extra_discount ELSE 0 END)) as shipping_earn, seller_id, YEAR(updated_at) year, MONTH(updated_at) month')
             ->groupBy('seller_id')
             ->latest('updated_at')->get();
@@ -1360,6 +1605,7 @@ class ReportController extends Controller
             );
         }
 
+<<<<<<< HEAD
         //deliveryman incentive
         $deliveryman_incentives = Order::whereHas('deliveryMan', function ($query){
                 $query->where('seller_id', '!=', '0');
@@ -1386,6 +1632,12 @@ class ReportController extends Controller
         //discount_given
         $discounts_given = Order::where(['order_status'=>'delivered'])
             ->whereBetween('updated_at', [$start_date, $end_date])
+=======
+        //discount_given
+        $discounts_given = Order::where(['order_status'=>'delivered'])
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->selectRaw('(sum(CASE WHEN coupon_discount_bearer="seller" AND discount_type="coupon_discount" THEN discount_amount ELSE 0 END) + sum(CASE WHEN is_shipping_free=1 AND free_delivery_bearer="seller" THEN extra_discount ELSE 0 END)) as discount_amount, seller_id, YEAR(updated_at) year, MONTH(updated_at) month')
             ->groupBy('seller_id')
             ->latest('updated_at')->get();
@@ -1401,7 +1653,12 @@ class ReportController extends Controller
 
         //vat/tax
         $taxes = OrderTransaction::where(['seller_is'=>'seller', 'status'=>'disburse'])
+<<<<<<< HEAD
             ->whereBetween('updated_at', [$start_date, $end_date])
+=======
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->selectRaw('sum(tax) as total_tax, seller_id, YEAR(updated_at) year, MONTH(updated_at) month')
             ->groupBy('seller_id')
             ->latest('updated_at')->get();
@@ -1417,7 +1674,12 @@ class ReportController extends Controller
 
         //refund given
         $refunds = RefundTransaction::where(['payment_status'=>'paid','paid_by'=>'seller'])
+<<<<<<< HEAD
             ->whereBetween('updated_at', [$start_date, $end_date])
+=======
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->selectRaw('sum(amount) as refund_amount, payer_id, YEAR(updated_at) year')
             ->groupBy('payer_id')
             ->latest('updated_at')->get();
@@ -1440,16 +1702,28 @@ class ReportController extends Controller
             }
         }
 
+<<<<<<< HEAD
         return [
             'seller_earn_table' => $seller_earn_table,
             'commission_given_table' => $commission_given_table,
             'shipping_earn_table' => $shipping_earn_table,
             'deliveryman_incentive' => $deliveryman_incentive,
+=======
+        $data = array(
+            'seller_earn_table' => $seller_earn_table,
+            'commission_given_table' => $commission_given_table,
+            'shipping_earn_table' => $shipping_earn_table,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'discount_given_table' => $discount_given_table,
             'discount_given_bearer_admin_table' => $discount_given_bearer_admin_table,
             'total_tax_table' => $total_tax_table,
             'total_refund_table' => $total_refund_table,
+<<<<<<< HEAD
         ];
+=======
+        );
+        return $data;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function set_date(Request $request)

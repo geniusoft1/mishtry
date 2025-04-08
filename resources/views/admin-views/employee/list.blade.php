@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/employee.png')}}" width="20" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/employee.png')}}" width="20" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('employee_list')}}
             </h2>
         </div>
@@ -66,7 +70,11 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li>
                                         <a class="dropdown-item" href="{{route('admin.employee.export',['role'=>request('admin_role_id'),'searchValue'=>request('searchValue')])}}">
+<<<<<<< HEAD
                                             <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                            <img width="14" src="{{asset('public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             {{translate('excel')}}
                                         </a>
                                     </li>

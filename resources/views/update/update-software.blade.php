@@ -23,7 +23,11 @@
                                                       data-bs-html="true"
                                                       data-bs-title="The username of your codecanyon account">
                                                       <img class="svg" alt=""
+<<<<<<< HEAD
                                                           src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+=======
+                                                          src="{{ asset('public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </label>
                                             <input type="text" id="username" class="form-control" name="username"

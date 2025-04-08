@@ -21,7 +21,11 @@
                     <div class="others-store-slider owl-theme owl-carousel">
 
                         @foreach ($top_sellers as $seller)
+<<<<<<< HEAD
                         <a href="{{route('shopView',['id'=> $seller->shop['id']])}}" class="others-store-card text-capitalize">
+=======
+                        <a href="{{route('shopView',['id'=>$seller['id']])}}" class="others-store-card text-capitalize">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="overflow-hidden other-store-banner">
                                 <img class="w-100 h-100 object-cover" alt=""
                                      src="{{ getValidImage(path: 'storage/app/public/shop/banner/'.$seller->shop->banner, type: 'shop-banner') }}">
@@ -36,7 +40,11 @@
                                     @if($seller->shop->temporary_close || ($seller->shop->vacation_status &&
                                     ($current_date >= $seller->shop->vacation_start_date) && ($current_date <= $seller->
                                         shop->vacation_end_date)))
+<<<<<<< HEAD
                                         <span class="temporary-closed position-absolute text-center rounded-full p-2">
+=======
+                                        <span class="temporary-closed position-absolute text-center rounded-full">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             <span>{{translate('closed_now')}}</span>
                                         </span>
                                         @endif

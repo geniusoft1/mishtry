@@ -1,14 +1,26 @@
 "use strict";
 
 $(document).on('ready', function () {
+<<<<<<< HEAD
     $('.js-toggle-password').each(function () {
         new HSTogglePassword(this).init()
     });
+=======
+    // INITIALIZATION OF SHOW PASSWORD
+    // =======================================================
+    $('.js-toggle-password').each(function () {
+        new HSTogglePassword(this).init()
+    });
+
+    // INITIALIZATION OF FORM VALIDATION
+    // =======================================================
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     $('.js-validate').each(function () {
         $.HSCore.components.HSValidation.init($(this));
     });
 });
 
+<<<<<<< HEAD
 $('.submit-login-form').on('click',function (){
     var response = 1;
     try{
@@ -59,6 +71,16 @@ $('.submit-login-form').on('click',function (){
 $('.clear-alter-message').on('click',function (){
     $('.vendor-suspend').addClass('d-none')
 })
+=======
+$("#vendor-login-form").on('submit', function (e) {
+    var response = grecaptcha.getResponse();
+    if (response.length === 0) {
+        e.preventDefault();
+        toastr.error($('#message-please-check-recaptcha').data('text'));
+    }
+})
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 $('.get-login-recaptcha-verify').on('click', function () {
     document.getElementById('default_recaptcha_id').src = $(this).data('link') + "/" + Math.random()+'?captcha_session_id=vendorRecaptchaSessionKey';
 });

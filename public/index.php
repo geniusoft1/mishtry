@@ -9,8 +9,11 @@
 
 define('LARAVEL_START', microtime(true));
 
+<<<<<<< HEAD
 /*identify the domain pointer*/
 const DOMAIN_POINTED_DIRECTORY = 'public';
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

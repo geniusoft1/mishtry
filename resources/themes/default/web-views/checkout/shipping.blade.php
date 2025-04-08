@@ -3,8 +3,12 @@
 @section('title',translate('shipping_Address'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/bootstrap-select.min.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -76,8 +80,12 @@
                                                                 <label>{{ translate('phone')}}
                                                                     <span class="text-danger">*</span>
                                                                 </label>
+<<<<<<< HEAD
                                                                 <input type="text" class="form-control phone-input-with-country-picker" name="phone" id="phone" {{$shippingAddresses->count()==0?'required':''}}>
                                                                 <input type="hidden" id="shipping_phone_view" class="country-picker-phone-number w-50" name="phone" readonly>
+=======
+                                                                <input type="text" class="form-control" name="phone"  id="phone" {{$shippingAddresses->count()==0?'required':''}}>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             </div>
                                                         </div>
                                                         @if(!auth('customer')->check())
@@ -139,23 +147,38 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
+<<<<<<< HEAD
                                                             <div class="form-group mb-1">
                                                                 <label>{{ translate('address')}}<span class="text-danger">*</span></label>
                                                                 <textarea class="form-control" id="address" type="text" name="address" {{$shippingAddresses->count()==0?'required':''}}></textarea>
                                                                 <span class="fs-14 text-danger font-semi-bold opacity-0 map-address-alert">
                                                                     {{ translate('note') }}: {{ translate('you_need_to_select_address_from_your_selected_country') }}
                                                                 </span>
+=======
+                                                            <div class="form-group">
+                                                                <label>{{ translate('address')}}<span class="text-danger">*</span></label>
+                                                                <textarea class="form-control" id="address" type="text" name="address" id="address" {{$shippingAddresses->count()==0?'required':''}}></textarea>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             </div>
                                                         </div>
                                                     </div>
 
+<<<<<<< HEAD
                                                     <div class="form-group location-map-canvas-area map-area-alert-border">
                                                         <input id="pac-input" class="controls rounded __inline-46 location-search-input-field" title="{{translate('search_your_location_here')}}" type="text" placeholder="{{translate('search_here')}}"/>
+=======
+                                                    <div class="form-group">
+                                                        <input id="pac-input" class="controls rounded __inline-46" title="{{translate('search_your_location_here')}}" type="text" placeholder="{{translate('search_here')}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         <div class="__h-200px" id="location_map_canvas"></div>
                                                     </div>
 
                                                     <div class="d-flex gap-3 align-items-center">
+<<<<<<< HEAD
                                                         <label class="form-check-label d-flex gap-2 align-items-center" id="save_address_label">
+=======
+                                                        <label class="form-check-label" id="save_address_label">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             <input type="hidden" name="shipping_method_id" id="shipping_method_id" value="0">
                                                             @if(auth('customer')->check())
                                                                 <input type="checkbox" name="save_address" id="save_address">
@@ -202,6 +225,7 @@
                             @endif
                         </div>
 
+<<<<<<< HEAD
                         @if(!$physical_product_view)
                         <div class="rounded px-3 py-3 fs-15 text-base font-weight-medium custom-light-primary-color mb-3 d-flex align-items-center gap-2">
                             <img src="{{ theme_asset('public/assets/front-end/img/icons/info-light.svg') }}" alt="">
@@ -209,6 +233,8 @@
                         </div>
                         @endif
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <form method="post" class="card __card" id="billing-address-form">
                             <div id="hide_billing_address" class="">
                                 <ul class="list-group">
@@ -256,11 +282,18 @@
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>{{ translate('phone')}}
+<<<<<<< HEAD
                                                                     <span class="text-danger">*</span>
                                                                 </label>
                                                                 <input type="text" class="form-control phone-input-with-country-picker-2"
                                                                     id="billing_phone" {{ $billingAddresses->count()==0 ? 'required' : '' }}>
                                                                 <input type="hidden" class="country-picker-phone-number-2 w-50" name="billing_phone" readonly>
+=======
+                                                                    <span
+                                                                        class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control"
+                                                                    name="billing_phone" id="billing_phone" {{$billingAddresses->count()==0?'required':''}}>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             </div>
                                                         </div>
                                                         @if(!auth('customer')->check())
@@ -320,6 +353,7 @@
                                                         </div>
                                                     </div>
 
+<<<<<<< HEAD
                                                     <div class="form-group mb-1">
                                                         <label>{{ translate('address')}}<span class="text-danger">*</span></label>
                                                         <textarea class="form-control" id="billing_address" type="billing_text" name="billing_address" id="billing_address" {{$billingAddresses->count()==0?'required':''}}></textarea>
@@ -331,6 +365,16 @@
 
                                                     <div class="form-group map-area-alert-border location-map-billing-canvas-area">
                                                         <input id="pac-input-billing" class="controls rounded __inline-46 location-search-input-field"
+=======
+
+                                                    <div class="form-group">
+                                                        <label>{{ translate('address')}}<span class="text-danger">*</span></label>
+                                                        <textarea class="form-control" id="billing_address" type="billing_text" name="billing_address" id="billing_address" {{$billingAddresses->count()==0?'required':''}}></textarea>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <input id="pac-input-billing" class="controls rounded __inline-46"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             title="{{translate('search_your_location_here')}}"
                                                             type="text"
                                                             placeholder="{{translate('search_here')}}"/>
@@ -340,7 +384,11 @@
                                                     <input type="hidden" name="billing_method_id" id="billing_method_id" value="0">
                                                     @if(auth('customer')->check())
                                                     <div class=" d-flex gap-3 align-items-center">
+<<<<<<< HEAD
                                                         <label class="form-check-label d-flex gap-2 align-items-center" id="save-billing-address-label">
+=======
+                                                        <label class="form-check-label" id="save-billing-address-label">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             <input type="checkbox" name="save_address_billing" id="save_address_billing">
                                                             {{ translate('save_this_Address') }}
                                                         </label>
@@ -379,6 +427,7 @@
     <span id="default-latitude-address" data-value="{{ $defaultLocation ? $defaultLocation['lat']:'-33.8688' }}"></span>
     <span id="default-longitude-address" data-value="{{ $defaultLocation ? $defaultLocation['lng']:'151.2195' }}"></span>
     <span id="route-action-checkout-function" data-route="checkout-details"></span>
+<<<<<<< HEAD
     <span id="system-country-restrict-status" data-value="{{ $country_restrict_status }}"></span>
 @endsection
 
@@ -404,5 +453,12 @@
 
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/shipping.js') }}"></script>
+=======
+@endsection
+
+@push('script')
+    <script src="{{ asset('public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('public/assets/front-end/js/shipping.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script src="https://maps.googleapis.com/maps/api/js?key={{getWebConfig(name: 'map_api_key')}}&callback=mapsShopping&libraries=places&v=3.49" defer></script>
 @endpush

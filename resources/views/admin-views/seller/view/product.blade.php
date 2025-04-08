@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-seller.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('vendor_details')}}
             </h2>
         </div>
@@ -107,7 +111,11 @@
                                         <tr>
                                             <td>{{$products->firstItem()+$k}}</td>
                                             <td>
+<<<<<<< HEAD
                                                 <a href="{{route('admin.products.view',['addedBy'=>$product['added_by'],'id'=>$product['id']])}}"
+=======
+                                                <a href="{{route('admin.products.view',[$product['id']])}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                    class="title-color hover-c1">
                                                     {{substr($product['name'],0,20)}}{{strlen($product['name'])>20?'...':''}}
                                                 </a>
@@ -193,7 +201,11 @@
                             @if(count($products)==0)
                                 <div class="text-center p-4">
                                     <img class="mb-3 w-160"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                         src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="{{translate('image_description')}}">
                                     <p class="mb-0">{{translate('no_data_to_show')}}</p>
                                 </div>

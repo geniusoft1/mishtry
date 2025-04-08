@@ -7,7 +7,11 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business-setup.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/business-setup.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('business_setup')}}
             </h2>
             <div class="btn-group">
@@ -22,7 +26,11 @@
                 <div
                     class="dropdown-menu dropdown-menu-right bg-aliceblue border border-color-primary-light p-4 dropdown-w-lg">
                     <div class="d-flex align-items-center gap-2 mb-3">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/note.png')}}" alt="">
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/note.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <h5 class="text-primary mb-0">{{translate('note')}}</h5>
                     </div>
                     <p class="title-color font-weight-medium mb-0">{{ translate('please_click_the_Save_button_below_to_save_all_the_changes') }}</p>
@@ -43,7 +51,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('admin_can_set_whether_wallet_will_be_available_on_customer_profile_by_enabling_or_disabling_this_button')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -71,7 +83,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('admin_can_set_whether_customers_will_get_loyalty_points_by_enabling_or_disabling_this_button')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -101,7 +117,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('admin_can_set_whether_customers_will_get_referral_earnings_by_enabling_or_disabling_this_button')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -128,11 +148,19 @@
             <div class="card mb-3 {{ $walletStatus == 0?'opacity--40':'' }}">
                 <div class="border-bottom px-4 py-3">
                     <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vector.png')}}" alt="">
                         {{translate('customer_Wallet_Settings')}}
                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
                               title="{{translate('if_the_Customer_Wallet_option_is_disabled_above_all_settings_of_this_section_will_be_unavailable')}}">
                             <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                        <img src="{{asset('/public/assets/back-end/img/vector.png')}}" alt="">
+                        {{translate('customer_Wallet_Settings')}}
+                        <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
+                              title="{{translate('if_the_Customer_Wallet_option_is_disabled_above_all_settings_of_this_section_will_be_unavailable')}}">
+                            <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </h5>
                 </div>
@@ -146,7 +174,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('admin_can_set_whether_customers_will_get_refund_amount_to_wallet_by_enabling_or_disabling_this_button')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -175,7 +207,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('admin_can_set_whether_customers_can_add_money_to_their_wallets_by_enabling_or_disabling_this_button')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </span>
@@ -232,7 +268,11 @@
                         {{translate('customer_Loyalty_Point_Settings')}}
                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
                               title="{{translate('if_the_Customer_Loyalty_Point_option_is_disabled_above_all_settings_of_this_section_will_be_unavailable')}}">
+<<<<<<< HEAD
                             <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                            <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </h5>
                 </div>
@@ -273,7 +313,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="top"
                                           title="{{translate('when_converting_loyalty_points_to_currency_customers_will_require_the_minimum_loyalty_point_set_by_the_admin')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </label>
@@ -294,7 +338,11 @@
                         {{translate('customer_Referrer_Settings')}}
                         <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right"
                               title="{{translate('if_Customer_Referral_Earning_is_disabled_above_all_settings_of_this_section_will_be_unavailable')}}">
+<<<<<<< HEAD
                             <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                            <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </h5>
                 </div>
@@ -309,7 +357,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('set_the_earning_amount_for_each_successful_referral')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </label>
@@ -331,5 +383,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/business-setting.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/business-setting.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

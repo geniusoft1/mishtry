@@ -12,6 +12,7 @@
         <meta name="author" content="{{$web_config['name']->value}}">
     @endif
     @if($product['meta_image'])
+<<<<<<< HEAD
         <meta property="og:image" content="{{dynamicStorage(path: "storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
         <meta property="twitter:card"
               content="{{dynamicStorage(path: "storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
@@ -19,6 +20,15 @@
         <meta property="og:image" content="{{dynamicStorage(path: "storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
         <meta property="twitter:card"
               content="{{dynamicStorage(path: "storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+=======
+        <meta property="og:image" content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+        <meta property="twitter:card"
+              content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+    @else
+        <meta property="og:image" content="{{asset("storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
+        <meta property="twitter:card"
+              content="{{asset("storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     @endif
 
     @if($product['meta_title'])
@@ -137,9 +147,15 @@
                                                                         @endif
 
                                                                         <div class="easyzoom easyzoom--overlay">
+<<<<<<< HEAD
                                                                             <a href="{{ getValidImage(path: 'storage/app/public/product/'.($photo->image_name), type:'product') }}">
                                                                                 <img class="dark-support rounded" alt=""
                                                                                     src="{{ getValidImage(path: 'storage/app/public/product/'.($photo->image_name), type:'product') }}">
+=======
+                                                                            <a href="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
+                                                                                <img class="dark-support rounded" alt=""
+                                                                                    src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -158,9 +174,15 @@
                                                                                 </span>
                                                                         @endif
                                                                         <div class="easyzoom easyzoom--overlay">
+<<<<<<< HEAD
                                                                             <a href="{{ getValidImage(path: 'storage/app/public/product/'.($photo->image_name), type:'product') }}">
                                                                                 <img class="dark-support rounded" alt=""
                                                                                     src="{{ getValidImage(path: 'storage/app/public/product/'.($photo->image_name), type:'product') }}">
+=======
+                                                                            <a href="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
+                                                                                <img class="dark-support rounded" alt=""
+                                                                                    src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                             </a>
                                                                         </div>
                                                                     </div>
@@ -205,7 +227,11 @@
                                                                         <div
                                                                             class="swiper-slide position-relative aspect-1">
                                                                             <img class="dark-support rounded" alt=""
+<<<<<<< HEAD
                                                                                 src="{{ getValidImage(path: 'storage/app/public/product/'.($photo->image_name), type:'product') }}">
+=======
+                                                                                src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                         </div>
                                                                     @endif
                                                                 @endforeach
@@ -213,7 +239,11 @@
                                                                     @if($photo->color == null)
                                                                         <div class="swiper-slide position-relative aspect-1">
                                                                             <img class="dark-support rounded" alt=""
+<<<<<<< HEAD
                                                                                 src="{{ getValidImage(path: 'storage/app/public/product/'.($photo->image_name), type:'product') }}">
+=======
+                                                                                src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                         </div>
                                                                     @endif
                                                                 @endforeach
@@ -263,7 +293,11 @@
                                                         @endif
                                                     @endfor
                                                 </div>
+<<<<<<< HEAD
                                                 <span>({{ count($product->reviews) }})</span>
+=======
+                                                <span>({{$product->reviews_count}})</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                             @if(($product['product_type'] == 'physical') && ($product['current_stock']<=0))
                                                 <p class="fw-semibold text-muted">{{translate('out_of_stock')}}</p>
@@ -276,9 +310,13 @@
                                                 @endif
                                             @endif
                                             <div class="product__price d-flex flex-wrap align-items-end gap-2 mb-4 ">
+<<<<<<< HEAD
                                                 <div class="text-primary fs-1-5rem d-flex align-items-end gap-2">
                                                     {!! getPriceRangeWithDiscount(product: $product) !!}
                                                 </div>
+=======
+                                                <div class="text-primary fs-1-5rem">{!! Helpers::get_price_range_with_discount($product) !!}</div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                             <form class="cart add-to-cart-form" action="{{ route('cart.add') }}"
                                                   id="add-to-cart-form" data-redirecturl="{{route('checkout-details')}}"
@@ -348,8 +386,11 @@
                                                             </span>
                                                         </div>
                                                     </div>
+<<<<<<< HEAD
                                                     <input type="hidden" class="product-generated-variation-code" name="product_variation_code">
                                                     <input type="hidden" value="" class="in_cart_key form-control w-50" name="key">
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <div class="mx-w width--24rem">
                                                         <div class="bg-light w-100 rounded p-4">
                                                             <div class="flex-between-gap-3">
@@ -387,12 +428,17 @@
                                                                     data-redirect-status="{{($guest_checkout==1 || Auth::guard('customer')->check()?'true':'false')}}"
                                                                     data-action="{{route('shop-cart')}}">{{translate('buy_now')}}</span>
                                                             </button>
+<<<<<<< HEAD
                                                             <button type="button"
                                                                     class="btn btn-primary fs-16 text-capitalize add-to-cart"
                                                                     data-form-id="add-to-cart-form"
                                                                     data-update-text="{{ translate('update_cart') }}"
                                                                     data-add-text="{{ translate('add_to_cart') }}">
                                                                 {{ translate('add_to_cart') }}</button>
+=======
+                                                            <button type="button" class="btn btn-primary fs-16 text-capitalize add-to-cart"
+                                                                    data-form-id="add-to-cart-form">{{translate('add_to_cart')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         @endif
                                                     </div>
                                                     @if(($product->added_by == 'seller' && ($sellerTemporaryClose || (isset($product->seller->shop) && $product->seller->shop->vacation_status && $currentDate >= $sellerVacationStartDate && $currentDate <= $sellerVacationEndDate))) ||
@@ -443,9 +489,13 @@
                                                                 </iframe>
                                                             </div>
                                                         @endif
+<<<<<<< HEAD
                                                         <div class="rich-editor-html-content">
                                                             {!! $product->details !!}
                                                         </div>
+=======
+                                                        {!! $product->details !!}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </td>
                                                 </tr>
                                                 </tbody>
@@ -568,7 +618,11 @@
                                                                                 <span>({{$review->rating}}/5)</span>
                                                                             </div>
                                                                         </div>
+<<<<<<< HEAD
                                                                         <div>{{ $review->created_at ? $review->created_at->format("d M Y h:i:s A") : ($review->updated_at->format("d M Y h:i:s A")) }}</div>
+=======
+                                                                        <div>{{$review->created_at->format("d M Y h:i:s A")}}</div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     </div>
                                                                     <p>{{$review->comment}}</p>
                                                                     @isset($review->attachment)
@@ -621,6 +675,7 @@
                     @if (count($moreProductFromSeller)>0)
                     <div class="card order-1 order-sm-0">
                         <div class="card-body">
+<<<<<<< HEAD
                             <h5 class="mb-3 text-capitalize">
                                 @if(getWebConfig(name: 'business_mode')=='multi')
                                     {{translate('more_from_the_store')}}
@@ -628,6 +683,9 @@
                                     {{ translate('you_may_also_like')}}
                                 @endif
                             </h5>
+=======
+                            <h5 class="mb-3 text-capitalize">{{translate('more_from_the_store')}}</h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="d-flex flex-wrap gap-3">
                                 @foreach($moreProductFromSeller as $key => $item)
                                     <div class="card border-primary-light flex-grow-1">
@@ -653,7 +711,11 @@
                                                             @endif
                                                         @endfor
                                                     </div>
+<<<<<<< HEAD
                                                     <span>({{ count($item->reviews) }})</span>
+=======
+                                                    <span>({{$item->reviews_count}})</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </div>
                                                 <div class="product__price">
                                                     <ins class="product__new-price">
@@ -668,7 +730,10 @@
                         </div>
                     </div>
                     @endif
+<<<<<<< HEAD
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     @if($product->added_by=='seller')
                         @if(isset($product->seller->shop))
                             <div class="card order-0 order-sm-1">
@@ -702,7 +767,11 @@
 
                                                 <div class="mb-3">
                                                     <div class="text-center d-inline-block">
+<<<<<<< HEAD
                                                         <h3 class="mb-1">{{round($positiveReview).'%'}}</h3>
+=======
+                                                        <h3 class="mb-1">{{round($ratingPercentage).'%'}}</h3>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         <div class="fs-12">{{translate('positive_review')}}</div>
                                                     </div>
                                                 </div>
@@ -725,18 +794,30 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
 
                             @include('theme-views.layouts.partials.modal._chat-with-seller',['shop'=>$product->seller->shop, 'user_type' => 'seller'])
+=======
+                            @include('theme-views.layouts.partials.modal._chat-with-seller',['seller_id'=>$product->seller->id,'shop_id'=>$product->seller->shop->id])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         @endif
                     @else
                         <div class="card  order-0 order-sm-1">
                             <div class="card-body">
                                 <div class="p-2 overlay shop-bg-card"
+<<<<<<< HEAD
                                      data-bg-img="{{dynamicStorage(path: 'storage/app/public/shop/'.getWebConfig(name: 'shop_banner'))}}">
                                     <div class="media flex-wrap gap-3 p-2">
                                         <div class="avatar border rounded-circle size-3-437rem cursor-pointer">
                                             <img alt="" class="img-fit dark-support rounded-circle"
                                                 src="{{ getValidImage(path: 'storage/app/public/company/'.($web_config['fav_icon']->value), type:'shop') }}">
+=======
+                                     data-bg-img="{{asset('storage/app/public/shop/'.getWebConfig(name: 'shop_banner'))}}">
+                                    <div class="media flex-wrap gap-3 p-2 get-view-by-onclick" data-link="{{ route('shopView',[0]) }}">
+                                        <div class="avatar border rounded-circle size-3-437rem cursor-pointer">
+                                            <img alt="" class="img-fit dark-support rounded-circle"
+                                                src="{{ getValidImage(path: 'storage/app/public/company/'.$web_config['fav_icon']->value, type:'shop') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </div>
 
                                         <div class="media-body d-flex flex-column gap-2 text-absolute-whtie">
@@ -761,12 +842,17 @@
 
                                                 <div class="mb-3">
                                                     <div class="text-center d-inline-block">
+<<<<<<< HEAD
                                                         <h3 class="mb-1">{{round($positiveReview).'%'}}</h3>
+=======
+                                                        <h3 class="mb-1">{{round($ratingPercentage).'%'}}</h3>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         <div class="fs-12">{{translate('positive_review')}}</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+<<<<<<< HEAD
 
                                         @if (auth('customer')->id() == '')
                                             <div class="btn-circle chat-btn size-2-5rem"
@@ -779,14 +865,19 @@
                                                 <i class="bi bi-chat-square-dots"></i>
                                             </div>
                                         @endif
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                     <a href="{{ route('shopView',[0]) }}"
                                        class="btn btn-primary btn-block text-capitalize">{{translate('visit_store')}}</a>
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
 
                         @include('theme-views.layouts.partials.modal._chat-with-seller',['shop'=>0, 'user_type' => 'admin'])
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     @endif
                 </div>
             </div>

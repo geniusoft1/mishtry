@@ -3,14 +3,22 @@
 @section('title', translate('FCM_Settings'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/3rd-party.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('push_Notification_Setup')}}
             </h2>
         </div>
@@ -36,7 +44,11 @@
                     @csrf
                     <div class="form-group">
                         <label class="title-color">{{translate('server_Key')}}</label>
+<<<<<<< HEAD
                         <textarea name="push_notification_key" class="form-control text-area-max-min" rows="2"
+=======
+                        <textarea name="push_notification_key" class="form-control" rows="2"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                   placeholder="{{translate('ex').':'.'abcd1234efgh5678ijklmnop90qrstuvwxYZ'}}"
                                   required>{{env('APP_MODE')=='demo'?'':$pushNotificationKey}}</textarea>
                     </div>
@@ -72,7 +84,11 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/img/firebase-console.png')}}"
+=======
+                                         src="{{asset('/public/assets/back-end/img/firebase-console.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          loading="lazy" alt="">
                                     <h4 class="lh-md mb-3">{{translate('go_to_Firebase_Console')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
@@ -89,7 +105,11 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/img/navigate-settings.png')}}"
+=======
+                                         src="{{asset('/public/assets/back-end/img/navigate-settings.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          loading="lazy" alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('navigate_to_project_settings')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
@@ -103,7 +123,11 @@
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
                                     <img width="80" class="mb-3"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/img/info-asked.png')}}" loading="lazy"
+=======
+                                         src="{{asset('/public/assets/back-end/img/info-asked.png')}}" loading="lazy"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="">
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('obtain_all_the_information_asked').'!'}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
@@ -127,5 +151,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

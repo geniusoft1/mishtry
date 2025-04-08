@@ -5,7 +5,11 @@
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
+<<<<<<< HEAD
             <li class="breadcrumb-item"><a href="{{route('admin.dashboard.index')}}">{{translate('dashboard')}}</a></li>
+=======
+            <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{translate('dashboard')}}</a></li>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <li class="breadcrumb-item" aria-current="page">{{translate('my_profile')}}</li>
         </ol>
     </nav>

@@ -4,10 +4,17 @@
         <meta charset="utf-8">
         <title>@yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
         <link rel="shortcut icon" href="{{dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
         <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/font-awesome.css') }}">
         <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/toastr.css') }}">
         <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/bootstrap.min.css') }}">
+=======
+        <link rel="shortcut icon" href="{{asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
+        <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/font-awesome.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/toastr.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/bootstrap.min.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         <style>
             :root {

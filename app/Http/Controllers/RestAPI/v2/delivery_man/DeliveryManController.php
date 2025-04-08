@@ -133,7 +133,11 @@ class DeliveryManController extends Controller
             $cause = $request['cause'];
         }
 
+<<<<<<< HEAD
         $order = Order::with(['customer','deliveryMan'])->where(['delivery_man_id' => $d_man['id'], 'id' => $request['order_id']])->first();
+=======
+        $order = Order::where(['delivery_man_id' => $d_man['id'], 'id' => $request['order_id']])->first();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         if ($order->order_status == 'delivered') {
             return response()->json(['success' => 0, 'message' => 'order is already delivered.'], 200);
@@ -163,11 +167,17 @@ class DeliveryManController extends Controller
             }
         }
         if ($request['status'] == 'out_for_delivery') {
+<<<<<<< HEAD
             event(new OrderStatusEvent(key: 'out_for_delivery', type: 'customer', order: $order));
         } elseif ($request['status'] == 'delivered') {
             event(new OrderStatusEvent(key: 'delivered', type: 'customer', order: $order));
         } elseif ($request['status'] == 'canceled') {
             event(new OrderStatusEvent(key: 'canceled', type: 'delivery_man', order: $order));
+=======
+            OrderStatusEvent::dispatch('out_for_delivery', 'customer', $order);
+        } elseif ($request['status'] == 'delivered') {
+            OrderStatusEvent::dispatch('delivered', 'customer', $order);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         OrderManager::stock_update_on_order_status_change($order, $request['status']);
@@ -210,7 +220,11 @@ class DeliveryManController extends Controller
         }
 
         $d_man = $request['delivery_man'];
+<<<<<<< HEAD
         $order = Order::with(['deliveryMan'])->where(['delivery_man_id' => $d_man['id'], 'id' => $request['order_id']])->first();
+=======
+        $order = Order::where(['delivery_man_id' => $d_man['id'], 'id' => $request['order_id']])->first();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         if ($order->order_status == 'delivered') {
             return response()->json(['success' => 0, 'message' => 'order is already delivered.'], 200);

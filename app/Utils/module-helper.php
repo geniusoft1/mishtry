@@ -84,7 +84,11 @@ if(!function_exists('add_fund_to_wallet_success')) {
             if($wallet_transaction)
             {
                 try{
+<<<<<<< HEAD
                     event(new AddFundToWalletEvent(email: $wallet_transaction->user['email'], walletTransaction: $wallet_transaction));
+=======
+                    AddFundToWalletEvent::dispatch($wallet_transaction->user['email'], $wallet_transaction);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }catch(\Exception $ex)
                 {
                     info($ex);

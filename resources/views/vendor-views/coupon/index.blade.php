@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/coupon_setup.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/coupon_setup.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('coupon_setup')}}
             </h2>
         </div>
@@ -172,7 +176,10 @@
                                 <th>
                                     {{translate('status')}}
                                     <i class="tio-info font-130 info-color"
+<<<<<<< HEAD
                                         data-toggle="tooltip"
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        title="{{translate('some_status_buttons_are_disabled_because_the_admin_added_coupons')}}, {{translate('the_coupon_discount_bearer_is_admin')}}, {{translate('or_some_coupons_are_for_all_vendors')}}">
 
                                     </i>
@@ -180,7 +187,10 @@
                                 <th class="text-center">
                                     {{translate('action')}}
                                     <i class="tio-info font-130 info-color"
+<<<<<<< HEAD
                                         data-toggle="tooltip"
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        title="{{translate('some_actions_are_disabled_because_the_admin_added_coupons')}}, {{translate('the_coupon_discount_bearer_is_admin')}}, {{translate('or_some_coupons_are_for_all_vendors')}}">
 
                                     </i>
@@ -293,7 +303,11 @@
                     @if(count($coupons)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                 src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{translate('no_data_to_show')}}</p>
                         </div>
@@ -306,5 +320,9 @@
     <span id="get-detail-url" data-url="{{ route('vendor.coupon.quick-view') }}"></span>
 @endsection
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/coupon.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/vendor/coupon.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

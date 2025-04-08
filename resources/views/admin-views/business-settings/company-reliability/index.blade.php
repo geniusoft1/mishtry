@@ -6,7 +6,11 @@
 <div class="content container-fluid">
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
             <img width="20" src="{{dynamicAsset(path: '/public/assets/back-end/img/Pages.png')}}" alt="">
+=======
+            <img width="20" src="{{asset('/public/assets/back-end/img/Pages.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             {{ translate('pages') }}
         </h2>
     </div>
@@ -25,7 +29,11 @@
                                         <span class="title-color">
                                             {{translate($value->item)}}
                                             <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="{{translate('if_enabled,_the_'.$value->item.'_will_be_available_on_the_system.')}}.">
+<<<<<<< HEAD
                                                 <img width="16" src="{{dynamicAsset(path: '/public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                                                <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </span>
                                         </span>
                                         <input type="hidden" name="item" value="{{ $value->item }}">
@@ -57,12 +65,20 @@
 
                                             <div class="img_area_with_preview position-absolute z-index-2">
                                                 <img id="pre_img_header_logo{{$key}}" class="h-auto aspect-ratio-3-15 bg-white" onerror="this.classList.add('d-none')"
+<<<<<<< HEAD
                                                      src="{{dynamicStorage(path: 'storage/app/public/company-reliability').'/'.$value->image}}"
+=======
+                                                     src="{{asset('storage/app/public/company-reliability').'/'.$value->image}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                             </div>
                                             <div class="position-absolute h-100 top-0 w-100 d-flex align-content-center justify-content-center">
                                                 <div class="d-flex flex-column justify-content-center align-items-center">
+<<<<<<< HEAD
                                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/icons/product-upload-icon.svg')}}" class="w-50" alt="">
+=======
+                                                    <img src="{{asset('public/assets/back-end/img/icons/product-upload-icon.svg')}}" class="w-50" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <h3 class="text-muted text-capitalize">{{ translate('upload_icon') }}</h3>
                                                 </div>
                                             </div>
@@ -83,7 +99,11 @@
 </div>
 @endsection
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/features-and-company-reliability-section.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/features-and-company-reliability-section.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script>
         onErrorImage()
     </script>

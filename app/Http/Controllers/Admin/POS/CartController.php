@@ -12,7 +12,10 @@ use App\Http\Controllers\BaseController;
 use App\Services\CartService;
 use App\Services\POSService;
 use App\Traits\CalculatorTrait;
+<<<<<<< HEAD
 use Brian2694\Toastr\Facades\Toastr;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\JsonResponse;
@@ -119,6 +122,7 @@ class CartController extends BaseController
                     if ($variant != null) {
                         $price = $this->cartService->getVariationPrice(variation: json_decode($product['variation']),variant: $variant);
                     }
+<<<<<<< HEAD
                     $currentQty = $this->cartService->checkCurrentStock(variant: $variant,variation: json_decode($product['variation']),productQty: $product['current_stock'],quantity: $request['quantity_in_cart']);
                     if($product['product_type'] == 'physical' && $currentQty<0)
                     {
@@ -128,6 +132,8 @@ class CartController extends BaseController
                             'view' => view(Cart::CART[VIEW],compact('cartId','cartItems'))->render()
                         ]);
                     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $cartItem = $this->cartService->addCartDataOnSession(
                         product: $product,
                         quantity: $request['quantity_in_cart'],
@@ -151,10 +157,21 @@ class CartController extends BaseController
                 }
             }
         }
+<<<<<<< HEAD
         if ($variant != null) {
             $price = $this->cartService->getVariationPrice(variation: json_decode($product['variation']),variant: $variant);
         }
         $currentQty = $this->cartService->checkCurrentStock(variant: $variant,variation: json_decode($product['variation']),productQty: $product['current_stock'],quantity: $request['quantity']);
+=======
+
+        if ($variant != null) {
+            $currentQty = $this->cartService->getCurrentQuantity(variation:json_decode($product['variation']),variant: $variant,quantity: $request['quantity']);
+            $price = $this->cartService->getVariationPrice(variation: json_decode($product['variation']),variant: $variant);
+        } else {
+            $productQty = $product['current_stock'];
+            $currentQty = $productQty - $request['quantity'];
+        }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if($product['product_type'] == 'physical' && $currentQty<0)
         {
             $cartItems = $this->getCartData(cartName: $cartId);
@@ -189,6 +206,7 @@ class CartController extends BaseController
         $cartKeeper = [];
         if (session()->has($cartId) && count($cart) > 0) {
             foreach ($cart as $cartItem) {
+<<<<<<< HEAD
                 if (is_array($cartItem) ){
                     if ($cartItem['id'] != $request['id']) {
                         $cartKeeper[] = $cartItem;
@@ -197,6 +215,10 @@ class CartController extends BaseController
                             $cartKeeper[] = $cartItem;
                         }
                     }
+=======
+                if (is_array($cartItem) && $cartItem['id'] != $request['id']) {
+                    $cartKeeper[] = $cartItem;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -254,10 +276,14 @@ class CartController extends BaseController
      */
     public function changeCart(Request $request):RedirectResponse
     {
+<<<<<<< HEAD
         $this->cartService->customerOnHoldStatus(status: true);
         session()->put(SessionKey::CURRENT_USER, $request['cart_id']);
         $this->cartService->customerOnHoldStatus(status: false);
         Toastr::success($request['cart_id'].' '.translate('order_is_now_resumed'));
+=======
+        session()->put(SessionKey::CURRENT_USER, $request['cart_id']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return redirect()->route(POS::INDEX[ROUTE]);
     }
 
@@ -266,11 +292,15 @@ class CartController extends BaseController
      */
     public function addNewCartId():RedirectResponse
     {
+<<<<<<< HEAD
         $cart = session(session(SessionKey::CURRENT_USER));
         if (session()->has(session(SessionKey::CURRENT_USER)) && count($cart) > 0) {
             Toastr::success(translate('this_order_is_now_on_hold'));
         }
         $this->cartService->customerOnHoldStatus(status: true);
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $this->cartService->getNewCartId();
         return redirect()->route(POS::INDEX[ROUTE]);
     }
@@ -344,7 +374,10 @@ class CartController extends BaseController
                     );
                     if ($cartItem['customerId'] == $customerCartData[$cartName]['customerId']) {
                         $cartItem['productSubtotal'] = $subTotalCalculation['productSubtotal'];
+<<<<<<< HEAD
                         $subTotalCalculation['customerOnHold']=$cartItem['customerOnHold'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         $cartItemValue[] = $cartItem;
                     }
                 }
@@ -365,7 +398,10 @@ class CartController extends BaseController
             'cartItemValue' => $cartItemValue,
             'couponDiscount' => $totalCalculation['couponDiscount'],
             'extraDiscount' => $totalCalculation['extraDiscount'],
+<<<<<<< HEAD
             'customerOnHold' => $subTotalCalculation['customerOnHold']??false,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
     }
     protected function getCartData(string $cartName):array

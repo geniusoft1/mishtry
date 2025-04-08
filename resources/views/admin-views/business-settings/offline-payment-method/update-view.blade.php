@@ -6,16 +6,25 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
         @include('admin-views.business-settings.third-party-payment-method-menu')
+=======
+                <img src="{{asset('/public/assets/back-end/img/3rd-party.png')}}" alt="">
+                {{translate('3rd_party')}}
+            </h2>
+        </div>
+        @include('admin-views.business-settings.third-party-inline-menu')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <form action="{{ route('admin.business-settings.offline-payment-method.update',[$method['id']]) }}" method="POST" id="payment-method-offline">
             @csrf
             <div class="card mt-3">
                 <div class="card-header gap-2 flex-wrap">
                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/payment-card.png')}}" alt="">
                         <span class="title-color text-capitalize font-weight-bold">
                             {{translate('payment_information')}}
@@ -23,6 +32,10 @@
                                 <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
                             </span>
                         </span>
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/payment-card.png')}}" alt="">
+                        <h5 class="mb-0 text-capitalize">{{ translate('payment_information') }}</h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                     <a href="javascript:"  id="add-input-fields-group" class="btn btn--primary text-capitalize"><i class="tio-add"></i> {{ translate('add_new_field') }} </a>
                 </div>
@@ -69,6 +82,7 @@
             <div class="card mt-3">
                 <div class="card-header gap-2 flex-wrap">
                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/payment-card-fill.png')}}" alt="">
                         <span class="title-color text-capitalize font-weight-bold">
                             {{translate('required_information_from_Customer')}}
@@ -76,6 +90,10 @@
                                 <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
                             </span>
                         </span>
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/payment-card-fill.png')}}" alt="">
+                        <h5 class="mb-0 text-capitalize">{{ translate('required_information_from_customer') }}</h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                     <a href="javascript:" id="add-customer-input-fields-group" class="btn btn--primary text-capitalize"><i class="tio-add"></i> {{ translate('add_new_field') }} </a>
                 </div>
@@ -142,5 +160,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

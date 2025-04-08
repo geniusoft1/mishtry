@@ -51,10 +51,17 @@ var options = {
                 type: 'donut',
         },
         labels: [
+<<<<<<< HEAD
             $('#cash_payment_text').data('text') + " " + $('#currency_symbol').data('text') + " " + $('#cash_payment_format').data('text') + " ",
             $('#digital_payment_text').data('text') + " " + $('#currency_symbol').data('text') + " " + $('#digital_payment_format').data('text') + " ",
             $('#wallet_payment_text').data('text') + " " + $('#currency_symbol').data('text') + " " + $('#wallet_payment_format').data('text') + " ",
             $('#offline_payment_text').data('text') + " " + $('#currency_symbol').data('text') + " " + $('#offline_payment_format').data('text') + " ",
+=======
+            "'"+$('#cash_payment_text').data('text')+"'"+$('#currency_symbol').data('text')+" "+$('#cash_payment_format').data('text')+"'",
+            "'"+$('#digital_payments_text').data('text')+"'"+$('#currency_symbol').data('text')+" "+$('#digital_payments_format').data('text')+"'",
+            "'"+$('#wallet_payments_text').data('text')+"'"+$('#currency_symbol').data('text')+" "+$('#wallet_payments_format').data('text')+"'",
+            "'"+$('#offline_payments_text').data('text')+"'"+$('#currency_symbol').data('text')+" "+$('#offline_payments_format').data('text')+"'",
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ],
             dataLabels: {
             enabled: false,

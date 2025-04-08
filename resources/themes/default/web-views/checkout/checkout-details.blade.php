@@ -19,7 +19,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4>{{auth('customer')->user()->f_name}}, {{translate('Hi')}}!</h4>
+<<<<<<< HEAD
                                 <small>{{translate('you_are_already_Sign_in_proceed')}}.</small>
+=======
+                                <small>{{translate('you_are_already_login_proceed')}}.</small>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     @else

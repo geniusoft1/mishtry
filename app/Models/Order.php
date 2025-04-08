@@ -187,6 +187,10 @@ class Order extends Model
         return $this->belongsTo(ShippingAddress::class, 'billing_address');
     }
 
+<<<<<<< HEAD
+=======
+    /* delivery_man -> deliveryMan */
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public function deliveryMan(): BelongsTo
     {
         return $this->belongsTo(DeliveryMan::class,'delivery_man_id');
@@ -194,7 +198,11 @@ class Order extends Model
     /* delivery_man_review -> deliveryManReview */
     public function deliveryManReview():HasOne
     {
+<<<<<<< HEAD
         return $this->hasOne(Review::class,'order_id')->whereNotNull('delivery_man_id');
+=======
+        return $this->hasOne(Review::class,'order_id');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
     /* order_transaction -> orderTransaction */
     public function orderTransaction() : HasOne

@@ -63,10 +63,17 @@ class ProductController extends BaseController
      */
     public function index(?Request $request, string|array $type = null): View|Collection|LengthAwarePaginator|null|callable|RedirectResponse
     {
+<<<<<<< HEAD
         return $this->getListView(request: $request,type: $type);
     }
 
     public function getListView(Request $request,$type): View
+=======
+        return $this->getListView(request: $request);
+    }
+
+    public function getListView(Request $request): View
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $vendorId = auth('seller')->id();
         $filters = [
@@ -76,7 +83,10 @@ class ProductController extends BaseController
             'category_id' => $request['category_id'],
             'sub_category_id' => $request['sub_category_id'],
             'sub_sub_category_id' => $request['sub_sub_category_id'],
+<<<<<<< HEAD
             'request_status' => $type== 'new-request' ? 0 : ($type == 'approved'  ? '1' : ($type == 'denied' ? '2' : 'all')),
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
         $searchValue = $request['searchValue'];
         $products = $this->productRepo->getListWhere(
@@ -91,7 +101,11 @@ class ProductController extends BaseController
         $subCategory = $this->categoryRepo->getFirstWhere(params: ['id' => $request['sub_category_id']]);
         $subSubCategory = $this->categoryRepo->getFirstWhere(params: ['id' => $request['sub_sub_category_id']]);
 
+<<<<<<< HEAD
         return view(Product::LIST[VIEW], compact('products', 'type','searchValue', 'brands',
+=======
+        return view(Product::LIST[VIEW], compact('products', 'searchValue', 'brands',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'categories', 'subCategory', 'subSubCategory', 'filters'));
     }
 
@@ -122,7 +136,11 @@ class ProductController extends BaseController
         $this->translationRepo->add(request: $request, model: 'App\Models\Product', id: $savedProduct->id);
 
         Toastr::success(translate('product_added_successfully'));
+<<<<<<< HEAD
         return redirect()->route('vendor.products.list',['type'=>'all']);
+=======
+        return redirect()->route('vendor.products.list');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function getUpdateView(string|int $id): RedirectResponse|View
@@ -130,7 +148,11 @@ class ProductController extends BaseController
         $product = $this->productRepo->getFirstWhereWithoutGlobalScope(params: ['id' => $id, 'user_id'=>auth('seller')->id(), 'added_by'=>'seller'], relations: ['translations']);
         if(!$product){
             Toastr::error(translate('invalid_product'));
+<<<<<<< HEAD
             return redirect()->route('vendor.products.list',['type'=>'all']);
+=======
+            return redirect()->route('vendor.products.list');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $product['colors'] = json_decode($product['colors']);
@@ -160,6 +182,7 @@ class ProductController extends BaseController
         $this->translationRepo->update(request: $request, model: 'App\Models\Product', id: $id);
 
         Toastr::success(translate('product_updated_successfully'));
+<<<<<<< HEAD
         return redirect()->route(Product::VIEW[ROUTE],['id'=>$product['id']]);
 
     }
@@ -173,6 +196,21 @@ class ProductController extends BaseController
         if(!$product){
             return redirect()->route('vendor.products.list',['type'=>'all']);
         }
+=======
+        return back();
+    }
+
+    public function getView(string|int $id): View
+    {
+        $vendorId =  auth('seller')->id();
+        $productActive = $this->productRepo->getFirstWhereActive(params: ['id' => $id, 'user_id' =>$vendorId]);
+        $relations = ['category', 'brand', 'reviews', 'rating', 'orderDetails', 'orderDelivered'];
+        $product = $this->productRepo->getFirstWhereWithCount(
+            params: ['id' => $id, 'user_id' => $vendorId],
+            withCount: ['orderDelivered','orderDetails','reviews'],
+            relations: $relations,
+        );
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $product['orderDelivered']->map(function ($order) use ($product) {
             $product['priceSum'] += $order->price;
             $product['qtySum'] += $order->qty;
@@ -192,7 +230,11 @@ class ProductController extends BaseController
         return view(Product::VIEW[VIEW], compact('product', 'reviews', 'productActive', 'productColors'));
     }
 
+<<<<<<< HEAD
     public function exportList(Request $request,$type): StreamedResponse|string
+=======
+    public function exportList(Request $request): StreamedResponse|string
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $filters = [
             'added_by' => 'seller',
@@ -201,7 +243,10 @@ class ProductController extends BaseController
             'category_id' => $request['category_id'],
             'sub_category_id' => $request['sub_category_id'],
             'sub_sub_category_id' => $request['sub_sub_category_id'],
+<<<<<<< HEAD
             'request_status' => $type== 'new-request' ? 0 : ($type == 'approved'  ? 1 : 'all'),
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
         $products = $this->productRepo->getListWhere(orderBy: ['id' => 'desc'], searchValue: $request['searchValue'], filters: $filters, relations: ['translations'], dataLimit: getWebConfig(name: WebConfigKey::PAGINATION_LIMIT));
 
@@ -331,7 +376,11 @@ class ProductController extends BaseController
         $status = $request['status'];
         $filters = [
             'added_by' => 'seller',
+<<<<<<< HEAD
             'request_status' => 1,
+=======
+            'request_status' => $request['status'],
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'product_type' => 'physical',
             'seller_id' => $vendorId,
         ];

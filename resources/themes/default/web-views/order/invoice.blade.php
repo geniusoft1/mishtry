@@ -4,7 +4,11 @@
     <title>{{ ucwords('invoice')}}</title>
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/invoice.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/invoice.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>
@@ -17,7 +21,11 @@
                 {{ ucwords('order Invoice')}}
             </th>
             <th class="p-0 text-right">
+<<<<<<< HEAD
                 <img height="40" src="{{dynamicStorage(path: "storage/app/public/company/".getWebConfig(name: 'company_web_logo'))}}"
+=======
+                <img height="40" src="{{asset("storage/app/public/company/".getWebConfig(name: 'company_web_logo'))}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                      alt="">
             </th>
         </tr>
@@ -27,7 +35,11 @@
         <tr>
             <th class="content-position-y text-left">
                 <h4 class="text-uppercase mb-1 fz-14">
+<<<<<<< HEAD
                     {{ ucwords('Order')}} #{{ $order->id }}
+=======
+                    {{ ucwords('invoice')}} #{{ $order->id }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </h4>
                 <br>
                 <h4 class="text-uppercase mb-1 fz-14">
@@ -302,19 +314,31 @@ if ($order['extra_discount_type'] == 'percent') {
                 <th class="content-position-y bg-light py-4">
                     <div class="d-flex justify-content-center gap-2">
                         <div class="mb-2">
+<<<<<<< HEAD
                             <img height="10" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/telephone.png') }}"
+=======
+                            <img height="10" src="{{ asset('public/assets/front-end/img/icons/telephone.png') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="">
                             {{ ucwords('phone')}}
                             : {{ getWebConfig(name: 'company_phone') }}
                         </div>
                         <div class="mb-2">
+<<<<<<< HEAD
                             <img height="10" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/email.png') }}" alt="">
+=======
+                            <img height="10" src="{{ asset('public/assets/front-end/img/icons/email.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             {{ ucwords('email')}}
                             : {{ getWebConfig(name: 'company_email') }}
                         </div>
                     </div>
                     <div class="mb-2">
+<<<<<<< HEAD
                         <img height="10" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/web.png') }}" alt="">
+=======
+                        <img height="10" src="{{ asset('public/assets/front-end/img/icons/web.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {{ ucwords('website')}}
                         : {{url('/')}}
                     </div>

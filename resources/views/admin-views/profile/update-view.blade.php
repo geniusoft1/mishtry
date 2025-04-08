@@ -1,24 +1,40 @@
 @extends('layouts.back-end.app')
 
 @section('title', translate('profile_Settings'))
+<<<<<<< HEAD
 @push('css_or_js')
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @section('content')
     <div class="content container-fluid">
         <div class="page-header">
             <div class="row align-items-end">
                 <h2 class="col-sm mb-2 mb-sm-0 h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                     <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/profile_setting.png')}}" alt="">
                     {{translate('settings')}}
                 </h2>
                 <div class="col-sm-auto">
                     <a class="btn btn--primary" href="{{route('admin.dashboard.index')}}">
+=======
+                    <img width="20" src="{{asset('/public/assets/back-end/img/profile_setting.png')}}" alt="">
+                    {{translate('settings')}}
+                </h2>
+                <div class="col-sm-auto">
+                    <a class="btn btn--primary" href="{{route('admin.dashboard')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <i class="tio-home mr-1"></i> {{translate('dashboard')}}
                     </a>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <div class="row">
             <div class="col-lg-3">
                 <div class="navbar-vertical navbar-expand-lg mb-3 mb-lg-5">
@@ -58,6 +74,7 @@
                 @csrf
                     <div class="card mb-3 mb-lg-5" id="general-div">
                         <div class="profile-cover">
+<<<<<<< HEAD
                             @php($banner = !empty($shopBanner) ? dynamicStorage(path: 'storage/app/public/shop/'.$shopBanner) : dynamicAsset(path: 'public/assets/back-end/img/1920x400/img2.jpg'))
                             <div class="profile-cover-img-wrapper profile-bg" style="background-image: url({{ $banner }})"></div>
                         </div>
@@ -71,6 +88,19 @@
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-photo.png') }}" alt="">
                             </label>
                         </div>
+=======
+                            @php($banner = !empty($shopBanner) ? asset('storage/app/public/shop/'.$shopBanner) : asset('public/assets/back-end/img/1920x400/img2.jpg'))
+                            <div class="profile-cover-img-wrapper profile-bg" style="background-image: url({{ $banner }})"></div>
+                        </div>
+                        <label
+                            class="avatar avatar-xxl avatar-circle avatar-border-lg avatar-uploader profile-cover-avatar"
+                            for="custom-file-upload">
+                            <img id="viewer"
+                                 src="{{ getValidImage(path:'storage/app/public/admin/'.$admin->image,type: 'backend-profile')}}"
+                                 class="avatar-img"
+                                 alt="{{translate('image')}}">
+                        </label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                     <div class="card mb-3 mb-lg-5">
                         <div class="card-header">
@@ -80,9 +110,14 @@
                             <div class="row form-group">
                                 <label for="firstNameLabel" class="col-sm-3 col-form-label input-label">
                                     {{translate('full_name')}}
+<<<<<<< HEAD
                                     <i class="tio-help-outlined text-body ml-1" data-toggle="tooltip"
                                          data-placement="right"
                                         title="{{$admin->name}}">
+=======
+                                    <i class="tio-help-outlined text-body ml-1"
+                                        title="{{ translate('display_name') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </i>
                                 </label>
 
@@ -98,6 +133,7 @@
                             <div class="row form-group">
                                 <label for="phoneLabel" class="col-sm-3 col-form-label input-label">{{translate('phone')}} <span
                                         class="input-label-secondary">({{translate('optional')}})</span></label>
+<<<<<<< HEAD
                                     <div class="col-sm-9 mb-3">
                                         <input class="form-control form-control-user phone-input-with-country-picker"
                                                type="tel" id="exampleInputPhone" value="{{$admin->phone ?? old('phone')}}"
@@ -106,6 +142,14 @@
                                             <input type="text" class="country-picker-phone-number w-50" value="{{$admin->phone}}" name="phone" hidden  readonly>
                                         </div>
                                     </div>
+=======
+
+                                <div class="col-sm-9">
+                                    <input type="text" class="js-masked-input form-control" name="phone" id="phoneLabel"
+                                           placeholder="{{translate('+x(xxx)xxx-xx-xx')}}"
+                                           value="{{$admin->phone}}">
+                                </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div class="row form-group">
                                 <label for="newEmailLabel" class="col-sm-3 col-form-label input-label">{{translate('email')}}</label>
@@ -115,9 +159,22 @@
                                            placeholder="{{translate('enter_new_email_address')}}">
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="d-none" id="select-img">
                                 <input type="file" name="image" id="custom-file-upload" data-image-id="viewer" class="custom-file-input  image-input"
                                        accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+=======
+                            <div class="row">
+                                <label for="newEmailLabel" class="col-sm-3 input-label text-capitalize">{{translate('profile_image')}}</label>
+                                <div class="form-group col-md-9" id="select-img">
+                                    <span class="d-block mb-2 text-info">( {{translate('ratio').' '.'1:1'}})</span>
+                                    <div class="custom-file">
+                                        <input type="file" name="image" id="custom-file-upload" data-image-id="viewer" class="custom-file-input  image-input"
+                                            accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <label class="custom-file-label text-capitalize" for="custom-file-upload">{{translate('image_upload')}}</label>
+                                    </div>
+                                </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button type="button" data-id="admin-profile-form" data-message="{{translate('want_to_update_admin_info').'?'}}" class="btn btn--primary {{env('APP_MODE')!='demo'?'form-alert':'call-demo'}}">{{translate('save_changes')}}</button>
@@ -130,6 +187,7 @@
                         <h4 class="card-title">{{translate('change_your_password')}}</h4>
                     </div>
                     <div class="card-body">
+<<<<<<< HEAD
                         <form id="change-password-form" action="{{route('admin.profile.update',[$admin->id])}}" method="post" enctype="multipart/form-data">
                         @csrf @method('patch')
                             <div class="row form-group">
@@ -156,10 +214,22 @@
                                         </div>
                                     </div>
                                     <span class="text-danger mx-1 password-error"></span>
+=======
+                        <form id="change-password-form" action="{{route('admin.profile.update',[$admin->id])}}" method="post"
+                              enctype="multipart/form-data">
+                        @csrf @method('patch')
+                            <div class="row form-group">
+                                <label for="newPassword" class="col-sm-3 col-form-label input-label"> {{translate('new_password')}}</label>
+
+                                <div class="col-sm-9">
+                                    <input type="password" class="js-pwstrength form-control" name="password"
+                                           id="newPassword" placeholder="{{translate('enter_new_password')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             </div>
                             <div class="row form-group">
                                 <label for="confirmNewPasswordLabel" class="col-sm-3 col-form-label input-label"> {{translate('confirm_password')}} </label>
+<<<<<<< HEAD
                                 <div class="col-sm-9">
                                     <div class="mb-3">
                                         <div class="input-group input-group-merge">
@@ -179,6 +249,13 @@
                                                 </a>
                                             </div>
                                         </div>
+=======
+
+                                <div class="col-sm-9">
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" name="confirm_password"
+                                               id="confirmNewPasswordLabel" placeholder="{{translate('confirm_your_new_password')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +269,10 @@
         </div>
     </div>
 @endsection
+<<<<<<< HEAD
 @push('script')
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
 @endpush
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

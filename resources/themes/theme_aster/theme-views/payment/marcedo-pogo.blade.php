@@ -8,7 +8,11 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ theme_asset('assets/css/bootstrap.min-v4.css') }}">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="{{ dynamicAsset(path: 'public/assets/mercado_pogo/css/index.css') }}">
+=======
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/mercado_pogo/css/index.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script src="{{ theme_asset('assets/js/jquery.min-3.4.1.js') }}"></script>
 </head>
 <body>

@@ -43,11 +43,15 @@ class BannerRepository implements BannerRepositoryInterface
             })
             ->when(!empty($orderBy), function ($query) use ($orderBy) {
                 return $query->orderBy(array_key_first($orderBy),array_values($orderBy)[0]);
+<<<<<<< HEAD
             })
             ->when(isset($filters['resource_type']) && isset($filters['resource_id']), function ($query) use($filters){
                 return $query->where(['resource_type'=>$filters['resource_type'],'resource_id'=>$filters['resource_id']]);
             })
             ->when(isset($filters['theme']), function ($query) use($filters){
+=======
+            })->when($filters['theme'], function ($query) use($filters){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 return $query->where('theme', $filters['theme']);
             });
 

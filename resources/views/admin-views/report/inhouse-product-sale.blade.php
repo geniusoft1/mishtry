@@ -8,7 +8,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/inhouse_sale.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('public/assets/back-end/img/inhouse_sale.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('inhouse_sale')}}
             </h2>
         </div>

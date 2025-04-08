@@ -35,7 +35,11 @@
                 {{ucwords('order invoice')}}
             </th>
             <th class="p-0 text-right">
+<<<<<<< HEAD
                 <img loading="lazy" height="40" src="{{dynamicAsset(path: "storage/app/public/company/".$companyWebLogo)}}"
+=======
+                <img loading="lazy" height="40" src="{{asset("storage/app/public/company/".$companyWebLogo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                      alt="{{ $companyName }}">
             </th>
         </tr>

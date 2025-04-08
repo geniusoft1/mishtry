@@ -58,9 +58,15 @@
                                 <div class="avatar avatar-xxl overflow-hidden position-relative rounded">
                                     <img loading="lazy" alt="Product"
                                         src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$cartItem['thumbnail'], type: 'product') }}"
+<<<<<<< HEAD
                                         class="img-fit dark-support rounded img-fit overflow-hidden {{ $product && $product->status == 0?'blur-section':'' }}"/>
 
                                     @if ($product && $product->status == 0)
+=======
+                                        class="img-fit dark-support rounded img-fit overflow-hidden {{ $product->status == 0?'blur-section':'' }}"/>
+
+                                    @if ($product->status == 0)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <span
                                             class="temporary-closed position-absolute text-center p-2 text-capitalize">
                                     <span>{{ translate('not_available') }}</span>
@@ -68,12 +74,21 @@
                                     @endif
                                 </div>
                                 <div class="media-body">
+<<<<<<< HEAD
                                     <h6 class="mb-2 {{ $product && $product->status == 0?'blur-section':'' }}">
                                         <a href="{{ $product && $product->status == 1? route('product',$cartItem['slug']) :'javascript:'}}">{{Str::limit($cartItem['name'],30)}}</a>
                                     </h6>
                                     <div class="d-flex gap-3 justify-content-between align-items-end">
                                         <div
                                             class="d-flex flex-column gap-1 {{ $product && $product->status == 0?'blur-section':'' }}">
+=======
+                                    <h6 class="mb-2 {{ $product->status == 0?'blur-section':'' }}">
+                                        <a href="{{ $product->status == 1? route('product',$cartItem['slug']) :'javascript:'}}">{{Str::limit($cartItem['name'],30)}}</a>
+                                    </h6>
+                                    <div class="d-flex gap-3 justify-content-between align-items-end">
+                                        <div
+                                            class="d-flex flex-column gap-1 {{ $product->status == 0?'blur-section':'' }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             <div class="fs-12"><span
                                                     class="cart_quantity_{{ $cartItem['id'] }}">{{$cartItem['quantity']}}</span>
                                                  {{'×'.Helpers::currency_converter(($cartItem['price']-$cartItem['discount']))}}
@@ -87,7 +102,11 @@
                                         </div>
 
                                         <div class="quantity">
+<<<<<<< HEAD
                                             @if ($product && $product->status == 1)
+=======
+                                            @if ($product->status == 1)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <span
                                                     class="quantity__minus cart-quantity-update cart_quantity__minus{{ $cartItem['id'] }}"
                                                     data-cart-id="{{ $cartItem['id'] }}"

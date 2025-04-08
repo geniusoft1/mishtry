@@ -31,7 +31,10 @@ function shipping_method_select(get_value){
     let shipping_value= JSON.parse(get_value);
     $('#name').val(shipping_value.contact_person_name);
     $('#phone').val(shipping_value.phone);
+<<<<<<< HEAD
     $('#phone').keypress();
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     $('#address').val(shipping_value.address);
     $('#city').val(shipping_value.city);
     $('#zip').val(shipping_value.zip);
@@ -60,7 +63,10 @@ function billing_method_select(get_billing_value){
     let billing_method_id = $('.select_billing_address.active input[name="billing_method_id"]').val()
     $('#billing_contact_person_name').val(billing_value.contact_person_name);
     $('#billing_phone').val(billing_value.phone);
+<<<<<<< HEAD
     $('#billing_phone').keypress();
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     $('#billing_address').val(billing_value.address);
     $('#billing_city').val(billing_value.city);
     $('#billing_zip').val(billing_value.zip);
@@ -78,6 +84,10 @@ $('.add-another-address').on('click', function (){
     $("#collapseThree").collapse();
 })
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 let defaultLatitudeAddressValue = $('#default-latitude-address').data('value');
 let defaultLongitudeAddressValue = $('#default-longitude-address').data('value');
 function initAutocomplete() {
@@ -113,6 +123,7 @@ function initAutocomplete() {
         document.getElementById('longitude').value = coordinates['lng'];
 
         geocoder.geocode({'latLng': latlng}, function (results, status) {
+<<<<<<< HEAD
 
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[1]) {
@@ -123,6 +134,12 @@ function initAutocomplete() {
                         const countryObject = findCountryObject(results[1].address_components);
                         deliveryRestrictedCountriesCheck(countryObject.long_name, '.location-map-canvas-area', '#address')
                     }
+=======
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[1]) {
+                    document.getElementById('address').value = results[1].formatted_address;
+                    console.log(results[1].formatted_address);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         });
@@ -218,12 +235,16 @@ function initAutocompleteBilling() {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[1]) {
                     document.getElementById('billing_address').value = results[1].formatted_address;
+<<<<<<< HEAD
 
                     let systemCountryRestrictStatus = $('#system-country-restrict-status').data('value');
                     if (systemCountryRestrictStatus) {
                         const countryObject = findCountryObject(results[1].address_components);
                         deliveryRestrictedCountriesCheck(countryObject.long_name, '.location-map-billing-canvas-area', '#billing_address')
                     }
+=======
+                    console.log(results[1].formatted_address);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         });

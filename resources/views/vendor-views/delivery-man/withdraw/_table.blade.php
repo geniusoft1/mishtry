@@ -37,12 +37,20 @@
                 <td>
                     <div class="d-flex justify-content-center">
                         @if (isset($withdrawRequest->deliveryMan))
+<<<<<<< HEAD
                             <button
                                class="btn btn-outline-info btn-sm square-btn withdraw-info-show"
                                data-action="{{route('vendor.delivery-man.withdraw.details',[$withdrawRequest['id']])}}"
                                title="{{translate('view')}}">
                                 <i class="tio-invisible"></i>
                             </button>
+=======
+                            <a href="{{route('vendor.delivery-man.withdraw.details',[$withdrawRequest['id']])}}"
+                               class="btn btn-outline-info btn-sm square-btn"
+                               title="{{translate('view')}}">
+                                <i class="tio-invisible"></i>
+                            </a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         @else
                             <a class="btn btn-outline-info btn-sm square-btn disabled" href="#">
                                 <i class="tio-invisible"></i>
@@ -57,7 +65,11 @@
     @if(count($withdrawRequests)==0)
         <div class="text-center p-4">
             <img class="mb-3 w-160"
+<<<<<<< HEAD
                  src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                 src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                  alt="{{translate('image_description')}}">
             <p class="mb-0">{{translate('no_data_to_show')}}</p>
         </div>

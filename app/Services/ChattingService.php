@@ -67,6 +67,7 @@ class ChattingService
 
     /**
      * @param object $request
+<<<<<<< HEAD
      * @param string $type
      * @return array
      */
@@ -76,13 +77,25 @@ class ChattingService
         return [
             'delivery_man_id' => $type == 'delivery-man' ? $request['delivery_man_id'] : null ,
             'user_id' => $type == 'customer' ? $request['user_id'] : null ,
+=======
+     * @return array
+     */
+    public function addChattingData(object $request):array
+    {
+        $attachment = $this->getAttachment(request: $request);
+        return [
+            'delivery_man_id' => $request['delivery_man_id'],
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'admin_id' => 0,
             'message' => $request['message'],
             'attachment' => json_encode($attachment),
             'sent_by_admin' => 1,
             'seen_by_admin' => 1,
+<<<<<<< HEAD
             'seen_by_customer' => 0,
             'seen_by_delivery_man' => $type == 'delivery-man' ? 0 : null,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'created_at' => now(),
         ];
     }

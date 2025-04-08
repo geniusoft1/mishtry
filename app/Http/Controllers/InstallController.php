@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Models\Brand;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Utils\Helpers;
 use App\Models\ShippingType;
 use App\Models\BusinessSetting;
@@ -49,6 +52,7 @@ class InstallController extends Controller
 
     public function step5()
     {
+<<<<<<< HEAD
         //start symlink
         if(DOMAIN_POINTED_DIRECTORY == 'public' && function_exists('shell_exec')) {
             shell_exec('ln -s ../resources/themes themes');
@@ -56,6 +60,8 @@ class InstallController extends Controller
         Artisan::call('storage:link');
         //start symlink
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         Artisan::call('config:cache');
         Artisan::call('config:clear');
         return view('installation.step5');
@@ -486,6 +492,7 @@ class InstallController extends Controller
             ]
         );
 
+<<<<<<< HEAD
         if (!NotificationMessage::where(['key' => 'product_request_approved_message'])->first()) {
             DB::table('notification_messages')->updateOrInsert([
                 'key' => 'product_request_approved_message'
@@ -513,6 +520,8 @@ class InstallController extends Controller
                 ]
             );
         }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $previousRouteServiceProvier = base_path('app/Providers/RouteServiceProvider.php');
         $newRouteServiceProvier = base_path('app/Providers/RouteServiceProvider.txt');

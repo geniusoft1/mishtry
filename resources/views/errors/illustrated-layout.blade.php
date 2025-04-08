@@ -4,8 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>@yield('title')</title>
+<<<<<<< HEAD
         <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/front-end/css/roboto-font.css')  }}">
         <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/front-end/css/illustrated.css')}}"/>
+=======
+        <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/roboto-font.css')  }}">
+        <link rel="stylesheet" href="{{asset('public/assets/front-end/css/illustrated.css')}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     </head>
     <body class="antialiased font-sans">
         <div class="md:flex min-h-screen">

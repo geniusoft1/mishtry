@@ -1,6 +1,9 @@
 <?php
+<<<<<<< HEAD
 
 use App\Models\Product;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Models\Review;
 
 if (!function_exists('getOverallRating')) {
@@ -72,6 +75,7 @@ if (!function_exists('getProductDiscount')) {
 if (!function_exists('getPriceRangeWithDiscount')) {
     function getPriceRangeWithDiscount(array|object $product): float|string
     {
+<<<<<<< HEAD
         $productUnitPrice = $product->unit_price;
         foreach (json_decode($product->variation) as $key => $variation) {
             if ($key == 0) {
@@ -84,6 +88,36 @@ if (!function_exists('getPriceRangeWithDiscount')) {
             return '<span class="discounted_unit_price fs-24 font-bold">' . $productDiscountedPrice . '</span>' . '<del class="total_unit_price align-middle text-muted fs-18 font-semibold">' . webCurrencyConverter(amount: $productUnitPrice) . '</del>';
         } else {
             return '<span class="discounted_unit_price fs-24 font-bold">' . webCurrencyConverter(amount: $productUnitPrice) . '</span>';
+=======
+        $lowestPrice = $product->unit_price;
+        $highestPrice = $product->unit_price;
+
+        foreach (json_decode($product->variation) as $key => $variation) {
+            if ($lowestPrice > $variation->price) {
+                $lowestPrice = round($variation->price, 2);
+            }
+            if ($highestPrice < $variation->price) {
+                $highestPrice = round($variation->price, 2);
+            }
+        }
+
+        if($product->discount > 0){
+            $discountedLowestPrice = webCurrencyConverter(amount: $lowestPrice - getProductDiscount(product: $product, price: $lowestPrice));
+            $discountedHighestPrice = webCurrencyConverter(amount: $highestPrice - getProductDiscount(product: $product, price: $highestPrice));
+
+            if ($discountedLowestPrice == $discountedHighestPrice) {
+                if($discountedLowestPrice == webCurrencyConverter(amount: $lowestPrice)){
+                    return $discountedLowestPrice;
+                }else{
+                    return theme_root_path() === "default" ? $discountedLowestPrice." <del class='align-middle text-muted'>".webCurrencyConverter(amount: $lowestPrice)."</del> " : $discountedLowestPrice." <del>".webCurrencyConverter(amount: $lowestPrice)."</del> ";
+                }
+            }
+            return  theme_root_path() === "default" ? '<span class="fs-16">'.$discountedLowestPrice.'</span>'." <del class='align-middle text-muted'>".webCurrencyConverter(amount: $lowestPrice)."</del> ". ' - ' .'<span class="fs-16">'.$discountedHighestPrice.'</span>'." <del class='align-middle text-muted'>".webCurrencyConverter(amount: $highestPrice)."</del> " : $discountedLowestPrice." <del>".webCurrencyConverter(amount: $lowestPrice)."</del> ". ' - ' .$discountedHighestPrice." <del>".webCurrencyConverter(amount: $highestPrice)."</del> ";
+        }else if ($lowestPrice == $highestPrice){
+            return  theme_root_path() === "default" ? '<span class="fs-16">'.webCurrencyConverter(amount: $highestPrice).'</span>' : webCurrencyConverter(amount: $highestPrice);
+        }else{
+            return  theme_root_path() === "default" ? '<span class="fs-16">'.webCurrencyConverter(amount: $lowestPrice).'</span>'.' - ' ."<span>".webCurrencyConverter(amount: $highestPrice)."</span>" : webCurrencyConverter(amount: $lowestPrice). ' - ' .webCurrencyConverter(amount: $highestPrice);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
     }
 }
@@ -98,6 +132,7 @@ if (!function_exists('getRatingCount')) {
 if (!function_exists('units')) {
     function units(): array
     {
+<<<<<<< HEAD
         return ['kg', 'pc', 'gms', 'ltrs','pair','oz','lb'];
     }
 }
@@ -124,5 +159,8 @@ if (!function_exists('getAdminProductsCount')) {
             'approved' => $products->where('request_status', 1)->count(),
             'denied' => $products->where('request_status', 2)->where('status' , 0)->count(),
         };
+=======
+        return ['kg', 'pc', 'gms', 'ltrs'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 }

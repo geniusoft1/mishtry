@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/earning_report.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/earning_report.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('Earning_Report')}}
             </h2>
         </div>
@@ -15,7 +19,11 @@
                 <div class="media align-items-center">
                     <!-- Avatar -->
                     <div class="avatar avatar-xl avatar-4by3">
+<<<<<<< HEAD
                         <img class="avatar-img" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/earnings.png')}}"
+=======
+                        <img class="avatar-img" src="{{asset('public/assets/back-end/svg/illustrations/earnings.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="Image Description">
                     </div>
 
@@ -49,7 +57,11 @@
                             <div class="col-sm-auto">
                                 <div class="d-flex">
                                     <a class="btn btn-icon btn--primary rounded-circle"
+<<<<<<< HEAD
                                        href="{{route('admin.dashboard.index')}}">
+=======
+                                       href="{{route('admin.dashboard')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <i class="tio-home-outlined"></i>
                                     </a>
                                 </div>
@@ -418,10 +430,17 @@
 
 @push('script_2')
 
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/chart.js/dist/Chart.min.js')}}"></script>
     <script
             src="{{dynamicAsset(path: 'public/assets/back-end/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/hs.chartjs-matrix.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/vendor/chart.js/dist/Chart.min.js')}}"></script>
+    <script
+            src="{{asset('public/assets/back-end/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/js/hs.chartjs-matrix.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     <script>
         'use strict';

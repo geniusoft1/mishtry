@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/3rd-party.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -107,7 +111,11 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/smtp-server.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/smtp-server.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3 text-capitalize">{{translate('find_SMTP_server_details')}}</h4>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
                                     <li>{{translate('contact_your_email_service_provider_or_IT_administrator_to_obtain_the_SMTP_server_details_such_as_hostname_port_username_and_password').'.'}}</li>

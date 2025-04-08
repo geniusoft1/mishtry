@@ -7,7 +7,11 @@
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-10 mb-3">
             <div class="">
                 <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     {{$deliveryMan['f_name']. ' '. $deliveryMan['l_name']}}
                 </h2>
             </div>
@@ -214,7 +218,11 @@
                             <td colspan="3">
                                 <div class="text-center p-4">
                                     <img class="mb-3 w-160"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                         src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="{{translate('image_description')}}">
                                     <p class="mb-0">{{translate('no_data_to_show')}}</p>
                                 </div>

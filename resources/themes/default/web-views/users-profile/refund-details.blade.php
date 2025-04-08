@@ -121,7 +121,11 @@
         <div class="mt-2">
             <div class="d-flex gap-2 flex-wrap">
                 @foreach (json_decode($refund->images) as $key => $photo)
+<<<<<<< HEAD
                     <a data-lightbox="mygallery" href="{{dynamicStorage(path: 'storage/app/public/refund')}}/{{$photo}}">
+=======
+                    <a data-lightbox="mygallery" href="{{asset('storage/app/public/refund')}}/{{$photo}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <img class="border rounded border-primary-light"
                              src="{{ getValidImage(path: 'storage/app/public/refund/'.$photo, type: 'product') }}"
                              alt="{{ translate('product') }}" width="60">

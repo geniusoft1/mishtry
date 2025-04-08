@@ -4,6 +4,7 @@
     <div class="overflow-hidden position-relative">
         <div class=" inline_product clickable d-flex justify-content-center">
             @if($product->discount > 0)
+<<<<<<< HEAD
                 <span class="for-discount-value p-1 pl-2 pr-2 font-bold fs-13">
                     <span class="direction-ltr d-block">
                         @if ($product->discount_type == 'percent')
@@ -13,6 +14,16 @@
                         @endif
                     </span>
                 </span>
+=======
+                <span class="for-discount-value p-1 pl-2 pr-2">
+            @if ($product->discount_type == 'percent')
+                        {{round($product->discount, (!empty($decimal_point_settings) ? $decimal_point_settings: 0))}}%
+                    @elseif($product->discount_type =='flat')
+                        {{ webCurrencyConverter(amount: $product->discount) }}
+                    @endif
+                    {{translate('off')}}
+            </span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             @else
                 <div class="d-flex justify-content-end">
                     <span class="for-discount-value-null"></span>
@@ -34,7 +45,10 @@
             @endif
         </div>
         <div class="single-product-details">
+<<<<<<< HEAD
             @if($overallRating[0] != 0 )
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="rating-show justify-content-between text-center">
                 <span class="d-inline-block font-size-sm text-body">
                     @for($inc=1;$inc<=5;$inc++)
@@ -46,10 +60,16 @@
                             <i class="tio-star-outlined text-warning"></i>
                         @endif
                     @endfor
+<<<<<<< HEAD
                     <label class="badge-style">( {{ count($product->reviews) }} )</label>
                 </span>
             </div>
             @endif
+=======
+                    <label class="badge-style">( {{$product->reviews_count}} )</label>
+                </span>
+            </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="text-center">
                 <a href="{{route('product',$product->slug)}}">
                     {{ Str::limit($product['name'], 23) }}

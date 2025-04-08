@@ -61,7 +61,10 @@ class ProductController extends Controller
                 return $query->where('user_id', $request->user()->id ?? 0);
             }
         ])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->withCount(['wishList' => function ($query) use ($user) {
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
@@ -127,6 +130,7 @@ class ProductController extends Controller
 
         if ($request['data_from'] == 'featured') {
             $query = Product::with([
+<<<<<<< HEAD
                     'flashDealProducts.flashDeal',
                     'reviews', 'seller.shop',
                     'wishList' => function ($query) use ($request) {
@@ -137,6 +141,17 @@ class ProductController extends Controller
                     }
                 ])
                 ->withCount('reviews')->active()->where('featured', 1);
+=======
+                'flashDealProducts.flashDeal',
+                'reviews', 'seller.shop',
+                'wishList' => function ($query) use ($request) {
+                    return $query->where('customer_id', $request->user()->id ?? 0);
+                },
+                'compareList' => function ($query) use ($request) {
+                    return $query->where('user_id', $request->user()->id ?? 0);
+                }
+            ])->active()->where('featured', 1);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['data_from'] == 'featured_deal') {
@@ -151,7 +166,11 @@ class ProductController extends Controller
                 'compareList' => function ($query) use ($request) {
                     return $query->where('user_id', $request->user()->id ?? 0);
                 }
+<<<<<<< HEAD
             ])->withCount('reviews')->active()->whereIn('id', $featured_deal_product_ids);
+=======
+            ])->active()->whereIn('id', $featured_deal_product_ids);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['data_from'] == 'discounted') {
@@ -164,7 +183,11 @@ class ProductController extends Controller
                 'compareList' => function ($query) use ($request) {
                     return $query->where('user_id', $request->user()->id ?? 0);
                 }
+<<<<<<< HEAD
             ])->withCount('reviews')->active()->where('discount', '!=', 0);
+=======
+            ])->active()->where('discount', '!=', 0);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request->has('search_category') && $request['search_category'] != 'all') {
@@ -192,7 +215,10 @@ class ProductController extends Controller
                     return $query->where('user_id', $request->user()->id ?? 0);
                 }
             ])
+<<<<<<< HEAD
                 ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ->when($request->has('seller_id'), function ($query) use ($request) {
                     $sellerId = $request['seller_id'] == '0' ? 1 : $request['seller_id'];
                     $addedBy = $request['seller_id'] == '0' ? 'admin' : 'seller';
@@ -367,7 +393,10 @@ class ProductController extends Controller
         }, 'compareList' => function ($query) use ($request) {
             return $query->where('user_id', $request->user()->id ?? 0);
         }])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when(isset($request->shop_id) && $request->shop_id == '0', function ($query) {
                 return $query->where(['added_by' => 'admin']);
             })
@@ -525,7 +554,11 @@ class ProductController extends Controller
         $user = Helpers::get_customer($request);
 
         $product = Product::with(['reviews.customer', 'seller.shop', 'tags'])
+<<<<<<< HEAD
             ->withCount(['reviews','wishList' => function ($query) use ($user) {
+=======
+            ->withCount(['wishList' => function ($query) use ($user) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->where(['slug' => $slug])
@@ -613,7 +646,11 @@ class ProductController extends Controller
     public function get_product_rating($id)
     {
         try {
+<<<<<<< HEAD
             $product = Product::withCount('reviews')->find($id);
+=======
+            $product = Product::find($id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $overallRating = getOverallRating($product->reviews);
             return response()->json(floatval($overallRating[0]), 200);
         } catch (\Exception $e) {
@@ -634,7 +671,11 @@ class ProductController extends Controller
 
     public function social_share_link($product_slug)
     {
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->where('slug', $product_slug)->first();
+=======
+        $product = Product::where('slug', $product_slug)->first();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $link = route('product', $product->slug);
         try {
 

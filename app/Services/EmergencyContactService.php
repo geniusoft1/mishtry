@@ -11,10 +11,15 @@ class EmergencyContactService
     {
         return [
             'user_id' => $id,
+<<<<<<< HEAD
             'country_code' => $request['country_code'],
             'name' => $request['name'],
             'phone' => $request['phone'],
             'status' => 1,
+=======
+            'name' => $request['name'],
+            'phone' => $request['phone'],
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
     }
 }

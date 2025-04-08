@@ -16,8 +16,12 @@
             @if (session()->has('cart_name') && count(session()->get('cart_name')) > 0 )
             @php($totalHoldOrdersCount=1)
                 @foreach ($cartItems as $key => $singleCart)
+<<<<<<< HEAD
                     @if($singleCart['customerOnHold'])
                         <tr>
+=======
+                    <tr>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <td>{{ $totalHoldOrdersCount }}</td>
                             <?php $totalHoldOrdersCount++; ?>
                         <td>
@@ -48,6 +52,7 @@
                                                              src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$item['image'], type: 'backend-product') }}">
                                                         <div class="media-body">
                                                             <h6 class="text-truncate"> {{ Str::limit($item['name'], 12 )}}</h6>
+<<<<<<< HEAD
                                                             @if($item['variant'])
                                                                 <div class="text-muted">{{ translate('variation') }}
                                                                     : {{ $item['variant'] }}</div>
@@ -56,6 +61,11 @@
                                                                 : {{ $item['quantity'] }}</div>
                                                         </div>
 
+=======
+                                                            <div class="text-muted">{{ translate('qty') }}
+                                                                : {{ $item['quantity'] }}</div>
+                                                        </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                     <h5>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $item['productSubtotal']), currencyCode: getCurrencyCode())}}</h5>
                                                 </div>
@@ -66,8 +76,13 @@
                             </div>
                         </td>
                         <td>
+<<<<<<< HEAD
                             @if ($singleCart['discountOnProduct']>0)
                                 <del>{{setCurrencySymbol(amount:usdToDefaultCurrency(amount: round($singleCart['subtotal']+$singleCart['discountOnProduct']+$singleCart['totalTax'], 2)), currencyCode: getCurrencyCode())}}</del>
+=======
+                            @if (($singleCart['total']+$singleCart['totalTax']) != $singleCart['subtotal'])
+                                <del>{{setCurrencySymbol(amount:usdToDefaultCurrency(amount: round($singleCart['subtotal']+$singleCart['totalTax'], 2)), currencyCode: getCurrencyCode())}}</del>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             @endif
                             {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: round($singleCart['total']+$singleCart['totalTax'], 2)), currencyCode: getCurrencyCode())}}
                         </td>
@@ -83,7 +98,10 @@
                             </div>
                         </td>
                     </tr>
+<<<<<<< HEAD
                     @endif
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 @endforeach
             @endif
             </tbody>
@@ -92,7 +110,11 @@
 @else
     <div class="d-flex align-items-center justify-content-center ">
         <div>
+<<<<<<< HEAD
             <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/product.svg') }}" alt="">
+=======
+            <img src="{{ asset('public/assets/back-end/img/icons/product.svg') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <h4 class="text-muted text-center mt-4">{{ translate('No_Order_Found') }}</h4>
         </div>
     </div>

@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('withdraw')}}
             </h2>
         </div>
@@ -39,7 +43,11 @@
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a class="dropdown-item" href="{{ route('admin.sellers.withdraw-list-export-excel') }}?approved={{request('approved')}}">
+<<<<<<< HEAD
                                                 <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                                <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 {{translate('excel')}}
                                             </a>
                                         </li>
@@ -72,7 +80,11 @@
                                         @if (isset($withdrawRequest->seller))
                                             <a href="{{route('admin.sellers.view', $withdrawRequest->seller_id)}}" class="title-color hover-c1">{{ $withdrawRequest->seller->f_name . ' ' . $withdrawRequest->seller->l_name }}</a>
                                         @else
+<<<<<<< HEAD
                                             <span>{{translate('not_found')}}</span>
+=======
+                                            <a href="javascript:">{{translate('not_found')}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         @endif
                                     </td>
                                     <td>{{$withdrawRequest->created_at}}</td>
@@ -106,7 +118,11 @@
                         </table>
                         @if(count($withdrawRequests) == 0)
                             <div class="text-center p-4">
+<<<<<<< HEAD
                                 <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         alt="{{translate('image_description')}}">
                                 <p class="mb-0">{{translate('no_data_to_show')}}</p>
                             </div>

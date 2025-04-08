@@ -58,6 +58,7 @@ class DeliveryManController extends BaseController
 
     /**
      * @param DeliveryManRequest $request
+<<<<<<< HEAD
      * @return JsonResponse
      * @function add  is the adding request data to delivery_men table
      */
@@ -67,11 +68,23 @@ class DeliveryManController extends BaseController
         if ($deliveryMan) {
             return response()->json(['errors'=>translate('this_phone_number_is_already_taken')]);
         }
+=======
+     * @return RedirectResponse
+     * @function add  is the adding request data to delivery_men table
+     */
+    public function add(DeliveryManRequest $request):RedirectResponse
+    {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $this->deliveryManRepo->add($this->deliveryManService->getDeliveryManAddData(
             request:$request,
             addedBy:'seller')
         );
+<<<<<<< HEAD
         return response()->json(['message'=>translate('delivery_man_added_successfully')]);
+=======
+        Toastr::success(translate('Deliveryman_added_successfully'));
+        return redirect()->route(DeliveryMan::LIST[ROUTE]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
     /**
      * @param Request $request
@@ -111,6 +124,7 @@ class DeliveryManController extends BaseController
     /**
      * @param DeliveryManUpdateRequest $request
      * @param string|int $id
+<<<<<<< HEAD
      * @return JsonResponse
      * @function update ,update the deliveryMan data
      */
@@ -122,13 +136,26 @@ class DeliveryManController extends BaseController
         if (isset($deliveryManExists) && $deliveryManExists['id'] != $deliveryMan['id']) {
             return response()->json(['errors'=>translate('this_phone_number_is_already_taken')]);
         }
+=======
+     * @return RedirectResponse
+     * @function update ,update the deliveryMan data
+     */
+    public function update(DeliveryManUpdateRequest $request , string|int $id):RedirectResponse
+    {
+        $deliveryMan = $this->deliveryManRepo->getFirstWhere(params:['seller_id' => auth('seller')->id(), 'id' => $id]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $this->deliveryManRepo->update($id,$this->deliveryManService->getDeliveryManUpdateData(
             request:$request,
             addedBy:'seller',
             identityImages: $deliveryMan['identity_image'],
             deliveryManImage: $deliveryMan['image'])
         );
+<<<<<<< HEAD
         return response()->json(['message'=>translate('delivery_man_updated_successfully')]);
+=======
+        return redirect()->route(DeliveryMan::LIST[ROUTE]);
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
     /**
      * @param Request $request

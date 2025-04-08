@@ -49,7 +49,11 @@ class ConfigController extends Controller
         if($offline_payment_status){
             $offline_payment = [
                 'name' => 'offline_payment',
+<<<<<<< HEAD
                 'image' => dynamicAsset(path: 'public/assets/back-end/img/pay-offline.png'),
+=======
+                'image' => asset('public/assets/back-end/img/pay-offline.png'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ];
         }
 
@@ -74,6 +78,7 @@ class ConfigController extends Controller
         $shipping_type = isset($admin_shipping)==true?$admin_shipping->shipping_type:'order_wise';
 
         $companyShopBanner = getWebConfig(name: 'shop_banner');
+<<<<<<< HEAD
         $company_logo = dynamicStorage(path: "storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_web_logo'])->first()->value;
         $company_cover_image = dynamicStorage(path: "storage/app/public/logo/").'/'.$companyShopBanner;
         $company_fav_icon = dynamicStorage(path: "storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_fav_icon'])->first()->value;
@@ -85,6 +90,19 @@ class ConfigController extends Controller
                 })
                 ->select('id', 'seller_id', 'name', 'slug','image', 'vacation_start_date', 'vacation_end_date', 'vacation_note', 'vacation_status', 'temporary_close')
                 ->get();
+=======
+        $company_logo = asset("storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_web_logo'])->first()->value;
+        $company_cover_image = asset("storage/app/public/logo/").'/'.$companyShopBanner;
+        $company_fav_icon = asset("storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_fav_icon'])->first()->value;
+        $footer_logo = asset("storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_footer_logo'])->first()->value;
+        $android = BusinessSetting::where(['type'=>'download_app_google_stroe'])->first()->value;
+        $android = json_decode($android)->link;
+        $shops = Shop::whereHas('seller', function ($query) {
+            return $query->approved();
+        })
+            ->select('id', 'seller_id', 'name', 'slug','image', 'vacation_start_date', 'vacation_end_date', 'vacation_note', 'vacation_status', 'temporary_close')
+            ->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $brands = Brand::active()->take(15)->select('id', 'name', 'image', 'status')->get();
 
         $ios = BusinessSetting::where(['type'=>'download_app_apple_stroe'])->first()->value;
@@ -128,6 +146,7 @@ class ConfigController extends Controller
             'base_urls' => [
                 'product_image_url' => ProductManager::product_image_path('product'),
                 'product_thumbnail_url' => ProductManager::product_image_path('thumbnail'),
+<<<<<<< HEAD
                 'digital_product_url' => dynamicStorage(path: 'storage/app/public/product/digital-product'),
                 'brand_image_url' => dynamicStorage(path: 'storage/app/public/brand'),
                 'customer_image_url' => dynamicStorage(path: 'storage/app/public/profile'),
@@ -142,6 +161,22 @@ class ConfigController extends Controller
                 'delivery_man_verification_image' => dynamicStorage(path: 'storage/app/public/delivery-man/verification-image'),
                 'support_ticket_image_url' => dynamicStorage(path: 'storage/app/public/support-ticket'),
                 'chatting_image_url' => dynamicStorage(path: 'storage/app/public/chatting'),
+=======
+                'digital_product_url' => asset('storage/app/public/product/digital-product'),
+                'brand_image_url' => asset('storage/app/public/brand'),
+                'customer_image_url' => asset('storage/app/public/profile'),
+                'banner_image_url' => asset('storage/app/public/banner'),
+                'category_image_url' => asset('storage/app/public/category'),
+                'review_image_url' => asset('storage/app/public'),
+                'seller_image_url' => asset('storage/app/public/seller'),
+                'shop_image_url' => asset('storage/app/public/shop'),
+                'notification_image_url' => asset('storage/app/public/notification'),
+                'delivery_man_image_url' => asset('storage/app/public/delivery-man'),
+                'flag_image_url' => asset('public/assets/front-end/img/flags'),
+                'delivery_man_verification_image' => asset('storage/app/public/delivery-man/verification-image'),
+                'support_ticket_image_url' => asset('storage/app/public/support-ticket'),
+                'chatting_image_url' => asset('storage/app/public/chatting'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ],
             'currency_list' => $currency,
             'currency_symbol_position' => getWebConfig(name: 'currency_symbol_position') ?? 'right',
@@ -168,7 +203,11 @@ class ConfigController extends Controller
             'loyalty_point_exchange_rate'=>getWebConfig(name: 'loyalty_point_exchange_rate'),
             'loyalty_point_minimum_point'=>getWebConfig(name: 'loyalty_point_minimum_point'),
             'payment_methods' => $payment_methods,
+<<<<<<< HEAD
             'payment_method_image_path' => dynamicStorage(path: 'storage/app/public/payment_modules/gateway_image'),
+=======
+            'payment_method_image_path' => asset('storage/app/public/payment_modules/gateway_image'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'offline_payment' => $offline_payment,
             'refund_day_limit' => getWebConfig(name: 'refund_day_limit'),
             'seller_login_url' => route('vendor.auth.login'),

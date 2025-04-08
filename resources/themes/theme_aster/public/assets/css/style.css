@@ -4287,7 +4287,11 @@ input[type="checkbox"]:checked::after {
 
 .chat-people-name {
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: 1fr 4.2rem;
+=======
+    grid-template-columns: 1fr 2.25rem;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     color: var(--title-color);
 }
 

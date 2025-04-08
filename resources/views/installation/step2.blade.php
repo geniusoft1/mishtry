@@ -25,7 +25,11 @@
                     {{ "Where to get this information ?" }}
                     <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                           data-bs-title="Purchase code information">
+<<<<<<< HEAD
                         <img src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}" alt=""
+=======
+                        <img src="{{ asset('public/assets/installation/assets/img/svg-icons/info.svg') }}" alt=""
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              class="svg">
                     </span>
                 </a>
@@ -54,7 +58,11 @@
                                               data-bs-html="true"
                                               data-bs-title="The username of your codecanyon account">
                                             <img class="svg" alt=""
+<<<<<<< HEAD
                                                  src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+=======
+                                                 src="{{ asset('public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </label>
                                     <input type="text" id="username" class="form-control" name="username"

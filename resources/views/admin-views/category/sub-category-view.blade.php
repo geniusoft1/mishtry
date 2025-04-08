@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand-setup.png') }}" alt="">
+=======
+                <img src="{{ asset('public/assets/back-end/img/brand-setup.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('sub_Category_Setup') }}
             </h2>
         </div>
@@ -18,6 +22,10 @@
                         <form action="{{ route('admin.sub-category.store') }}" method="POST"
                               enctype="multipart/form-data">
                             @csrf
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <ul class="nav nav-tabs w-fit-content mb-4">
                                 @foreach($languages as $lang)
                                     <li class="nav-item">
@@ -30,6 +38,7 @@
                                 @endforeach
                             </ul>
                             <div class="row">
+<<<<<<< HEAD
                                 <div class="{{ theme_root_path() == 'theme_aster'?'col-lg-6':'col-lg-12' }}">
 
                                     <div class="{{ theme_root_path() == 'theme_aster'?'w-100':'row' }}">
@@ -80,6 +89,56 @@
                                                 @endfor
                                             </select>
                                         </div>
+=======
+                                <div
+                                    class=" {{ theme_root_path() == 'theme_aster'?'col-lg-6':'col-lg-12 d-flex gap-3' }}">
+                                    <div class="w-100">
+                                        @foreach($languages as $lang)
+                                            <div
+                                                class="form-group {{ $lang != $defaultLanguage ? 'd-none':''}} form-system-language-form"
+                                                id="{{ $lang}}-form">
+                                                <label class="title-color" for="exampleFormControlInput1">
+                                                    {{ translate('sub_category_name') }}
+                                                    <span class="text-danger">*</span>
+                                                    ({{strtoupper($lang) }})
+                                                </label>
+                                                <input type="text" name="name[]" class="form-control"
+                                                       placeholder="{{ translate('new_Sub_Category') }}" {{ $lang == $defaultLanguage? 'required':''}}>
+                                            </div>
+                                            <input type="hidden" name="lang[]" value="{{ $lang}}">
+                                        @endforeach
+                                        <input name="position" value="1" class="d-none">
+                                    </div>
+                                    <div class="form-group w-100">
+                                        <label class="title-color"
+                                               for="exampleFormControlSelect1">{{ translate('main_Category') }}
+                                            <span class="text-danger">*</span></label>
+                                        <select id="exampleFormControlSelect1" name="parent_id"
+                                                class="form-control" required>
+                                            <option value="" selected disabled>
+                                                {{ translate('select_main_category') }}
+                                            </option>
+                                            @foreach($parentCategories as $category)
+                                                <option value="{{ $category['id']}}">
+                                                    {{ $category['defaultname']}}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group w-100">
+                                        <label class="title-color" for="priority">{{ translate('priority') }}
+                                            <span>
+                                                <i class="tio-info-outined"
+                                                   title="{{ translate('the_lowest_number_will_get_the_highest_priority') }}"></i>
+                                            </span>
+                                        </label>
+                                        <select class="form-control" name="priority" id="" required>
+                                            <option disabled selected>{{ translate('set_Priority') }}</option>
+                                            @for ($i = 0; $i <= 10; $i++)
+                                                <option value="{{ $i}}">{{ $i}}</option>
+                                            @endfor
+                                        </select>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
 
                                     @if (theme_root_path() == 'theme_aster')
@@ -99,13 +158,23 @@
                                             </div>
                                         </div>
                                     @endif
+<<<<<<< HEAD
                                 </div>
+=======
+
+                                </div>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @if (theme_root_path() == 'theme_aster')
                                     <div class="col-lg-6 mt-4 mt-lg-0 from_part_2">
                                         <div class="form-group">
                                             <div class="mx-auto text-center">
                                                 <img class="upload-img-view" id="viewer"
+<<<<<<< HEAD
                                                      src="{{ dynamicAsset(path: 'public/assets/back-end/img/900x400/img1.jpg') }}"
+=======
+                                                     src="{{ asset('public/assets/back-end/img/900x400/img1.jpg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                             </div>
                                         </div>
@@ -126,6 +195,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="px-3 py-4">
+<<<<<<< HEAD
                         <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center">
                             <div class="">
                                 <h5 class="text-capitalize d-flex gap-1">
@@ -134,6 +204,17 @@
                                 </h5>
                             </div>
                             <div class="d-flex flex-wrap gap-3 align-items-center">
+=======
+                        <div class="row align-items-center">
+                            <div class="col-sm-4 col-md-6 col-lg-8 mb-2 mb-sm-0">
+                                <h5 class="text-capitalize d-flex gap-2">
+                                    {{ translate('sub_category_list') }}
+                                    <span
+                                        class="badge badge-soft-dark radius-50 fz-12">{{ $categories->total() }}</span>
+                                </h5>
+                            </div>
+                            <div class="col-sm-8 col-md-6 col-lg-4">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <form action="{{ url()->current() }}" method="GET">
                                     <div class="input-group input-group-custom input-group-merge">
                                         <div class="input-group-prepend">
@@ -141,6 +222,7 @@
                                                 <i class="tio-search"></i>
                                             </div>
                                         </div>
+<<<<<<< HEAD
                                         <input id="" type="search" name="searchValue" class="form-control"
                                                placeholder="{{ translate('search_by_sub_category_name') }}"
                                                value="{{ request('searchValue') }}">
@@ -165,6 +247,16 @@
                                         </li>
                                     </ul>
                                 </div>
+=======
+                                        <input id="datatableSearch_" type="search" name="searchValue"
+                                               class="form-control"
+                                               placeholder="{{ translate('search_by_Sub_Category') }}"
+                                               aria-label="Search orders" value="{{ request('searchValue') }}" required>
+                                        <button type="submit"
+                                                class="btn btn--primary">{{ translate('search') }}</button>
+                                    </div>
+                                </form>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>
@@ -178,9 +270,14 @@
                                 @if (theme_root_path() == 'theme_aster')
                                     <th class="text-center">{{ translate('sub_category_Image') }}</th>
                                 @endif
+<<<<<<< HEAD
                                 <th>{{ translate('sub_category_name') }}</th>
                                 <th>{{ translate('category_name') }}</th>
                                 <th class="text-center">{{ translate('priority') }}</th>
+=======
+                                <th>{{ translate('name') }}</th>
+                                <th>{{ translate('priority') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <th class="text-center">{{ translate('action') }}</th>
                             </tr>
                             </thead>
@@ -195,8 +292,12 @@
                                         </td>
                                     @endif
                                     <td>{{($category['defaultname']) }}</td>
+<<<<<<< HEAD
                                     <td>{{$category?->parent?->defaultname ?? translate('category_not_found') }}</td>
                                     <td class="text-center">{{ $category['priority']}}</td>
+=======
+                                    <td>{{ $category['priority']}}</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             <a class="btn btn-outline-info btn-sm square-btn"
@@ -226,7 +327,11 @@
                     @if(count($categories)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160" alt=""
+<<<<<<< HEAD
                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}">
+=======
+                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>
                     @endif
@@ -239,5 +344,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

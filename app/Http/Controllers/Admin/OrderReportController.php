@@ -9,10 +9,15 @@ use App\Models\Order;
 use App\Models\Seller;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+<<<<<<< HEAD
 use FontLib\Table\Type\name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+=======
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Maatwebsite\Excel\Facades\Excel;
 
 class OrderReportController extends Controller
@@ -99,24 +104,46 @@ class OrderReportController extends Controller
         $to = $request['to'];
         $date_type = $request['date_type'] ?? 'this_year';
 
+<<<<<<< HEAD
         if ($date_type == 'this_year') {
+=======
+        if ($date_type == 'this_year') { //this year table
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $number = 12;
             $default_inc = 1;
             $current_start_year = date('Y-01-01');
             $current_end_year = date('Y-12-31');
             $from_year = Carbon::parse($from)->format('Y');
+<<<<<<< HEAD
             return self::order_report_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+=======
+
+            $this_year = self::order_report_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+            return $this_year;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'this_month') { //this month table
             $current_month_start = date('Y-m-01');
             $current_month_end = date('Y-m-t');
             $inc = 1;
             $month = date('m');
             $number = date('d', strtotime($current_month_end));
+<<<<<<< HEAD
             return self::order_report_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
         } elseif ($date_type == 'this_week') {
             return self::order_report_this_week($request);
         } elseif ($date_type == 'today') {
             return self::getOrderReportForToday($request);
+=======
+
+            $this_month = self::order_report_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
+            return $this_month;
+
+        } elseif ($date_type == 'this_week') {
+            $this_week = self::order_report_this_week($request);
+            return $this_week;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'custom_date' && !empty($from) && !empty($to)) {
             $start_date = Carbon::parse($from)->format('Y-m-d 00:00:00');
             $end_date = Carbon::parse($to)->format('Y-m-d 23:59:59');
@@ -128,11 +155,24 @@ class OrderReportController extends Controller
             $to_day = Carbon::parse($to)->format('d');
 
             if ($from_year != $to_year) {
+<<<<<<< HEAD
                 return self::order_report_different_year($request, $start_date, $end_date, $from_year, $to_year);
             } elseif ($from_month != $to_month) {
                 return self::order_report_same_year($request, $start_date, $end_date, $from_year, $to_month, $from_month);
             } elseif ($from_month == $to_month) {
                 return self::order_report_same_month($request, $start_date, $end_date, $from_month, $to_day, $from_day);
+=======
+                $different_year = self::order_report_different_year($request, $start_date, $end_date, $from_year, $to_year);
+                return $different_year;
+
+            } elseif ($from_month != $to_month) {
+                $same_year = self::order_report_same_year($request, $start_date, $end_date, $from_year, $to_month, $from_month);
+                return $same_year;
+
+            } elseif ($from_month == $to_month) {
+                $same_month = self::order_report_same_month($request, $start_date, $end_date, $from_month, $to_day, $from_day);
+                return $same_month;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
 
         }
@@ -146,24 +186,42 @@ class OrderReportController extends Controller
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $orderAmount[$month] = 0;
             foreach ($orders as $match) {
                 if ($match['month'] == $inc) {
                     $orderAmount[$month] = $match['order_amount'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $order_amount[$month . '-' . $from_year] = 0;
+            foreach ($orders as $match) {
+                if ($match['month'] == $inc) {
+                    $order_amount[$month . '-' . $from_year] = $match['order_amount'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
 
+<<<<<<< HEAD
         return [
             'order_amount' => $orderAmount ?? [],
         ];
+=======
+        return array(
+            'order_amount' => $order_amount,
+        );
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function order_report_same_month($request, $start_date, $end_date, $month_date, $number, $default_inc)
     {
         $year_month = date('Y-m', strtotime($start_date));
+<<<<<<< HEAD
         $month = substr(date("F", strtotime("$year_month")), 0, 3);
+=======
+        $month = date("F", strtotime("$year_month"));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $orders = self::order_report_chart_common_query($request, $start_date, $end_date)
             ->selectRaw('sum(order_amount) as order_amount, YEAR(updated_at) year, MONTH(updated_at) month, DAY(updated_at) day')
@@ -218,6 +276,7 @@ class OrderReportController extends Controller
             'order_amount' => $order_amount,
         );
     }
+<<<<<<< HEAD
     public function getOrderReportForToday($request): array
     {
         $number = 1;
@@ -244,6 +303,8 @@ class OrderReportController extends Controller
             'order_amount' => $order_amount ?? [],
         ];
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function order_report_different_year($request, $start_date, $end_date, $from_year, $to_year)
     {
@@ -268,6 +329,7 @@ class OrderReportController extends Controller
 
     public function order_report_chart_common_query($request, $start_date, $end_date)
     {
+<<<<<<< HEAD
         $sellerId = $request['seller_id'] ?? 'all';
         return Order::where([ 'order_status'=>'delivered'])
             ->when($sellerId != 'all', function ($query) use ($sellerId) {
@@ -278,6 +340,22 @@ class OrderReportController extends Controller
                 });
             })
             ->whereBetween('updated_at', [$start_date, $end_date]);
+=======
+        $seller_id = $request['seller_id'] ?? 'all';
+
+        $query = Order::where([ 'order_status'=>'delivered'])
+            ->when($seller_id != 'all', function ($query) use ($seller_id) {
+                $query->when($seller_id == 'inhouse', function ($q) {
+                    $q->where(['seller_id' => 1, 'seller_is' => 'admin']);
+                })->when($seller_id != 'inhouse', function ($q) use ($seller_id) {
+                    $q->where(['seller_id' => $seller_id, 'seller_is' => 'seller']);
+                });
+            })
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date);
+
+        return $query;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function pie_chart_common_query($request, $query)
@@ -333,7 +411,13 @@ class OrderReportController extends Controller
                     $q->where(['seller_id' => $seller_id, 'seller_is' => 'seller']);
                 });
             });
+<<<<<<< HEAD
         return self::date_wise_common_filter($orders_query, $date_type, $from, $to);
+=======
+        $orders = self::date_wise_common_filter($orders_query, $date_type, $from, $to);
+
+        return $orders;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function order_count($request, $query){
@@ -366,14 +450,18 @@ class OrderReportController extends Controller
             ->when(($date_type == 'this_week'), function ($query) {
                 return $query->whereBetween('updated_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
             })
+<<<<<<< HEAD
             ->when(($date_type == 'today'), function ($query) {
                 return $query->whereBetween('updated_at', [Carbon::now()->startOfDay(), Carbon::now()->endOfDay()]);
             })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when(($date_type == 'custom_date' && !is_null($from) && !is_null($to)), function ($query) use ($from, $to) {
                 return $query->whereDate('updated_at', '>=', $from)
                     ->whereDate('updated_at', '<=', $to);
             });
     }
+<<<<<<< HEAD
 
     public function exportOrderReportInPDF(Request $request)
     {
@@ -420,4 +508,6 @@ class OrderReportController extends Controller
         $mpdfView = View::make('admin-views.transaction.total_orders_report_pdf', ['data'=>$data]);
         Helpers::gen_mpdf($mpdfView, 'order_transaction_summary_report_', $dateType);
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

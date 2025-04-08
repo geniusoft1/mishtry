@@ -9,6 +9,7 @@ $(document).ready(function () {
         let cardBody = $('[name="billing_method_id"]:checked').parents('.card-header').siblings('.card-body')
         billingMethodSelect(cardBody);
     }
+<<<<<<< HEAD
 
     try {
         initializePhoneInput(".phone-input-with-country-picker-shipping", ".country-picker-phone-number-shipping");
@@ -18,6 +19,8 @@ $(document).ready(function () {
         initializePhoneInput(".phone-input-with-country-picker-billing", ".country-picker-phone-number-billing");
     } catch (error) {
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 });
 
 $('[name="shipping_method_id"]').on('change', function () {
@@ -41,7 +44,10 @@ function shippingMethodSelect(cardBody) {
 
     $('#name').val(shippingPerson);
     $('#phoneNumber').val(shippingPhone);
+<<<<<<< HEAD
     $('#phoneNumber').keypress();
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     $('#address').val(shippingAddress);
     $('#city').val(shippingCity);
     $('#zip').val(shippingZip);
@@ -72,7 +78,10 @@ function billingMethodSelect(cardBody) {
                 <input type="checkbox" name="update_billing_address" id="update-billing-address">${updateThisAddress}`;
     $('#billing-contact-person-name').val(billingPerson);
     $('#billing-phone').val(billingPhone);
+<<<<<<< HEAD
     $('#billing-phone').keypress()
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     $('#billing-address').val(billingAddress);
     $('#billing-city').val(billingCity);
     $('#billing-zip').val(billingZip);

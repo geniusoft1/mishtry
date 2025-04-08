@@ -18,10 +18,17 @@
                                         <div class="media align-items-center gap-3">
                                             <div class="avatar rounded store-avatar">
                                                 <img alt="" class="dark-support rounded img-fit"
+<<<<<<< HEAD
                                                     src="{{ getValidImage(path: 'storage/app/public/shop/'.($order?->seller?->shop->image), type:'shop') }}">
                                             </div>
                                             <div class="media-body d-flex flex-column gap-2">
                                                 <h4>{{ $order?->seller?->shop->name}}</h4>
+=======
+                                                    src="{{ getValidImage(path: 'storage/app/public/shop/'.($order?->seller?->shop->image), type:'shop')}}">
+                                            </div>
+                                            <div class="media-body d-flex flex-column gap-2">
+                                                <h4>{{$order?->seller?->shop->name}}</h4>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <div class="d-flex gap-2 align-items-center">
                                                     <div class="star-rating text-gold fs-12">
                                                         @for($inc=1;$inc<=5;$inc++)
@@ -37,7 +44,11 @@
                                                     <span class="text-muted fw-semibold">{{number_format($avg_rating,1)}}</span>
                                                 </div>
                                                 <ul class="list-unstyled list-inline-dot fs-12">
+<<<<<<< HEAD
                                                     <li>{{ $rating_count }} {{ translate('reviews') }} </li>
+=======
+                                                    <li>{{$rating_count}} {{translate('reviews')}} </li>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </ul>
                                             </div>
                                         </div>
@@ -46,29 +57,47 @@
                                             <button  class="btn btn-primary"
                                                      data-bs-toggle="modal" data-bs-target="#contact_sellerModal">
                                                 <i class="bi bi-chat-square-fill"></i>
+<<<<<<< HEAD
                                                 {{ translate('Chat_with_vendor') }}
+=======
+                                                {{translate('Chat_with_vendor')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </button>
                                         </div>
                                         @endif
                                     </div>
                                     @if(isset($order->seller->shop) && $order->seller->shop['id'] != 0)
+<<<<<<< HEAD
                                         @include('theme-views.layouts.partials.modal._chat-with-seller',['shop'=>$order->seller->shop, 'user_type' => 'seller'])
                                     @endif
 
+=======
+                                        @include('theme-views.layouts.partials.modal._chat-with-seller',['seller_id'=>$order->seller['id'],'shop_id'=>$order->seller->shop['id']])
+                                    @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="d-flex gap-3 flex-wrap mt-4">
                                         <div class="card flex-grow-1">
                                             <div class="card-body grid-center">
                                                 <div class="text-center">
                                                     <h2 class="fs-28 text-primary fw-extra-bold mb-2">{{round($rating_percentage)}}%</h2>
+<<<<<<< HEAD
                                                     <p class="text-muted">{{ translate('positive_review') }}</p>
+=======
+                                                    <p class="text-muted">{{translate('positive_review')}}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card flex-grow-1">
                                             <div class="card-body grid-center">
                                                 <div class="text-center">
+<<<<<<< HEAD
                                                     <h2 class="fs-28 text-primary fw-extra-bold mb-2">{{ $product_count }}</h2>
                                                     <p class="text-muted">{{ translate('products') }}</p>
+=======
+                                                    <h2 class="fs-28 text-primary fw-extra-bold mb-2">{{$product_count}}</h2>
+                                                    <p class="text-muted">{{translate('products')}}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </div>
                                             </div>
                                         </div>
@@ -81,7 +110,11 @@
                                                          src="{{ getValidImage(path: 'storage/app/public/company/'.($web_config['fav_icon']->value), type:'shop') }}">
                                                 </div>
                                                 <div class="media-body d-flex flex-column gap-2">
+<<<<<<< HEAD
                                                     <h4> {{ $web_config['name']->value}}</h4>
+=======
+                                                    <h4> {{$web_config['name']->value}}</h4>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <div class="d-flex gap-2 align-items-center">
                                                         <div class="star-rating text-gold fs-12">
                                                             @for($inc=1;$inc<=5;$inc++)
@@ -97,6 +130,7 @@
                                                         <span class="text-muted fw-semibold">{{number_format($avg_rating,1)}}</span>
                                                     </div>
                                                     <ul class="list-unstyled list-inline-dot fs-12">
+<<<<<<< HEAD
                                                         <li>{{ $rating_count }} {{ translate('reviews') }} </li>
                                                     </ul>
                                                 </div>
@@ -113,20 +147,36 @@
 
                                         @include('theme-views.layouts.partials.modal._chat-with-seller',['shop'=>0, 'user_type' => 'admin'])
 
+=======
+                                                        <li>{{$rating_count}} {{translate('reviews')}} </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div class="d-flex gap-3 flex-wrap mt-4">
                                             <div class="card flex-grow-1">
                                                 <div class="card-body grid-center">
                                                     <div class="text-center">
                                                         <h2 class="fs-28 text-primary fw-extra-bold mb-2">{{round($rating_percentage)}}%</h2>
+<<<<<<< HEAD
                                                         <p class="text-muted">{{ translate('positive_review') }}</p>
+=======
+                                                        <p class="text-muted">{{translate('positive_review')}}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card flex-grow-1">
                                                 <div class="card-body grid-center">
                                                     <div class="text-center">
+<<<<<<< HEAD
                                                         <h2 class="fs-28 text-primary fw-extra-bold mb-2">{{ $product_count }}</h2>
                                                         <p class="text-muted">{{ translate('products') }}</p>
+=======
+                                                        <h2 class="fs-28 text-primary fw-extra-bold mb-2">{{$product_count}}</h2>
+                                                        <p class="text-muted">{{translate('products')}}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </div>
                                             </div>

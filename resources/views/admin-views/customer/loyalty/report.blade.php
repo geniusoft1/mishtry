@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/loyalty_point.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/loyalty_point.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('customer_loyalty_point_report')}}
             </h2>
         </div>
@@ -82,7 +86,11 @@
                             <h6 class="order-stats__subtitle">{{translate('debit')}}</h6>
                         </div>
                         <span class="order-stats__title fz-14 text--primary">
+<<<<<<< HEAD
                             {{(int)($debit)}}
+=======
+                            {{$debit}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </div>
                     <div class="order-stats flex-grow-1">
@@ -91,7 +99,11 @@
                             <h6 class="order-stats__subtitle">{{translate('credit')}}</h6>
                         </div>
                         <span class="order-stats__title fz-14 text-warning">
+<<<<<<< HEAD
                             {{(int)$credit}}
+=======
+                            {{$credit}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </div>
                     <div class="order-stats flex-grow-1">
@@ -100,7 +112,11 @@
                             <h6 class="order-stats__subtitle">{{translate('balance')}}</h6>
                         </div>
                         <span class="order-stats__title fz-14 text-success">
+<<<<<<< HEAD
                             {{(int)$balance}}
+=======
+                            {{$balance}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </div>
                 </div>
@@ -122,7 +138,11 @@
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li>
                                 <a type="submit" class="dropdown-item d-flex align-items-center gap-2 " href="{{route('admin.customer.loyalty.export',['transaction_type'=>$transaction_status,'customer_id'=>request('customer_id'),'to'=>request('to'),'from'=>request('from')])}}">
+<<<<<<< HEAD
                                     <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                    <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('excel')}}
                                 </a>
                             </li>
@@ -182,7 +202,11 @@
             </div>
             @if(count($transactions)==0)
                 <div class="text-center p-4">
+<<<<<<< HEAD
                     <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="{{translate('image_description')}}">
+=======
+                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="{{translate('image_description')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                 </div>
             @endif

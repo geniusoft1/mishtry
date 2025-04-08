@@ -9,7 +9,11 @@
         </a>
         <a class="navbar-tool-text ms-2"
            href="{{route('shop-cart')}}"><small>{{translate('my_cart')}}</small>
+<<<<<<< HEAD
             <span class="cart-total-price font-bold fs-14">
+=======
+            <span class="cart-total-price">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ webCurrencyConverter(amount: \App\Utils\CartManager::cart_total_applied_discount(\App\Utils\CartManager::get_cart()))}}
             </span>
         </a>
@@ -24,7 +28,11 @@
         <a class="navbar-tool-text ms-2"
            href="{{ route('customer.auth.login') }}">
             <small>{{translate('my_cart')}}</small>
+<<<<<<< HEAD
             <span class="cart-total-price font-bold fs-14">
+=======
+            <span class="cart-total-price">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ webCurrencyConverter(amount: \App\Utils\CartManager::cart_total_applied_discount(\App\Utils\CartManager::get_cart()))}}
             </span>
         </a>
@@ -49,6 +57,7 @@
                 </h6>
             </div>
             @if($cart->count() > 0)
+<<<<<<< HEAD
 
                 <?php
                     $getShippingCostSavedForFreeDelivery=\App\Utils\CartManager::get_shipping_cost_saved_for_free_delivery();
@@ -70,6 +79,19 @@
                     <img src="{{theme_asset(path: 'public/assets/front-end/img/party-popper.svg')}}" class="mr-2" alt="">
                     <small>{{translate('you_have_saved')}} <span
                             class="total_discount">{{ webCurrencyConverter(amount: $totalSavedAmount)}}</span>!</small>
+=======
+                    <?php
+                    $total_discount = 0;
+                    foreach ($cart as $cartItem) {
+                        $total_discount += $cartItem->discount * $cartItem->quantity;
+                    }
+                    ?>
+                <div
+                    class="dropdown-saved-amount text-center  align-items-center justify-content-center text-accent mb-3 {{$total_discount <= 0 ? 'd-none' : 'd-flex'}}">
+                    <img src="{{asset('/public/assets/front-end/img/party-popper.svg')}}" class="mr-2" alt="">
+                    <small>{{translate('you_have_saved')}} <span
+                            class="total_discount">{{ webCurrencyConverter(amount: $total_discount)}}</span>!</small>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
                 <div class="__h-20rem" data-simplebar data-simplebar-auto-hide="false">
                     @php($sub_total=0)
@@ -80,17 +102,28 @@
                             <div class="media">
                                 <a class="d-block me-2 position-relative overflow-hidden"
                                    href="{{route('product',$cartItem['slug'])}}">
+<<<<<<< HEAD
                                     <img width="64" class="{{ $product ? ($product->status == 0?'blur-section':'') : 'blur-section' }}"
                                          src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$cartItem['thumbnail'], type: 'backend-product') }}"
                                          alt="{{ translate('product') }}"/>
                                     @if (!$product || $product->status == 0)
+=======
+                                    <img width="64" class="{{ $product->status == 0?'blur-section':'' }}"
+                                         src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$cartItem['thumbnail'], type: 'backend-product') }}"
+                                         alt="{{ translate('product') }}"/>
+                                    @if ($product->status == 0)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <span class="temporary-closed position-absolute text-center p-2">
                                             <span>{{ translate('N/A') }}</span>
                                         </span>
                                     @endif
                                 </a>
                                 <div
+<<<<<<< HEAD
                                     class="media-body min-height-0 d-flex align-items-center {{ $product ? ($product->status == 0?'blur-section':'') : 'blur-section' }}">
+=======
+                                    class="media-body min-height-0 d-flex align-items-center {{ $product->status == 0?'blur-section':'' }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="w-0 flex-grow-1">
                                         <h6 class="widget-product-title mb-0 mr-2">
                                             <a href="{{route('product',$cartItem['slug'])}}" class="line--limit-1">
@@ -165,7 +198,11 @@
                 @php($free_delivery_status = \App\Utils\OrderManager::free_delivery_order_amount($cart[0]->cart_group_id))
                 @if ($free_delivery_status['status'] && (session()->missing('coupon_type') || session('coupon_type') !='free_delivery'))
                     <div class="py-3">
+<<<<<<< HEAD
                         <img src="{{theme_asset(path: 'public/assets/front-end/img/truck.svg')}}" alt="">
+=======
+                        <img src="{{asset('/public/assets/front-end/img/truck.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <span
                             class="amount_fullfill text-accent __text-12px {{$free_delivery_status['amount_need'] <= 0 ? '' :'d-none'}}">{{ translate('you_Get_Free_Delivery_Bonus') }}</span>
                         <small
@@ -216,7 +253,11 @@
             @else
                 <div class="widget-cart-item">
                     <div class="text-center text-capitalize">
+<<<<<<< HEAD
                         <img class="mb-3 mw-100" src="{{theme_asset(path: 'public/assets/front-end/img/icons/empty-cart.svg')}}"
+=======
+                        <img class="mb-3 mw-100" src="{{asset('public/assets/front-end/img/icons/empty-cart.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="{{ translate('cart') }}">
                         <p class="text-capitalize">{{ translate('Your_Cart_is_Empty') }}!</p>
                     </div>

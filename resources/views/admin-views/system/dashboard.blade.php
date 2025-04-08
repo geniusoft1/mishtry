@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 @php use App\Utils\Helpers; @endphp
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @extends('layouts.back-end.app')
 @section('title', translate('dashboard'))
 @push('css_or_js')
@@ -6,6 +9,7 @@
 @endpush
 
 @section('content')
+<<<<<<< HEAD
     @if(auth('admin')->user()->admin_role_id==1 || Helpers::module_permission_check('dashboard'))
         <div class="content container-fluid">
             <div class="page-header pb-0 mb-0 border-0">
@@ -16,17 +20,36 @@
                     </div>
                 </div>
             </div>
+=======
+    @if(auth('admin')->user()->admin_role_id==1 || \App\Utils\Helpers::module_permission_check('dashboard'))
+        <div class="content container-fluid">
+
+            <div class="page-header pb-0 mb-0 border-0">
+                <div class="flex-between align-items-center">
+                    <div>
+                        <h1 class="page-header-title">{{translate('dashboard')}}</h1>
+                        <p>{{ translate('welcome_message')}}.</p>
+                    </div>
+                </div>
+            </div>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="card mb-2 remove-card-shadow">
                 <div class="card-body">
                     <div class="row flex-between align-items-center g-2 mb-3">
                         <div class="col-sm-6">
                             <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business_analytics.png')}}"
+=======
+                                <img src="{{asset('/public/assets/back-end/img/business_analytics.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      alt="">{{translate('business_analytics')}}</h4>
                         </div>
                         <div class="col-sm-6 d-flex justify-content-sm-end">
                             <select class="custom-select w-auto" name="statistics_type" id="statistics_type">
                                 <option
+<<<<<<< HEAD
                                     value="overall" {{session()->has('statistics_type') && session('statistics_type') == 'overall'?'selected':''}}>
                                     {{ translate('overall_statistics')}}
                                 </option>
@@ -36,6 +59,17 @@
                                 </option>
                                 <option
                                     value="this_month" {{session()->has('statistics_type') && session('statistics_type') == 'this_month'?'selected':''}}>
+=======
+                                        value="overall" {{session()->has('statistics_type') && session('statistics_type') == 'overall'?'selected':''}}>
+                                    {{ translate('overall_statistics')}}
+                                </option>
+                                <option
+                                        value="today" {{session()->has('statistics_type') && session('statistics_type') == 'today'?'selected':''}}>
+                                    {{ translate("todays_Statistics")}}
+                                </option>
+                                <option
+                                        value="this_month" {{session()->has('statistics_type') && session('statistics_type') == 'this_month'?'selected':''}}>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{ translate("this_Months_Statistics")}}
                                 </option>
                             </select>
@@ -50,7 +84,11 @@
             <div class="card mb-3 remove-card-shadow">
                 <div class="card-body">
                     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-3">
+<<<<<<< HEAD
                         <img width="20" class="mb-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/admin-wallet.png')}}"
+=======
+                        <img width="20" class="mb-1" src="{{asset('/public/assets/back-end/img/admin-wallet.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="">
                         {{translate('admin_wallet')}}
                     </h4>
@@ -62,6 +100,7 @@
             </div>
 
             <div class="row g-1">
+<<<<<<< HEAD
                 <div class="col-lg-8" id="order-statistics-div">
                     @include('admin-views.system.partials.order-statistics')
                 </div>
@@ -98,11 +137,21 @@
                 </div>
                 <div class="col-12">
                     <div class="card remove-card-shadow">
+=======
+                <div class="col-12">
+
+                    <div class="card remove-card-shadow">
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="card-body">
                             <div class="row g-2 align-items-center">
                                 <div class="col-md-6">
                                     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
+<<<<<<< HEAD
                                         <img src="{{dynamicAsset(path: 'public/assets/back-end/img/earning_statictics.png')}}"
+=======
+                                        <img src="{{asset('/public/assets/back-end/img/earning_statictics.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                         {{translate('earning_statistics')}}
                                     </h4>
@@ -137,20 +186,32 @@
                                             "data": {
                                               "labels": ["Jan","Feb","Mar","April","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
                                               "datasets": [{
+<<<<<<< HEAD
                                                 "label": " {{translate('in-house')}} ",
+=======
+                                                "label": "{{translate('in-house')}}",
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 "data": [{{$inhouseEarningStatisticsData[1]}},{{$inhouseEarningStatisticsData[2]}},{{$inhouseEarningStatisticsData[3]}},{{$inhouseEarningStatisticsData[4]}},{{$inhouseEarningStatisticsData[5]}},{{$inhouseEarningStatisticsData[6]}},{{$inhouseEarningStatisticsData[7]}},{{$inhouseEarningStatisticsData[8]}},{{$inhouseEarningStatisticsData[9]}},{{$inhouseEarningStatisticsData[10]}},{{$inhouseEarningStatisticsData[11]}},{{$inhouseEarningStatisticsData[12]}}],
                                                 "backgroundColor": "#ACDBAB",
                                                 "hoverBackgroundColor": "#ACDBAB",
                                                 "borderColor": "#ACDBAB"
                                               },
                                               {
+<<<<<<< HEAD
                                                 "label": " {{translate('vendor')}} ",
+=======
+                                                "label": "{{translate('vendor')}}",
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 "data": [{{$sellerEarningStatisticsData[1]}},{{$sellerEarningStatisticsData[2]}},{{$sellerEarningStatisticsData[3]}},{{$sellerEarningStatisticsData[4]}},{{$sellerEarningStatisticsData[5]}},{{$sellerEarningStatisticsData[6]}},{{$sellerEarningStatisticsData[7]}},{{$sellerEarningStatisticsData[8]}},{{$sellerEarningStatisticsData[9]}},{{$sellerEarningStatisticsData[10]}},{{$sellerEarningStatisticsData[11]}},{{$sellerEarningStatisticsData[12]}}],
                                                 "backgroundColor": "#0177CD",
                                                 "borderColor": "#0177CD"
                                               },
                                               {
+<<<<<<< HEAD
                                                 "label": " {{translate('commission')}} ",
+=======
+                                                "label": "{{translate('commission')}}",
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 "data": [{{$commissionEarningStatisticsData[1]}},{{$commissionEarningStatisticsData[2]}},{{$commissionEarningStatisticsData[3]}},{{$commissionEarningStatisticsData[4]}},{{$commissionEarningStatisticsData[5]}},{{$commissionEarningStatisticsData[6]}},{{$commissionEarningStatisticsData[7]}},{{$commissionEarningStatisticsData[8]}},{{$commissionEarningStatisticsData[9]}},{{$commissionEarningStatisticsData[10]}},{{$commissionEarningStatisticsData[11]}},{{$commissionEarningStatisticsData[12]}}],
                                                 "backgroundColor": "#FFB36D",
                                                 "borderColor": "#FFB36D"
@@ -162,8 +223,11 @@
                                                     "position": "top",
                                                     "align": "center",
                                                     "labels": {
+<<<<<<< HEAD
                                                         "usePointStyle": true,
                                                         "boxWidth": 8,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         "fontColor": "#758590",
                                                         "fontSize": 14
                                                     }
@@ -216,6 +280,7 @@
                                   }'></canvas>
 
                             </div>
+<<<<<<< HEAD
                         </div>
                     </div>
                 </div>
@@ -223,6 +288,22 @@
                     <div class="card h-100 remove-card-shadow">
                         @include('admin-views.partials._top-customer',['top_customer'=>$data['top_customer']])
                     </div>
+=======
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-4">
+
+                    <div class="card h-100 remove-card-shadow">
+                        @include('admin-views.partials._top-customer',['top_customer'=>$data['top_customer']])
+                    </div>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
 
 
@@ -283,6 +364,7 @@
     <span id="brand-text" data-text="{{ translate('brand')}}"></span>
     <span id="business-text" data-text="{{ translate('business')}}"></span>
     <span id="orders-text" data-text="{{ $data['order'] }}"></span>
+<<<<<<< HEAD
     <span id="user-overview-data"
           data-customer="{{$data['getTotalCustomerCount']}}"
           data-customer-title="{{ translate('customer') }}"
@@ -300,3 +382,17 @@
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/dashboard.js')}}"></script>
 @endpush
+=======
+@endsection
+
+@push('script')
+    <script src="{{asset('public/assets/back-end/vendor/chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/vendor/chart.js.extensions/chartjs-extensions.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js')}}"></script>
+@endpush
+
+@push('script_2')
+    <script src="{{asset('public/assets/back-end/js/admin/dashboard.js')}}"></script>
+@endpush
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

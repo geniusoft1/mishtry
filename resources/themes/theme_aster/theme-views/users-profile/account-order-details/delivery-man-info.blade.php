@@ -48,7 +48,11 @@
                                                     <i class="bi bi-chat-square-fill"></i>
                                                     {{translate('chat_with_delivery')}}
                                                 </button>
+<<<<<<< HEAD
                                                 @if($order->payment_status == 'paid' && $order->order_type == 'default_type' && $order->order_status=='delivered' && $order->delivery_man_id)
+=======
+                                                @if($order->order_type == 'default_type' && $order->order_status=='delivered' && $order->delivery_man_id)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <button  class="btn btn-primary flex-grow-1"
                                                             data-bs-toggle="modal" data-bs-target="#reviewModal">
                                                     <i class="bi bi-chat-square-fill"></i>
@@ -68,7 +72,11 @@
                                                                 @if($order->deliveryMan->id != 0)
                                                                     <input value="{{$order->deliveryMan->id}}" name="delivery_man_id" hidden>
                                                                 @endif
+<<<<<<< HEAD
                                                                 <textarea name="message" class="form-control min-height-100px max-height-200px" required></textarea>
+=======
+                                                                <textarea name="message" class="form-control" required></textarea>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                 <br>
                                                                 @if($order->deliveryMan->id != 0)
                                                                     <button class="btn btn-secondary m-0 ">{{translate('send')}}</button>

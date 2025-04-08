@@ -187,7 +187,11 @@ return [
         App\Providers\ThemeServiceProvider::class,
         /* for export excel */
         Maatwebsite\Excel\ExcelServiceProvider::class,
+<<<<<<< HEAD
         //Intervention\Image\ImageServiceProvider::class,
+=======
+        Intervention\Image\ImageServiceProvider::class,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         InterfaceServiceProvider::class,
         ObserverServiceProvider::class
     ],
@@ -240,7 +244,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         //'Image' => Intervention\Image\Facades\Image::class,
+=======
+        'Image' => Intervention\Image\Facades\Image::class,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         'Helper' => \App\Utils\Helpers::class,
         'Madzipper' => Madnest\Madzipper\Madzipper::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,

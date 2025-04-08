@@ -3,7 +3,11 @@
 @section('title', translate('analytics_script'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <style>
         #cke_1_bottom {
             display: none !important;
@@ -16,7 +20,11 @@
         <!-- Page Title -->
         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/system-setting.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('mail_template')}}
             </h2>
 
@@ -61,12 +69,20 @@
                                 <h5 class="mb-3">Template UI</h5>
                                 <div class="card">
                                     <div class="p-3 px-xl-4 py-sm-5">
+<<<<<<< HEAD
                                         <img width="76" class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/logo.png')}}" alt="">
+=======
+                                        <img width="76" class="mb-4" src="{{asset('/public/assets/back-end/img/logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <h3 class="mb-3">New Store Registration Request</h3>
                                         <p>Hi Admin,</p>
                                         <p><b>Morning Mart</b> has requested to open their store in 6amMart. </p>
                                         <p>Review their request from admin panel.</p>
+<<<<<<< HEAD
                                         <img src="{{dynamicAsset(path: 'public/assets/back-end/img/new-store.png')}}" alt="" class="mt-4 mb-3 w-100">
+=======
+                                        <img src="{{asset('/public/assets/back-end/img/new-store.png')}}" alt="" class="mt-4 mb-3 w-100">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <p>Click on the button below to review the request</p>
                                         <button class="btn btn--primary rounded-0 px-5">See Registration Request</button>
                                         <hr>
@@ -102,7 +118,11 @@
                                             </li>
                                         </ul>
                                     </div>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="text-primary d-flex align-items-center gap-3 font-weight-bolder mb-2">
                                         {{translate('read_instructions')}}
                                         <div class="ripple-animation" data-toggle="modal" data-target="#readInstructionModal">
@@ -116,7 +136,11 @@
                                 {{-- Logo Upload --}}
                                 <div class="form-group">
                                     <label class="title-color">Logo</label>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="input-group">
                                         <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
@@ -127,7 +151,11 @@
 
                                 {{-- Header Content --}}
                                 <div class="d-flex align-items-center gap-2 mb-3">
+<<<<<<< HEAD
                                     <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}" alt="">
+=======
+                                    <img width="20" src="{{asset('/public/assets/back-end/img/header-content.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h5 class="mb-0">Header Content</h5>
                                 </div>
                                 <div class="bg-light p-3 rounded mb-3">
@@ -149,7 +177,11 @@
                                 {{-- Product Information --}}
                                 <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
                                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}" alt="">
+=======
+                                        <img width="20" src="{{asset('/public/assets/back-end/img/header-content.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <h5 class="mb-0">Product Information</h5>
                                     </div>
 
@@ -165,7 +197,11 @@
                                 {{-- Banner Image --}}
                                 <div class="form-group">
                                     <label class="title-color">Banner Image</label>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="input-group">
                                         <div class="custom-file">
                                           <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
@@ -177,7 +213,11 @@
                                 {{-- Button Content --}}
                                 <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
                                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}" alt="">
+=======
+                                        <img width="20" src="{{asset('/public/assets/back-end/img/header-content.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <h5 class="mb-0">Button Content</h5>
                                     </div>
 
@@ -192,9 +232,15 @@
                                             <div class="form-group">
                                                 <div class="d-flex align-items-center gap-2 mb-2">
                                                     <label for="button_name" class="title-color mb-0">Button Name</label>
+<<<<<<< HEAD
 
                                                     <span class="cursor-pointer" title="Button Name">
                                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                 
+                                                    <span class="cursor-pointer" title="Button Name">
+                                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </span>
                                                 </div>
                                                 <input type="text" id="button_name" name="button_name" placeholder="Ex: Submit" class="form-control">
@@ -204,9 +250,15 @@
                                             <div class="form-group">
                                                 <div class="d-flex align-items-center gap-2 mb-2">
                                                     <label for="redirect_link" class="title-color mb-0">Redirect Link</label>
+<<<<<<< HEAD
 
                                                     <span class="cursor-pointer" title="Button Name">
                                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                 
+                                                    <span class="cursor-pointer" title="Button Name">
+                                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </span>
                                                 </div>
                                                 <input type="text" id="redirect_link" name="redirect_link" placeholder="Ex: www.google.com" class="form-control">
@@ -218,7 +270,11 @@
                                 {{-- Order Information --}}
                                 <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
                                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}" alt="">
+=======
+                                        <img width="20" src="{{asset('/public/assets/back-end/img/header-content.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <h5 class="mb-0">Order Information</h5>
                                     </div>
 
@@ -233,7 +289,11 @@
 
                                 {{-- Footer Content --}}
                                 <div class="d-flex align-items-center gap-2 mb-3">
+<<<<<<< HEAD
                                     <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/header-content.png')}}" alt="">
+=======
+                                    <img width="20" src="{{asset('/public/assets/back-end/img/header-content.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h5 class="mb-0">Footer Content</h5>
                                 </div>
 
@@ -316,7 +376,11 @@
                     <div class="card">
                         <div class="p-3 px-xl-4 py-sm-5">
                             <div class="text-center">
+<<<<<<< HEAD
                                 <img width="160" class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/change-pass.png')}}" alt="">
+=======
+                                <img width="160" class="mb-4" src="{{asset('/public/assets/back-end/img/email-template/change-pass.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <h3 class="mb-3">Change password request </h3>
                             </div>
                             <p><b>Hi Sabrina,</b></p>
@@ -327,7 +391,11 @@
                             <p>Thanks & Regards, <br> 6amMart</p>
 
                             <div class="d-flex justify-content-center mb-3">
+<<<<<<< HEAD
                                 <img width="76" src="{{dynamicAsset(path: 'public/assets/back-end/img/logo.png')}}" alt="">
+=======
+                                <img width="76" src="{{asset('/public/assets/back-end/img/logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div class="d-flex justify-content-center gap-2">
                                 <ul class="list-inline gap-3">
@@ -350,12 +418,20 @@
                     <p>New Store Registration Request</p>
                     <div class="card">
                         <div class="p-3 px-xl-4 py-sm-5">
+<<<<<<< HEAD
                             <img width="76" class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/logo.png')}}" alt="">
+=======
+                            <img width="76" class="mb-4" src="{{asset('/public/assets/back-end/img/logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <h3 class="mb-3">New Store Registration Request</h3>
                             <p>Hi Admin,</p>
                             <p><b>Morning Mart</b> has requested to open their store in 6amMart. </p>
                             <p>Review their request from admin panel.</p>
+<<<<<<< HEAD
                             <img src="{{dynamicAsset(path: 'public/assets/back-end/img/new-store.png')}}" alt="" class="mt-4 mb-3 w-100">
+=======
+                            <img src="{{asset('/public/assets/back-end/img/new-store.png')}}" alt="" class="mt-4 mb-3 w-100">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <p>Click on the button below to review the request</p>
                             <button class="btn btn--primary rounded-0 px-5">See Registration Request</button>
                             <hr>
@@ -382,12 +458,20 @@
                     <p>New Delivery Man Registration Request</p>
                     <div class="card">
                         <div class="p-3 px-xl-4 py-sm-5">
+<<<<<<< HEAD
                             <img width="76" class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/logo.png')}}" alt="">
+=======
+                            <img width="76" class="mb-4" src="{{asset('/public/assets/back-end/img/logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <h3 class="mb-3">New Delivery Man Registration Request</h3>
                             <p>Hi Admin,</p>
                             <p><b>Jhon Doe</b> has requested to open their store in 6amMart. </p>
                             <p>Review their request from admin panel.</p>
+<<<<<<< HEAD
                             <img src="{{dynamicAsset(path: 'public/assets/back-end/img/new-store.png')}}" alt="" class="mt-4 mb-3 w-100">
+=======
+                            <img src="{{asset('/public/assets/back-end/img/new-store.png')}}" alt="" class="mt-4 mb-3 w-100">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <p>Click on the button below to review the request</p>
                             <button class="btn btn--primary rounded-0 px-5">See Registration Request</button>
                             <hr>
@@ -415,7 +499,11 @@
                     <div class="card">
                         <div class="p-3 px-xl-4 py-sm-5">
                             <div class="text-center">
+<<<<<<< HEAD
                                 <img width="100" class="mb-4" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/store-withdraw.png')}}" alt="">
+=======
+                                <img width="100" class="mb-4" src="{{asset('/public/assets/back-end/img/email-template/store-withdraw.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <h3 class="mb-3">New Withdraw Request From Morning Mart</h3>
                                 <p>Transaction # 453876934ce76538 </p>
                                 <p><span class="text-primary">Morning Mart</span> has requested to withdraw money from their balance</p>
@@ -424,13 +512,21 @@
                             <p><b>Hi Sabrina,</b></p>
                             <p>Please click <a href="#">Here</a>  or click the link below to change your password</p>
                             <p>Click here <br> <a href="https://6ammart/changepasswordi357092349-38505320">https://6ammart/changepasswordi357092349-38505320</a></p>
+<<<<<<< HEAD
 
+=======
+                            
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <hr>
                             <p>Please contact us for any queries, we’re always happy to help. </p>
                             <p>Thanks & Regards, <br> 6amMart</p>
 
                             <div class="d-flex justify-content-center mb-3">
+<<<<<<< HEAD
                                 <img width="76" src="{{dynamicAsset(path: 'public/assets/back-end/img/logo.png')}}" alt="">
+=======
+                                <img width="76" src="{{asset('/public/assets/back-end/img/logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div class="d-flex justify-content-center gap-2">
                                 <ul class="list-inline gap-3">
@@ -465,28 +561,44 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/1.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/1.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Select Theme</h4>
                                     <p class="text-center"> Choose a related email template theme for the purpose for which you are creating the email.</p>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/5.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/5.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Choose Logo</h4>
                                     <p class="text-center">Upload your company logo in 1:1 format. This will show above the Main Title of the email.</p>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/2.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/2.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Write a Title</h4>
                                     <p class="text-center">Give your email a ‘Catchy Title’ to help the reader understand easily.</p>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/3.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/3.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Write a message in the Email Body</h4>
                                     <p class="text-center">You can add your message using placeholders to include dynamic content. Here are some examples of placeholders you can use:</p>
                                     <ul class="d-flex flex-column px-4 gap-2 mb-4">
@@ -500,35 +612,55 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/4.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/4.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Add Button & Link</h4>
                                     <p class="text-center">Specify the text and URL for the button that you want to include in your email.</p>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/5.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/5.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Change Banner Image if needed</h4>
                                     <p class="text-center">Choose the relevant banner image for the email theme you use for this mail.</p>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/6.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/6.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Add Content to Email Footer</h4>
                                     <p class="text-center">Write text on the footer section of the email and choose important page links and social media links.</p>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/7.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/7.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Create a copyright notice</h4>
                                     <p class="text-center">Include a copyright notice at the bottom of your email to protect your content.</p>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="d-flex flex-column align-items-center gap-2 mb-4">
+<<<<<<< HEAD
                                     <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/email-template/8.png')}}" loading="lazy" alt="">
+=======
+                                    <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/email-template/8.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h4 class="lh-md mb-3">Save and publish</h4>
                                     <p class="text-center">Once you ve set up all the elements of your email template save and publish it for use.</p>
                                     <button class="btn btn-primary px-10 mt-3" data-dismiss="modal">{{ translate('Got_It') }}</button>
@@ -545,7 +677,11 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script>
         var swiper = new Swiper(".mySwiper", {
             autoHeight: true,
@@ -557,8 +693,13 @@
         });
     </script>
     {{--ck editor--}}
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: '/')}}vendor/ckeditor/ckeditor/ckeditor.js"></script>
     <script src="{{dynamicAsset(path: '/')}}vendor/ckeditor/ckeditor/adapters/jquery.js"></script>
+=======
+    <script src="{{asset('/')}}vendor/ckeditor/ckeditor/ckeditor.js"></script>
+    <script src="{{asset('/')}}vendor/ckeditor/ckeditor/adapters/jquery.js"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script>
         $('#editor').ckeditor({
             contentsLangDirection : '{{Session::get('direction')}}',

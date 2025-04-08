@@ -18,18 +18,25 @@ class ChatController extends Controller
 {
     public function list(Request $request, $type)
     {
+<<<<<<< HEAD
         $admin_size = 0;
         $admin_chat_id = [];
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if ($type == 'delivery-man') {
             $id_param = 'delivery_man_id';
             $with = 'deliveryMan';
         } elseif ($type == 'seller') {
             $id_param = 'seller_id';
             $with = 'sellerInfo.shops';
+<<<<<<< HEAD
 
             $admin = $this->getAdminChatList($request);
             $admin_size = $admin['admin_size'];
             $admin_chat_id = $admin['admin_chat_id'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } else {
             return response()->json(['message' => 'Invalid Chatting Type!'], 403);
         }
@@ -39,7 +46,11 @@ class ChatController extends Controller
             ->select($id_param)
             ->distinct()
             ->get()
+<<<<<<< HEAD
             ->count()+$admin_size;
+=======
+            ->count();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $all_chat_ids = Chatting::where(['user_id' => $request->user()->id])
             ->whereNotNull($id_param)
@@ -52,6 +63,7 @@ class ChatController extends Controller
         $unique_chat_ids = array_slice(array_values($all_chat_ids), $request->offset-1, $request->limit);
 
         $chats = array();
+<<<<<<< HEAD
         if($type == 'seller' && $admin_chat_id){
             $user_chatting = Chatting::with([$with])
                 ->where(['user_id' => $request->user()->id, 'admin_id' => '0'])
@@ -63,6 +75,8 @@ class ChatController extends Controller
             $chats[] = $user_chatting;
         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if ($unique_chat_ids) {
             foreach ($unique_chat_ids as $unique_chat_id) {
                 $user_chatting = Chatting::with([$with])
@@ -85,6 +99,7 @@ class ChatController extends Controller
         return response()->json($data, 200);
     }
 
+<<<<<<< HEAD
     private function getAdminChatList($request): array
     {
         $admin_size = Chatting::where(['user_id' => $request->user()->id])
@@ -100,6 +115,8 @@ class ChatController extends Controller
         ];
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public function search(Request $request, $type)
     {
         $terms = explode(" ", $request->input('search'));
@@ -165,7 +182,11 @@ class ChatController extends Controller
             $sent_by = 'sent_by_delivery_man';
             $with = 'deliveryMan';
         } elseif ($type == 'seller') {
+<<<<<<< HEAD
             $id_param = $id==0 ? 'admin_id' : 'seller_id';
+=======
+            $id_param = 'seller_id';
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $sent_by = 'sent_by_seller';
             $with = 'sellerInfo.shops';
 
@@ -219,6 +240,7 @@ class ChatController extends Controller
         $message_form = User::find($request->user()->id);
         if ($type == 'seller') {
             $seller = Seller::with('shop')->find($request->id);
+<<<<<<< HEAD
             $chatting->seller_id = $request->id == 0 ? null : $request->id;
             $chatting->admin_id = $request->id == 0 ? 0 : null;
             $chatting->shop_id = isset($seller->shop->id) ? $seller->shop->id : null;
@@ -227,6 +249,13 @@ class ChatController extends Controller
             if($request->id != 0){
                 ChattingEvent::dispatch('message_from_customer', 'seller', $seller, $message_form);
             }
+=======
+            $chatting->seller_id = $request->id;
+            $chatting->shop_id = $seller->shop->id;
+            $chatting->seen_by_seller = 0;
+
+            ChattingEvent::dispatch('message_from_customer', 'seller', $seller, $message_form);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($type == 'delivery-man') {
             $chatting->delivery_man_id = $request->id;
             $chatting->seen_by_delivery_man = 0;
@@ -256,7 +285,11 @@ class ChatController extends Controller
         if ($type == 'delivery-man') {
             $id_param = 'delivery_man_id';
         } elseif ($type == 'seller') {
+<<<<<<< HEAD
             $id_param = $request->id==0 ? 'admin_id' : 'seller_id';
+=======
+            $id_param = 'seller_id';
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } else {
             return response()->json(['message' => 'Invalid Chatting Type'], 403);
         }

@@ -16,13 +16,21 @@ enum Product
 
     const UPDATE = [
         URI => 'update',
+<<<<<<< HEAD
         VIEW => 'admin-views.product.edit',
+=======
+        VIEW => 'admin-views.product.edit'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     ];
 
     const VIEW = [
         URI => 'view',
+<<<<<<< HEAD
         VIEW => 'admin-views.product.view',
         ROUTE => 'admin.products.view'
+=======
+        VIEW => 'admin-views.product.view'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     ];
 
     const SKU_COMBINATION = [

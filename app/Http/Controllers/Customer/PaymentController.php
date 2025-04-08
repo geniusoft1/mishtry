@@ -208,10 +208,13 @@ class PaymentController extends Controller
                 $customer['phone'],
                 ''
             );
+<<<<<<< HEAD
             if(empty($customer['phone'])){
                 Toastr::error(translate('please_update_your_phone_number'));
                 return route('checkout-payment');
             }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $payment_info = new PaymentInfo(

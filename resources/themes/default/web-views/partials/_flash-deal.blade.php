@@ -1,6 +1,10 @@
 <section class="overflow-hidden">
     <div class="container px-0 px-md-3">
+<<<<<<< HEAD
         <div class="flash-deals-wrapper">
+=======
+        <div class="flash-deals-wrapper {{Session::get('direction') === "rtl" ? 'rtl' : ''}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="flash-deal-view-all-web row d-flex justify-content-end mb-3">
                 @if (count($web_config['flash_deals']->products)>0)
                     <a class="text-capitalize view-all-text web-text-primary"
@@ -10,6 +14,7 @@
                     </a>
                 @endif
             </div>
+<<<<<<< HEAD
 
             <?php
                 $startDate = \Carbon\Carbon::parse($web_config['flash_deals']['start_date']);
@@ -20,6 +25,8 @@
                 $flashDealsPercentage = ($elapsedDuration / $totalDuration) * 100;
             ?>
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="row g-3 mx-max-md-0">
                 <div class="col-lg-4 px-max-md-0">
                     <div class="countdown-card bg-transparent">
@@ -54,7 +61,11 @@
                                     </span>
                                 </span>
                                 <div class="progress __progress">
+<<<<<<< HEAD
                                 <div class="progress-bar flash-deal-progress-bar" role="progressbar" style="width: {{ number_format($flashDealsPercentage, 2) }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+=======
+                                <div class="progress-bar flash-deal-progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             </div>
                         </div>

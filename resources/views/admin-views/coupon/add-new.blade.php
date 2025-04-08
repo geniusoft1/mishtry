@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/coupon_setup.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/coupon_setup.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('coupon_setup')}}
             </h2>
         </div>
@@ -182,7 +186,11 @@
                                     <li>
                                         <a class="dropdown-item"
                                            href="{{ route('admin.coupon.export',['searchValue'=>request('searchValue')]) }}">
+<<<<<<< HEAD
                                             <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}"
+=======
+                                            <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="">
                                             {{translate('excel')}}
                                         </a>
@@ -257,7 +265,11 @@
                                     <td>
                                         <div class="d-flex gap-10 justify-content-center">
                                             <button class="btn btn-outline--primary square-btn btn-sm mr-1 get-quick-view" data-id="{{ $coupon['id'] }}">
+<<<<<<< HEAD
                                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/eye.svg')}}" class="svg" alt="">
+=======
+                                                <img src="{{asset('/public/assets/back-end/img/eye.svg')}}" class="svg" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </button>
                                             <a class="btn btn-outline--primary btn-sm edit"
                                                href="{{route('admin.coupon.update',[$coupon['id']])}}"
@@ -301,7 +313,11 @@
                     @if(count($coupons)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                 src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{translate('no_data_to_show')}}</p>
                         </div>
@@ -316,5 +332,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/coupon.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/coupon.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

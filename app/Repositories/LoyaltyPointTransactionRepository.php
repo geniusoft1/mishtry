@@ -48,7 +48,11 @@ class LoyaltyPointTransactionRepository implements LoyaltyPointTransactionReposi
             ->when(isset($filters['transaction_id']), function ($query) use ($filters) {
                 $query->where('transaction_id', $filters['transaction_id']);
             })
+<<<<<<< HEAD
             ->when(isset($filters['transaction_type']) && $filters['transaction_type'] != 'all', function ($query) use ($filters) {
+=======
+            ->when(isset($filters['transaction_type']), function ($query) use ($filters) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('transaction_type', $filters['transaction_type']);
             })
             ->when(isset($filters['user_id']), function ($query) use ($filters) {

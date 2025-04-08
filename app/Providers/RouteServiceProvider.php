@@ -2,11 +2,19 @@
 
 namespace App\Providers;
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\RateLimiter;
 use App\Http\Requests\Request;
 use Illuminate\Cache\RateLimiting\Limit;
+=======
+use App\Http\Requests\Request;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Route;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -36,6 +44,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+<<<<<<< HEAD
+=======
+        $this->configureRateLimiting();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     /**
@@ -45,7 +57,21 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+<<<<<<< HEAD
         $this->mapUpdateRoutes();
+=======
+        $this->mapApiRoutes();
+        $this->mapApiv2Routes();
+        $this->mapApiv3Routes();
+        $this->mapApiv4Routes();
+
+        //$this->mapInstallRoutes();
+        //$this->mapUpdateRoutes();
+
+        $this->mapBetaAdminRoutes();
+        $this->mapBetaVendorRoutes();
+        $this->mapBetaWebRoutes();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     /**

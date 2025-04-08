@@ -16,8 +16,11 @@ class RefundRequest extends Model
         'order_details_id',
         'customer_id',
         'status',
+<<<<<<< HEAD
         'approved_count',
         'denied_count',
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         'amount',
         'product_id',
         'order_id',

@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand-setup.png') }}" class="mb-1 mr-1" alt="">
+=======
+                <img src="{{ asset('public/assets/back-end/img/brand-setup.png') }}" class="mb-1 mr-1" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 @if($category['position'] == 1)
                     {{ translate('sub') }}
                 @elseif($category['position'] == 2)
@@ -25,6 +29,10 @@
                         <form action="{{ route('admin.category.update', [$category['id']]) }}" method="POST"
                               enctype="multipart/form-data">
                             @csrf
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <ul class="nav nav-tabs w-fit-content mb-4">
                                 @foreach($languages as $lang)
                                     <li class="nav-item text-capitalize">
@@ -51,7 +59,12 @@
                                                     }
                                                 }
                                                 ?>
+<<<<<<< HEAD
                                             <div class="form-group {{ $lang != $defaultLanguage ? 'd-none':''}} form-system-language-form"
+=======
+                                            <div
+                                                class="form-group {{ $lang != $defaultLanguage ? 'd-none':''}} form-system-language-form"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 id="{{ $lang}}-form">
                                                 <label class="title-color">
                                                     {{ translate('category_Name') }} ({{strtoupper($lang) }})
@@ -131,5 +144,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

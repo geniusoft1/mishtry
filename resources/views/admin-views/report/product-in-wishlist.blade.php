@@ -8,7 +8,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/seller_sale.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/seller_sale.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('product_Report')}}
             </h2>
         </div>
@@ -90,7 +94,11 @@
                                     <li>
                                         <a class="dropdown-item"
                                            href="{{route('admin.stock.wishlist-product-export', ['seller_id'=>$seller_id, 'sort'=>$sort, 'search'=>$search])}}">
+<<<<<<< HEAD
                                             <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}"
+=======
+                                            <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="">
                                             {{translate('excel')}}
                                         </a>
@@ -122,7 +130,11 @@
                                 <tr>
                                     <td>{{$products->firstItem()+$key}}</td>
                                     <td>
+<<<<<<< HEAD
                                         <a href="{{route('admin.products.view',['addedBy'=>$data['added_by'],'id'=>$data['id']])}}">
+=======
+                                        <a href="{{route('admin.products.view',[$data['id']])}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             <span class="media-body title-color hover-c1">
                                                 {{\Illuminate\Support\Str::limit($data['name'], 20)}}
                                             </span>
@@ -137,7 +149,11 @@
                                     <td colspan="5">
                                         <div class="text-center p-4">
                                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                                 src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="Image Description">
                                             <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                                         </div>
@@ -158,4 +174,8 @@
     </div>
 @endsection
 
+<<<<<<< HEAD
 <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/product-report.js') }}"></script>
+=======
+<script src="{{ asset('public/assets/back-end/js/admin/product-report.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

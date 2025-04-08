@@ -1,12 +1,20 @@
 @extends('layouts.front-end.app')
 
+<<<<<<< HEAD
 @section('title', translate('sign_in'))
+=======
+@section('title', translate('login'))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 @section('content')
     <div class="container py-4 py-lg-5 my-4 text-align-direction">
          <div class="login-card">
             <div class="mx-auto __max-w-360">
+<<<<<<< HEAD
                 <h2 class="text-center h4 mb-4 font-bold text-capitalize fs-18-mobile">{{ translate('sign_in')}}</h2>
+=======
+                <h2 class="text-center h4 mb-4 font-bold text-capitalize fs-18-mobile">{{ translate('login')}}</h2>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <form class="needs-validation mt-2" autocomplete="off" action="{{route('customer.auth.login')}}"
                         method="post" id="customer-login-form">
                     @csrf
@@ -60,6 +68,7 @@
                             </div>
                         </div>
                     @endif
+<<<<<<< HEAD
                     <button class="btn btn--primary btn-block btn-shadow" type="submit">{{ translate('sign_in') }}</button>
                 </form>
                 @if($web_config['social_login_text'])
@@ -67,12 +76,23 @@
                     <small>{{ translate('or_continue_with') }}</small>
                 </div>
                 @endif
+=======
+                    <button class="btn btn--primary btn-block btn-shadow" type="submit">{{ translate('log_in') }}</button>
+                </form>
+                <div class="text-center m-3 text-black-50">
+                    <small>{{ translate('or_continue_with') }}</small>
+                </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="d-flex justify-content-center my-3 gap-2">
                 @foreach (getWebConfig(name: 'social_login') as $socialLoginService)
                     @if (isset($socialLoginService) && $socialLoginService['status'])
                         <div>
                             <a class="d-block" href="{{ route('customer.auth.service-login', $socialLoginService['login_medium']) }}">
+<<<<<<< HEAD
                                 <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/'.$socialLoginService['login_medium'].'.png') }}" alt="">
+=======
+                                <img src="{{asset('public/assets/front-end/img/icons/'.$socialLoginService['login_medium'].'.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </a>
                         </div>
                     @endif

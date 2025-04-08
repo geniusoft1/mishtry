@@ -136,12 +136,15 @@ class OrderRepository implements OrderRepositoryInterface
                     $query->where('seller_id',$filters['whereHas_deliveryMan']);
                 });
             })
+<<<<<<< HEAD
             ->when(isset($filters['whereIn_order_status']) && $filters['whereIn_order_status'] != 'all', function ($query) use($filters) {
                 $query->whereIn('order_status',$filters['whereIn_order_status']);
             })
             ->when(isset($filters['whereIn_payment_status']) && $filters['whereIn_payment_status'] != 'all', function ($query) use($filters) {
                 $query->whereIn('payment_status',$filters['whereIn_payment_status']);
             })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when(!empty($orderBy), function ($query) use ($orderBy) {
                 $query->orderBy(array_key_first($orderBy), array_values($orderBy)[0]);
             });
@@ -533,6 +536,7 @@ class OrderRepository implements OrderRepositoryInterface
 
         return true;
     }
+<<<<<<< HEAD
     public function getListWhereBetween(array $filters = [], string $selectColumn = null, string $whereBetween = null, array $whereBetweenFilters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
         return $this->order->with($relations)->where($filters)
@@ -546,6 +550,8 @@ class OrderRepository implements OrderRepositoryInterface
             ->groupby('year', 'month','day_of_week')
             ->get();
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function getTopCustomerList(array $filters = [] ,array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {

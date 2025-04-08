@@ -10,11 +10,19 @@
 <div class="content container-fluid">
     <div class="mb-4 pb-2">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2 text-capitalize">
+<<<<<<< HEAD
             <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
             {{translate('system_settings')}}
         </h2>
     </div>
     @include('admin-views.business-settings.login-settings-menu')
+=======
+            <img src="{{asset('/public/assets/back-end/img/system-setting.png')}}" alt="">
+            {{translate('system_settings')}}
+        </h2>
+    </div>
+    @include('admin-views.business-settings.system-settings-inline-menu')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <div class="row my-3 gy-3">
         <div class="col-md-12">
             <form action="{{route('admin.business-settings.web-config.login-url-setup')}}" method="post">

@@ -11,6 +11,7 @@
                 <p class="font-size-md">
                     {{ translate('change_your_password_in_three_easy_steps.')}} {{ translate('this_helps_to_keep_your_new_password_secure.')}}
                 </p>
+<<<<<<< HEAD
                 @if($verification_by == 'email')
 
                     <ol class="list-unstyled font-size-md p-0">
@@ -27,14 +28,37 @@
                             {{ translate('Click_the_recovery_link_to_change_your_password_on_our_secure_website')}}
                         </li>
                     </ol>
+=======
+                <ol class="list-unstyled font-size-md p-0">
+                    <li>
+                        <span class="text-primary mr-2">{{ translate('1')}}.</span>
+                        {{ translate('fill_in_your_email_address_below.')}}
+                    </li>
+                    <li>
+                        <span class="text-primary mr-2">{{ translate('2')}}.</span>
+                        {{ translate('we_will_email_you_a_temporary_code.')}}
+                    </li>
+                    <li>
+                        <span class="text-primary mr-2">{{ translate('3')}}.</span>
+                        {{ translate('use_the_code_to_change_your_password_on_our_secure_website.')}}
+                    </li>
+                </ol>
+
+                @if($verification_by == 'email')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                     <div class="card py-2 mt-4">
                         <form class="card-body needs-validation" action="{{route('customer.auth.forgot-password')}}"
                               method="post">
                             @csrf
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label for="recover-email">{{ translate('email_address')}}</label>
                                 <input class="form-control" type="email" name="identity" id="recover-email" required placeholder="{{ translate('ex') }}: {{ ('demo@example.com') }} ">
+=======
+                                <label for="recover-email">{{ translate('enter_your_email_address')}}</label>
+                                <input class="form-control" type="email" name="identity" id="recover-email" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="invalid-feedback">
                                     {{ translate('please_provide_valid_email_address.')}}
                                 </div>
@@ -45,6 +69,7 @@
                         </form>
                     </div>
                 @else
+<<<<<<< HEAD
                     <ol class="list-unstyled font-size-md p-0">
                         <li>
                             <span class="text-primary mr-2">{{ translate('1')}}.</span>
@@ -60,18 +85,29 @@
                         </li>
                     </ol>
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="card py-2 mt-4">
                         <form class="card-body needs-validation" action="{{route('customer.auth.forgot-password')}}"
                               method="post">
                             @csrf
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label for="recover-email">{{ translate('phone_number')}}</label>
                                 <input class="form-control" type="text" name="identity" required placeholder="{{ translate('enter_your_phone_number') }}">
+=======
+                                <label for="recover-email">{{ translate('enter_your_phone_number')}}</label>
+                                <input class="form-control" type="text" name="identity" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="invalid-feedback">
                                     {{ translate('please_provide_valid_phone_number')}}
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <button class="btn btn--primary" type="submit">{{ translate('send_OTP')}}</button>
+=======
+                            <button class="btn btn--primary" type="submit">{{ translate('proceed')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </form>
                     </div>
                 @endif

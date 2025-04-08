@@ -7,7 +7,11 @@
         <!-- Page Title -->
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/order_report.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/order_report.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('transaction_report')}}
             </h2>
 
@@ -28,7 +32,11 @@
                         </div>
                         <div class="modal-body px-4 px-sm-5 pt-0 text-center">
                             <div class="d-flex flex-column align-items-center gap-2">
+<<<<<<< HEAD
                                 <img width="80" class="mb-3" src="{{dynamicAsset(path: 'public/assets/back-end/img/para.png')}}" loading="lazy" alt="">
+=======
+                                <img width="80" class="mb-3" src="{{asset('/public/assets/back-end/img/para.png')}}" loading="lazy" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <h4 class="lh-md">Wallet bonus is only applicable when a customer add fund to wallet via outside payment gateway !</h4>
                                 <p>Customer will get extra amount to his / her wallet additionally with the amount he / she added from other payment gateways. The bonus amount will be deduct from admin wallet & will consider as admin expense</p>
                             </div>

@@ -25,7 +25,11 @@ class DeliveryManService
             'l_name' => $request['l_name'],
             'address' => $request['address'],
             'email' => $request['email'],
+<<<<<<< HEAD
             'country_code' => '+'.$request['country_code'],
+=======
+            'country_code' => $request['country_code'],
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'phone' => $request['phone'],
             'identity_number' => $request['identity_number'],
             'identity_type' => $request['identity_type'],

@@ -40,11 +40,14 @@ class SMS_module
             return $response;
         }
 
+<<<<<<< HEAD
         $config = self::get_settings('alphanet_sms');
         if (isset($config) && $config['status'] == 1) {
             return self::alphanet_sms($receiver, $otp);
         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return 'not_found';
     }
 
@@ -73,6 +76,7 @@ class SMS_module
         return $response;
     }
 
+<<<<<<< HEAD
     public static function nexmo($receiver, $otp): string
     {
         $config = self::get_settings('nexmo');
@@ -96,6 +100,30 @@ class SMS_module
                     echo 'Error:' . curl_error($ch);
                 }
                 curl_close($ch);
+=======
+    public static function nexmo($receiver, $otp)
+    {
+        $sms_nexmo = self::get_settings('nexmo');
+        $response = 'error';
+        if (isset($sms_nexmo) && $sms_nexmo['status'] == 1) {
+            $message = str_replace("#OTP#", $otp, $sms_nexmo['otp_template']);
+            try {
+                $config = [
+                    'api_key' => $sms_nexmo['api_key'],
+                    'api_secret' => $sms_nexmo['api_secret'],
+                    'signature_secret' => '',
+                    'private_key' => '',
+                    'application_id' => '',
+                    'app' => ['name' => '', 'version' => ''],
+                    'http_client' => ''
+                ];
+                Config::set('nexmo', $config);
+                Nexmo::message()->send([
+                    'to' => $receiver,
+                    'from' => $sms_nexmo['from'],
+                    'text' => $message
+                ]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $response = 'success';
             } catch (\Exception $exception) {
                 $response = 'error';
@@ -201,6 +229,7 @@ class SMS_module
         return $response;
     }
 
+<<<<<<< HEAD
     public static function alphanet_sms($receiver, $otp): string
     {
         $config = self::get_settings('alphanet_sms');
@@ -232,6 +261,8 @@ class SMS_module
         return $response;
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public static function get_settings($name)
     {
         try {

@@ -88,7 +88,11 @@ class OrderController extends Controller
         }
 
         $seller = $request->seller;
+<<<<<<< HEAD
         $order = Order::with('deliveryMan')->where(['seller_id' => $seller['id'], 'id' => $request['order_id']])->first();
+=======
+        $order = Order::where(['seller_id' => $seller['id'], 'id' => $request['order_id']])->first();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $order->delivery_man_id = $request['delivery_man_id'];
         $order->delivery_type = 'self_delivery';
@@ -104,7 +108,11 @@ class OrderController extends Controller
 
         $deliveryman_charge = $request->deliveryman_charge;
 
+<<<<<<< HEAD
         $order = Order::with('deliveryMan')->find($request->order_id);
+=======
+        $order = Order::find($request->order_id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $db_expected_date  = $order->expected_delivery_date;
 
         $order->deliveryman_charge = $deliveryman_charge;
@@ -161,7 +169,11 @@ class OrderController extends Controller
     {
         $seller = $request->seller;
 
+<<<<<<< HEAD
         $order = Order::with(['customer','seller.shop', 'deliveryMan'])->find($request->id);
+=======
+        $order = Order::find($request->id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if(!$order->is_guest && empty($order->customer))
         {
             return response()->json(['success' => 0, 'message' => translate("Customer_account_has_been_deleted").' '.translate("you_cant_update_status")], 202);
@@ -179,9 +191,15 @@ class OrderController extends Controller
             return response()->json(['success' => 0, 'message' => translate('order is already delivered')], 200);
         }
 
+<<<<<<< HEAD
         event(new OrderStatusEvent(key: $request['order_status'], type: 'customer', order: $order));
         if ($request->order_status == 'canceled'){
             event(new OrderStatusEvent(key: 'canceled', type: 'delivery_man', order: $order));
+=======
+        OrderStatusEvent::dispatch($request['order_status'], 'customer', $order);
+        if ($request->order_status == 'canceled'){
+            OrderStatusEvent::dispatch('canceled', 'delivery_man', $order);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
 

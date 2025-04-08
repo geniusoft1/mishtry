@@ -35,9 +35,13 @@ function updateCartCommon(minimum_order_qty, key, incr, e, quantity_id) {
                     location.reload();
                 }
                 $('#cart-summary').empty().html(response.data);
+<<<<<<< HEAD
                 $('[data-toggle="tooltip"]').tooltip()
                 actionCheckoutFunctionInit()
                 couponCode()
+=======
+                actionCheckoutFunctionInit()
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             });
     } else {
         $.post($('#route-cart-updateQuantity').data('url'), {
@@ -54,9 +58,13 @@ function updateCartCommon(minimum_order_qty, key, incr, e, quantity_id) {
             } else {
                 updateNavCart();
                 $('#cart-summary').empty().html(response);
+<<<<<<< HEAD
                 $('[data-toggle="tooltip"]').tooltip()
                 actionCheckoutFunctionInit()
                 couponCode()
+=======
+                actionCheckoutFunctionInit()
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         });
     }
@@ -98,6 +106,14 @@ quantityListener();
 
 cartQuantityInitialize();
 
+<<<<<<< HEAD
+=======
+$('.action-set-shipping-id').on('change', function (){
+    let cartGroupId = $(this).data('product-id');
+    let id = $(this).val();
+    setShippingId(id, cartGroupId)
+})
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 function setShippingId(id, cartGroupId) {
     $.get({

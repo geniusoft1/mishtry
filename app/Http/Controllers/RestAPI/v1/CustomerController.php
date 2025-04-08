@@ -119,7 +119,11 @@ class CustomerController extends Controller
 
     public function get_support_tickets(Request $request)
     {
+<<<<<<< HEAD
         return response()->json(SupportTicket::where('customer_id', $request->user()->id)->latest()->get(), 200);
+=======
+        return response()->json(SupportTicket::where('customer_id', $request->user()->id)->get(), 200);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function get_support_ticket_conv($ticket_id)

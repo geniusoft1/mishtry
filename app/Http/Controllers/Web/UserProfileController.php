@@ -24,13 +24,19 @@ use App\Utils\CustomerManager;
 use App\Utils\ImageManager;
 use App\Utils\OrderManager;
 use Brian2694\Toastr\Facades\Toastr;
+<<<<<<< HEAD
 use Carbon\Carbon;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+<<<<<<< HEAD
 use Illuminate\Validation\Rule;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 class UserProfileController extends Controller
 {
@@ -75,6 +81,7 @@ class UserProfileController extends Controller
         $request->validate([
             'f_name' => 'required',
             'l_name' => 'required',
+<<<<<<< HEAD
             'phone' => [
                 'required',
                 Rule::unique('users', 'phone')->ignore(auth('customer')->id(), 'id'),
@@ -88,6 +95,15 @@ class UserProfileController extends Controller
         if ($request['password']) {
             $request->validate([
                 'password' => 'required|same:confirm_password',
+=======
+        ], [
+            'f_name.required' => 'First name is required',
+            'l_name.required' => 'Last name is required',
+        ]);
+        if ($request->password) {
+            $request->validate([
+                'password' => 'required|min:8|same:confirm_password'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ]);
         }
 
@@ -109,10 +125,17 @@ class UserProfileController extends Controller
         ]);
 
         $userDetails = [
+<<<<<<< HEAD
             'f_name' => $request['f_name'],
             'l_name' => $request['l_name'],
             'phone' => $request['phone'],
             'password' => strlen($request['password']) > 5 ? bcrypt($request['password']) : auth('customer')->user()->password,
+=======
+            'f_name' => $request->f_name,
+            'l_name' => $request->l_name,
+            'phone' => $request->phone,
+            'password' => strlen($request->password) > 5 ? bcrypt($request->password) : auth('customer')->user()->password,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
         if (auth('customer')->check()) {
             User::where(['id' => auth('customer')->id()])->update($userDetails);
@@ -169,6 +192,7 @@ class UserProfileController extends Controller
         $countries = $country_restrict_status ? $this->get_delivery_country_array() : COUNTRIES;
         $zip_codes = $zip_restrict_status ? DeliveryZipCode::all() : 0;
 
+<<<<<<< HEAD
         $countriesName = [];
         $countriesCode = [];
         foreach ($countries as $country) {
@@ -179,6 +203,11 @@ class UserProfileController extends Controller
         if (auth('customer')->check()) {
             $shippingAddresses = ShippingAddress::where('customer_id', auth('customer')->id())->latest()->get();
             return view('web-views.users-profile.account-address', compact('shippingAddresses', 'country_restrict_status', 'zip_restrict_status', 'countries', 'zip_codes', 'countriesName', 'countriesCode'));
+=======
+        if (auth('customer')->check()) {
+            $shippingAddresses = ShippingAddress::where('customer_id', auth('customer')->id())->latest()->get();
+            return view('web-views.users-profile.account-address', compact('shippingAddresses', 'country_restrict_status', 'zip_restrict_status', 'countries', 'zip_codes'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } else {
             return redirect()->route('home');
         }
@@ -213,6 +242,7 @@ class UserProfileController extends Controller
 
         $address = [
             'customer_id' => auth('customer')->check() ? auth('customer')->id() : null,
+<<<<<<< HEAD
             'contact_person_name' => $request['name'],
             'address_type' => $request['addressAs'],
             'address' => $request['address'],
@@ -223,6 +253,18 @@ class UserProfileController extends Controller
             'is_billing' => $request['is_billing'],
             'latitude' => $request['latitude'],
             'longitude' => $request['longitude'],
+=======
+            'contact_person_name' => $request->name,
+            'address_type' => $request->addressAs,
+            'address' => $request->address,
+            'city' => $request->city,
+            'zip' => $request->zip,
+            'country' => $request->country,
+            'phone' => $request->phone,
+            'is_billing' => $request->is_billing,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'created_at' => now(),
             'updated_at' => now(),
         ];
@@ -240,6 +282,7 @@ class UserProfileController extends Controller
     public function address_edit(Request $request, $id)
     {
         $shippingAddress = ShippingAddress::where('customer_id', auth('customer')->id())->find($id);
+<<<<<<< HEAD
         $country_restrict_status = getWebConfig(name: 'delivery_country_restriction');
         $zip_restrict_status = getWebConfig(name: 'delivery_zip_code_area_restriction');
 
@@ -255,6 +298,23 @@ class UserProfileController extends Controller
 
         if (isset($shippingAddress)) {
             return view(VIEW_FILE_NAMES['account_address_edit'], compact('shippingAddress', 'country_restrict_status', 'zip_restrict_status', 'delivery_countries', 'delivery_zipcodes', 'countriesName', 'countriesCode'));
+=======
+        $country_restrict_status = Helpers::get_business_settings('delivery_country_restriction');
+        $zip_restrict_status = Helpers::get_business_settings('delivery_zip_code_area_restriction');
+
+        if ($country_restrict_status) {
+            $delivery_countries = self::get_delivery_country_array();
+        } else {
+            $delivery_countries = 0;
+        }
+        if ($zip_restrict_status) {
+            $delivery_zipcodes = DeliveryZipCode::all();
+        } else {
+            $delivery_zipcodes = 0;
+        }
+        if (isset($shippingAddress)) {
+            return view(VIEW_FILE_NAMES['account_address_edit'], compact('shippingAddress', 'country_restrict_status', 'zip_restrict_status', 'delivery_countries', 'delivery_zipcodes'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } else {
             Toastr::warning(translate('access_denied'));
             return back();
@@ -288,6 +348,10 @@ class UserProfileController extends Controller
             return back();
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $updateAddress = [
             'contact_person_name' => $request->name,
             'address_type' => $request->addressAs,
@@ -305,10 +369,17 @@ class UserProfileController extends Controller
         if (auth('customer')->check()) {
             ShippingAddress::where('id', $request->id)->update($updateAddress);
             Toastr::success(translate('address_updated_successfully!'));
+<<<<<<< HEAD
             return theme_root_path() == 'default' ? redirect()->route('account-address') : redirect()->route('user-profile');
         } else {
             Toastr::error(translate('Insufficient_permission!'));
             return theme_root_path() == 'default' ? redirect()->route('account-address') : redirect()->route('user-profile');
+=======
+            return redirect()->back();
+        } else {
+            Toastr::error(translate('Insufficient_permission!'));
+            return redirect()->back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
     }
 
@@ -362,6 +433,7 @@ class UserProfileController extends Controller
         return view(VIEW_FILE_NAMES['account_orders'], compact('orders', 'order_by'));
     }
 
+<<<<<<< HEAD
     public function account_order_details(Request $request): View|RedirectResponse
     {
         $order = $this->order->with(['deliveryManReview', 'customer', 'offlinePayments'])
@@ -394,6 +466,23 @@ class UserProfileController extends Controller
                 'refund_day_limit' => getWebConfig(name: 'refund_day_limit'),
                 'current_date' => Carbon::now(),
             ]);
+=======
+    public function account_order_details(Request $request)
+    {
+        $order = $this->order->with(['deliveryManReview','customer','offlinePayments', 'details.product.reviewsByCustomer' => function($query){
+            return $query->where('customer_id', auth('customer')->id());
+        }])
+        ->where(['customer_id'=>auth('customer')->id(), 'is_guest'=>'0'])
+        ->find($request->id);
+        $order?->details?->map(function($detail)use($order){
+            $order['total_qty'] += $detail->qty;
+        });
+
+        $refund_day_limit = \App\Utils\Helpers::get_business_settings('refund_day_limit');
+        $current_date = \Carbon\Carbon::now();
+        if($order){
+            return view(VIEW_FILE_NAMES['account_order_details'], compact('order', 'refund_day_limit', 'current_date'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         Toastr::warning(translate('invalid_order'));
@@ -407,6 +496,7 @@ class UserProfileController extends Controller
             Toastr::warning(translate('invalid_order'));
             return redirect()->route('account-oder');
         }
+<<<<<<< HEAD
 
         $productIds = $this->product->active()->where(['added_by' => $order->seller_is])->where('user_id', $order->seller_id)->pluck('id')->toArray();
         $rating = $this->review->active()->whereIn('product_id', $productIds);
@@ -420,6 +510,14 @@ class UserProfileController extends Controller
         }
 
         $rating_percentage = $rating_count != 0 ? ($vendorRattingStatusPositive*100)/ $rating_count:0;
+=======
+        $product_ids = $this->product->where(['added_by' => $order->seller_is , 'user_id'=>$order->seller_id])->pluck('id');
+        $rating = $this->review->whereIn('product_id', $product_ids);
+        $avg_rating = $rating->avg('rating') ?? 0 ;
+        $rating_percentage = round(($avg_rating * 100) / 5);
+        $rating_count = $rating->count();
+        $product_count = $this->product->where(['added_by' => $order->seller_is , 'user_id'=>$order->seller_id])->active()->count();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         return view(VIEW_FILE_NAMES['seller_info'], compact('avg_rating', 'product_count', 'rating_count', 'order', 'rating_percentage'));
 
@@ -454,6 +552,7 @@ class UserProfileController extends Controller
 
         return view(VIEW_FILE_NAMES['delivery_man_info'], compact('delivered_count', 'order'));
     }
+<<<<<<< HEAD
 
     public function account_order_details_reviews(Request $request): View|RedirectResponse
     {
@@ -488,6 +587,15 @@ class UserProfileController extends Controller
         }
         Toastr::warning(translate('invalid_order'));
         return redirect()->route('account-oder');
+=======
+    public function account_order_details_reviews(Request $request){
+        $order = $this->order->with('orderDetails.product.reviewsByCustomer')->where(['id' => $request->id])->first();
+        if(!$order) {
+            Toastr::warning(translate('invalid_order'));
+            return redirect()->route('account-oder');
+        }
+        return view(VIEW_FILE_NAMES['order_details_review'], compact('order'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
 
@@ -652,13 +760,18 @@ class UserProfileController extends Controller
                 Toastr::warning(translate('invalid_order'));
                 return redirect()->route('account-oder');
             }
+<<<<<<< HEAD
 
             $isOrderOnlyDigital = self::getCheckIsOrderOnlyDigital($orderDetails);
             return view(VIEW_FILE_NAMES['track_order_wise_result'], compact('orderDetails', 'isOrderOnlyDigital'));
+=======
+            return view(VIEW_FILE_NAMES['track_order_wise_result'], compact('orderDetails'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         return back();
     }
 
+<<<<<<< HEAD
     public function getCheckIsOrderOnlyDigital($order): bool
     {
         $isOrderOnlyDigital = true;
@@ -703,26 +816,71 @@ class UserProfileController extends Controller
             } else {
                 Toastr::error(translate('invalid_Order_Id_or_phone_Number'));
                 return redirect()->route('track-order.index', ['order_id' => $request['order_id'], 'phone_number' => $request['phone_number']]);
+=======
+    public function track_order_result(Request $request)
+    {
+
+        $user = auth('customer')->user();
+        $user_phone = $request->phone_number ?? '';
+
+        if (!isset($user)) {
+            $user_id = User::where('phone', $request->phone_number)->first();
+            $order = Order::where('id', $request['order_id'])->first();
+
+            if($order && $order->is_guest){
+                $orderDetails = Order::with('shippingAddress')->where('id', $request['order_id'])
+                    ->first();
+
+                $orderDetails = ($orderDetails && $orderDetails->shippingAddress && $orderDetails->shippingAddress->phone == $request->phone_number) ? $orderDetails : null;
+
+                if(!$orderDetails){
+                    $orderDetails = Order::where('id', $request['order_id'])
+                        ->whereHas('billingAddress', function ($query) use ($request) {
+                            $query->where('phone', $request->phone_number);
+                        })->first();
+                }
+            }elseif($user_id){
+                $orderDetails = Order::where('id', $request['order_id'])->whereHas('details', function ($query) use ($user_id) {
+                    $query->where('customer_id', $user_id->id);
+                })->first();
+            }else{
+                Toastr::error(translate('invalid_Phone_Number'));
+                return redirect()->back()->withInput();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
 
         } else {
             $order = Order::where('id', $request['order_id'])->first();
+<<<<<<< HEAD
             if ($order && $order->is_guest) {
                 $orderDetails = Order::where('id', $request['order_id'])->whereHas('shippingAddress', function ($query) use ($request) {
                     $query->where('phone', $request['phone_number']);
                 })->first();
 
             } elseif ($user->phone == $request['phone_number']) {
+=======
+            if($order && $order->is_guest){
+                $orderDetails = Order::where('id', $request['order_id'])->whereHas('shippingAddress', function ($query) use ($request) {
+                    $query->where('phone', $request->phone_number);
+                })->first();
+
+            }elseif ($user->phone == $request->phone_number) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $orderDetails = Order::where('id', $request['order_id'])->whereHas('details', function ($query) {
                     $query->where('customer_id', auth('customer')->id());
                 })->first();
             }
 
+<<<<<<< HEAD
             if ($request['from_order_details'] == 1) {
+=======
+            if ($request->from_order_details == 1) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $orderDetails = Order::where('id', $request['order_id'])->whereHas('details', function ($query) {
                     $query->where('customer_id', auth('customer')->id());
                 })->first();
             }
+<<<<<<< HEAD
         }
 
         $order_verification_status = getWebConfig(name: 'order_verification');
@@ -738,6 +896,19 @@ class UserProfileController extends Controller
 
         Toastr::error(translate('invalid_Order_Id_or_phone_Number'));
         return redirect()->route('track-order.index', ['order_id' => $request['order_id'], 'phone_number' => $request['phone_number']]);
+=======
+
+        }
+
+        $order_verification_status = Helpers::get_business_settings('order_verification');
+
+        if (isset($orderDetails)) {
+            return view(VIEW_FILE_NAMES['track_order'], compact('orderDetails','user_phone', 'order_verification_status'));
+        }
+
+        Toastr::error(translate('invalid_Order_Id_or_phone_Number'));
+        return redirect()->back()->withInput();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function track_last_order()

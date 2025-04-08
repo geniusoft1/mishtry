@@ -3,7 +3,11 @@
 @section('title', translate('choose_Payment_Method'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/payment.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/payment.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     <script src="https://js.stripe.com/v3/"></script>
 @endpush
@@ -34,9 +38,15 @@
                                 </div>
                                 <p class="text-capitalize mt-2">{{ translate('select_a_payment_method_to_proceed')}}</p>
                             </div>
+<<<<<<< HEAD
                             @if($cashOnDeliveryBtnShow && $cash_on_delivery['status'] || $digital_payment['status']==1)
                                 <div class="d-flex flex-wrap gap-3 mb-5">
                                     @if($cashOnDeliveryBtnShow && $cash_on_delivery['status'])
+=======
+                            @if(!$cod_not_show && $cash_on_delivery['status'] || $digital_payment['status']==1)
+                                <div class="d-flex flex-wrap gap-3 mb-5">
+                                    @if(!$cod_not_show && $cash_on_delivery['status'])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div id="cod-for-cart">
                                             <div class="card cursor-pointer">
                                                 <form action="{{route('checkout-complete')}}" method="get" class="needs-validation" id="cash_on_delivery_form">
@@ -44,7 +54,11 @@
                                                         <input type="hidden" name="payment_method" value="cash_on_delivery">
                                                         <span class="btn btn-block click-if-alone d-flex gap-2 align-items-center cursor-pointer">
                                                             <input type="radio" id="cash_on_delivery" class="custom-radio">
+<<<<<<< HEAD
                                                             <img width="20" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/money.png') }}" alt="">
+=======
+                                                            <img width="20" src="{{ asset('public/assets/front-end/img/icons/money.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             <span class="fs-12">{{ translate('cash_on_Delivery') }}</span>
                                                         </span>
                                                     </label>
@@ -59,7 +73,11 @@
                                                 <div class="card cursor-pointer">
                                                     <button class="btn btn-block click-if-alone d-flex gap-2 align-items-center" type="submit"
                                                         data-toggle="modal" data-target="#wallet_submit_button">
+<<<<<<< HEAD
                                                         <img width="20" src="{{ theme_asset(path: 'public/assets/front-end/img/icons/wallet-sm.png') }}" alt=""/>
+=======
+                                                        <img width="20" src="{{ asset('public/assets/front-end/img/icons/wallet-sm.png') }}" alt=""/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         <span class="fs-12">{{ translate('pay_via_Wallet') }}</span>
                                                     </button>
                                                 </div>
@@ -71,7 +89,11 @@
 
                             <div class="d-flex flex-wrap gap-2 align-items-center mb-4 ">
                                 <h5 class="mb-0 text-capitalize">{{ translate('pay_via_online') }}</h5>
+<<<<<<< HEAD
                                 <span class="fs-10 text-capitalize mt-1">({{ translate('faster_&_secure_way_to_pay') }})</span>
+=======
+                                <span class="fs-10 text-capitalize mt-1">({{ translate('faster_&_secure_way_to_pay_bill') }})</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
 
                             @if ($digital_payment['status']==1)
@@ -97,7 +119,11 @@
                                             <label class="d-flex align-items-center gap-2 mb-0 form-check py-2 cursor-pointer">
                                                 <input type="radio" id="{{($payment_gateway->key_name)}}" name="online_payment" class="form-check-input custom-radio" value="{{($payment_gateway->key_name)}}">
                                                 <img width="30"
+<<<<<<< HEAD
                                                 src="{{dynamicStorage(path: 'storage/app/public/payment_modules/gateway_image')}}/{{ $payment_gateway->additional_data && (json_decode($payment_gateway->additional_data)->gateway_image) != null ? (json_decode($payment_gateway->additional_data)->gateway_image) : ''}}" alt="">
+=======
+                                                src="{{asset('storage/app/public/payment_modules/gateway_image')}}/{{ $payment_gateway->additional_data && (json_decode($payment_gateway->additional_data)->gateway_image) != null ? (json_decode($payment_gateway->additional_data)->gateway_image) : ''}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <span class="text-capitalize form-check-label">
                                                     @if($payment_gateway->additional_data && json_decode($payment_gateway->additional_data)->gateway_title != null)
                                                         {{ json_decode($payment_gateway->additional_data)->gateway_title }}
@@ -160,7 +186,11 @@
                         <form action="{{route('offline-payment-checkout-complete')}}" method="post" class="needs-validation">
                             @csrf
                             <div class="d-flex justify-content-center mb-4">
+<<<<<<< HEAD
                                 <img width="52" src="{{theme_asset(path: 'public/assets/front-end/img/select-payment-method.png')}}" alt="">
+=======
+                                <img width="52" src="{{asset('public/assets/front-end/img/select-payment-method.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <p class="fs-14 text-center">{{translate('pay_your_bill_using_any_of_the_payment_method_below_and_input_the_required_information_in_the_form')}}</p>
 
@@ -232,5 +262,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/payment.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/front-end/js/payment.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

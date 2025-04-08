@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 "use strict";
 
+=======
+'use strict';
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 $('.status-filter').on('change',function (){
     let status = $(this).val();
     $.ajaxSetup({
@@ -16,6 +20,7 @@ $('.status-filter').on('change',function (){
             $('#loading').fadeIn();
         },
         success: function (data) {
+<<<<<<< HEAD
             $('#status-wise-view').html(data.view);
             $('#withdraw-requests-count').empty().html(data.count);
             closeRequest();
@@ -23,6 +28,11 @@ $('.status-filter').on('change',function (){
             openNote();
             formSubmit();
             withdrawInfoShow();
+=======
+            $('#status-wise-view').html(data.view)
+            $('#withdraw-requests-count').empty().html(data.count)
+            closeRequest();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         },
         complete: function () {
             $('#loading').fadeOut();
@@ -48,6 +58,7 @@ function closeRequest(){
     })
 }
 closeRequest();
+<<<<<<< HEAD
 
 function withdrawInfoHide(){
     $('.withdraw-info-hide, .withdraw-info-sidebar-overlay').on('click', function () {
@@ -153,3 +164,5 @@ $('.withdraw-request-file-export').on('click',function (){
     let queryParams = '?status=' + checkedStatusValuesArray;
     window.location.href = $(this).data('action')+queryParams;
 });
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

@@ -8,7 +8,11 @@
 
         <div class="pb-2 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business-setup.png')}}" alt="">
+=======
+                <img src="{{asset('public/assets/back-end/img/business-setup.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('all_Pages_Banner')}}
             </h2>
         </div>
@@ -91,5 +95,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/banner.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/banner.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

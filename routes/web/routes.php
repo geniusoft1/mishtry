@@ -57,10 +57,18 @@ Route::group(['namespace' => 'Web','middleware'=>['maintenance_mode','guestCheck
     Route::get('searched-products', 'WebController@searched_products')->name('searched-products');
 
     Route::group(['middleware'=>['customer']], function () {
+<<<<<<< HEAD
         Route::controller(ReviewController::class)->group(function (){
             Route::post(Review::ADD[URI], 'add')->name('review.store');
             Route::post(Review::ADD_DELIVERYMAN_REVIEW[URI],'addDeliveryManReview')->name('submit-deliveryman-review');
             Route::post(Review::DELETE_REVIEW_IMAGE[URI],'deleteReviewImage')->name('delete-review-image');
+=======
+        // Route::get('submit-review/{id}','UserProfileController@submit_review')->name('submit-review'); ( Unused )
+        Route::controller(ReviewController::class)->group(function (){
+            Route::post(Review::ADD[URI], 'add')->name('review.store');
+            // Route::get(Review::DELIVERYMAN_REVIEW[URI].'/{id}','getDeliveryManReview')->name('deliveryman-review'); ( Unused )
+            Route::post(Review::ADD_DELIVERYMAN_REVIEW[URI],'addDeliveryManReview')->name('submit-deliveryman-review');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
     });
 
@@ -204,6 +212,16 @@ Route::group(['namespace' => 'Web','middleware'=>['maintenance_mode','guestCheck
     });
 });
 
+<<<<<<< HEAD
+=======
+//Seller shop apply
+Route::group(['prefix' => 'shop', 'as' => 'shop.', 'namespace' => 'Vendor\Auth'], function () {
+    Route::get('apply', 'RegisterController@create')->name('apply');
+    Route::post('apply', 'RegisterController@store');
+
+});
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 //check done
 Route::group(['prefix' => 'cart', 'as' => 'cart.', 'namespace' => 'Web'], function () {
     Route::post('variant_price', 'CartController@variant_price')->name('variant_price');
@@ -221,7 +239,10 @@ Route::group(['prefix' => 'cart', 'as' => 'cart.', 'namespace' => 'Web'], functi
 //Seller shop apply
 Route::group(['prefix' => 'coupon', 'as' => 'coupon.', 'namespace' => 'Web'], function () {
     Route::post('apply', 'CouponController@apply')->name('apply');
+<<<<<<< HEAD
     Route::get('remove', 'CouponController@removeCoupon')->name('remove');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 });
 //check done
 

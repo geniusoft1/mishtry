@@ -36,18 +36,25 @@ class FlashDealController extends Controller
                 ->pluck('product_id')->toArray();
 
         if (count($p_ids) > 0) {
+<<<<<<< HEAD
             $products = Product::with(['rating', 'reviews'])
+=======
+            $products = Product::with(['rating'])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ->withCount(['wishList' => function($query) use($user){
                     $query->where('customer_id', $user != 'offline' ? $user->id : '0');
                 }])
                 ->whereIn('id', $p_ids)
                 ->get();
+<<<<<<< HEAD
 
             $products?->map(function ($product) {
                 $product['reviews_count'] = $product->reviews->count();
                 unset($product->reviews);
                 return $product;
             });
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             return response()->json(Helpers::product_data_formatting($products, true), 200);
         }
 

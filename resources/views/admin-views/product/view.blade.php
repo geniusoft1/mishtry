@@ -15,6 +15,7 @@
 
         <div class="card card-top-bg-element">
             <div class="card-body">
+<<<<<<< HEAD
                 <div>
                     <div class="media flex-nowrap flex-column flex-sm-row gap-3 flex-grow-1">
                         <div class="d-flex flex-column align-items-center __min-w-165px">
@@ -159,6 +160,69 @@
                                         <span>
                                             {{ count($product->rating)>0 ? number_format($product->rating[0]->average, 2, '.', ' '):0 }}
                                         </span>
+=======
+                <div class="d-flex flex-wrap flex-lg-nowrap gap-3 justify-content-between">
+                    <div class="media flex-wrap flex-sm-nowrap gap-3">
+
+                        <a class="aspect-1 float-left overflow-hidden"
+                           href="{{ productImagePath('thumbnail') }}/{{ $product['thumbnail']}}"
+                           data-lightbox="mygallery">
+                            <img class="avatar avatar-170 rounded-0"
+                                 src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'. $product['thumbnail'],type: 'backend-product') }}"
+                                 alt="">
+                        </a>
+
+                        <div class="d-block">
+                            <div class="d-flex flex-wrap flex-sm-nowrap align-items-start gap-2 mb-2 min-h-50">
+
+                                @if ($product->product_type == 'physical' && $product->color_image)
+                                    @foreach (json_decode($product->color_image) as $key => $photo)
+                                        <a class="aspect-1 float-left overflow-hidden"
+                                           href="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'backend-product') }}"
+                                           data-lightbox="mygallery">
+                                            <img width="50" alt=""
+                                                 src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'backend-product') }}">
+                                        </a>
+                                    @endforeach
+                                @else
+                                    @foreach (json_decode($product->images) as $key => $photo)
+                                        <a class="aspect-1 float-left overflow-hidden"
+                                           href="{{ getValidImage(path: 'storage/app/public/product/'.$photo, type: 'backend-product') }}"
+                                           data-lightbox="mygallery">
+                                            <img width="50" alt=""
+                                                 src="{{ getValidImage(path: 'storage/app/public/product/'.$photo, type: 'backend-product') }}">
+                                        </a>
+                                    @endforeach
+                                @endif
+
+                                @if ($product->denied_note && $product['request_status'] == 2)
+                                    <div class="alert alert-danger bg-danger-light py-2" role="alert">
+                                        <strong>{{ translate('note') }} :</strong> {{ $product->denied_note}}
+                                    </div>
+                                @endif
+                            </div>
+
+                            <div class="d-block">
+                                <div class="d-flex">
+                                    <h2 class="mb-2 pb-1 text-gulf-blue">{{ $product['name']}}</h2>
+                                    <a class="btn btn-outline--primary btn-sm square-btn mx-2 w-auto h-25"
+                                       title="{{ translate('edit') }}"
+                                       href="{{ route('admin.products.update', [$product['id']]) }}">
+                                        <i class="tio-edit"></i>
+                                    </a>
+                                </div>
+                                <div class="d-flex gap-3 flex-wrap mb-3 lh-1">
+                                    <span class="text-dark">
+                                        {{ count($product->orderDetails) }} {{ translate('orders') }}
+                                    </span>
+                                    <span class="border-left"></span>
+                                    <div class="review-hover position-relative cursor-pointer d-flex gap-2 align-items-center">
+                                        <i class="tio-star"></i>
+                                        <span>
+                                            {{ count($product->rating)>0 ? number_format($product->rating[0]->average, 2, '.', ' '):0 }}
+                                        </span>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div class="review-details-popup">
                                             <h6 class="mb-2">{{ translate('rating') }}</h6>
                                             <div class="">
@@ -167,6 +231,7 @@
 
                                                     <li class="d-flex align-items-center font-size-sm">
                                                         @php($five = getRatingCount($product['id'], 5))
+<<<<<<< HEAD
                                                         <span class="{{ Session::get('direction') === "rtl" ? 'ml-3' : 'mr-3' }}">
                                                         {{ translate('5') }} {{ translate('star') }}
                                                     </span>
@@ -175,6 +240,17 @@
                                                                     aria-valuenow="{{ $total == 0 ? 0 : ($five/$total)*100 }}"
                                                                     aria-valuemin="0" aria-valuemax="100">
                                                             </div>
+=======
+                                                        <span
+                                                            class="{{ Session::get('direction') === "rtl" ? 'ml-3' : 'mr-3' }}">
+                                                            {{ translate('5') }} {{ translate('star') }}
+                                                        </span>
+                                                        <div class="progress flex-grow-1">
+                                                            <div class="progress-bar" role="progressbar"
+                                                                 style="width: {{ $total == 0 ? 0 : ($five/$total)*100 }}%;"
+                                                                 aria-valuenow="{{ $total == 0 ? 0 : ($five/$total)*100 }}"
+                                                                 aria-valuemin="0" aria-valuemax="100"></div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </div>
                                                         <span
                                                             class="{{ Session::get('direction') === "rtl" ? 'mr-3' : 'ml-3' }}">{{ $five }}</span>
@@ -186,9 +262,15 @@
                                                             class="{{ Session::get('direction') === "rtl" ? 'ml-3' : 'mr-3' }}">{{ translate('4') }} {{ translate('star') }}</span>
                                                         <div class="progress flex-grow-1">
                                                             <div class="progress-bar" role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: {{ $total == 0 ? 0 : ($four/$total)*100}}%;"
                                                                     aria-valuenow="{{ $total == 0 ? 0 : ($four/$total)*100}}"
                                                                     aria-valuemin="0" aria-valuemax="100"></div>
+=======
+                                                                 style="width: {{ $total == 0 ? 0 : ($four/$total)*100}}%;"
+                                                                 aria-valuenow="{{ $total == 0 ? 0 : ($four/$total)*100}}"
+                                                                 aria-valuemin="0" aria-valuemax="100"></div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </div>
                                                         <span
                                                             class="{{ Session::get('direction') === "rtl" ? 'mr-3' : 'ml-3' }}">{{ $four }}</span>
@@ -200,9 +282,15 @@
                                                             class="{{ Session::get('direction') === "rtl" ? 'ml-3' : 'mr-3'}}">{{ translate('3') }} {{ translate('star') }}</span>
                                                         <div class="progress flex-grow-1">
                                                             <div class="progress-bar" role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: {{ $total == 0 ? 0 : ($three/$total)*100 }}%;"
                                                                     aria-valuenow="{{ $total == 0 ? 0 : ($three/$total)*100 }}"
                                                                     aria-valuemin="0" aria-valuemax="100"></div>
+=======
+                                                                 style="width: {{ $total == 0 ? 0 : ($three/$total)*100 }}%;"
+                                                                 aria-valuenow="{{ $total == 0 ? 0 : ($three/$total)*100 }}"
+                                                                 aria-valuemin="0" aria-valuemax="100"></div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </div>
                                                         <span
                                                             class="{{ Session::get('direction') === "rtl" ? 'mr-3' : 'ml-3'}}">{{ $three }}</span>
@@ -214,9 +302,15 @@
                                                             class="{{ Session::get('direction') === "rtl" ? 'ml-3' : 'mr-3'}}">{{ translate('2') }} {{ translate('star') }}</span>
                                                         <div class="progress flex-grow-1">
                                                             <div class="progress-bar" role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: {{ $total == 0 ? 0 : ($two/$total)*100}}%;"
                                                                     aria-valuenow="{{ $total == 0 ? 0 : ($two/$total)*100}}"
                                                                     aria-valuemin="0" aria-valuemax="100"></div>
+=======
+                                                                 style="width: {{ $total == 0 ? 0 : ($two/$total)*100}}%;"
+                                                                 aria-valuenow="{{ $total == 0 ? 0 : ($two/$total)*100}}"
+                                                                 aria-valuemin="0" aria-valuemax="100"></div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </div>
                                                         <span
                                                             class="{{ Session::get('direction') === "rtl" ? 'mr-3' : 'ml-3'}}">{{ $two }}</span>
@@ -228,23 +322,41 @@
                                                             class="{{ Session::get('direction') === "rtl" ? 'ml-3' : 'mr-3'}}">{{ translate('1') }} {{ translate('star') }}</span>
                                                         <div class="progress flex-grow-1">
                                                             <div class="progress-bar" role="progressbar"
+<<<<<<< HEAD
                                                                     style="width: {{ $total == 0 ? 0 : ($one/$total)*100}}%;"
                                                                     aria-valuenow="{{ $total == 0 ? 0 : ($one/$total)*100}}"
                                                                     aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
                                                         <span
                                                             class="{{ Session::get('direction') === "rtl" ? 'mr-3' : 'ml-3'}}">{{ $one }}</span>
+=======
+                                                                 style="width: {{ $total == 0 ? 0 : ($one/$total)*100}}%;"
+                                                                 aria-valuenow="{{ $total == 0 ? 0 : ($one/$total)*100}}"
+                                                                 aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <span class="{{ Session::get('direction') === "rtl" ? 'mr-3' : 'ml-3'}}">{{ $one }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </li>
 
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <span class="border-left py-2"></span>
+=======
+
+                                    <span class="border-left"></span>
+                                    <span class="text-dark">
+                                        {{ $product->reviews_count }} {{ translate('ratings') }}
+                                    </span>
+                                    <span class="border-left"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <span class="text-dark">
                                         {{ $product->reviews->whereNotNull('comment')->count() }} {{ translate('reviews') }}
                                     </span>
                                 </div>
+<<<<<<< HEAD
                             </div>
                             <div class="d-block mt-2">
                                 @foreach($languages as $language)
@@ -281,11 +393,59 @@
                             </div>
                         </div>
                     </div>
+=======
+
+                                @if ($productActive)
+                                    <a href="{{ route('product', $product['slug']) }}"
+                                       class="btn btn-outline--primary mr-1" target="_blank">
+                                        <i class="tio-globe"></i>
+                                        {{ translate('view_live') }}
+                                    </a>
+                                @endif
+                                @if($product->digital_file_ready && file_exists(base_path('storage/app/public/product/digital-product/'.$product->digital_file_ready)))
+                                    <a href="{{ asset('storage/app/public/product/digital-product/'.$product->digital_file_ready) }}"
+                                       class="btn btn-outline--primary mr-1" title="Download" download>
+                                        <i class="tio-download"></i>
+                                        {{ translate('download') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    @if($product['added_by'] == 'seller' && ($product['request_status'] == 0 || $product['request_status'] == 1))
+                        <div class="d-flex justify-content-sm-end flex-wrap gap-2 mb-3">
+                            <div>
+                                <button class="btn btn-danger px-5" data-toggle="modal" data-target="#publishNoteModal">
+                                    {{ translate('reject') }}
+                                </button>
+                            </div>
+                            <div>
+                                @if($product['request_status'] == 0)
+                                    <a href="{{ route('admin.products.approve-status', ['id'=>$product['id']]) }}"
+                                       class="btn btn-success px-5">
+                                        {{ translate('approve') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    @endif
+                    @if($product['added_by'] == 'seller' && ($product['request_status'] == 2))
+                        <div class="d-flex justify-content-sm-end flex-wrap gap-2 mb-3">
+                            <div>
+                                <button class="btn btn-danger px-5">
+                                    {{ translate('rejected') }}
+                                </button>
+                            </div>
+                        </div>
+                    @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
 
                 <hr>
 
                 <div class="d-flex gap-3 flex-wrap">
+<<<<<<< HEAD
                     <div class="border p-3 mobile-w-100 w-170">
                         <div class="d-flex flex-column mb-1">
                             <h6 class="font-weight-normal text-capitalize">{{ translate('total_sold') }} :</h6>
@@ -293,6 +453,15 @@
                         </div>
                         <div class="d-flex flex-column">
                             <h6 class="font-weight-normal text-capitalize">{{ translate('total_sold_amount') }} :</h6>
+=======
+                    <div class="border p-3 w-170">
+                        <div class="d-flex flex-column mb-1">
+                            <h6 class="font-weight-normal">{{ translate('total_sold') }} :</h6>
+                            <h3 class="text-primary fs-18">{{ $product['qtySum'] }}</h3>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <h6 class="font-weight-normal">{{ translate('total_sold_amount') }} :</h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <h3 class="text-primary fs-18">
                                 {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: ($product['priceSum'] * $product['qtySum']) - $product['discountSum'])) }}
                             </h3>
@@ -301,7 +470,11 @@
 
                     <div class="row gy-3 flex-grow-1">
                         <div class="col-sm-6 col-xl-4">
+<<<<<<< HEAD
                             <h4 class="mb-3 text-capitalize">{{ translate('general_information') }}</h4>
+=======
+                            <h4 class="mb-3">{{ translate('general_information') }}</h4>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                             <div class="pair-list">
                                 <div>
@@ -321,6 +494,7 @@
                                 </div>
 
                                 <div>
+<<<<<<< HEAD
                                     <span class="key text-nowrap text-capitalize">{{ translate('product_type') }}</span>
                                     <span>:</span>
                                     <span class="value">{{ translate($product->product_type) }}</span>
@@ -330,6 +504,12 @@
                                     <span>:</span>
                                     <span class="value">{{ $product['unit']}}</span>
                                 </div>
+=======
+                                    <span class="key text-nowrap">{{ translate('product_type') }}</span>
+                                    <span>:</span>
+                                    <span class="value">{{ translate($product->product_type) }}</span>
+                                </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @if($product->product_type == 'physical')
                                     <div>
                                         <span class="key text-nowrap">{{ translate('current_Stock') }}</span>
@@ -337,6 +517,7 @@
                                         <span class="value">{{ $product->current_stock}}</span>
                                     </div>
                                 @endif
+<<<<<<< HEAD
                             </div>
                         </div>
                         <div class="col-sm-6 col-xl-4">
@@ -345,6 +526,29 @@
                             <div class="pair-list">
                                 <div>
                                     <span class="key text-nowrap text-capitalize">{{ translate('unit_price') }}</span>
+=======
+                                <div>
+                                    <span class="key text-nowrap">{{ translate('SKU') }}</span>
+                                    <span>:</span>
+                                    <span class="value">{{ $product->code}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4">
+                            <h4 class="mb-3">{{ translate('price_information') }}</h4>
+
+                            <div class="pair-list">
+                                <div>
+                                    <span class="key text-nowrap">{{ translate('purchase_price') }}</span>
+                                    <span>:</span>
+                                    <span class="value">
+                                        {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product->purchase_price), currencyCode: getCurrencyCode()) }}
+                                    </span>
+                                </div>
+
+                                <div>
+                                    <span class="key text-nowrap">{{ translate('unit_price') }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <span>:</span>
                                     <span class="value">
                                         {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product->unit_price), currencyCode: getCurrencyCode()) }}
@@ -366,7 +570,11 @@
                                 </div>
                                 @if($product->product_type == 'physical')
                                     <div>
+<<<<<<< HEAD
                                         <span class="key text-nowrap text-capitalize">{{ translate('shipping_cost') }}</span>
+=======
+                                        <span class="key text-nowrap">{{ translate('shipping_cost') }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <span>:</span>
                                         <span class="value">
                                             {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product->shipping_cost)) }}
@@ -389,6 +597,7 @@
                                         @endif
                                     </div>
                                 @endif
+<<<<<<< HEAD
                                 <div>
                                     <span class="key text-nowrap">{{ translate('product_SKU') }}</span>
                                     <span>:</span>
@@ -414,10 +623,60 @@
                                 </div>
                             </div>
                         @endif
+=======
+                            </div>
+                        </div>
+
+                        @if ($product->product_type == 'physical' && count(json_decode($product->choice_options)) >0 || count(json_decode($product->colors)) >0 )
+                            <div class="col-sm-6 col-xl-4">
+                                <h4 class="mb-3">{{ translate('available_variations') }}</h4>
+
+                                <div class="pair-list">
+                                    @if (json_decode($product->choice_options) != null)
+                                        @foreach (json_decode($product->choice_options) as $key => $value)
+                                            <div>
+                                                @if (array_filter($value->options) != null)
+                                                    <span class="key text-nowrap">{{ translate($value->title) }}</span>
+                                                    <span>:</span>
+                                                    <span class="value">
+                                                    @foreach ($value->options as $index => $option)
+                                                        {{ $option }}
+                                                        @if ($index === array_key_last(($value->options)))
+                                                            @break
+                                                        @endif
+                                                        ,
+                                                    @endforeach
+                                                </span>
+                                                @endif
+                                            </div>
+                                        @endforeach
+                                    @endif
+
+                                    @if ($productColors != null)
+                                        <div>
+                                            <span class="key text-nowrap">{{ translate('color') }}</span>
+                                            <span>:</span>
+                                            <span class="value">
+                                                @foreach ($productColors as $key => $color)
+                                                    {{ $key }}
+                                                    @if ($key === array_key_last($productColors))
+                                                        @break
+                                                    @endif
+                                                    ,
+                                                @endforeach
+                                            </span>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         <div class="row g-2 mt-3">
             @if(!empty($product['variation']) && count(json_decode($product['variation'])) >0)
             <div class="col-md-12">
@@ -518,6 +777,9 @@
                 </div>
             @endif
         </div>
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <div class="card mt-3">
             <div class="table-responsive datatable-custom">
                 <table
@@ -529,7 +791,11 @@
                         <th>{{ translate('rating') }}</th>
                         <th>{{ translate('review') }}</th>
                         <th>{{ translate('date') }}</th>
+<<<<<<< HEAD
                         <th class="text-center">{{ translate('action') }}</th>
+=======
+                        <th>{{ translate('action') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </tr>
                     </thead>
 
@@ -543,7 +809,11 @@
                                        href="{{ route('admin.customer.view',[$review['customer_id']]) }}">
                                         <div class="avatar rounded">
                                             <img class="avatar-img"
+<<<<<<< HEAD
                                                  src="{{ getValidImage(path: 'storage/app/public/profile/'.$review->customer->image,type: 'backend-profile') }}"
+=======
+                                                 src="{{ getValidImage(path: 'storage/app/public/profile/'.$review->customer->image,type: 'backend-basic') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="">
                                         </div>
                                         <div class="{{ Session::get('direction') === "rtl" ? 'mr-3' : 'ml-3'}}">
@@ -572,10 +842,17 @@
                                         @if(json_decode($review->attachment))
                                             @foreach (json_decode($review->attachment) as $img)
                                                 <a class="aspect-1 float-left overflow-hidden"
+<<<<<<< HEAD
                                                    href="{{ getValidImage(path: 'storage/app/public/review/'.$img,type: 'backend-basic') }}"
                                                    data-lightbox="review-gallery{{ $review['id'] }}" >
                                                     <img class="p-2" width="60" height="60"
                                                          src="{{ getValidImage(path: 'storage/app/public/review/'.$img,type: 'backend-basic') }}" alt="{{translate('review_image')}}">
+=======
+                                                   href="{{ asset('storage/app/public/review') }}/{{ $img}}"
+                                                   data-lightbox="mygallery">
+                                                    <img class="p-2" width="60" height="60"
+                                                         src="{{ getValidImage(path: 'storage/app/public/review/'.$img,type: 'backend-basic') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </a>
                                             @endforeach
                                         @endif
@@ -620,9 +897,15 @@
 
             @if(count($reviews)==0)
                 <div class="text-center p-4">
+<<<<<<< HEAD
                     <img class="mb-3 w-160" src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
                          alt="">
                     <p class="mb-0">{{ translate('no_data_to_show').'.'.'!' }}</p>
+=======
+                    <img class="mb-3 w-160" src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+                         alt="">
+                    <p class="mb-0">{{ translate('no_data_to_show') }}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
             @endif
         </div>
@@ -633,28 +916,44 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+<<<<<<< HEAD
                     <h5 class="modal-title" id="exampleModalLabel">{{ translate('rejected_note') }}</h5>
+=======
+                    <h5 class="modal-title" id="exampleModalLabel">{{ translate('denied_note') }}</h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <form class="form-group" action="{{ route('admin.products.deny', ['id'=>$product['id']]) }}"
+<<<<<<< HEAD
                       method="post" id="product-status-denied">
                     @csrf
                     <div class="modal-body">
                         <textarea class="form-control text-area-max-min" name="denied_note" rows="3"></textarea>
+=======
+                      method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <textarea class="form-control" name="denied_note" rows="3"></textarea>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ translate('close') }}
                         </button>
+<<<<<<< HEAD
                         <button type="button" class="btn btn--primary form-submit"
                                 data-redirect-route="{{route('admin.products.list',['seller','status' => $product['request_status']])}}"
                                 data-form-id="product-status-denied">{{ translate('submit') }}</button>
+=======
+                        <button type="submit" class="btn btn--primary">{{ translate('save_changes') }}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                 </form>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <span id="get-update-status-route" data-action="{{ route('admin.products.approve-status')}}"></span>
 @endsection
 @push('script')
@@ -672,3 +971,6 @@
 
 </script>
 @endpush
+=======
+@endsection
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

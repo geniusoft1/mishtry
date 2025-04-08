@@ -94,9 +94,12 @@ Route::group(['namespace' => 'RestAPI\v1', 'prefix' => 'v1', 'middleware' => ['a
         Route::get('shipping-methods', 'ProductController@get_shipping_methods');
         Route::get('social-share-link/{product_id}', 'ProductController@social_share_link');
         Route::post('reviews/submit', 'ProductController@submit_product_review')->middleware('auth:api');
+<<<<<<< HEAD
         Route::put('review/update', 'ProductController@updateProductReview')->middleware('auth:api');
         Route::get('review/{product_id}/{order_id}', 'ProductController@getProductReviewByOrder')->middleware('auth:api');
         Route::delete('review/delete-image', 'ProductController@deleteReviewImage')->middleware('auth:api');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     });
 
     Route::group(['middleware' => 'apiGuestCheck'], function () {
@@ -164,7 +167,11 @@ Route::group(['namespace' => 'RestAPI\v1', 'prefix' => 'v1', 'middleware' => ['a
 
         Route::group(['prefix' => 'address'], function () {
             Route::get('get/{id}', 'CustomerController@get_address');
+<<<<<<< HEAD
             Route::post('update', 'CustomerController@update_address');
+=======
+            Route::put('update', 'CustomerController@update_address');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
 
         Route::group(['prefix' => 'support-ticket'], function () {
@@ -246,7 +253,12 @@ Route::group(['namespace' => 'RestAPI\v1', 'prefix' => 'v1', 'middleware' => ['a
 
     Route::group(['prefix' => 'seller'], function () {
         Route::get('/', 'SellerController@get_seller_info');
+<<<<<<< HEAD
         Route::get('list/{type}', 'SellerController@getSellerList');
+=======
+        Route::get('top', 'SellerController@get_top_sellers');
+        Route::get('all', 'SellerController@get_all_sellers');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         Route::get('more', 'SellerController@more_sellers');
     });
 

@@ -34,8 +34,13 @@
     @foreach ($data['withdraw_request'] as $key=>$item)
         <tr>
             <td> {{++$key}}  </td>
+<<<<<<< HEAD
             <td> {{ ucwords($item?->deliveryMan?->f_name ?? translate('not_found')) }}</td>
             <td> {{ ucwords($item?->deliveryMan?->l_name ?? translate('not_found')) }}</td>
+=======
+            <td> {{ ucwords($item?->delivery_men?->f_name ?? translate('not_found')) }}</td>
+            <td> {{ ucwords($item?->delivery_men?->l_name ?? translate('not_found')) }}</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <td> {{ date_format( $item->created_at, 'd M ,Y, h:i:s A') }} </td>
             <td> {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $item['amount'] ?? 0))}} </td>
             <td> {{ucwords($item->approved==0 ? 'pending' : ($item->approved==1 ? 'approved' : 'denied'))}}</td>

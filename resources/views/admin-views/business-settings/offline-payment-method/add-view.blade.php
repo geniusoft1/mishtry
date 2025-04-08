@@ -2,6 +2,7 @@
 
 @section('title', translate('add_Offline_Payment_Method'))
 
+<<<<<<< HEAD
 @push('css_or_js')
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.css')}}"/>
 @endpush
@@ -22,11 +23,23 @@
             </div>
         </div>
         @include('admin-views.business-settings.third-party-payment-method-menu')
+=======
+@section('content')
+    <div class="content container-fluid">
+        <div class="mb-4 pb-2">
+            <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+                <img src="{{asset('/public/assets/back-end/img/3rd-party.png')}}" alt="">
+                {{translate('3rd_party')}}
+            </h2>
+        </div>
+        @include('admin-views.business-settings.third-party-inline-menu')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <form action="{{ route('admin.business-settings.offline-payment-method.add') }}" method="POST" id="payment-method-offline">
             @csrf
             <div class="card mt-3">
                 <div class="card-header gap-2 flex-wrap">
                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/payment-card.png')}}" alt="">
                         <span class="title-color text-capitalize font-weight-bold">
                             {{translate('payment_information')}}
@@ -34,6 +47,10 @@
                                 <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
                             </span>
                         </span>
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/payment-card.png')}}" alt="">
+                        <h5 class="mb-0 text-capitalize">{{ translate('payment_information') }}</h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                     <a href="javascript:" id="add-input-fields-group" class="btn btn--primary text-capitalize"><i class="tio-add"></i> {{ translate('add_new_field') }} </a>
                 </div>
@@ -78,6 +95,7 @@
             <div class="card mt-3">
                 <div class="card-header gap-2 flex-wrap">
                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/payment-card-fill.png')}}" alt="">
                         <span class="title-color text-capitalize font-weight-bold">
                             {{translate('required_information_from_Customer')}}
@@ -85,6 +103,10 @@
                                 <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
                             </span>
                         </span>
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/payment-card-fill.png')}}" alt="">
+                        <h5 class="mb-0">{{ translate('required_Information_from_Customer') }}</h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                     <a href="javascript:" id="add-customer-input-fields-group" class="btn btn--primary"><i class="tio-add"></i> {{ translate('Add_New_Field') }} </a>
                 </div>
@@ -130,6 +152,7 @@
             </div>
         </form>
     </div>
+<<<<<<< HEAD
     <div class="modal fade" id="getInformationModal" tabindex="-1" aria-labelledby="getInformationModal"
          aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -202,6 +225,8 @@
             </div>
         </div>
     </div>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <span id="get-add-input-field-text"
           data-input-field-name = "{{translate('input_field_Name')}}"
           data-input-field-name-placeholder = "{{translate('ex').':'.translate('bank_Name')}}"
@@ -220,7 +245,12 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
 @endpush
 
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/offline-payment.js')}}"></script>
+@endpush
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

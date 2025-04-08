@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Contracts\Repositories\AttributeRepositoryInterface;
+<<<<<<< HEAD
 use App\Contracts\Repositories\BannerRepositoryInterface;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Contracts\Repositories\BrandRepositoryInterface;
 use App\Contracts\Repositories\CartRepositoryInterface;
 use App\Contracts\Repositories\CategoryRepositoryInterface;
@@ -17,10 +20,15 @@ use App\Contracts\Repositories\VendorRepositoryInterface;
 use App\Contracts\Repositories\WishlistRepositoryInterface;
 use App\Enums\ViewPaths\Admin\Product;
 use App\Enums\WebConfigKey;
+<<<<<<< HEAD
 use App\Events\ProductRequestStatusUpdateEvent;
 use App\Exports\ProductListExport;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admin\ProductDenyRequest;
+=======
+use App\Exports\ProductListExport;
+use App\Http\Controllers\BaseController;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Http\Requests\ProductAddRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Services\ProductService;
@@ -54,7 +62,10 @@ class ProductController extends BaseController
         private readonly FlashDealProductRepositoryInterface $flashDealProductRepo,
         private readonly DealOfTheDayRepositoryInterface     $dealOfTheDayRepo,
         private readonly ReviewRepositoryInterface           $reviewRepo,
+<<<<<<< HEAD
         private readonly BannerRepositoryInterface           $bannerRepo,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     )
     {
     }
@@ -152,6 +163,7 @@ class ProductController extends BaseController
         $this->translationRepo->update(request: $request, model: 'App\Models\Product', id: $id);
 
         Toastr::success(translate('product_updated_successfully'));
+<<<<<<< HEAD
         return redirect()->route(Product::VIEW[ROUTE],['addedBy'=>$product['added_by'],'id'=>$product['id']]);
     }
 
@@ -161,6 +173,17 @@ class ProductController extends BaseController
 
         $relations = ['category', 'brand', 'reviews', 'rating', 'orderDetails', 'orderDelivered','translations'];
         $product = $this->productRepo->getFirstWhereWithoutGlobalScope(params: ['id' => $id], relations: $relations);
+=======
+        return back();
+    }
+
+    public function getView(string|int $id): View
+    {
+        $productActive = $this->productRepo->getFirstWhereActive(params: ['id' => $id]);
+
+        $relations = ['category', 'brand', 'reviews', 'rating', 'orderDetails', 'orderDelivered'];
+        $product = $this->productRepo->getFirstWhere(params: ['id' => $id], relations: $relations);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $product->orderDelivered->map(function ($order) use ($product) {
             $product->priceSum = $order->sum('price');
@@ -178,7 +201,11 @@ class ProductController extends BaseController
         }
 
         $reviews = $this->reviewRepo->getListWhere(filters: ['product_id' => ['product_id' => $id], 'whereNull' => ['column' => 'delivery_man_id']], dataLimit: getWebConfig(name: 'pagination_limit'));
+<<<<<<< HEAD
         return view(Product::VIEW[VIEW], compact('product', 'reviews', 'productActive', 'productColors','addedBy'));
+=======
+        return view(Product::VIEW[VIEW], compact('product', 'reviews', 'productActive', 'productColors'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function getSkuCombinationView(Request $request, ProductService $service): JsonResponse
@@ -348,10 +375,13 @@ class ProductController extends BaseController
             $this->dealOfTheDayRepo->delete(params: ['product_id' => $id]);
             $service->deleteImages(product: $product);
             $this->productRepo->delete(params: ['id' => $id]);
+<<<<<<< HEAD
             $bannerIds = $this->bannerRepo->getListWhere(filters:['resource_type'=>'product','resource_id'=>$product['id']])->pluck('id');
             $bannerIds->map(function ($bannerId){
                 $this->bannerRepo->update(id:$bannerId,data: ['published'=>0,'resource_id'=>null]);
             });
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Toastr::success(translate('product_removed_successfully'));
         }else {
             Toastr::error(translate('invalid_product'));
@@ -428,18 +458,30 @@ class ProductController extends BaseController
 
     public function updatedShipping(Request $request): JsonResponse
     {
+<<<<<<< HEAD
         $product = $this->productRepo->getFirstWhereWithoutGlobalScope(params: ['id' => $request['id']], relations: ['translations']);
+=======
+        $product = $this->productRepo->getFirstWhereWithoutGlobalScope(params: ['id' => $request['product_id']], relations: ['translations']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $dataArray = ['is_shipping_cost_updated' => $request['status']];
 
         if ($request['status'] == 1) {
             $dataArray += ['shipping_cost' => $product['temp_shipping_cost']];
         }
+<<<<<<< HEAD
         $this->productRepo->update(id: $request['id'], data: $dataArray);
+=======
+        $this->productRepo->update(id: $request['product_id'], data: $dataArray);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         return response()->json(['message' => translate('status_updated_successfully')], 200);
     }
 
+<<<<<<< HEAD
     public function deny(ProductDenyRequest $request): JsonResponse
+=======
+    public function deny(Request $request): RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $dataArray = [
             'request_status' => 2,
@@ -447,6 +489,7 @@ class ProductController extends BaseController
             'denied_note' => $request['denied_note'],
         ];
         $this->productRepo->update(id: $request['id'], data: $dataArray);
+<<<<<<< HEAD
         $product = $this->productRepo->getFirstWhereWithoutGlobalScope(params: ['id' => $request['id']], relations: ['translations']);
         $vendor = $this->sellerRepo->getFirstWhere(params: ['id'=>$product['user_id']]);
         if ($vendor['cm_firebase_token']){
@@ -456,17 +499,29 @@ class ProductController extends BaseController
     }
 
     public function approveStatus(Request $request): JsonResponse
+=======
+
+        return redirect()->route('admin.products.list', ['seller', 'status' => 2]);
+    }
+
+    public function approveStatus(Request $request): RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $product = $this->productRepo->getFirstWhereWithoutGlobalScope(params: ['id' => $request['id']], relations: ['translations']);
         $dataArray = [
             'request_status' => ($product['request_status'] == 0) ? 1 : 0
         ];
         $this->productRepo->update(id: $request['id'], data: $dataArray);
+<<<<<<< HEAD
         $vendor = $this->sellerRepo->getFirstWhere(params: ['id'=>$product['user_id']]);
         if ($vendor['cm_firebase_token']) {
             ProductRequestStatusUpdateEvent::dispatch('product_request_approved_message', 'seller', $vendor['app_language'] ?? getDefaultLanguage(), $vendor['cm_firebase_token']);
         }
         return response()->json(['message'=>translate('product_request_approved').'.']);
+=======
+
+        return redirect()->route('admin.products.list', ['seller', 'status' => $dataArray['request_status']]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
     public function getSearchedProductsView(Request $request):JsonResponse
     {

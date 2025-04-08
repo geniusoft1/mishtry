@@ -384,6 +384,10 @@ class ProductService
         } elseif ($request['product_type'] == 'physical' && $product['digital_file_ready']) {
             $this->delete(filePath: 'product/digital-product/' . $product['digital_file_ready']);
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $dataArray = [
             'name' => $request['name'][array_search('en', $request['lang'])],
             'code' => $request['code'],
@@ -411,8 +415,13 @@ class ProductService
             'minimum_order_qty' => $request['minimum_order_qty'],
             'video_provider' => 'youtube',
             'video_url' => $request['video_url'],
+<<<<<<< HEAD
             'shipping_cost' => $request['product_type'] == 'physical' ? (getWebConfig(name: 'product_wise_shipping_cost_approval')==1 && $product->shipping_cost != currencyConverter($request->shipping_cost) ? $product->shipping_cost : currencyConverter(amount: $request['shipping_cost'])) : 0,
             'multiply_qty' => ($request['product_type'] == 'physical') ? ($request['multiply_qty'] == 'on' ? 1 : 0) : 0,
+=======
+            'shipping_cost' => $request['product_type'] == 'physical' ? currencyConverter(amount: $request['shipping_cost']) : 0,
+            'multiply_qty' => ($request['product_type'] == 'physical') ? ($request['multiply_qty'] == 'on' ? 1 : 0) : 0, //to be changed in form multiply_qty
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'color_image' => json_encode($processedImages['colored_image_names']),
             'images' => json_encode($processedImages['image_names']),
             'digital_file_ready' => $digitalFile,

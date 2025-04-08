@@ -12,7 +12,10 @@ use App\Repositories\VendorRepository;
 use App\Services\VendorService;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Database\Eloquent\Collection;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -69,25 +72,46 @@ class ProfileController extends BaseController
     /**
      * @param VendorRequest $request
      * @param string|int $id
+<<<<<<< HEAD
      * @return JsonResponse
      */
     public function update(VendorRequest $request, string|int $id):JsonResponse
+=======
+     * @return RedirectResponse
+     */
+    public function update(VendorRequest $request, string|int $id):RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
 
         $vendor = $this->vendorRepo->getFirstWhere(['id'=>$id]);
         $this->vendorRepo->update(id:$id,data: $this->vendorService->getVendorDataForUpdate(request:$request,vendor:$vendor));
+<<<<<<< HEAD
         return response()->json(['message'=>translate('profile_updated_successfully')]);
+=======
+        Toastr::success(translate('profile_updated_successfully'));
+        return redirect()->back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     /**
      * @param VendorPasswordRequest $request
      * @param string|int $id
+<<<<<<< HEAD
      * @return JsonResponse
      */
     public function updatePassword(VendorPasswordRequest $request , string|int $id):JsonResponse
     {
         $this->vendorRepo->update(id:$id,data:$this->vendorService->getVendorPasswordData(request:$request));
         return response()->json(['message'=>translate('password_updated_successfully')]);
+=======
+     * @return RedirectResponse
+     */
+    public function updatePassword(VendorPasswordRequest $request , string|int $id):RedirectResponse
+    {
+        $this->vendorRepo->update(id:$id,data:$this->vendorService->getVendorPasswordData(request:$request));
+        Toastr::success(translate('password_updated_successfully'));
+        return redirect()->back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     /**

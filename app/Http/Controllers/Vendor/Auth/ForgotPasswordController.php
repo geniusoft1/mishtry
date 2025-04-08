@@ -19,7 +19,10 @@ use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -65,9 +68,15 @@ class ForgotPasswordController extends BaseController
 
     /**
      * @param PasswordResetRequest $request
+<<<<<<< HEAD
      * @return JsonResponse
      */
     public function getPasswordResetRequest(PasswordResetRequest $request):JsonResponse
+=======
+     * @return RedirectResponse
+     */
+    public function getPasswordResetRequest(PasswordResetRequest $request):RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         session()->put(SessionKey::FORGOT_PASSWORD_IDENTIFY, $request['identity']);
         $verificationBy = getWebConfig('forgot_password_verification');
@@ -76,6 +85,7 @@ class ForgotPasswordController extends BaseController
             $vendor = $this->vendorRepo->getFirstWhere(['identity' => $request['identity']]);
             if (isset($vendor)) {
                 $token = Str::random(120);
+<<<<<<< HEAD
                 $this->passwordResetRepo->add($this->passwordResetService->getAddData(identity:$request['identity'],token: $token,userType:'seller'));
                 $resetUrl = url('/') . '/'.ForgotPassword::RESET_PASSWORD[URL].'?token=' . $token;
                 try {
@@ -87,12 +97,28 @@ class ForgotPasswordController extends BaseController
                     'verificationBy' => 'mail',
                     'success'=>translate('mail_send_successfully'),
                 ]);
+=======
+                $this->passwordResetRepo->add($this->passwordResetService->getAddData(vendor:$vendor,token: $token,userType:'seller'));
+                $resetUrl = url('/') . '/'.ForgotPassword::RESET_PASSWORD[URL].'?token=' . $token;
+                try {
+                    Mail::to($vendor['email'])->send(new \App\Mail\PasswordResetMail($resetUrl));
+                    Toastr::success(translate('check_your_email'). translate('password_reset_url_sent'));
+                }catch (\Exception $exception){
+                    Toastr::error(translate('email_send_fail'));
+                }
+                return redirect()->back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         }elseif ($verificationBy == 'phone') {
             $vendor = $this->vendorRepo->getFirstWhere(['identity'=>$request['identity']]);
             if (isset($vendor)) {
+<<<<<<< HEAD
                 $token = rand(1000, 9999);
                 $this->passwordResetRepo->add($this->passwordResetService->getAddData(identity:$request['identity'],token: $token,userType:'seller'));
+=======
+                $token = Str::random(120);
+                $this->passwordResetRepo->add($this->passwordResetService->getAddData(vendor:$vendor,token: $token,userType:'seller'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $publishedStatus = 0;
                 $paymentPublishedStatus = config('get_payment_publish_status');
                 if (isset($payment_published_status[0]['is_published'])) {
@@ -104,6 +130,7 @@ class ForgotPasswordController extends BaseController
                     $response = $this->send($vendor['phone'], $token);
                 }
                 if ($response === "not_found") {
+<<<<<<< HEAD
                     return response()->json([
                         'error'=>translate('SMS_configuration_missing'),
                     ]);
@@ -119,6 +146,17 @@ class ForgotPasswordController extends BaseController
         return response()->json([
             'error'=>translate('no_such_user_found').'!!',
         ]);
+=======
+                    Toastr::error(translate('SMS_configuration_missing'));
+                    return back();
+                }
+                Toastr::success(translate('Check_your_phone').' '.translate('Password_reset_otp_sent'));
+                return redirect()->back();
+            }
+        }
+        Toastr::error(translate('No_such_user_found').'!');
+        return redirect()->back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     /**
@@ -136,10 +174,17 @@ class ForgotPasswordController extends BaseController
     public function submitOTPVerificationCode(Request $request):RedirectResponse
     {
         $id = session(SessionKey::FORGOT_PASSWORD_IDENTIFY);
+<<<<<<< HEAD
         $passwordResetData = $this->passwordResetRepo->getFirstWhere(params: ['user_type' => 'seller', 'token' => $request['otp'], 'identity' => $id]);
         if (isset($passwordResetData)) {
             $token = $request['otp'];
             return redirect()->route('vendor.auth.forgot-password.reset-password', ['token' => $token]);
+=======
+        $passwordResetData = $this->passwordResetRepo->getFirstWhere(params: ['user_type' => 'seller', 'token' => $request['token'], 'identity' => $id]);
+        if (isset($passwordResetData)) {
+            $token = $request['otp'];
+            return redirect()->route('vendor.auth.reset-password', ['token' => $token]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         Toastr::error(translate('invalid_otp'));
         return redirect()->back();
@@ -160,15 +205,22 @@ class ForgotPasswordController extends BaseController
     }
     /**
      * @param VendorPasswordRequest $request
+<<<<<<< HEAD
      * @return JsonResponse
      */
     public function resetPassword(VendorPasswordRequest $request): JsonResponse
+=======
+     * @return RedirectResponse
+     */
+    public function resetPassword(VendorPasswordRequest $request): RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $passwordResetData = $this->passwordResetRepo->getFirstWhere(params: ['user_type' => 'seller', 'token' => $request['reset_token']]);
         if ($passwordResetData) {
             $vendor = $this->vendorRepo->getFirstWhere(params: ['identity' => $passwordResetData['identity']]);
             $this->vendorRepo->update(id: $vendor['id'], data: ['password' => bcrypt($request['password'])]);
             $this->passwordResetRepo->delete(params: ['id' => $passwordResetData['id']]);
+<<<<<<< HEAD
             return response()->json([
                 'passwordUpdate' => 1,
                 'success'=>translate('Password_reset_successfully'),
@@ -177,5 +229,13 @@ class ForgotPasswordController extends BaseController
         } else {
             return response()->json(['error'=>translate('invalid_URL')]);
         }
+=======
+            Toastr::success(translate('Password_reset_successfully'));
+        } else {
+            Toastr::error(translate('invalid_URL'));
+        }
+
+        return redirect()->route(Auth::VENDOR_LOGOUT[URI]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 }

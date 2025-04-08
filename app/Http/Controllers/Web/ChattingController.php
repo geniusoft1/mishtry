@@ -27,6 +27,7 @@ class ChattingController extends Controller
     {
 
     }
+<<<<<<< HEAD
 
     public function chat_list(Request $request, $type)
     {
@@ -149,10 +150,96 @@ class ChattingController extends Controller
 
                 $uniqueShops = Chatting::join('delivery_men', 'delivery_men.id', '=', 'chattings.delivery_man_id')
                     ->select('chattings.*', 'delivery_men.f_name', 'delivery_men.l_name', 'delivery_men.image', 'delivery_men.email')
+=======
+    public function chat_list(Request $request, $type)
+    {
+
+        if ($type == 'seller')
+        {
+            $last_chat = Chatting::with(['shop'])->where('user_id', auth('customer')->id())
+                ->whereNotNull(['seller_id', 'user_id'])
+                ->orderBy('created_at', 'DESC')
+                ->first();
+            if (isset($last_chat)) {
+                // theme_aster - specific shop start
+                if ($request->type =='seller'&& $request->has('id') ){
+                    $last_chat = Chatting::with(['shop'])->where(['user_id'=> auth('customer')->id(),'shop_id'=>$request->id])
+                            ->whereNotNull(['seller_id', 'user_id'])
+                            ->orderBy('created_at', 'DESC')
+                            ->first();
+                        Chatting::with(['shop'])->where(['user_id'=> auth('customer')->id(),'shop_id'=>$request->id])
+                            ->whereNotNull(['seller_id', 'user_id'])
+                            ->orderBy('created_at', 'DESC')
+                            ->update(['seen_by_customer' =>1]);
+                }
+                // theme_aster - specific shop end
+
+
+                $chattings = Chatting::join('shops', 'shops.id', '=', 'chattings.shop_id')
+                    ->select('chattings.*', 'shops.name', 'shops.image')
+                    ->where('chattings.user_id', auth('customer')->id())
+                    ->where('shop_id', $last_chat->shop_id)
+                    ->when(theme_root_path()=='default' ,function($query){
+                        return $query->orderBy('chattings.created_at', 'desc');
+                    })
+                    ->get();
+
+                $unique_shops = Chatting::join('shops', 'shops.id', '=', 'chattings.shop_id')
+                    ->join('sellers', 'sellers.id', '=', 'shops.seller_id')
+                    ->select('chattings.*', 'shops.name', 'shops.image','shops.contact','sellers.email as seller_email')
+                    ->where('chattings.user_id', auth('customer')->id())
+                    ->when(theme_root_path()=='default' ,function($query){
+                        return $query->orderBy('chattings.created_at', 'desc');
+                    })
+                    ->get()
+                    ->unique('shop_id');
+
+                    /*Unseen Message Count*/
+                    $unique_shops?->map(function($unique_shop){
+                        $unique_shop['unseen_message_count'] = Chatting::where([
+                            'user_id' =>$unique_shop->user_id,
+                            'seller_id'=>$unique_shop->seller_id,
+                            'sent_by_customer'=>0,
+                            'seen_by_customer'=>0,
+                        ])->count();
+                    });
+                    /*End Unseen Message*/
+                return view(VIEW_FILE_NAMES['user_inbox'], compact('chattings', 'unique_shops', 'last_chat'));
+            }
+        }elseif ($type == 'delivery-man')
+        {
+            $last_chat = Chatting::with('deliveryMan')->where('user_id', auth('customer')->id())
+                ->whereNotNull(['delivery_man_id', 'user_id'])
+                ->orderBy('created_at', 'DESC')
+                ->first();
+            if (isset($last_chat)) {
+                // theme_aster - specific shop start
+                if ($request->has('id')){
+                    $last_chat = Chatting::with('deliveryMan')->where('delivery_man_id',$request->id)
+                        ->orderBy('created_at', 'DESC')
+                        ->first();
+                    if ($last_chat) {
+                        $last_chat->update(['seen_by_customer' =>1]);
+                    }
+                }// theme_aster - specific shop end
+
+                $chattings = Chatting::join('delivery_men', 'delivery_men.id', '=', 'chattings.delivery_man_id')
+                    ->select('chattings.*', 'delivery_men.f_name','delivery_men.l_name', 'delivery_men.image')
+                    ->where('chattings.user_id', auth('customer')->id())
+                    ->where('delivery_man_id', $last_chat->delivery_man_id)
+                    ->when(theme_root_path()=='default' ,function($query){
+                        return $query->orderBy('chattings.created_at', 'desc');
+                    })
+                    ->get();
+
+                $unique_shops = Chatting::join('delivery_men', 'delivery_men.id', '=', 'chattings.delivery_man_id')
+                    ->select('chattings.*', 'delivery_men.f_name','delivery_men.l_name', 'delivery_men.image','delivery_men.email')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     ->where('chattings.user_id', auth('customer')->id())
                     ->orderBy('chattings.created_at', 'desc')
                     ->get()
                     ->unique('delivery_man_id');
+<<<<<<< HEAD
                 /*Unseen Message Count*/
                 $uniqueShops?->map(function ($unique_shop) {
                     $unique_shop['unseen_message_count'] = Chatting::where([
@@ -168,6 +255,19 @@ class ChattingController extends Controller
                     'unique_shops' => $uniqueShops,
                     'last_chat' => $lastChatting
                 ]);
+=======
+                    /*Unseen Message Count*/
+                    $unique_shops?->map(function($unique_shop){
+                        $unique_shop['unseen_message_count'] = Chatting::where([
+                                'user_id' =>$unique_shop->user_id,
+                                'delivery_man_id'=>$unique_shop->delivery_man_id,
+                                'sent_by_customer'=>0,
+                                'seen_by_customer'=>0,
+                            ])->count();
+                    });
+                    /*End Unseen Message*/
+                return view(VIEW_FILE_NAMES['user_inbox'], compact('chattings', 'unique_shops', 'last_chat'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         }
 
@@ -217,7 +317,11 @@ class ChattingController extends Controller
         $image = [] ;
         if ($request->file('image')) {
             $validator = Validator::make($request->all(), [
+<<<<<<< HEAD
                 'image.*' => 'image|mimes:jpeg,png,jpg,gif,webp,bmp,tif,tiff|max:6000'
+=======
+                'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:6000'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ]);
             if ($validator->fails()) {
                 return response()->json(translate('The_file_must_be_an_image').'!', 403);
@@ -228,6 +332,7 @@ class ChattingController extends Controller
             }
         }
 
+<<<<<<< HEAD
         $message = $request['message'];
         if ($request->has('shop_id'))
         {
@@ -235,11 +340,22 @@ class ChattingController extends Controller
                 'user_id'          => auth('customer')->id(),
                 'shop_id'          => $request['shop_id'] != 0 ? $request['shop_id'] : null,
                 'message'          => $request['message'],
+=======
+        if ($request->has('shop_id'))
+        {
+            $message = $request->message;
+            Chatting::create([
+                'user_id'          => auth('customer')->id(),
+                'shop_id'          => $request->shop_id,
+                'seller_id'        => $request->seller_id,
+                'message'          => $request->message,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 'attachment'       => json_encode($image),
                 'sent_by_customer' => 1,
                 'seen_by_customer' => 1,
                 'seen_by_seller'   => 0,
                 'created_at'       => now(),
+<<<<<<< HEAD
             ];
 
             $chatting += $request['shop_id'] == 0 ? ['admin_id' => 0] : ['seller_id' => $request->get('seller_id')];
@@ -249,10 +365,20 @@ class ChattingController extends Controller
                 $seller = Seller::find($request->seller_id);
                 ChattingEvent::dispatch('message_from_customer', 'seller', $seller, $message_form);
             }
+=======
+            ]);
+            $seller = Seller::find($request->seller_id);
+            ChattingEvent::dispatch('message_from_customer', 'seller', $seller, $message_form);
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         elseif ($request->has('delivery_man_id'))
         {
+<<<<<<< HEAD
+=======
+            $message = $request->message;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Chatting::create([
                 'user_id'          => auth('customer')->id(),
                 'delivery_man_id'  => $request->delivery_man_id,

@@ -65,7 +65,11 @@
                                                             <span
                                                                 class="product__discount-badge">{{'-'.Helpers::currency_converter($product->discount)}}</span>
                                                         @endif
+<<<<<<< HEAD
                                                         <a href="{{dynamicStorage(path: "storage/app/public/product/".$photo->image_name)}}">
+=======
+                                                        <a href="{{asset("storage/app/public/product/".$photo->image_name)}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             <img class="dark-support rounded" alt=""
                                                                 src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type:'product') }}">
                                                         </a>
@@ -119,7 +123,11 @@
                                                     <div class="swiper-slide position-relative aspect-1 focus-preview-image-by-color"
                                                          data-slide-id="preview-box-{{ str_replace('#','',$photo->color) }}">
                                                         <img class="dark-support rounded" alt=""
+<<<<<<< HEAD
                                                             src="{{dynamicStorage(path: "storage/app/public/product/$photo->image_name")}}">
+=======
+                                                            src="{{asset("storage/app/public/product/$photo->image_name")}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 @endif
                                             @endforeach
@@ -175,7 +183,11 @@
                                     @endif
                                 @endfor
                             </div>
+<<<<<<< HEAD
                             <span>({{ count($product->reviews) }})</span>
+=======
+                            <span>({{$product->reviews_count}})</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                         @if(($product['product_type'] == 'physical') && ($product['current_stock']<=0))
                             <p class="fw-semibold text-muted">{{translate('out_of_stock')}}</p>
@@ -188,9 +200,13 @@
                         @endif
 
                         <div class="product__price d-flex flex-wrap align-items-end gap-2 mb-4 ">
+<<<<<<< HEAD
                             <div class="text-primary fs-1-5rem d-flex align-items-end gap-2">
                                 {!! getPriceRangeWithDiscount(product: $product) !!}
                             </div>
+=======
+                            <div class="text-primary fs-1-5rem">{!! Helpers::get_price_range_with_discount($product) !!}</div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                         <form class="cart add-to-cart-form" id="add-to-cart-form" action="{{ route('cart.add') }}"
                               data-redirecturl="{{route('checkout-details')}}"
@@ -259,8 +275,11 @@
                                         </span>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <input type="hidden" class="product-generated-variation-code" name="product_variation_code">
                                 <input type="hidden" value="" class="in_cart_key form-control w-50" name="key">
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                                 <div class="bg-light mx-w rounded p-4">
                                     <div class="flex-between-gap-3">
@@ -295,8 +314,12 @@
                                         </button>
                                         <button type="button"
                                                 class="btn btn-primary fs-16 text-capitalize add-to-cart"
+<<<<<<< HEAD
                                                 data-form-id="add-to-cart-form" data-update-text="{{ translate('update_cart') }}"
                                                 data-add-text="{{ translate('add_to_cart') }}">{{translate('add_to_cart')}}</button>
+=======
+                                                data-form-id="add-to-cart-form">{{translate('add_to_cart')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @endif
                                 </div>
                                 @if(($product->added_by == 'seller' && ($seller_temporary_close || (isset($product->seller->shop) && $product->seller->shop->vacation_status && $currentDate >= $seller_vacation_start_date && $currentDate <= $seller_vacation_end_date))) ||

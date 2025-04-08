@@ -6,7 +6,11 @@
     <div class="content container-fluid ">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/order_report.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/order_report.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('transaction_report')}}
             </h2>
         </div>
@@ -61,7 +65,11 @@
                                     <li>
                                         <a class="dropdown-item"
                                            href="{{ route('admin.report.transaction.refund-transaction-export', ['payment_method'=>$paymentMethod, 'search'=>$searchValue]) }}">
+<<<<<<< HEAD
                                             <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}"
+=======
+                                            <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="">
                                             {{translate('excel')}}
                                         </a>
@@ -98,7 +106,11 @@
                             </td>
                             <td>
                                 @if($refund_transaction->orderDetails->product)
+<<<<<<< HEAD
                                     <a href="{{route('admin.products.view',['addedBy'=>$refund_transaction->orderDetails->product->added_by,'id'=>$refund_transaction->orderDetails->product->id])}}"
+=======
+                                    <a href="{{route('admin.products.view',[$refund_transaction->orderDetails->product->id])}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        class="media align-items-center gap-2">
                                         <img
                                             src="{{ getValidImage(path:productImagePath(type: 'thumbnail').'/'.$refund_transaction->orderDetails->product->thumbnail,type: 'backend-product')}}"
@@ -156,7 +168,11 @@
                 </table>
                 @if(count($refundTransactions)==0)
                     <div class="text-center p-4">
+<<<<<<< HEAD
                         <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="Image Description">
                         <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                     </div>

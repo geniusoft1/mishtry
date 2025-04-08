@@ -1,7 +1,10 @@
 /node_modules
 /public/hot
 /public/storage
+<<<<<<< HEAD
 /public/themes
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 /storage/*.key
 /storage/app/*
 /vendor

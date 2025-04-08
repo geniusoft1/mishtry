@@ -24,8 +24,13 @@ class CategoryManager
     {
         $user = Helpers::get_customer($request);
         $id = '"'.$category_id.'"';
+<<<<<<< HEAD
         $products = Product::with(['flashDealProducts.flashDeal','rating','tags', 'seller.shop'])
             ->withCount(['reviews','wishList' => function($query) use($user){
+=======
+        $products = Product::with(['flashDealProducts.flashDeal','rating','tags','seller.shop'])
+            ->withCount(['wishList' => function($query) use($user){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->active()

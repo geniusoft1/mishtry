@@ -9,18 +9,30 @@
 @endif
 
 
+<<<<<<< HEAD
 <header class="rtl __inline-10">
+=======
+<header class="box-shadow-sm rtl __inline-10">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <div class="topbar">
         <div class="container">
 
             <div>
                 <div class="topbar-text dropdown d-md-none ms-auto">
+<<<<<<< HEAD
                     <a class="topbar-link direction-ltr" href="tel: {{$web_config['phone']->value}}">
+=======
+                    <a class="topbar-link" href="tel: {{$web_config['phone']->value}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <i class="fa fa-phone"></i> {{$web_config['phone']->value}}
                     </a>
                 </div>
                 <div class="d-none d-md-block mr-2 text-nowrap">
+<<<<<<< HEAD
                     <a class="topbar-link d-none d-md-inline-block direction-ltr" href="tel:{{$web_config['phone']->value}}">
+=======
+                    <a class="topbar-link d-none d-md-inline-block" href="tel:{{$web_config['phone']->value}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <i class="fa fa-phone"></i> {{$web_config['phone']->value}}
                     </a>
                 </div>
@@ -49,7 +61,11 @@
                         @foreach(json_decode($language['value'],true) as $data)
                             @if($data['code'] == getDefaultLanguage())
                                 <img class="mr-2" width="20"
+<<<<<<< HEAD
                                      src="{{theme_asset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+=======
+                                     src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      alt="{{$data['name']}}">
                                 {{$data['name']}}
                             @endif
@@ -62,7 +78,11 @@
                                     <a class="dropdown-item pb-1" href="javascript:">
                                         <img class="mr-2"
                                              width="20"
+<<<<<<< HEAD
                                              src="{{theme_asset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+=======
+                                             src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="{{$data['name']}}"/>
                                         <span class="text-capitalize">{{$data['name']}}</span>
                                     </a>
@@ -96,6 +116,7 @@
                 </a>
 
                 <div class="input-group-overlay mx-lg-4 search-form-mobile text-align-direction">
+<<<<<<< HEAD
                     <form action="{{route('products')}}" type="submit" class="search_form">
                         <div class="d-flex align-items-center gap-2">
                             <input class="form-control appended-form-control search-bar-input" type="search"
@@ -120,6 +141,27 @@
                             <div class="card-body">
                                 <div class="search-result-box __h-400px overflow-x-hidden overflow-y-auto"></div>
                             </div>
+=======
+                    <div class="text-align-direction d-lg-none">
+                        <button class="btn close-search-form-mobile">
+                            <i class="tio-clear"></i>
+                        </button>
+                    </div>
+                    <form action="{{route('products')}}" type="submit" class="search_form">
+                        <input class="form-control appended-form-control search-bar-input" type="text"
+                               autocomplete="off"
+                               placeholder="{{ translate("search_here")}}..."
+                               name="name">
+                        <button class="input-group-append-overlay search_button" type="submit">
+                                <span class="input-group-text __text-20px">
+                                    <i class="czi-search text-white"></i>
+                                </span>
+                        </button>
+                        <input name="data_from" value="search" hidden>
+                        <input name="page" value="1" hidden>
+                        <diV class="card search-card __inline-13">
+                            <div class="card-body search-result-box __h-400px overflow-x-hidden overflow-y-auto"></div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </diV>
                     </form>
                 </div>
@@ -378,7 +420,11 @@
                                         </button>
                                         <div class="dropdown-menu __dropdown-menu-3 __min-w-165px text-align-direction"
                                              aria-labelledby="dropdownMenuButton">
+<<<<<<< HEAD
                                             <a class="dropdown-item text-capitalize" href="{{route('vendor.auth.registration.index')}}">
+=======
+                                            <a class="dropdown-item text-capitalize" href="{{route('shop.apply')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 {{ translate('become_a_vendor')}}
                                             </a>
                                             <div class="dropdown-divider"></div>

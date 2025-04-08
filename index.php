@@ -8,8 +8,11 @@
 
 define('LARAVEL_START', microtime(true));
 
+<<<<<<< HEAD
 /*identify the domain pointer*/
 const DOMAIN_POINTED_DIRECTORY = 'root';
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -22,7 +25,11 @@ const DOMAIN_POINTED_DIRECTORY = 'root';
 |
 */
 
+<<<<<<< HEAD
 require __DIR__ . '/vendor/autoload.php';
+=======
+require __DIR__.'/vendor/autoload.php';
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +43,11 @@ require __DIR__ . '/vendor/autoload.php';
 |
 */
 
+<<<<<<< HEAD
 $app = require_once __DIR__ . '/bootstrap/app.php';
+=======
+$app = require_once __DIR__.'/bootstrap/app.php';
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 /*
 |--------------------------------------------------------------------------

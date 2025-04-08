@@ -129,6 +129,7 @@ $('.order-status-history').on('click', function (){
     });
 });
 
+<<<<<<< HEAD
 $('.earning-order-history input[type=checkbox]').on('change',function (){
     let checkedStatusValuesArray = [];
     let checkedPaymentValuesArray = [];
@@ -174,4 +175,9 @@ $('.earning-file-export').on('click',function (){
     let queryParams = '&order_status=' + checkedStatusValuesArray.join(',') +
         '&payment_status=' + checkedPaymentValuesArray.join(',');
     window.location.href = $(this).data('action')+queryParams;
+=======
+$('#delivery_withdraw_status_filter').on('change', function() {
+    let url = $(this).data('url');
+    location.href=url+'?approved='+$(this).val();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 });

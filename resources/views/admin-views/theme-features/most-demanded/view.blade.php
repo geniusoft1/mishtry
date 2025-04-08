@@ -7,7 +7,11 @@
 
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
+<<<<<<< HEAD
             <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/most-demanded.png') }}" alt="">
+=======
+            <img width="20" src="{{ asset('public/assets/back-end/img/most-demanded.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             {{ translate('most_demanded') }}
         </h2>
     </div>
@@ -56,7 +60,11 @@
                                 <div class="form-group">
                                     <div class="text-center mt-lg-3">
                                         <img class="border radius-10 ratio-4:1 max-w-655px w-100" id="viewer"
+<<<<<<< HEAD
                                             src="{{ dynamicAsset(path: 'public/assets/back-end/img/placeholder/placeholder-4-1.png') }}" alt="banner image"/>
+=======
+                                            src="{{ asset('public/assets/back-end/img/placeholder/placeholder-4-1.png') }}" alt="banner image"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +199,11 @@
                 @if(count($mostDemandedProducts)==0)
                     <div class="text-center p-4">
                         <img class="mb-3 w-160"
+<<<<<<< HEAD
                              src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                             src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="Image Description">
                         <p class="mb-0 text-capitalize">{{ translate('no_data_to_show') }}</p>
                     </div>
@@ -205,5 +217,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/banner.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/banner.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

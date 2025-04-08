@@ -5,8 +5,13 @@
 @section('content')
     <div class="content container-fluid">
         <div class="mb-3 d-flex flex-column gap-1">
+<<<<<<< HEAD
             <h2 class="h1 text-capitalize d-flex gap-2 align-items-center">
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/inhouse-product-list.png') }}" class="mb-1 mr-1" alt="">
+=======
+            <h2 class="h1 text-capitalize d-flex gap-2">
+                <img src="{{ asset('public/assets/back-end/img/inhouse-product-list.png') }}" class="mb-1 mr-1" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('limited_Stocked_Products_List') }}
                 <span class="badge badge-soft-dark radius-50 fz-14 ml-1">
                     {{ $products->total() }}
@@ -16,6 +21,11 @@
                 {{ translate('the_products_are_shown_in_this_list,_which_quantity_is_below') }} {{ $stockLimit }}
             </p>
         </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <div class="row mt-30">
             <div class="col-md-12">
                 <div class="card">
@@ -46,6 +56,7 @@
                                 <select name="qty_order_sort" class="form-control action-select-onchange-get-view"
                                         data-url-prefix="{{ route('admin.products.stock-limit-list',['in_house', '']) }}/?sortOrderQty=">
                                     <option value="default" {{ $sortOrderQty== "default"?'selected':''}}>
+<<<<<<< HEAD
                                         {{ translate('default') }}
                                     </option>
                                     <option value="quantity_asc" {{ $sortOrderQty== "quantity_asc"?'selected':''}}>
@@ -59,6 +70,21 @@
                                     </option>
                                     <option value="order_desc" {{ $sortOrderQty== "order_desc"?'selected':''}}>
                                         {{ translate('order_volume(high_to_low)') }}
+=======
+                                        {{ translate('default_sort') }}
+                                    </option>
+                                    <option value="quantity_asc" {{ $sortOrderQty== "quantity_asc"?'selected':''}}>
+                                        {{ translate('quantity_sort_by_(low_to_high)') }}
+                                    </option>
+                                    <option value="quantity_desc" {{ $sortOrderQty== "quantity_desc"?'selected':''}}>
+                                        {{ translate('quantity_sort_by_(high_to_low)') }}
+                                    </option>
+                                    <option value="order_asc" {{ $sortOrderQty== "order_asc"?'selected':''}}>
+                                        {{ translate('order_sort_by_(low_to_high)') }}
+                                    </option>
+                                    <option value="order_desc" {{ $sortOrderQty== "order_desc"?'selected':''}}>
+                                        {{ translate('order_sort_by_(high_to_low)') }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </option>
                                 </select>
                             </div>
@@ -73,9 +99,14 @@
                             <tr>
                                 <th>{{ translate('SL') }}</th>
                                 <th>{{ translate('product_Name') }}</th>
+<<<<<<< HEAD
                                 <th class="text-center">{{ translate('unit_price') }}</th>
                                 <th class="text-center">{{ translate('quantity') }}</th>
                                 <th class="text-center">{{ translate('orders') }}</th>
+=======
+                                <th>{{ translate('selling_price') }}</th>
+                                <th>{{ translate('quantity') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <th class="text-center">{{ translate('active_status') }}</th>
                                 <th class="text-center">{{ translate('action') }}</th>
                             </tr>
@@ -85,7 +116,11 @@
                                 <tr>
                                     <th scope="row">{{ $products->firstItem()+$key}}</th>
                                     <td>
+<<<<<<< HEAD
                                         <a href="{{route('admin.products.view',['addedBy'=>$product['added_by'],'id'=>$product['id']]) }}"
+=======
+                                        <a href="{{route('admin.products.view',[$product['id']]) }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                            class="media align-items-center gap-2">
                                             <img src="{{ getValidImage(path:'storage/app/public/product/thumbnail/'.$product['thumbnail'],type: 'backend-product')}}"
                                                 class="avatar border" alt="">
@@ -94,11 +129,19 @@
                                             </span>
                                         </a>
                                     </td>
+<<<<<<< HEAD
                                     <td class="text-center">
                                         {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product['unit_price']), currencyCode: getCurrencyCode()) }}
                                     </td>
                                     <td>
                                         <div class="d-flex align-items-center product-quantity justify-content-center">
+=======
+                                    <td>
+                                        {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product['unit_price']), currencyCode: getCurrencyCode()) }}
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center product-quantity">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             {{ $product['current_stock']}}
 
                                             <button class="btn py-0 px-2 fz-18 action-update-product-quantity"
@@ -111,8 +154,11 @@
                                             </button>
                                         </div>
                                     </td>
+<<<<<<< HEAD
                                     <td class="text-center">{{($product['order_details_count'])}}</td>
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <td class="text-center">
                                         @if($product->request_status != 2 )
                                             <form action="{{route('admin.products.status-update') }}" method="post"
@@ -177,7 +223,11 @@
                     @if(count($products)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>

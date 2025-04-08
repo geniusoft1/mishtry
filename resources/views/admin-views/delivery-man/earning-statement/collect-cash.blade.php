@@ -5,7 +5,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/earning_statictics.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/earning_statictics.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('collect_Cash')}}
             </h2>
         </div>
@@ -32,13 +36,23 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
+<<<<<<< HEAD
                                         <input type="number" name="amount" class="form-control" step="0.001" placeholder="{{translate('enter_withdraw_amount')}}" required>
+=======
+                                        <input type="number" name="amount" class="form-control"
+                                               placeholder="{{translate('enter_withdraw_amount')}}"
+                                               required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
                             <div class="d-flex gap-3 justify-content-end">
                                 <button type="submit" class="btn btn--primary px-4">{{translate('receive')}}</button>
                             </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                     </form>
                 </div>
@@ -89,7 +103,11 @@
                                     <td colspan="4">
                                         <div class="text-center p-4">
                                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                                 src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="Image Description">
                                             <p class="mb-0">{{translate('no_Country_Found')}}</p>
                                         </div>

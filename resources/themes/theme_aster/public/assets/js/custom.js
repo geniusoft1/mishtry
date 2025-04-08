@@ -542,6 +542,7 @@ function addToCart(form_id, redirect_to_checkout = false, url = null) {
                 "X-CSRF-TOKEN": $('meta[name="_token"]').attr("content"),
             },
         });
+<<<<<<< HEAD
 
         let existCartItem = $('.in_cart_key[name="key"]').val();
         let formActionUrl = $(`#` + form_id).attr("action");
@@ -551,6 +552,10 @@ function addToCart(form_id, redirect_to_checkout = false, url = null) {
 
         $.post({
             url: formActionUrl,
+=======
+        $.post({
+            url: $(`#` + form_id).attr("action"),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             data: $("#" + form_id).serializeArray(),
             beforeSend: function () {},
             success: function (response) {
@@ -788,7 +793,10 @@ function getVariantPrice() {
             url: addToCartForm.data("varianturl"),
             data: addToCartForm.serializeArray(),
             success: function (data) {
+<<<<<<< HEAD
                 $('.product-generated-variation-code').val(data.variation_code);
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $("#add-to-cart-form .total_price").html(data.price);
                 $(".product_vat").html(data.update_tax);
                 $(".in_stock_status").html(data.quantity);
@@ -809,6 +817,7 @@ function getVariantPrice() {
                         $(".product_quantity__qty").attr("max", data.quantity);
                     }
                 }
+<<<<<<< HEAD
 
                 $('.discounted_unit_price').html(data.discounted_unit_price)
                 $('.total_unit_price').html(data.discount_amount > 0 ? data.total_unit_price : '')
@@ -821,6 +830,8 @@ function getVariantPrice() {
                     $('.in_cart_key[name="key"]').val(data.in_cart_key);
                     actionAddToCartBtn.html(actionAddToCartBtn.data('add-text'))
                 }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             },
         });
     }
@@ -1244,7 +1255,33 @@ function initTooltip()
         });
     });
 }
+<<<<<<< HEAD
 
+=======
+function proceedToNextAction(){
+    $('#proceed-to-next-action').on('click', function () {
+        let orderNote = $('#order_note').val();
+        $.post({
+            url: $('#order_note_url').data('url'),
+            data: {
+                _token: $('meta[name="_token"]').attr('content'),
+                order_note: orderNote,
+
+            },
+            beforeSend: function () {
+                $('#loading').addClass('d-grid');
+            },
+            success: function () {
+                location.href = $('#checkout_details_url').data('url');
+            },
+            complete: function () {
+                $('#loading').removeClass('d-grid');
+            },
+        });
+    });
+}
+proceedToNextAction();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 function checkPasswordMatch() {
     let password = $("#password").val();
     let confirmPassword = $("#confirm-password").val();
@@ -1400,6 +1437,10 @@ function renderCouponCodeApply() {
             url: submitCouponCode.attr('action'),
             data: submitCouponCode.serializeArray(),
             success: function (data) {
+<<<<<<< HEAD
+=======
+                console.log('ok');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 if (parseInt(data.status) === 1) {
                     toastr.success(data.messages, {
                         CloseButton: true,
@@ -1419,7 +1460,10 @@ function renderCouponCodeApply() {
     })
 }
 renderCouponCodeApply()
+<<<<<<< HEAD
 
 $('.close-element-onclick-by-data').on('click', function (){
     $($(this).data('selector')).slideUp('slow').fadeOut('slow');
 })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

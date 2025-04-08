@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{translate('vendor')}} | {{translate('reset_Password')}}</title>
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{{ dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/vendor.min.css')}}">
@@ -12,6 +13,16 @@
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/toastr.css')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/style.css')}}">
+=======
+    <link rel="shortcut icon" href="{{ asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/vendor.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/vendor/icon-set/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/toastr.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/style.css')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>
@@ -44,6 +55,7 @@
                             <input type="text" name="reset_token" value="{{$token}}" required>
                         </div>
                         <div class="form-group">
+<<<<<<< HEAD
                             <label for="si-password" class="d-flex align-items-center">
                                 {{translate('new_password')}}
                                 <small class="text-danger mx-1 password-error"></small>
@@ -51,6 +63,12 @@
 
                             <div class="input-group input-group-merge">
                                 <input type="password" class="js-toggle-password form-control password-check"
+=======
+                            <label for="si-password">{{translate('new_password')}}</label>
+
+                            <div class="input-group input-group-merge">
+                                <input type="password" class="js-toggle-password form-control"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        name="password" required id="user_password"
                                        placeholder="{{ translate('password_minimum_8_characters') }}"
                                        data-hs-toggle-password-options='{
@@ -88,12 +106,17 @@
                             </div>
                         </div>
 
+<<<<<<< HEAD
                         <button class="btn btn--primary forget-password-form" type="button">{{translate('reset_password')}}</button>
+=======
+                        <button class="btn btn--primary" type="submit">{{translate('reset_password')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </form>
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <span id="password-error-message" data-max-character="{{translate('at_least_8_characters').'.'}}" data-uppercase-character="{{translate('at_least_one_uppercase_letter_').'(A...Z)'.'.'}}" data-lowercase-character="{{translate('at_least_one_uppercase_letter_').'(a...z)'.'.'}}"
           data-number="{{translate('at_least_one_number').'(0...9)'.'.'}}" data-symbol="{{translate('at_least_one_symbol').'(!...%)'.'.'}}"></span>
 
@@ -102,6 +125,13 @@
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/theme.min.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/toastr.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/forgot-password.js')}}"></script>
+=======
+</main>
+<script src="{{asset('public/assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/toastr.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/vendor/forgot-password.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 <span id="message-copied_success" data-text="{{ translate('copied_successfully') }}"></span>
 {!! Toastr::message() !!}
 

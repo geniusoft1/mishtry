@@ -18,7 +18,11 @@
                                 </div>
                                 <div class="form-group flex-grow-1">
                                     <label for="phone_or_email">{{ translate('phone') }}</label>
+<<<<<<< HEAD
                                     <input type="tel" id="phone_or_email" class="form-control" value="{{ old('phone_number') }}" placeholder="{{ translate('phone') }}" name="phone_number">
+=======
+                                    <input type="text" id="phone_or_email"  name="phone_number" class="form-control" value="{{ old('phone_number') }}" placeholder="{{ translate('phone') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary h-45 flex-grow-1">{{ translate('track_order') }}</button>

@@ -36,7 +36,11 @@
 use App\Models\Order;
 use App\Models\Seller;
 use App\Models\Shop;
+<<<<<<< HEAD
 use App\User;
+=======
+use \App\User;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 $companyPhone = getWebConfig(name: 'company_phone');
 $companyEmail = getWebConfig(name: 'company_email');
@@ -66,7 +70,11 @@ if ($order->is_guest) {
             </td>
             <td>
                 <div class="text-end me-1">
+<<<<<<< HEAD
                     <img src="{{dynamicStorage(path: 'storage/app/public/company/'.$companyLogo) }}" width="30%" alt=""/>
+=======
+                    <img src="{{asset('/storage/app/public/company/'.$companyLogo) }}" width="30%" alt=""/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
             </td>
         </tr>
@@ -85,7 +93,11 @@ if ($order->is_guest) {
 
                         <div class="d-flex align-items-center mt-1">
 
+<<<<<<< HEAD
                             <img src="{{dynamicStorage(path: 'storage/app/public/shop/'.$shop->image) }}" title=""
+=======
+                            <img src="{{asset('/storage/app/public/shop/'.$shop->image) }}" title=""
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  class="" width="20%" alt=""/>
 
                             <span class="ps-1">{{$shop->name}}</span>
@@ -284,7 +296,11 @@ if ($order->is_guest) {
                         @foreach ($socialMedia as $item)
                             <div>
                                 <a href="{{$item->link}}" target=”_blank”>
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/'.$item->name.'.png') }}" alt=""
+=======
+                                    <img src="{{asset('public/assets/back-end/img/'.$item->name.'.png') }}" alt=""
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          class="h-50px width-50px m-10px">
                                 </a>
                             </div>

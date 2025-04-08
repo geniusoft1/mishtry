@@ -22,7 +22,10 @@
                     <label for="comment">{{translate('comment')}}</label>
                     <input name="product_id" value="{{$order_details->product_id}}" hidden>
                     <input name="order_id" value="{{$order_details->order_id}}" hidden>
+<<<<<<< HEAD
                     <input name="review_id" value="{{ $order_details->reviewData?->id ?? '' }}" hidden>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <textarea name="comment" id="comment" class="form-control" rows="4" placeholder="{{ translate('Leave_a_comment') }}"></textarea>
                 </div>
                 <div class="form-group">

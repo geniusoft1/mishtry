@@ -37,7 +37,11 @@ $('.attribute-delete-button').on('click', function () {
     })
 })
 
+<<<<<<< HEAD
 $('.delete-brand').on('click', function () {
+=======
+$('.brand-delete-button').on('click', function () {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     let brandId = $(this).attr("id");
     Swal.fire({
         title: messageAreYouSureDeleteThis,
@@ -51,6 +55,7 @@ $('.delete-brand').on('click', function () {
         reverseButtons: true
     }).then((result) => {
         if (result.value) {
+<<<<<<< HEAD
             let brands =$('#get-brands').data('brands').data
             brands = brands.filter(brands =>brands.id !== parseInt(brandId));
             let selectDropdown = $('.brand-option').empty();
@@ -99,6 +104,22 @@ $('.delete-category').on('click', function () {
                 $('.product-category-update-form-submit').submit();
             }
 
+=======
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: $('#route-admin-brand-delete').data('url'),
+                method: 'POST',
+                data: {id: brandId},
+                success: function (response) {
+                    toastr.success(response.message);
+                    location.reload();
+                }
+            });
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
     })
 });

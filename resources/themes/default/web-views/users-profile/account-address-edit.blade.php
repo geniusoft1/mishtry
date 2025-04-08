@@ -3,10 +3,16 @@
 @section('title', translate('my_Address'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/address.css') }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/vendor/nouislider/distribute/nouislider.min.css')}}"/>
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/address.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -18,7 +24,11 @@
 
             <div class="card">
                 <div class="card-body">
+<<<<<<< HEAD
                     <h5 class="font-bold m-0 fs-16">{{translate('Update_Addresses')}}</h5>
+=======
+                    <h5 class="mb-0">{{translate('UPDATE_ADDRESSES')}}</h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <form action="{{route('address-update')}}" method="post">
                         @csrf
                         <div class="row pb-1">
@@ -64,8 +74,12 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="own_phone">{{translate('phone')}}</label>
+<<<<<<< HEAD
                                 <input class="form-control phone-input-with-country-picker" type="text" id="own_phone" value="+{{$shippingAddress->phone}}" required="required">
                                 <input type="hidden" class="country-picker-phone-number w-50" name="phone" value="{{ $shippingAddress->phone }}" readonly>
+=======
+                                <input class="form-control" type="text" id="own_phone" name="phone" value="{{$shippingAddress->phone}}" required="required">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                         <div class="form-row">
@@ -105,6 +119,7 @@
                         </div>
 
                         <div class="form-row">
+<<<<<<< HEAD
                             <div class=" col-md-12">
                                 <div class="form-group mb-1">
                                     <label for="own_address">{{translate('address')}}</label>
@@ -123,6 +138,17 @@
                                 </div>
                             </div>
 
+=======
+                            <div class="form-group col-md-12">
+                                <label for="own_address">{{translate('address')}}</label>
+                                <textarea class="form-control" id="address"
+                                    type="text"  name="address" required>{{$shippingAddress->address}}</textarea>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input id="pac-input" class="controls rounded __inline-46" title="{{translate('search_your_location_here')}}" type="text" placeholder="{{translate('search_here')}}"/>
+                                <div class="__h-200px" id="location_map_canvas"></div>
+                            </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                         @php($shipping_latitude=$shippingAddress->latitude)
                         @php($shipping_longitude=$shippingAddress->longitude)
@@ -133,8 +159,13 @@
                             name="longitude" class="form-control"
                             placeholder="{{ translate('ex')}} : 103.344322" id="longitude" value="{{$shipping_longitude??0}}" required readonly>
                         <div class="modal-footer">
+<<<<<<< HEAD
                             <a href="{{ route('account-address') }}" class="closeB btn btn-secondary fs-14 font-semi-bold py-2 px-4">{{translate('close')}}</a>
                             <button type="submit" class="btn btn--primary fs-14 font-semi-bold py-2 px-4">{{translate('update')}}  </button>
+=======
+                            <a href="{{ route('account-address') }}" class="closeB btn btn-secondary">{{translate('close')}}</a>
+                            <button type="submit" class="btn btn--primary">{{translate('update')}}  </button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                     </form>
                 </div>
@@ -143,12 +174,19 @@
         </section>
     </div>
 </div>
+<<<<<<< HEAD
 <span id="system-country-restrict-status" data-value="{{ $country_restrict_status }}"></span>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endsection
 
 @push('script')
 <script src="https://maps.googleapis.com/maps/api/js?key={{getWebConfig(name: 'map_api_key')}}&libraries=places&v=3.49"></script>
+<<<<<<< HEAD
 <script src="{{ theme_asset(path: 'public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
+=======
+<script src="{{ asset('public/assets/front-end/js/bootstrap-select.min.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 <script>
     "use strict";
 
@@ -182,12 +220,16 @@
                 if (status == google.maps.GeocoderStatus.OK) {
                     if (results[1]) {
                         document.getElementById('address').value = results[1].formatted_address;
+<<<<<<< HEAD
 
                         let systemCountryRestrictStatus = $('#system-country-restrict-status').data('value');
                         if (systemCountryRestrictStatus) {
                             const countryObject = findCountryObject(results[1].address_components);
                             deliveryRestrictedCountriesCheck(countryObject.long_name, '.location-map-address-canvas-area', '#address')
                         }
+=======
+                        console.log(results[1].formatted_address);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     }
                 }
             });
@@ -249,6 +291,7 @@
     $(document).on("keydown", "input", function(e) {
       if (e.which==13) e.preventDefault();
     });
+<<<<<<< HEAD
 
     const deliveryRestrictedCountries = @json($countriesName);
     function deliveryRestrictedCountriesCheck(countryOrCode, elementSelector, inputElement) {
@@ -265,4 +308,7 @@
 </script>
 <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
 <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+=======
+</script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

@@ -28,7 +28,11 @@
                             <h5 class="mb-4 text-capitalize">{{ translate('payment_information') }}</h5>
                             <div class="mb-30">
                                 <ul class="option-select-btn flex-wrap gap-3">
+<<<<<<< HEAD
                                     @if($cashOnDeliveryBtnShow && $cash_on_delivery['status'])
+=======
+                                    @if(!$cod_not_show && $cash_on_delivery['status'])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <li>
                                             <form action="{{route('checkout-complete')}}" method="get">
                                                 <label>

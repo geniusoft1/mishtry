@@ -11,28 +11,48 @@
             <div class="d-flex align-items-center justify-content-center active">
                 <img class="img-responsive w-100 rounded"
                      src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'backend-product') }}"
+<<<<<<< HEAD
                      data-zoom="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'backend-product') }}"
+=======
+                     data-zoom="{{ asset('storage/app/public/product')}}/{{$product['image']}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                      alt="{{translate('product_image')}}">
                 <div class="cz-image-zoom-pane"></div>
             </div>
 
             <div class="d-flex flex-column gap-10 fz-14 mt-3">
+<<<<<<< HEAD
 
                 <div class="d-flex align-items-center gap-2">
                     <div class="font-weight-bold text-dark">{{ translate('SKU') }}:</div>
                     <div>{{ $product->code }}</div>
                 </div>
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="d-flex align-items-center gap-2">
                     <div class="font-weight-bold text-dark">{{ translate('categories') }}: </div>
                     <div>{{ $product->category->name ?? translate('not_found') }}</div>
                 </div>
 
+<<<<<<< HEAD
+=======
+                @if (count($product->tags) > 0)
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <div class="font-weight-bold text-dark">{{ translate('tag') }}:</div>
+                    @foreach ($product->tags as $tag)
+                        <div>{{ $tag->tag }},</div>
+                    @endforeach
+                </div>
+                @endif
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="d-flex align-items-center gap-2">
                     <div class="font-weight-bold text-dark">{{ translate('brand') }}:</div>
                     <div>{{ $product->brand->name ?? translate('not_found') }}</div>
                 </div>
 
+<<<<<<< HEAD
                 @if (count($product->tags) > 0)
                     <div class="d-flex align-items-center gap-2 flex-wrap">
                         <div class="font-weight-bold text-dark">{{ translate('tag') }}:</div>
@@ -41,6 +61,12 @@
                         @endforeach
                     </div>
                 @endif
+=======
+                <div class="d-flex align-items-center gap-2">
+                    <div class="font-weight-bold text-dark">{{ translate('product_SKU') }}:</div>
+                    <div>{{ $product->code }}</div>
+                </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </div>
         </div>
         <div class="col-md-6">
@@ -70,10 +96,24 @@
                 </div>
 
                 <div class="d-flex flex-wrap align-items-center gap-3 mb-2 text-dark">
+<<<<<<< HEAD
                     <h2 class="c1 text-accent price-range-with-discount d-flex gap-2 align-items-center">
                         {!! getPriceRangeWithDiscount(product: $product) !!}
                     </h2>
                 </div>
+=======
+                    <h2 class="c1 text-accent price-range-with-discount">
+                        {!! getPriceRangeWithDiscount(product: $product) !!}
+                    </h2>
+                </div>
+
+                @if($product->discount > 0)
+                    <div class="mb-3 text-dark">
+                        <strong>{{translate('discount')}} : </strong>
+                        <strong id="set-discount-amount"></strong>
+                    </div>
+                @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </div>
 
             <div class="mt-3">
@@ -94,8 +134,13 @@
                     <input type="hidden" name="id" value="{{ $product->id }}">
                     <div class="position-relative mb-4">
                         @if (count(json_decode($product->colors)) > 0)
+<<<<<<< HEAD
                             <div class="d-flex flex-wrap gap-3 align-items-center">
                                 <strong class="text-dark">{{translate('color')}}</strong>
+=======
+                            <div class="d-flex flex-wrap gap-2">
+                                <strong class="text-dark">{{translate('color')}}:</strong>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                                 <div class="color-select d-flex gap-2 flex-wrap" id="option1">
                                     @foreach (json_decode($product->colors) as $key => $color)
@@ -106,7 +151,10 @@
                                     <label id="label-{{ $product->id }}-color-{{ $key }}" class="color-ball mb-0 {{ $key== 0 ?'border-add':"" }}"
                                            style="background: {{ $color }};" for="{{ $product->id }}-color-{{ $key }}"
                                                 data-toggle="tooltip">
+<<<<<<< HEAD
                                         <i class="tio-done"></i>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </label>
                                     @endforeach
                                 </div>
@@ -122,6 +170,7 @@
                         @endphp
                     </div>
                     @foreach (json_decode($product->choice_options) as $key => $choice)
+<<<<<<< HEAD
                         <div class="d-flex gap-3 flex-wrap align-items-center mb-3">
                             <div class="my-2 w-43px">
                                 <strong class="text-dark">{{ ucfirst($choice->title) }}</strong>
@@ -136,6 +185,20 @@
                                         for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
                                 @endforeach
                             </div>
+=======
+                        <div class="my-2">
+                            <strong class="text-dark">{{ ucfirst($choice->title) }}</strong>
+                        </div>
+                        <div class="d-flex gap-2 flex-wrap">
+                            @foreach ($choice->options as $index => $option)
+                                <input class="btn-check" type="radio"
+                                    id="{{ $choice->name }}-{{ $option }}"
+                                    name="{{ $choice->name }}" value="{{ $option }}"
+                                    @if($index == 0) checked @endif autocomplete="off">
+                                <label class="btn btn-sm check-label border-0 mb-0"
+                                    for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
+                            @endforeach
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                     @endforeach
 
@@ -145,7 +208,11 @@
                             <div class="product-quantity d-flex align-items-center">
                                 <div class="d-flex align-items-center">
                                     <span class="product-quantity-group">
+<<<<<<< HEAD
                                         <button type="button" class="btn-number bg-transparent"
+=======
+                                        <button type="button" class="btn-number"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 data-type="minus" data-field="quantity"
                                                 disabled="disabled">
                                                 <i class="tio-remove"></i>
@@ -153,7 +220,11 @@
                                         <input type="text" name="quantity"
                                             class="form-control input-number text-center cart-qty-field"
                                             placeholder="1" value="1" min="1" max="100">
+<<<<<<< HEAD
                                         <button type="button" class="btn-number bg-transparent cart-qty-field-plus" data-type="plus"
+=======
+                                        <button type="button" class="btn-number cart-qty-field-plus" data-type="plus"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 data-field="quantity">
                                                 <i class="tio-add"></i>
                                         </button>
@@ -163,12 +234,20 @@
                         </div>
 
                         <div class="d-flex flex-column gap-1 mt-3 title-color" id="chosen_price_div">
+<<<<<<< HEAD
                             <div class="product-description-label text-dark font-weight-bold">{{translate('total_Price')}}:</div>
                             <div class="product-price c1">
                                 <strong> {{getCurrencySymbol()}}</strong>
                                 <strong id="chosen_price"></strong>
                                 <span class="text-muted fz-10">
                                     ( {{ ($product->tax_model == 'include' ? '':'+').' '.translate('tax') }} <span class="product-tax-show">{{ $product->tax_model == 'include' ? 'incl.' : usdToDefaultCurrency(amount: $product->tax)}}</span>)</span>
+=======
+                            <div class="product-description-label text-dark">{{translate('total_Price')}}:</div>
+                            <div class="product-price c1">
+                                <strong id="chosen_price"></strong>
+                                <span class="text-muted fz-10">
+                                    ( {{ translate('tax') }} <span class="product-tax-show">{{ $product->tax_model == 'include' ? 'incl.' : usdToDefaultCurrency(amount: $product->tax) }}</span> )</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>
@@ -179,13 +258,21 @@
                             <div class="product-quantity d-flex align-items-center">
                                 <div class="d-flex align-items-center">
                                     <span class="product-quantity-group">
+<<<<<<< HEAD
                                         <button type="button" class="btn-number bg-transparent in-cart-quantity-minus action-get-variant-for-already-in-cart" data-action="minus">
+=======
+                                        <button type="button" class="btn-number in-cart-quantity-minus action-get-variant-for-already-in-cart" data-action="minus">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <i class="tio-remove"></i>
                                         </button>
                                         <input type="text" name="quantity_in_cart"
                                             class="form-control input-number text-center in-cart-quantity-field"
                                             placeholder="1" value="1" min="1" max="100">
+<<<<<<< HEAD
                                         <button type="button" class="btn-number bg-transparent in-cart-quantity-plus action-get-variant-for-already-in-cart" data-action="plus">
+=======
+                                        <button type="button" class="btn-number in-cart-quantity-plus action-get-variant-for-already-in-cart" data-action="plus">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <i class="tio-add"></i>
                                         </button>
                                     </span>
@@ -194,12 +281,19 @@
                         </div>
 
                         <div class="d-flex flex-column gap-1 mt-3 title-color" id="chosen_price_div">
+<<<<<<< HEAD
                             <div class="product-description-label text-dark font-weight-bold">{{translate('total_Price')}}:</div>
                             <div class="product-price c1">
                                 <strong> {{getCurrencySymbol()}}</strong>
                                 <strong class="in-cart-chosen_price"></strong>
                                 <span class="text-muted fz-10">
                                     ( {{ ($product->tax_model == 'include' ? '':'+').' '.translate('tax') }} <span class="product-tax-show">{{ $product->tax_model == 'include' ? 'incl.' : usdToDefaultCurrency(amount: $product->tax)}}</span>)</span>
+=======
+                            <div class="product-description-label text-dark">{{translate('total_Price')}}:</div>
+                            <div class="product-price c1">
+                                <strong class="in-cart-chosen_price"></strong>
+                                <span class="text-muted fz-10">( {{ translate('tax') }} {{ $product->tax_model == 'include' ? 'incl.' : usdToDefaultCurrency(amount: $product->tax) }})</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>

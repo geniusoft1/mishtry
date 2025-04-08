@@ -2,18 +2,33 @@
 
 @section('title', translate('update_delivery_man'))
 
+<<<<<<< HEAD
+=======
+@push('css_or_js')
+
+@endpush
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @section('content')
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/deliveryman.png')}}" width="20" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('update_Deliveryman')}}
             </h2>
         </div>
 
         <div class="row">
             <div class="col-12 mb-3">
+<<<<<<< HEAD
                 <form action="{{route('admin.delivery-man.update',[$deliveryMan['id']])}}" method="post" id="update-delivery-man-form"
+=======
+                <form action="{{route('admin.delivery-man.update',[$deliveryMan['id']])}}" method="post"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                       enctype="multipart/form-data">
                     @csrf
                     <div class="card">
@@ -25,12 +40,18 @@
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
+<<<<<<< HEAD
                                         <label class="title-color d-flex">{{translate('first_Name')}}</label>
+=======
+                                        <label
+                                            class="title-color d-flex">{{translate('first_Name')}}</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <input type="text" value="{{$deliveryMan['f_name']}}" name="f_name"
                                                class="form-control"
                                                placeholder="{{translate('new_delivery_man')}}"
                                                required>
                                     </div>
+<<<<<<< HEAD
                                     <div class="form-group">
                                         <label class="title-color d-flex">{{translate('last_Name')}}</label>
                                         <input type="text" value="{{$deliveryMan['l_name']}}" name="l_name"
@@ -41,6 +62,23 @@
                                         <div class="input-group mb-3">
                                             <div>
                                                 <select class="js-example-basic-multiple js-states js-example-responsive form-control"
+=======
+
+                                    <div class="form-group">
+                                        <label
+                                            class="title-color d-flex">{{translate('last_Name')}}</label>
+                                        <input type="text" value="{{$deliveryMan['l_name']}}" name="l_name"
+                                               class="form-control" placeholder="{{translate('last_Name')}}"
+                                               required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="title-color d-flex"
+                                               for="exampleFormControlInput1">{{translate('phone')}}</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <select
+                                                    class="js-example-basic-multiple js-states js-example-responsive form-control"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     name="country_code" id="colors-selector" required>
                                                     @foreach($telephoneCodes as $code)
                                                         <option
@@ -49,7 +87,13 @@
                                                 </select>
                                             </div>
                                             <input type="text" name="phone" value="{{$deliveryMan['phone']}}"
+<<<<<<< HEAD
                                                    class="form-control" placeholder="{{translate('ex').':'.'017********'}}" required>
+=======
+                                                   class="form-control"
+                                                   placeholder="{{translate('ex')}} : 017********"
+                                                   required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </div>
                                     </div>
                                 </div>
@@ -89,8 +133,16 @@
                                         <textarea name="address" class="form-control" id="address" rows="1"
                                                   placeholder="Address">{{$deliveryMan['address']}}</textarea>
                                     </div>
+<<<<<<< HEAD
                                 </div>
                             </div>
+=======
+
+
+                                </div>
+                            </div>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="row">
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
@@ -117,7 +169,12 @@
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
+<<<<<<< HEAD
                                         <label class="title-color d-flex">{{translate('identity_image')}}</label>
+=======
+                                        <label
+                                            class="title-color d-flex">{{translate('identity_image')}}</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div>
                                             <div class="row" id="coba">
                                                 @if($deliveryMan['identity_image'])
@@ -136,12 +193,17 @@
                         </div>
                     </div>
                     <div class="card mt-3">
+<<<<<<< HEAD
+=======
+                        <!-- End Page Header -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="card-body">
                             <h5 class="mb-0 page-header-title d-flex align-items-center gap-2 border-bottom pb-3 mb-3">
                                 <i class="tio-user"></i>
                                 {{translate('account_Information')}}
                             </h5>
                             <div class="row">
+<<<<<<< HEAD
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="title-color d-flex">{{translate('email')}}</label>
@@ -200,6 +262,40 @@
                                 <button type="button" class="btn btn--primary form-submit" data-form-id="update-delivery-man-form" data-redirect-route="{{route('admin.delivery-man.list')}}"
                                         data-message="{{translate('want_to_update_this_delivery_man').'?'}}">{{translate('submit')}}
                                 </button>
+=======
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="title-color d-flex">{{translate('email')}}</label>
+                                        <input type="email" value="{{$deliveryMan['email']}}" name="email"
+                                               class="form-control"
+                                               placeholder="{{translate('ex')}} : email@example.com"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="title-color d-flex">{{translate('password')}}</label>
+                                        <input type="text" name="password" class="form-control"
+                                               placeholder="{{translate('ex')}} : {{translate('password')}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label
+                                            class="title-color d-flex">{{translate('confirm_password')}}</label>
+                                        <input type="text" name="confirm_password" class="form-control"
+                                               placeholder="{{translate('ex')}} : {{translate('password')}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3 justify-content-end">
+                                <button type="reset" id="reset"
+                                        class="btn btn-secondary px-4">{{translate('reset')}}</button>
+                                <button type="submit"
+                                        class="btn btn--primary px-4">{{translate('submit')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>
@@ -207,12 +303,22 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <span id="coba-image" data-url="{{dynamicAsset(path: "public/assets/back-end/img/400x400/img2.jpg")}}"></span>
+=======
+
+    <span id="coba-image" data-url="{{asset("public/assets/back-end/img/400x400/img2.jpg")}}"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <span id="extension-error" data-text="{{ translate("please_only_input_png_or_jpg_type_file") }}"></span>
     <span id="size-error" data-text="{{ translate("file_size_too_big") }}"></span>
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deliveryman.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/js/admin/deliveryman.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

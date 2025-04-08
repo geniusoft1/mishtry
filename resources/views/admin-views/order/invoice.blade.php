@@ -4,7 +4,11 @@
     <title>{{ 'Invoice' }}</title>
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/invoice.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/invoice.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>
@@ -15,7 +19,11 @@
                 {{ 'Order Invoice' }}
             </th>
             <th>
+<<<<<<< HEAD
                 <img height="40" src="{{dynamicStorage(path: "storage/app/public/company/$companyWebLogo")}}" alt="">
+=======
+                <img height="40" src="{{asset("storage/app/public/company/$companyWebLogo")}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </th>
         </tr>
     </table>

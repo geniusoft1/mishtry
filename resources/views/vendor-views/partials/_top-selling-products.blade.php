@@ -1,6 +1,10 @@
 <div class="card-header">
     <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
+<<<<<<< HEAD
         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/top-selling-product-icon.png')}}" alt="">
+=======
+        <img width="20" src="{{asset('/public/assets/back-end/img/top-selling-product.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         {{translate('top_selling_products')}}
     </h4>
 </div>
@@ -15,7 +19,11 @@
                                 <img class="avatar avatar-lg rounded avatar-bordered"
                                      src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'. $product['thumbnail'], type: 'backend-product') }}"
                                      alt="{{$product->name}} image">
+<<<<<<< HEAD
                                 <span class="title-color">{{substr($product['name'],0,40)}} {{strlen($product['name'])>20?'...':''}}</span>
+=======
+                                <span class="title-color">{{substr($product['name'],0,20)}} {{strlen($product['name'])>20?'...':''}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div class="orders-count py-2 px-3 d-flex gap-1">
                                 <div>{{translate('sold')}} :</div>
@@ -28,7 +36,11 @@
     @else
         <div class="text-center">
             <p class="text-muted">{{translate('no_Top_Selling_Products')}}</p>
+<<<<<<< HEAD
             <img class="w-75" src="{{dynamicAsset(path: 'public/assets/back-end/img/no-data.png')}}" alt="">
+=======
+            <img class="w-75" src="{{asset('public/assets/back-end/img/no-data.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </div>
     @endif
 </div>

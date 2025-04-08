@@ -145,10 +145,13 @@ class TransactionReportController extends Controller
                 }
                 $admin_net_income += $tran['admin_commission'];
 
+<<<<<<< HEAD
                 if($tran->order->delivery_type == 'self_delivery' && ($tran->order->shipping_responsibility == 'inhouse_shipping' || $tran->order->seller_is == 'admin')){
                     $admin_net_income -= $tran->order->deliveryman_charge;
                 }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 if($tran['seller_is'] == 'seller'){
                     if($tran->order->shipping_responsibility == 'inhouse_shipping'){
                         $admin_net_income -= $tran->order->coupon_discount_bearer == 'inhouse' ? $admin_coupon_discount : 0;
@@ -171,10 +174,13 @@ class TransactionReportController extends Controller
                     $seller_net_income += $tran['order_amount'] + $tran['tax'] - $tran['admin_commission'];
                 }
 
+<<<<<<< HEAD
                 if($tran->order->delivery_type == 'self_delivery' && $tran->order->shipping_responsibility == 'sellerwise_shipping' && $tran->order->seller_is == 'seller'){
                     $seller_net_income -= $tran->order->deliveryman_charge;
                 }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $final_seller_shipping_discount = $seller_shipping_discount;
                 if($tran['seller_is'] == 'seller'){
                     if($tran->order->shipping_responsibility == 'inhouse_shipping'){
@@ -201,7 +207,10 @@ class TransactionReportController extends Controller
                     'Delivery Charge' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($tran->order->shipping_cost)),
                     'Order Amount' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($tran->order->order_amount)),
                     'Delivered By' => $tran->delivered_by,
+<<<<<<< HEAD
                     'Deliveryman Incentive' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($tran->order->deliveryman_charge)),
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     'Admin Discount' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($admin_coupon_discount+$admin_shipping_discount)),
                     'Seller Discount' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($seller_coupon_discount+$seller_shipping_discount)),
                     'Admin Commission' => BackEndHelper::set_symbol(BackEndHelper::usd_to_currency($tran->admin_commission)),
@@ -263,7 +272,10 @@ class TransactionReportController extends Controller
         $total_seller_net_income = 0;
         $total_admin_shipping_discount = 0;
         $total_seller_shipping_discount = 0;
+<<<<<<< HEAD
         $total_deliveryman_incentive = 0;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         foreach ($transactions as $transaction) {
             if($transaction->order) {
                 $admin_coupon_discount = ($transaction->order->coupon_discount_bearer == 'inhouse' && $transaction->order->discount_type == 'coupon_discount') ? $transaction->order->discount_amount : 0;
@@ -286,8 +298,11 @@ class TransactionReportController extends Controller
                 $total_seller_discount += $seller_coupon_discount+$seller_shipping_discount;
                 $total_admin_commission += $transaction->admin_commission;
 
+<<<<<<< HEAD
                 $total_deliveryman_incentive += $transaction->order->deliveryman_charge;
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 // admin net income calculation start
                 $admin_net_income = 0;
                 if($transaction['seller_is'] == 'admin'){
@@ -298,10 +313,13 @@ class TransactionReportController extends Controller
                 }
                 $admin_net_income += $transaction['admin_commission'];
 
+<<<<<<< HEAD
                 if($transaction->order->delivery_type == 'self_delivery' && ($transaction->order->shipping_responsibility == 'inhouse_shipping' || $transaction->order->seller_is == 'admin') && $transaction->order->delivery_man_id){
                     $admin_net_income -= $transaction->order->deliveryman_charge;
                 }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 if($transaction['seller_is'] == 'seller'){
                     if($transaction->order->shipping_responsibility == 'inhouse_shipping'){
                         $admin_net_income -= $transaction->order->coupon_discount_bearer == 'inhouse' ? $admin_coupon_discount : 0;
@@ -327,10 +345,13 @@ class TransactionReportController extends Controller
                     $seller_net_income += $transaction['order_amount'] + $transaction['tax'] - $transaction['admin_commission'];
                 }
 
+<<<<<<< HEAD
                 if($transaction->order->delivery_type == 'self_delivery' && $transaction->order->shipping_responsibility == 'sellerwise_shipping' && $transaction->order->delivery_man_id && $transaction->order->seller_is == 'seller'){
                     $seller_net_income -= $transaction->order->deliveryman_charge;
                 }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 if($transaction['seller_is'] == 'seller'){
                     if($transaction->order->shipping_responsibility == 'inhouse_shipping'){
                         $seller_net_income += $transaction->order->coupon_discount_bearer == 'inhouse' ? $admin_coupon_discount : 0;
@@ -386,7 +407,10 @@ class TransactionReportController extends Controller
             'total_discounted_amount' => $total_discounted_amount,
             'total_tax' => $total_tax,
             'total_delivery_charge' => $total_delivery_charge,
+<<<<<<< HEAD
             'total_deliveryman_incentive' => $total_deliveryman_incentive,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'total_order_amount' => $total_order_amount,
             'total_admin_discount' => $total_admin_discount,
             'total_seller_discount' => $total_seller_discount,
@@ -494,7 +518,13 @@ class TransactionReportController extends Controller
             $current_end_year = date('Y-12-31');
             $from_year = Carbon::parse($from)->format('Y');
 
+<<<<<<< HEAD
             return self::order_transaction_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+=======
+            $this_year = self::order_transaction_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+            return $this_year;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'this_month') { //this month table
             $current_month_start = date('Y-m-01');
             $current_month_end = date('Y-m-t');
@@ -502,11 +532,21 @@ class TransactionReportController extends Controller
             $month = date('m');
             $number = date('d', strtotime($current_month_end));
 
+<<<<<<< HEAD
             return self::order_transaction_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
         } elseif ($date_type == 'this_week') {
             return self::order_transaction_this_week($request);
         } elseif ($date_type == 'today') {
             return self::getOrderTransactionForToday($request);
+=======
+            $this_month = self::order_transaction_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
+            return $this_month;
+
+        } elseif ($date_type == 'this_week') {
+            $this_week = self::order_transaction_this_week($request);
+            return $this_week;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'custom_date' && !empty($from) && !empty($to)) {
             $start_date = Carbon::parse($from)->format('Y-m-d 00:00:00');
             $end_date = Carbon::parse($to)->format('Y-m-d 23:59:59');
@@ -518,11 +558,24 @@ class TransactionReportController extends Controller
             $to_day = Carbon::parse($to)->format('d');
 
             if ($from_year != $to_year) {
+<<<<<<< HEAD
                 return self::order_transaction_different_year($request, $start_date, $end_date, $from_year, $to_year);
             } elseif ($from_month != $to_month) {
                 return self::order_transaction_same_year($request, $start_date, $end_date, $from_year, $to_month, $from_month);
             } elseif ($from_month == $to_month) {
                 return self::order_transaction_same_month($request, $start_date, $end_date, $from_month, $to_day, $from_day);
+=======
+                $different_year = self::order_transaction_different_year($request, $start_date, $end_date, $from_year, $to_year);
+                return $different_year;
+
+            } elseif ($from_month != $to_month) {
+                $same_year = self::order_transaction_same_year($request, $start_date, $end_date, $from_year, $to_month, $from_month);
+                return $same_year;
+
+            } elseif ($from_month == $to_month) {
+                $same_month = self::order_transaction_same_month($request, $start_date, $end_date, $from_month, $to_day, $from_day);
+                return $same_month;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
 
         }
@@ -531,9 +584,15 @@ class TransactionReportController extends Controller
     public function order_transaction_same_month($request, $start_date, $end_date, $month_date, $number, $default_inc)
     {
         $year_month = date('Y-m', strtotime($start_date));
+<<<<<<< HEAD
         $month = substr(date("F", strtotime("$year_month")), 0, 3);
         $orders = self::order_transaction_date_common_query($request, $start_date, $end_date)
             ->selectRaw('sum(CASE WHEN delivery_type="self_delivery" AND shipping_responsibility="inhouse_shipping" THEN (order_amount - deliveryman_charge) ELSE order_amount END) as order_amount, YEAR(updated_at) year, MONTH(updated_at) month, DAY(updated_at) day')
+=======
+        $month = date("F", strtotime("$year_month"));
+        $orders = self::order_transaction_date_common_query($request, $start_date, $end_date)
+            ->selectRaw('sum(order_amount) as order_amount, YEAR(updated_at) year, MONTH(updated_at) month, DAY(updated_at) day')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->groupBy(DB::raw("DATE_FORMAT(updated_at, '%D')"))
             ->latest('updated_at')->get();
 
@@ -566,7 +625,11 @@ class TransactionReportController extends Controller
 
         $orders = self::order_transaction_date_common_query($request, $start_date, $end_date)
             ->select(
+<<<<<<< HEAD
                 DB::raw('sum(CASE WHEN delivery_type="self_delivery" AND shipping_responsibility="inhouse_shipping" THEN (order_amount - deliveryman_charge) ELSE order_amount END) as order_amount'),
+=======
+                DB::raw('sum(order_amount) as order_amount'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 DB::raw("(DATE_FORMAT(updated_at, '%W')) as day")
             )
             ->groupBy(DB::raw("DATE_FORMAT(updated_at, '%D')"))
@@ -586,6 +649,7 @@ class TransactionReportController extends Controller
         );
     }
 
+<<<<<<< HEAD
     public function getOrderTransactionForToday($request): array
     {
         $number = 1;
@@ -615,20 +679,34 @@ class TransactionReportController extends Controller
         ];
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public function order_transaction_same_year($request, $start_date, $end_date, $from_year, $number, $default_inc)
     {
 
         $orders = self::order_transaction_date_common_query($request, $start_date, $end_date)
+<<<<<<< HEAD
             ->selectRaw('sum(CASE WHEN delivery_type="self_delivery" AND shipping_responsibility="inhouse_shipping" THEN (order_amount - deliveryman_charge) ELSE order_amount END) as order_amount, YEAR(updated_at) year, MONTH(updated_at) month')
+=======
+            ->selectRaw('sum(order_amount) as order_amount, YEAR(updated_at) year, MONTH(updated_at) month')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->groupBy(DB::raw("DATE_FORMAT(updated_at, '%M')"))
             ->latest('updated_at')->get();
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
+<<<<<<< HEAD
             $month = substr(date("F", strtotime("2023-$inc-01")), 0, 3);
             $order_amount[$month] = 0;
             foreach ($orders as $match) {
                 if ($match['month'] == $inc) {
                     $order_amount[$month] = $match['order_amount'];
+=======
+            $month = date("F", strtotime("2023-$inc-01"));
+            $order_amount[$month . '-' . $from_year] = 0;
+            foreach ($orders as $match) {
+                if ($match['month'] == $inc) {
+                    $order_amount[$month . '-' . $from_year] = $match['order_amount'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }
@@ -642,7 +720,11 @@ class TransactionReportController extends Controller
     {
 
         $orders = self::order_transaction_date_common_query($request, $start_date, $end_date)
+<<<<<<< HEAD
             ->selectRaw('sum(CASE WHEN delivery_type="self_delivery" AND shipping_responsibility="inhouse_shipping" THEN (order_amount - deliveryman_charge) ELSE order_amount END) as order_amount, YEAR(updated_at) year')
+=======
+            ->selectRaw('sum(order_amount) as order_amount, YEAR(updated_at) year')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->groupBy(DB::raw("DATE_FORMAT(updated_at, '%Y')"))
             ->latest('updated_at')->get();
 
@@ -667,7 +749,11 @@ class TransactionReportController extends Controller
         $seller_id = $request['seller_id'] ?? 'all';
         $status = $request['status'] ?? 'all';
 
+<<<<<<< HEAD
         return Order::with('orderTransaction')
+=======
+        $query = Order::with('orderTransaction')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where('payment_status', 'paid')
             ->when($status != 'all', function ($query) use ($status) {
                 $query->whereHas('orderTransaction', function ($query) use ($status) {
@@ -684,7 +770,14 @@ class TransactionReportController extends Controller
                     $q->where(['seller_id' => $seller_id, 'seller_is' => 'seller']);
                 });
             })
+<<<<<<< HEAD
             ->whereBetween('updated_at', [$start_date, $end_date]);
+=======
+            ->whereDate('updated_at', '>=', $start_date)
+            ->whereDate('updated_at', '<=', $end_date);
+
+        return $query;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function order_transaction_table_data_filter($request)
@@ -719,12 +812,22 @@ class TransactionReportController extends Controller
                     $q->where(['seller_id' => $seller_id, 'seller_is' => 'seller']);
                 });
             });
+<<<<<<< HEAD
 
         return self::date_wise_common_filter($transaction_query, $date_type, $from, $to);
+=======
+        $transactions = self::date_wise_common_filter($transaction_query, $date_type, $from, $to);
+
+        return $transactions;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function date_wise_common_filter($query, $date_type, $from, $to)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return $query->when(($date_type == 'this_year'), function ($query) {
                 return $query->whereYear('updated_at', date('Y'));
             })
@@ -735,9 +838,12 @@ class TransactionReportController extends Controller
             ->when(($date_type == 'this_week'), function ($query) {
                 return $query->whereBetween('updated_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
             })
+<<<<<<< HEAD
             ->when(($date_type == 'today'), function ($query) {
                 return $query->whereBetween('updated_at', [Carbon::now()->startOfDay(), Carbon::now()->endOfDay()]);
             })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when(($date_type == 'custom_date' && !is_null($from) && !is_null($to)), function ($query) use ($from, $to) {
                 return $query->whereDate('updated_at', '>=', $from)
                     ->whereDate('updated_at', '<=', $to);
@@ -956,18 +1062,35 @@ class TransactionReportController extends Controller
             $current_end_year = date('Y-12-31');
             $from_year = Carbon::parse($from)->format('Y');
 
+<<<<<<< HEAD
             return self::expense_transaction_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+=======
+            $this_year = self::expense_transaction_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+            return $this_year;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'this_month') { //this month table
             $current_month_start = date('Y-m-01');
             $current_month_end = date('Y-m-t');
             $inc = 1;
             $month = date('m');
             $number = date('d', strtotime($current_month_end));
+<<<<<<< HEAD
             return self::expense_transaction_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
         } elseif ($date_type == 'this_week') {
             return self::expense_transaction_this_week($request);
         } elseif ($date_type == 'today') {
             return self::getExpenseTransactionForToday($request);
+=======
+
+            $this_month = self::expense_transaction_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
+            return $this_month;
+
+        } elseif ($date_type == 'this_week') {
+            $this_week = self::expense_transaction_this_week($request);
+            return $this_week;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'custom_date' && !empty($from) && !empty($to)) {
             $start_date = Carbon::parse($from)->format('Y-m-d 00:00:00');
             $end_date = Carbon::parse($to)->format('Y-m-d 23:59:59');
@@ -979,11 +1102,24 @@ class TransactionReportController extends Controller
             $to_day = Carbon::parse($to)->format('d');
 
             if ($from_year != $to_year) {
+<<<<<<< HEAD
                 return self::expense_transaction_different_year($request, $start_date, $end_date, $from_year, $to_year);
             } elseif ($from_month != $to_month) {
                 return self::expense_transaction_same_year($request, $start_date, $end_date, $from_year, $to_month, $from_month);
             } elseif ($from_month == $to_month) {
                 return self::expense_transaction_same_month($request, $start_date, $end_date, $from_month, $to_day, $from_day);
+=======
+                $different_year = self::expense_transaction_different_year($request, $start_date, $end_date, $from_year, $to_year);
+                return $different_year;
+
+            } elseif ($from_month != $to_month) {
+                $same_year = self::expense_transaction_same_year($request, $start_date, $end_date, $from_year, $to_month, $from_month);
+                return $same_year;
+
+            } elseif ($from_month == $to_month) {
+                $same_month = self::expense_transaction_same_month($request, $start_date, $end_date, $from_month, $to_day, $from_day);
+                return $same_month;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
 
         }
@@ -992,7 +1128,11 @@ class TransactionReportController extends Controller
     public function expense_transaction_same_month($request, $start_date, $end_date, $month_date, $number, $default_inc)
     {
         $year_month = date('Y-m', strtotime($start_date));
+<<<<<<< HEAD
         $month = substr(date("F", strtotime("$year_month")), 0, 3);
+=======
+        $month = date("F", strtotime("$year_month"));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $orders = self::expense_chart_common_query($request)
             ->selectRaw('sum((CASE WHEN coupon_discount_bearer="inhouse" THEN discount_amount ELSE 0 END) + (CASE WHEN free_delivery_bearer="admin" THEN extra_discount ELSE 0 END)) as discount_amount, YEAR(updated_at) year, MONTH(updated_at) month, DAY(updated_at) day')
             ->groupBy(DB::raw("DATE_FORMAT(updated_at, '%D')"))
@@ -1047,6 +1187,7 @@ class TransactionReportController extends Controller
         );
     }
 
+<<<<<<< HEAD
     public function getExpenseTransactionForToday($request): array
     {
         $number = 1;
@@ -1073,6 +1214,8 @@ class TransactionReportController extends Controller
         ];
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public function expense_transaction_same_year($request, $start_date, $end_date, $from_year, $number, $default_inc)
     {
 
@@ -1083,10 +1226,17 @@ class TransactionReportController extends Controller
 
         for ($inc = $default_inc; $inc <= $number; $inc++) {
             $month = date("F", strtotime("2023-$inc-01"));
+<<<<<<< HEAD
             $discount_amount[$month] = 0;
             foreach ($orders as $match) {
                 if ($match['month'] == $inc) {
                     $discount_amount[$month] = $match['discount_amount'];
+=======
+            $discount_amount[$month . '-' . $from_year] = 0;
+            foreach ($orders as $match) {
+                if ($match['month'] == $inc) {
+                    $discount_amount[$month . '-' . $from_year] = $match['discount_amount'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }

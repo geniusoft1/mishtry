@@ -8,7 +8,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/seller_sale.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/seller_sale.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('product_report')}}
             </h2>
         </div>
@@ -140,7 +144,11 @@
                                 <td colspan="5">
                                     <div class="text-center p-4">
                                         <img class="mb-3 w-160"
+<<<<<<< HEAD
                                              src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                             src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="{{translate('image_description')}}">
                                         <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                                     </div>

@@ -51,8 +51,13 @@ use App\Enums\ViewPaths\Admin\ThemeSetup;
 use App\Enums\ViewPaths\Admin\Vendor;
 use App\Enums\ViewPaths\Admin\Profile;
 use App\Http\Controllers\Admin\CategoryShippingCostController;
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\ChattingController;
 use App\Http\Controllers\Admin\DashboardController;
+=======
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\Deliveryman\ChattingController;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Http\Controllers\Admin\Deliveryman\DeliveryManCashCollectController;
 use App\Http\Controllers\Admin\Deliveryman\DeliveryManController;
 use App\Http\Controllers\Admin\Deliveryman\DeliverymanWithdrawController;
@@ -158,12 +163,19 @@ Route::group(['prefix' => 'login'], function () {
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']], function () {
 
+<<<<<<< HEAD
+=======
+    Route::get(Dashboard::VIEW[URI], [DashboardController::class, 'index'])->name('dashboard');//previous dashboard route
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
         Route::controller(DashboardController::class)->group(function () {
             Route::get(Dashboard::VIEW[URI], 'index')->name('index');
             Route::post(Dashboard::ORDER_STATUS[URI], 'getOrderStatus')->name('order-status');
             Route::get(Dashboard::EARNING_STATISTICS[URI], 'getEarningStatistics')->name('earning-statistics');
+<<<<<<< HEAD
             Route::get(Dashboard::ORDER_STATISTICS[URI], 'getOrderStatistics')->name('order-statistics');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
     });
 
@@ -208,7 +220,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::get(Product::LIST[URI] . '/{type}', 'index')->name('list');
             Route::get(Product::ADD[URI], 'getAddView')->name('add');
             Route::post(Product::ADD[URI], 'add')->name('store');
+<<<<<<< HEAD
             Route::get(Product::VIEW[URI].'/{addedBy}/{id}', 'getView')->name('view');
+=======
+            Route::get(Product::VIEW[URI] . '/{id}', 'getView')->name('view');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Route::post(Product::SKU_COMBINATION[URI], 'getSkuCombinationView')->name('sku-combination');
             Route::post(Product::FEATURED_STATUS[URI], 'updateFeaturedStatus')->name('featured-status');
             Route::get(Product::GET_CATEGORIES[URI], 'getCategories')->name('get-categories');
@@ -227,7 +243,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::get(Product::UPDATED_PRODUCT_LIST[URI], 'updatedProductList')->name('updated-product-list');
             Route::post(Product::UPDATED_SHIPPING[URI], 'updatedShipping')->name('updated-shipping');
             Route::post(Product::DENY[URI], 'deny')->name('deny');
+<<<<<<< HEAD
             Route::post(Product::APPROVE_STATUS[URI], 'approveStatus')->name('approve-status');
+=======
+            Route::get(Product::APPROVE_STATUS[URI], 'approveStatus')->name('approve-status');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Route::get(Product::SEARCH[URI], 'getSearchedProductsView')->name('search-product');
         });
     });
@@ -285,8 +305,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::post(Category::UPDATE[URI], 'update');
             Route::post(Category::DELETE[URI], 'delete')->name('delete');
             Route::post(Category::STATUS[URI], 'updateStatus')->name('status');
+<<<<<<< HEAD
             Route::get(Category::EXPORT[URI], 'getExportList')->name('export');
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
     });
 
@@ -298,7 +321,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::get(SubCategory::UPDATE[URI].'/{id}', 'getUpdateView')->name('update');
             Route::post(SubCategory::UPDATE[URI].'/{id}', 'update');
             Route::post(SubCategory::DELETE[URI], 'delete')->name('delete');
+<<<<<<< HEAD
             Route::get(SubCategory::EXPORT[URI], 'getExportList')->name('export');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
     });
 
@@ -311,7 +337,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::post(SubSubCategory::UPDATE[URI].'/{id}', 'update');
             Route::post(SubSubCategory::DELETE[URI], 'delete')->name('delete');
             Route::post(SubSubCategory::GET_SUB_CATEGORY[URI], 'getSubCategory')->name('getSubCategory');
+<<<<<<< HEAD
             Route::get(SubSubCategory::EXPORT[URI], 'getExportList')->name('export');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
     });
 
@@ -382,8 +411,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::group(['prefix' => 'sellers', 'as' => 'sellers.','middleware'=>['module:user_section']], function () {
         Route::controller(VendorController::class)->group(function (){
             Route::get(Vendor::LIST[URI], 'index')->name('seller-list');
+<<<<<<< HEAD
             Route::get(Vendor::ADD[URI], 'getAddView')->name('add');
             Route::POST(Vendor::ADD[URI], 'add');
+=======
+            Route::get(Vendor::ADD[URI], 'getAddView')->name('seller-add');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Route::get(Vendor::ORDER_LIST[URI].'/{seller_id}', 'getOrderListView')->name('order-list');
             Route::post(Vendor::STATUS[URI], 'updateStatus')->name('updateStatus');
             Route::get(Vendor::EXPORT[URI], 'exportList')->name('export');
@@ -464,7 +497,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
         Route::controller(OrderReportController::class)->group(function (){
             Route::get('order', 'order_list')->name('order');
             Route::get('order-report-excel', 'order_report_export_excel')->name('order-report-excel');
+<<<<<<< HEAD
             Route::get('order-report-pdf', 'exportOrderReportInPDF')->name('order-report-pdf');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
 
         Route::controller(ProductReportController::class)->group(function (){
@@ -594,6 +630,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::post(SupportTicket::VIEW[URI].'/{id}', 'reply')->name('replay');
         });
     });
+<<<<<<< HEAD
     Route::group(['prefix' => 'messages', 'as' => 'messages.'], function () {
         Route::controller(ChattingController::class)->group(function () {
             Route::get(Chatting::INDEX[URI] . '/{type}', 'index')->name('index');
@@ -601,12 +638,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::post(Chatting::MESSAGE[URI], 'addAdminMessage');
         });
     });
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     Route::group(['prefix' => 'contact', 'as' => 'contact.','middleware'=>['module:support_section']], function () {
         Route::controller(ContactController::class)->group(function (){
             Route::get(Contact::LIST[URI], 'index')->name('list');
             Route::get(Contact::VIEW[URI].'/{id}', 'getView')->name('view');
+<<<<<<< HEAD
             Route::post(Contact::FILTER[URI], 'getListByFilter')->name('filter');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Route::post(Contact::DELETE[URI], 'delete')->name('delete');
             Route::post(Contact::UPDATE[URI].'/{id}', 'update')->name('update');
             Route::post(Contact::ADD[URI], 'add')->name('store');
@@ -626,7 +668,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
             Route::delete(DeliveryMan::DELETE[URI].'/{id}', 'delete')->name('delete');
             Route::get(DeliveryMan::EARNING_STATEMENT_OVERVIEW[URI].'/{id}', 'getEarningOverview')->name('earning-statement-overview');
             Route::get(DeliveryMan::EARNING_OVERVIEW[URI].'/{id}', 'getOrderWiseEarningView')->name('order-wise-earning');
+<<<<<<< HEAD
             Route::post(DeliveryMan::ORDER_WISE_EARNING_LIST_BY_FILTER[URI].'/{id}', 'getOrderWiseEarningListByFilter')->name('order-wise-earning-list-by-filter');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Route::get(DeliveryMan::ORDER_HISTORY_LOG[URI].'/{id}', 'getOrderHistoryList')->name('order-history-log');
             Route::get(DeliveryMan::ORDER_HISTORY_LOG_EXPORT[URI].'/{id}', 'getOrderHistoryListExport')->name('order-history-log-export');
             Route::get(DeliveryMan::RATING[URI].'/{id}', 'getRatingView')->name('rating');
@@ -640,11 +685,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
 
         Route::controller(DeliverymanWithdrawController::class)->group(function (){
             Route::get(DeliverymanWithdraw::LIST[URI], 'index')->name('withdraw-list');
+<<<<<<< HEAD
             Route::post(DeliveryManWithdraw::LIST[URI],'getFiltered');
             Route::get(DeliverymanWithdraw::EXPORT_LIST[URI], 'exportList')->name('withdraw-list-export');
             Route::get(DeliverymanWithdraw::VIEW[URI].'/{withdraw_id}', 'getView')->name('withdraw-view');
             Route::post(DeliverymanWithdraw::UPDATE[URI].'/{id}', 'updateStatus')->name('withdraw-update-status');
         });
+=======
+            Route::get(DeliverymanWithdraw::EXPORT_LIST[URI], 'exportList')->name('withdraw-list-export');
+            Route::get(DeliverymanWithdraw::VIEW[URI].'/{withdraw_id}', 'getView')->name('withdraw-view');
+            Route::post(DeliverymanWithdraw::UPDATE[URI].'/{id}', 'updateStatus')->name('withdraw_status');
+        });
+
+        Route::controller(ChattingController::class)->group(function (){
+            Route::get(Chatting::VIEW[URI], 'index')->name('chat');
+            Route::get(Chatting::MESSAGE[URI], 'getMessages')->name('ajax-message-by-delivery-man');
+            Route::post(Chatting::ADD[URI], 'add')->name('ajax-admin-message-store');
+        });
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         Route::group(['prefix' => 'emergency-contact', 'as' => 'emergency-contact.'], function (){
             Route::controller(EmergencyContactController::class)->group(function (){
                 Route::get(EmergencyContact::LIST[URI], 'index')->name('index');
@@ -859,8 +918,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
         Route::group(['prefix' => 'payment-method', 'as' => 'payment-method.','middleware'=>['module:system_settings']], function () {
             Route::controller(PaymentMethodController::class)->group(function () {
                 Route::get(PaymentMethod::LIST[URI], 'index')->name('index')->middleware('actch');
+<<<<<<< HEAD
                 Route::get(PaymentMethod::PAYMENT_OPTION[URI], 'getPaymentOptionView')->name('payment-option');
                 Route::post(PaymentMethod::PAYMENT_OPTION[URI], 'updatePaymentOption');
+=======
+                Route::post(PaymentMethod::UPDATE[URI], 'update')->name('update');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 Route::put(PaymentMethod::UPDATE_CONFIG[URI], 'UpdatePaymentConfig')->name('addon-payment-set');
             });
         });

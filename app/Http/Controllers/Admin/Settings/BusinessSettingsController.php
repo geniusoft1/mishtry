@@ -238,6 +238,7 @@ class BusinessSettingsController extends BaseController
         return view(BusinessSettings::ANALYTICS_INDEX[VIEW]);
     }
 
+<<<<<<< HEAD
     public function updateAnalytics(Request $request): RedirectResponse
     {
         if ($request['type'] == 'pixel_analytics') {
@@ -246,6 +247,16 @@ class BusinessSettingsController extends BaseController
 
         if ($request['type'] == 'google_tag_manager_id') {
             $this->businessSettingRepo->updateOrInsert(type: 'google_tag_manager_id', value: $request['value'] ?? '');
+=======
+    public function updateAnalytics(AnalyticsRequest $request): RedirectResponse
+    {
+        if ($request['type'] == 'pixel_analytics') {
+            $this->businessSettingRepo->updateOrInsert(type: 'pixel_analytics', value: $request['value']);
+        }
+
+        if ($request['type'] == 'google_tag_manager_id') {
+            $this->businessSettingRepo->updateOrInsert(type: 'google_tag_manager_id', value: $request['value']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         Toastr::success(translate('Data_updated'));
         return back();

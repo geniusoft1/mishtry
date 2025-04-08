@@ -1,6 +1,10 @@
 <div class="d-flex justify-content-center">
     <a href="javascript:">
+<<<<<<< HEAD
         <img src="{{ theme_asset(path: "public/assets/front-end/img/media/OTP-Verification.png")}}" alt="{{ translate('logo') }}" class="img-fluid" width="220">
+=======
+        <img src="{{ asset("public/assets/front-end/img/media/OTP-Verification.png")}}" alt="{{ translate('logo') }}" class="img-fluid" width="220">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     </a>
 </div>
 <h3 class="title text-center my-3 text-capitalize">{{ translate('OTP_Verification') }}</h3>

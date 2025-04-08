@@ -6,11 +6,19 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/deliveryman.png')}}" alt="">
                 {{translate('add_new_deliveryman')}}
             </h2>
         </div>
         <form action="{{route('vendor.delivery-man.index')}}" method="post" enctype="multipart/form-data" id="add-delivery-man-form">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/deliveryman.png')}}" alt="">
+                {{translate('add_new_deliveryman')}}
+            </h2>
+        </div>
+        <form action="{{route('vendor.delivery-man.index')}}" method="post" enctype="multipart/form-data">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             @csrf
             <div class="card mb-3">
                 <div class="card-body">
@@ -27,7 +35,11 @@
                             <div class="form-group">
                                 <label class="title-color d-flex" for="exampleFormControlInput1">{{translate('phone')}}</label>
                                 <div class="input-group mb-3">
+<<<<<<< HEAD
                                     <div>
+=======
+                                    <div class="input-group-prepend">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <select class="js-example-basic-multiple js-states js-example-responsive form-control"
                                                 name="country_code" id="colors-selector" required>
                                             @foreach($telephoneCodes as $code)
@@ -79,7 +91,11 @@
                                     </label>
                                 </div>
                                 <div class="mt-4 text-center">
+<<<<<<< HEAD
                                     <img class="upload-img-view" id="viewer" src="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img2.jpg')}}" alt="{{translate('delivery_man_image')}}"/>
+=======
+                                    <img class="upload-img-view" id="viewer" src="{{asset('public\assets\back-end\img\400x400\img2.jpg')}}" alt="{{translate('delivery_man_image')}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
 
                             </div>
@@ -108,6 +124,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label class="title-color d-flex align-items-center">{{translate('password')}}
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.'}}">
                                         <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
@@ -115,6 +132,11 @@
                                 </label>
                                 <div class="input-group input-group-merge">
                                     <input type="password" class="js-toggle-password form-control password-check"
+=======
+                                <label class="title-color">{{translate('password')}}</label>
+                                <div class="input-group input-group-merge">
+                                    <input type="password" class="js-toggle-password form-control"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                            autocomplete="off"
                                            name="password" required id="user_password" minlength="8"
                                            placeholder="{{ translate('password_minimum_8_characters') }}"
@@ -130,7 +152,10 @@
                                         </a>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <span class="text-danger mx-1 password-error"></span>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -156,23 +181,40 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <span class="d-none" id="placeholderImg" data-img="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img3.png')}}"></span>
 
                     <div class="d-flex gap-3 justify-content-end">
                         <button type="reset" id="reset" class="btn btn-secondary">{{translate('reset')}}</button>
                         <button type="button" class="btn btn--primary form-submit" data-form-id="add-delivery-man-form" data-redirect-route="{{route('vendor.delivery-man.list')}}"
                                 data-message="{{translate('want_to_add_this_delivery_man').'?'}}">{{translate('submit')}}</button>
+=======
+                    <span class="d-none" id="placeholderImg" data-img="{{asset('public/assets/back-end/img/400x400/img3.png')}}"></span>
+
+                    <div class="d-flex gap-3 justify-content-end">
+                        <button type="reset" id="reset" class="btn btn-secondary">{{translate('reset')}}</button>
+                        <button type="submit" class="btn btn--primary">{{translate('submit')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                 </div>
             </div>
         </form>
     </div>
+<<<<<<< HEAD
     <span id="coba-image" data-url="{{dynamicAsset(path: "public/assets/back-end/img/400x400/img3.png")}}"></span>
+=======
+    <span id="coba-image" data-url="{{asset("public/assets/back-end/img/400x400/img3.png")}}"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <span id="extension-error" data-text="{{ translate("please_only_input_png_or_jpg_type_file") }}"></span>
     <span id="size-error" data-text="{{ translate("file_size_too_big") }}"></span>
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/deliveryman.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/js/vendor/deliveryman.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

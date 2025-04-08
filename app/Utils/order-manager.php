@@ -1053,7 +1053,11 @@ class OrderManager
                         $price = $product->unit_price;
                     }
 
+<<<<<<< HEAD
                     $tax = Helpers::tax_calculation(product: $product, price: $price, tax: $product['tax'], tax_type: 'percent');
+=======
+                    $tax = Helpers::tax_calculation($price, $product['tax'], 'percent');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     if ($product_valid && $price != 0) {
                         $cart_exist = Cart::where(['customer_id'=>$user->id, 'variations'=>$order_product->variation, 'product_id'=>$order_product->product_id])->first();
                         $order_product_qty = $order_product->qty < $product['minimum_order_qty'] ? $product['minimum_order_qty'] : $order_product->qty;
@@ -1124,7 +1128,10 @@ class OrderManager
         $user = Helpers::get_customer($request);
         $status = 1;
         $amount = 0;
+<<<<<<< HEAD
         $messages = [];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $minimum_order_amount = 0;
         $minimum_order_amount_status = Helpers::get_business_settings('minimum_order_amount_status');
         $minimum_order_amount_by_seller = Helpers::get_business_settings('minimum_order_amount_by_seller');
@@ -1139,6 +1146,7 @@ class OrderManager
                 ]);
             if ($cart_group_id) {
                 $cart_item = $query->where('cart_group_id', $cart_group_id)->first();
+<<<<<<< HEAD
 
                 if($cart_item->allProducts) {
                     if ($cart_item->allProducts->added_by == 'admin') {
@@ -1155,6 +1163,17 @@ class OrderManager
                         $messages[] = translate('minimum_Order_Amount').' '.webCurrencyConverter(amount: $minimum_order_amount).' '.translate('for').' '.$shopIdentity;
                     }
                 }
+=======
+                if ($cart_item->allProducts->added_by == 'admin') {
+                    $minimum_order_amount = $inhouse_minimum_order_amount;
+                } else {
+                    $minimum_order_amount = $minimum_order_amount_by_seller ? $cart_item->seller->minimum_order_amount : 0;
+                }
+
+                $amount = CartManager::cart_grand_total($cart_group_id);
+                $status = $minimum_order_amount > $amount ? 0 : 1;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             } else {
                 $cart_groups = $query->get()->groupBy('cart_group_id');
                 foreach ($cart_groups as $group_key => $cart_group) {
@@ -1162,6 +1181,7 @@ class OrderManager
                     if ($seller == 'admin') {
                         $minimum_order_amount = $inhouse_minimum_order_amount;
                     } else {
+<<<<<<< HEAD
                         $minimum_order_amount = $minimum_order_amount_by_seller ? (isset($cart_group[0]->seller->minimum_order_amount) ? $cart_group[0]->seller->minimum_order_amount : 0) : 0;
                     }
 
@@ -1171,11 +1191,19 @@ class OrderManager
                         $shopIdentity = $seller == 'admin' ? getWebConfig(name: 'company_name') : $cart_group[0]->seller->shop->name;
                         $messages[] = translate('minimum_Order_Amount').' '.webCurrencyConverter(amount: $minimum_order_amount).' '.translate('for').' '.$shopIdentity;
                     }
+=======
+                        $minimum_order_amount = $minimum_order_amount_by_seller ? $cart_group[0]->seller->minimum_order_amount : 0;
+                    }
+
+                    $new_amount = CartManager::cart_grand_total($group_key);
+                    ($minimum_order_amount > $new_amount ? $status = 0 : '');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $amount = $amount + $new_amount;
                 }
             }
         }
 
+<<<<<<< HEAD
         return [
             'minimum_order_amount'  =>  $minimum_order_amount ?? 0,
             'amount'                =>  $amount ? floatval($amount) : 0,
@@ -1183,6 +1211,16 @@ class OrderManager
             'messages'              =>  $messages,
             'cart_group_id'         =>  $cart_group_id ?? null
         ];
+=======
+        $data = [
+            'minimum_order_amount'=> $minimum_order_amount ?? 0,
+            'amount'=>$amount ? floatval($amount) : 0,
+            'status'=>$status,
+            'cart_group_id'=>$cart_group_id ?? null
+        ];
+
+        return $data;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
 

@@ -6043,6 +6043,9 @@
   'add_New_Vendor' => 'Add New Vendor',
   'vendor_List' => 'Vendor List',
   '3rd_Party' => '3rd Party',
+<<<<<<< HEAD
   'please_enter_a_valid_integer_for_current_stock' => 'Please enter a valid integer for current stock',
   'want_to_change_this_language' => 'Want to change this language',
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 );

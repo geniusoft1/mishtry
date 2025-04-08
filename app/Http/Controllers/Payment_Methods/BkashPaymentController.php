@@ -104,7 +104,11 @@ class BkashPaymentController extends Controller
             'amount' => round($data->payment_amount, 2),
             'currency' => 'BDT',
             'intent' => 'sale',
+<<<<<<< HEAD
             'payerReference' => !empty($payer->phone) ? $payer->phone : getWebConfig(name: 'company_phone'),
+=======
+            'payerReference' => $payer->phone,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'merchantInvoiceNumber' => 'invoice_' . Str::random('15'),
             'callbackURL' => $callbackURL
         );

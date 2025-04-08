@@ -9,28 +9,40 @@ use App\Contracts\Repositories\OrderTransactionRepositoryInterface;
 use App\Contracts\Repositories\ProductRepositoryInterface;
 use App\Contracts\Repositories\ReviewRepositoryInterface;
 use App\Contracts\Repositories\ShippingAddressRepositoryInterface;
+<<<<<<< HEAD
 use App\Contracts\Repositories\ShopRepositoryInterface;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Contracts\Repositories\VendorRepositoryInterface;
 use App\Contracts\Repositories\VendorWalletRepositoryInterface;
 use App\Contracts\Repositories\WithdrawRequestRepositoryInterface;
 use App\Enums\ExportFileNames\Admin\Vendor as VendorExport;
 use App\Enums\ViewPaths\Admin\Vendor;
 use App\Enums\WebConfigKey;
+<<<<<<< HEAD
 use App\Events\VendorRegistrationMailEvent;
 use App\Events\VendorStatusUpdateEvent;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Events\WithdrawStatusUpdateEvent;
 use App\Exports\SellerListExport;
 use App\Exports\SellerWithdrawRequest;
 use App\Http\Controllers\BaseController;
+<<<<<<< HEAD
 use App\Http\Requests\Admin\VendorAddRequest;
 use App\Services\ShopService;
 use App\Services\VendorService;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Traits\CommonTrait;
 use App\Traits\PaginatorTrait;
 use App\Traits\PushNotificationTrait;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\View\View;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -54,9 +66,12 @@ class VendorController extends BaseController
         private readonly DeliveryZipCodeRepositoryInterface $deliveryZipCodeRepo,
         private readonly WithdrawRequestRepositoryInterface $withdrawRequestRepo,
         private readonly VendorWalletRepositoryInterface $vendorWalletRepo,
+<<<<<<< HEAD
         private readonly ShopRepositoryInterface $shopRepo,
         private readonly VendorService $vendorService,
         private readonly ShopService $shopService,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     )
     {
     }
@@ -88,6 +103,7 @@ class VendorController extends BaseController
     {
         return view(Vendor::ADD[VIEW]);
     }
+<<<<<<< HEAD
     public function add(VendorAddRequest $request):JsonResponse
     {
         $vendor = $this->vendorRepo->add(data: $this->vendorService->getAddData($request));
@@ -107,6 +123,11 @@ class VendorController extends BaseController
     public function updateStatus(Request $request): RedirectResponse
     {
         $vendor = $this->vendorRepo->getFirstWhere(params:['id' => $request['id']]);
+=======
+
+    public function updateStatus(Request $request): RedirectResponse
+    {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $this->vendorRepo->update(id: $request['id'], data: ['status' => $request['status']]);
         if ($request['status'] == "approved") {
             Toastr::success(translate('Vendor_has_been_approved_successfully'));
@@ -116,6 +137,7 @@ class VendorController extends BaseController
             $this->vendorRepo->update(id: $request['id'], data: ['auth_token' => Str::random(80)]);
             Toastr::info(translate('Vendor_has_been_suspended_successfully'));
         }
+<<<<<<< HEAD
         if ($vendor['status'] == 'pending'){
             if ($request['status'] == "approved"){
                 $data = [
@@ -154,6 +176,8 @@ class VendorController extends BaseController
             }
         }
         event(new VendorRegistrationMailEvent($vendor['email'],$data));
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return back();
     }
 
@@ -263,14 +287,20 @@ class VendorController extends BaseController
 
     public function getView(Request $request, $id, $tab = null): View|RedirectResponse
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $seller = $this->vendorRepo->getFirstWhere(
             params: ['id'=>$id, 'withCount' => ['orders', 'product']],
             relations: ['orders', 'product']
         );
+<<<<<<< HEAD
         if(!$seller){
           return redirect()->route('admin.sellers.seller-list');
         }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $seller?->product?->map(function($product){
             $product['rating'] = $product?->reviews->pluck('rating')->sum();
             $product['rating_count'] = $product->reviews->count();
@@ -281,6 +311,7 @@ class VendorController extends BaseController
             $product['single_rating_1'] = 0;
             foreach($product->reviews as $review) {
                 $rating = $review->rating;
+<<<<<<< HEAD
                 if($rating>0){
                     match ($rating) {
                         5 => $product->single_rating_5++,
@@ -290,6 +321,15 @@ class VendorController extends BaseController
                         1 => $product->single_rating_1++,
                     };
                 }
+=======
+                match ($rating) {
+                    5 => $product->single_rating_5++,
+                    4 => $product->single_rating_4++,
+                    3 => $product->single_rating_3++,
+                    2 => $product->single_rating_2++,
+                    1 => $product->single_rating_1++,
+                };
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         });
         $seller['single_rating_5'] = $seller?->product->pluck('single_rating_5')->sum();
@@ -444,7 +484,11 @@ class VendorController extends BaseController
     {
         $withdrawRequest = $this->withdrawRequestRepo->getFirstWhere(params: ['id' => $withdraw_id], relations: ['seller']);
         if ($withdrawRequest) {
+<<<<<<< HEAD
             $withdrawalMethod = is_array($withdrawRequest['withdrawal_method_fields']) ? $withdrawRequest['withdrawal_method_fields'] : json_decode($withdrawRequest['withdrawal_method_fields']);
+=======
+            $withdrawalMethod = json_decode($withdrawRequest['withdrawal_method_fields'], true);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $direction = session('direction');
             return view(Vendor::WITHDRAW_VIEW[VIEW], compact('withdrawRequest', 'withdrawalMethod','direction'));
         }
@@ -513,8 +557,13 @@ class VendorController extends BaseController
         ];
 
         $withdraw = $this->withdrawRequestRepo->getFirstWhere(params: ['id'=>$id], relations: ['seller']);
+<<<<<<< HEAD
         if(isset($withdraw->seller->cm_firebase_token) && $withdraw->seller->cm_firebase_token) {
             event(new WithdrawStatusUpdateEvent(key: 'withdraw_request_status_message', type: 'seller', lang: $withdraw->deliveryMan?->app_language ?? getDefaultLanguage(), status: $request['approved'], fcmToken: $withdraw->seller?->cm_firebase_token));
+=======
+        if(!empty($withdraw->seller?->cm_firebase_token)) {
+            WithdrawStatusUpdateEvent::dispatch('withdraw_request_status_message','seller',$withdraw->deliveryMan?->app_language ?? getDefaultLanguage(),$request['approved'], $withdraw->seller?->cm_firebase_token);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['approved'] == 1) {

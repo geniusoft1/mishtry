@@ -5,7 +5,10 @@ namespace App\Http\Controllers\RestAPI\v1;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Order;
+<<<<<<< HEAD
 use App\Models\Product;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Utils\CartManager;
 use App\Utils\Helpers;
 use App\Utils\OrderManager;
@@ -21,7 +24,11 @@ class CartController extends Controller
     public function cart(Request $request)
     {
         $user = Helpers::get_customer($request);
+<<<<<<< HEAD
         $cart_query = Cart::with('product:id,name,slug,current_stock,minimum_order_qty,variation', 'shop');
+=======
+        $cart_query = Cart::with('product:id,name,slug,current_stock,minimum_order_qty,variation');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if($user == 'offline'){
             $cart = $cart_query->where(['customer_id' => $request->guest_id, 'is_guest'=>1])->get();
         }else{
@@ -40,12 +47,15 @@ class CartController extends Controller
             }
 
             $cart->map(function ($data) use($request) {
+<<<<<<< HEAD
                 $product = Product::active()->find($data->product_id);
                 if($product){
                     $data['is_product_available'] = 1;
                 }else{
                     $data['is_product_available'] = 0;
                 }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $data['choices'] = json_decode($data['choices']);
                 $data['variations'] = json_decode($data['variations']);
 

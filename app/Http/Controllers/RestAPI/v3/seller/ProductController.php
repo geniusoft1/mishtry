@@ -28,8 +28,12 @@ class ProductController extends Controller
     public function list(Request $request)
     {
         $seller = $request->seller;
+<<<<<<< HEAD
         $products = Product::withCount('reviews')
             ->where(['added_by' => 'seller', 'user_id' => $seller['id']])
+=======
+        $products = Product::where(['added_by' => 'seller', 'user_id' => $seller['id']])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->orderBy('id', 'DESC')
             ->get();
 
@@ -38,8 +42,12 @@ class ProductController extends Controller
 
     public function get_seller_all_products($seller_id, Request $request)
     {
+<<<<<<< HEAD
         $products = Product::with(['rating','tags','reviews'])
             ->withCount('reviews')
+=======
+        $products = Product::with(['rating','tags'])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where(['user_id' => $seller_id, 'added_by' => 'seller'])
             ->when($request->search, function ($query) use($request){
                 $key = explode(' ', $request->search);
@@ -64,7 +72,11 @@ class ProductController extends Controller
     public function details(Request $request, $id)
     {
         $seller = $request->seller;
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->where(['added_by' => 'seller', 'user_id' => $seller->id])->find($id);
+=======
+        $product = Product::where(['added_by' => 'seller', 'user_id' => $seller->id])->find($id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         if (isset($product)) {
             $product = Helpers::product_data_formatting($product, false);
@@ -75,7 +87,11 @@ class ProductController extends Controller
     public function getProductImages(Request $request, $id)
     {
         $seller = $request->seller;
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->where(['added_by' => 'seller', 'user_id' => $seller->id])->find($id);
+=======
+        $product = Product::where(['added_by' => 'seller', 'user_id' => $seller->id])->find($id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $productImage = [];
         if (isset($product)) {
@@ -94,7 +110,11 @@ class ProductController extends Controller
         $seller = $request->seller;
         $stock_limit = Helpers::get_business_settings('stock_limit');
 
+<<<<<<< HEAD
         $products = Product::withCount('reviews')->where(['added_by' => 'seller', 'user_id' => $seller->id, 'product_type' => 'physical', 'request_status' => 1])
+=======
+        $products = Product::where(['added_by' => 'seller', 'user_id' => $seller->id, 'product_type' => 'physical', 'request_status' => 1])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where('current_stock', '<', $stock_limit)
             ->paginate($request['limit'], ['*'], 'page', $request['offset']);
 
@@ -396,7 +416,11 @@ class ProductController extends Controller
 
     public function edit(Request $request, $id)
     {
+<<<<<<< HEAD
         $product = Product::withoutGlobalScopes()->with('translations','tags')->withCount('reviews')->find($id);
+=======
+        $product = Product::withoutGlobalScopes()->with('translations','tags')->find($id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $product = Helpers::product_data_formatting($product);
 
         return response()->json($product, 200);
@@ -405,7 +429,11 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $seller = $request->seller;
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->find($id);
+=======
+        $product = Product::find($id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $validator = Validator::make($request->all(), [
             'name' => 'required',
@@ -659,7 +687,11 @@ class ProductController extends Controller
 
     public function product_quantity_update(Request $request)
     {
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->find($request->product_id);
+=======
+        $product = Product::find($request->product_id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $product->current_stock = $request->current_stock;
         $product->variation = $request->variation;
         if ($product->save()) {
@@ -671,7 +703,11 @@ class ProductController extends Controller
     public function status_update(Request $request)
     {
         $seller = $request->seller;
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->where(['added_by' => 'seller', 'user_id' => $seller->id])->find($request->id);
+=======
+        $product = Product::where(['added_by' => 'seller', 'user_id' => $seller->id])->find($request->id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if (!$product) {
             return response()->json(['message' => translate('invalid_prodcut')], 403);
         }
@@ -685,7 +721,11 @@ class ProductController extends Controller
 
     public function delete(Request $request, $id)
     {
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->find($id);
+=======
+        $product = Product::find($id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         foreach (json_decode($product['images'], true) as $image) {
             ImageManager::delete('/product/' . $image);
         }
@@ -709,7 +749,11 @@ class ProductController extends Controller
         if ($request->limit > 270) {
             return response()->json(['code' => 403, 'message' => 'You can not generate more than 270 barcode']);
         }
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->where('id', $request->id)->first();
+=======
+        $product = Product::where('id', $request->id)->first();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $quantity = $request->quantity ?? 30;
         if (isset($product->code)) {
             $pdf = app()->make(PDF::class);
@@ -755,7 +799,10 @@ class ProductController extends Controller
     {
         $seller = $request->seller;
         $products = Product::with(['rating','tags'])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->whereHas('reviews', function ($query) {
                 return $query;
             })
@@ -802,7 +849,11 @@ class ProductController extends Controller
 
     public function review_list(Request $request, $product_id)
     {
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->find($product_id);
+=======
+        $product = Product::find($product_id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $average_rating = count($product->rating) > 0 ? number_format($product->rating[0]->average, 2, '.', ' ') : 0;
         $reviews = Review::with(['customer', 'product'])->where(['product_id' => $product_id])
             ->latest('updated_at')
@@ -841,7 +892,11 @@ class ProductController extends Controller
 
     public function deleteImage(Request $request)
     {
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->find($request['id']);
+=======
+        $product = Product::find($request['id']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $array = [];
         if (count(json_decode($product['images'])) < 2) {
             return response()->json(['message'=>translate('you_can_not_delete_all_images')], 403);
@@ -875,7 +930,11 @@ class ProductController extends Controller
                 ImageManager::delete('/product/' . $request['name']);
             }
         }
+<<<<<<< HEAD
         Product::withCount('reviews')->where('id', $request['id'])->update([
+=======
+        Product::where('id', $request['id'])->update([
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'images' => json_encode($array),
             'color_image' => json_encode($color_image_arr),
         ]);

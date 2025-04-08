@@ -34,12 +34,17 @@ class LanguageService
         $read = file_get_contents(base_path('resources/lang/en/messages.php'));
         fwrite($lang_file, $read);
 
+<<<<<<< HEAD
         $languageValue = json_decode($language['value'], true);
         $languageCount = count($languageValue);
         $id = $languageValue[$languageCount-1]['id']+1;
 
         $languageArray[] = [
             'id' => $id,
+=======
+        $languageArray[] = [
+            'id' => count(json_decode($language['value'], true)) + 1,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'name' => $request['name'],
             'code' => $request['code'],
             'direction' => $request['direction'],

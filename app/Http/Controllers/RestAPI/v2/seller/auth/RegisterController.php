@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\RestAPI\v2\seller\auth;
 
+<<<<<<< HEAD
 use App\Events\VendorRegistrationMailEvent;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Http\Controllers\Controller;
 use App\Models\Seller;
 use App\Models\Shop;
@@ -67,6 +70,11 @@ class RegisterController extends Controller
                 'updated_at' => now(),
             ]);
             DB::commit();
+<<<<<<< HEAD
+=======
+            return response()->json(['message' => translate('Shop apply successfully!')], 200);
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json(['message' => translate('Shop apply fail!')], 403);

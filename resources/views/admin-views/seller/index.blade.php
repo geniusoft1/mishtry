@@ -7,7 +7,11 @@
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-seller.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('vendor_List')}}
                 <span class="badge badge-soft-dark radius-50 fz-12">{{ $sellers->total() }}</span>
             </h2>
@@ -19,14 +23,22 @@
                         <div class="d-flex justify-content-between gap-10 flex-wrap align-items-center">
                             <div class="">
                                 <form action="{{ url()->current() }}" method="GET">
+<<<<<<< HEAD
                                     <div class="input-group input-group-merge input-group-custom width-500px">
+=======
+                                    <div class="input-group input-group-merge input-group-custom">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
                                                 <i class="tio-search"></i>
                                             </div>
                                         </div>
                                         <input id="datatableSearch_" type="search" name="searchValue" class="form-control"
+<<<<<<< HEAD
                                             placeholder="{{translate('search_by_shop_name_or_vendor_name_or_phone_or_email')}}" aria-label="Search orders" value="{{ request('searchValue') }}">
+=======
+                                            placeholder="{{translate('search_by_Name_or_Phone_or_Email')}}" aria-label="Search orders" value="{{ request('searchValue') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <button type="submit" class="btn btn--primary">{{translate('search')}}</button>
                                     </div>
                                 </form>
@@ -42,13 +54,21 @@
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a type="submit" class="dropdown-item d-flex align-items-center gap-2 " href="{{route('admin.sellers.export',['searchValue' => request('searchValue')])}}">
+<<<<<<< HEAD
                                                 <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                                <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 {{translate('excel')}}
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
+<<<<<<< HEAD
                                 <a href="{{route('admin.sellers.add')}}" type="button" class="btn btn--primary text-nowrap">
+=======
+                                <a href="{{route('admin.sellers.seller-add')}}" type="button" class="btn btn--primary text-nowrap">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <i class="tio-add"></i>
                                     {{translate('add_New_Vendor')}}
                                 </a>
@@ -142,7 +162,11 @@
                     </div>
                     @if(count($sellers)==0)
                         <div class="text-center p-4">
+<<<<<<< HEAD
                             <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="{{('image_description')}}">
+=======
+                            <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="{{('image_description')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <p class="mb-0">{{translate('no_data_to_show')}}</p>
                         </div>
                     @endif

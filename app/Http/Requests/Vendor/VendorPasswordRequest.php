@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vendor;
 
+<<<<<<< HEAD
 use App\Traits\ResponseHandler;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -9,6 +10,12 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 class VendorPasswordRequest extends FormRequest
 {
     use ResponseHandler;
+=======
+use Illuminate\Foundation\Http\FormRequest;
+
+class VendorPasswordRequest extends FormRequest
+{
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,6 +34,7 @@ class VendorPasswordRequest extends FormRequest
     public function rules():array
     {
         return [
+<<<<<<< HEAD
             'password' => 'required|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)(?!.*\s).{8,}$/|same:confirm_password',
             'confirm_password' => 'required',
         ];
@@ -44,4 +52,10 @@ class VendorPasswordRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json(['errors' => $this->errorProcessor($validator)]));
     }
+=======
+            'password' => 'required|same:confirm_password|min:8',
+            'confirm_password' => 'required',
+        ];
+    }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

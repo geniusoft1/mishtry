@@ -84,7 +84,11 @@
                     </li>
                     @if($web_config['business_mode'] == 'multi' && $web_config['seller_registration'])
                         <li class="d-none d-xl-block">
+<<<<<<< HEAD
                             <a href="{{route('vendor.auth.registration.index')}}" class="d-flex">
+=======
+                            <a href="{{route('shop.apply')}}" class="d-flex">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="fz-16 text-capitalize">{{ translate('become_a_vendor')}}</div>
                             </a>
                         </li>
@@ -273,7 +277,11 @@
                             @endif
                             @if($web_config['business_mode'] == 'multi' &&  $web_config['seller_registration'])
                                 <li class="d-xl-none">
+<<<<<<< HEAD
                                     <a href="{{route('vendor.auth.registration.index')}}" class="d-flex text-capitalize">
+=======
+                                    <a href="{{route('shop.apply')}}" class="d-flex text-capitalize">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div class="fz-16 text-capitalize">{{ translate('become_a_vendor')}}</div>
                                     </a>
                                 </li>

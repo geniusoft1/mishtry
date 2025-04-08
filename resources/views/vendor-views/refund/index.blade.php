@@ -9,7 +9,11 @@
             <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-3">
                 <div class="">
                     <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/refund-request-list.png')}}" alt="">
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/refund-request-list.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {{translate('refund_request_list')}}
                         <span class="badge badge-soft-dark radius-50">{{$refundList->total()}}</span>
                     </h2>
@@ -46,11 +50,15 @@
                     <thead class="thead-light thead-50 text-capitalize">
                     <tr>
                         <th>{{translate('SL')}}</th>
+<<<<<<< HEAD
                         <th class="text-center">{{translate('refund_id')}}</th>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <th>{{translate('order_ID')}} </th>
                         <th>{{translate('product_Info')}}</th>
                         <th>{{translate('customer_Info')}}</th>
                         <th>{{translate('total_Amount')}}</th>
+<<<<<<< HEAD
                         <th class="text-center">{{translate('action')}}</th>
                     </tr>
                     </thead>
@@ -64,6 +72,18 @@
                                    href="{{route('vendor.refund.details',['id'=>$refund['id']])}}">
                                     {{$refund['id']}}
                                 </a>
+=======
+                        <th>{{translate('order_Status')}}</th>
+                        <th class="text-center">{{translate('action')}}</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    @foreach($refundList as $key=>$refund)
+                        <tr>
+                            <td>
+                                {{$refundList->firstItem()+$key}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </td>
                             <td>
                                 <a class="title-color hover-c1"
@@ -96,12 +116,17 @@
                                         <a href="javascript:void(0)" class="title-color font-weight-bold hover-c1">
                                             {{$refund->customer->f_name. ' '.$refund->customer->l_name}}
                                         </a>
+<<<<<<< HEAD
                                         @if($refund->customer->phone)
                                             <a href="tel:{{$refund->customer->phone}}" class="title-color hover-c1 fz-12">{{$refund->customer->phone}}</a>
                                         @else
                                             <a href="mailto:{{$refund->customer['email']}}" class="title-color hover-c1 fz-12">{{$refund->customer['email']}}</a>
                                         @endif
 
+=======
+                                        <a href="tel:{{$refund->customer->phone}}"
+                                           class="title-color hover-c1 fz-12">{{$refund->customer->phone}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 @else
                                     <a href="javascript:" class="title-color hover-c1">
@@ -113,8 +138,16 @@
                                 {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $refund->amount), currencyCode: getCurrencyCode())}}
                             </td>
                             <td>
+<<<<<<< HEAD
                                 <div class="d-flex justify-content-center">
                                     <a class="btn btn-outline--primary btn-sm"
+=======
+                                {{translate($refund->status)}}
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a class="btn btn--primary btn-sm square-btn"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        title="{{translate('view')}}"
                                        href="{{route('vendor.refund.details',['id'=>$refund['id']])}}">
                                         <i class="tio-invisible"></i>
@@ -133,7 +166,11 @@
             </div>
             @if(count($refundList)==0)
                 <div class="text-center p-4">
+<<<<<<< HEAD
                     <img class="mb-3 __w-7rem" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                    <img class="mb-3 __w-7rem" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                          alt="{{translate('image_description')}}">
                     <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                 </div>

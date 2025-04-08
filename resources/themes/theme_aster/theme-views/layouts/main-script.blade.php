@@ -9,8 +9,11 @@
 <script src="{{ theme_asset('assets/plugins/easyzoom/easyzoom.min.js') }}"></script>
 <script src="{{ theme_asset('assets/js/toastr.js') }}"></script>
 <script src="{{ theme_asset('assets/js/main.js') }}"></script>
+<<<<<<< HEAD
 <script src="{{ theme_asset('assets/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
 <script src="{{ theme_asset('assets/js/country-picker-init.js') }}"></script>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 <script>
     @if(Request::is('/') &&  Cookie::has('popup_banner')===false)

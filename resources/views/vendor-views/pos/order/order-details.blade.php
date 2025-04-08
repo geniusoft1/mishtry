@@ -7,7 +7,11 @@
 
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/all-orders.png') }}" alt="">
+=======
+                <img src="{{ asset('public/assets/back-end/img/all-orders.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('order_Details') }}
             </h2>
         </div>
@@ -16,18 +20,30 @@
             <div class="col-lg-8 col-xl-9">
                 <div class="card h-100">
                     <div class="card-body">
+<<<<<<< HEAD
                         <div class="d-flex flex-wrap gap-10 flex-md-nowrap justify-content-between mb-4">
+=======
+                        <div class="d-flex flex-wrap gap-10 justify-content-between mb-4">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="d-flex flex-column gap-10">
                                 <h4 class="text-capitalize">{{ translate('order_ID') }} #{{$order['id']}}</h4>
                                 <div class="">
                                     <i class="tio-date-range"></i> {{date('d M Y H:i:s',strtotime($order['created_at'])) }}
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="text-sm-right flex-grow-1">
                                 <div class="d-flex flex-wrap gap-10 justify-content-sm-end">
                                     <a class="btn btn--primary px-4" target="_blank"
                                        href="{{ route('vendor.orders.generate-invoice',[$order['id']]) }}">
                                         <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/icons/uil_invoice.svg') }}"
+=======
+                            <div class="text-sm-right">
+                                <div class="d-flex flex-wrap gap-10 justify-content-sm-end">
+                                    <a class="btn btn--primary px-4" target="_blank"
+                                       href="{{ route('vendor.orders.generate-invoice',[$order['id']]) }}">
+                                        <img src="{{ asset('public/assets/back-end/img/icons/uil_invoice.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="" class="mr-1">
                                         {{ translate('print_Invoice') }}
                                     </a>
@@ -145,11 +161,19 @@
                                                         </div>
                                                         <div>
                                                             <strong>{{ translate('unit_price') }} :</strong>
+<<<<<<< HEAD
                                                             {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $detail->price+( $detail->tax_model =='include' ? $detail->tax : 0)), currencyCode: getCurrencyCode())}}
                                                             @if ($detail->tax_model =='include')
                                                                 ({{translate('tax_incl.')}})
                                                             @else
                                                                 ({{translate('tax').":".($productDetails->tax)}}{{$productDetails->tax_type ==="percent" ? '%' :''}})
+=======
+                                                            {{setCurrencySymbol(amount: usdToDefaultCurrency(amount:  $productDetails['unit_price']+((isset($productDetails['tax_model']) && $productDetails['tax_model'] =='include') ? 0 : $productDetails['tax'])), currencyCode: getCurrencyCode()) }}
+                                                            @if ($detail->tax_model =='include')
+                                                                ({{ translate('tax_incl.') }})
+                                                            @else
+                                                                ({{ translate('tax').":".($productDetails['tax']) }}{{$productDetails['tax_type'] ==="percent" ? '%' :''}})
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             @endif
                                                         </div>
                                                         @if ($detail->variant)
@@ -191,7 +215,11 @@
                                                                     @if($productDetails['digital_product_type'] == 'ready_after_sell' && $detail->digital_file_after_sell)
                                                                         <div class="mb-4">
                                                                             {{ translate('uploaded_file') }} :
+<<<<<<< HEAD
                                                                             <a href="{{ dynamicStorage(path: 'storage/app/public/product/digital-product/'.$detail->digital_file_after_sell) }}"
+=======
+                                                                            <a href="{{ asset('storage/app/public/product/digital-product/'.$detail->digital_file_after_sell) }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                                class="btn btn-success btn-sm"
                                                                                title="{{translate('download')}}"><i
                                                                                     class="tio-download"></i>
@@ -200,7 +228,11 @@
                                                                     @elseif($productDetails['digital_product_type'] == 'ready_product' && $productDetails['digital_file_ready'])
                                                                         <div class="mb-4">
                                                                             {{ translate('uploaded_file') }} :
+<<<<<<< HEAD
                                                                             <a href="{{ dynamicStorage(path: 'storage/app/public/product/digital-product/'.$productDetails['digital_file_ready']) }}"
+=======
+                                                                            <a href="{{ asset('storage/app/public/product/digital-product/'.$productDetails['digital_file_ready']) }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                                class="btn btn-success btn-sm"
                                                                                title="{{translate('download')}}"><i
                                                                                     class="tio-download"></i>
@@ -300,7 +332,11 @@
                     @if($order->customer)
                         <div class="card-body">
                             <h4 class="mb-4 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png') }}" alt="">
+=======
+                                <img src="{{ asset('public/assets/back-end/img/vendor-information.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{ translate('customer_information') }}
                             </h4>
 
@@ -313,6 +349,12 @@
                                 <div class="media-body d-flex flex-column gap-1">
                                     <span
                                         class="title-color hover-c1"><strong>{{$order->customer['f_name'].' '.$order->customer['l_name']}}</strong></span>
+<<<<<<< HEAD
+=======
+                                    <span class="title-color">
+                                        <strong>{{ $orderCount }} </strong>{{ translate('orders') }}
+                                    </span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <span
                                         class="title-color break-all"><strong>{{$order->customer['phone']}}</strong></span>
                                     <span class="title-color break-all">{{$order->customer['email']}}</span>

@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Customer\Auth;
 
 use App\Events\EmailVerificationEvent;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\Http\Requests\Web\CustomerRegistrationRequest;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Models\BusinessSetting;
 use App\Models\PhoneOrEmailVerification;
 use App\Models\Wishlist;
@@ -15,7 +18,10 @@ use App\Utils\SMS_module;
 use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
+<<<<<<< HEAD
 use Illuminate\Contracts\View\View;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -31,12 +37,17 @@ class RegisterController extends Controller
         $this->middleware('guest:customer', ['except' => ['logout']]);
     }
 
+<<<<<<< HEAD
     public function register(): View
+=======
+    public function register()
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         session()->put('keep_return_url', url()->previous());
         return view('web-views.customer-views.auth.register');
     }
 
+<<<<<<< HEAD
     public function submit(CustomerRegistrationRequest $request)
     {
         if ($request['referral_code']) {
@@ -45,6 +56,49 @@ class RegisterController extends Controller
 
         $user = User::create([
             'name' => $request['f_name'] . ' ' . $request['l_name'],
+=======
+    public function submit(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'f_name' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone' => 'unique:users',
+            'password' => 'required|min:8|same:con_password'
+        ], [
+            'f_name.required' => translate('first_name_is_required'),
+            'email.unique' => translate('email_already_has_been_taken'),
+            'phone.unique' => translate('phone_number_already_has_been_taken'),
+        ]);
+
+        if($request->ajax()) {
+            if ($validator->fails()) {
+                return response()->json([
+                    'errors' => $validator->errors()->all()
+                ]);
+            }
+        }else {
+            $validator->validate();
+        }
+
+        //recaptcha validation
+        $recaptcha = Helpers::get_business_settings('recaptcha');
+        if ($recaptcha['status'] != 1 && strtolower($request->default_recaptcha_value_customer_regi) != strtolower(Session('default_recaptcha_id_customer_regi'))) {
+            Session::forget('default_recaptcha_id_customer_regi');
+            if($request->ajax()) {
+                return response()->json([
+                    'errors' => [0=>translate('Captcha Failed')]
+                ]);
+            }else {
+                return back()->withErrors(translate('Captcha Failed'));
+            }
+        }
+
+        if ($request->referral_code){
+            $refer_user = User::where(['referral_code' => $request->referral_code])->first();
+        }
+
+        $user = User::create([
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'f_name' => $request['f_name'],
             'l_name' => $request['l_name'],
             'email' => $request['email'],
@@ -52,6 +106,7 @@ class RegisterController extends Controller
             'is_active' => 1,
             'password' => bcrypt($request['password']),
             'referral_code' => Helpers::generate_referer_code(),
+<<<<<<< HEAD
             'referred_by' => (isset($referUser) && $referUser) ? $referUser->id : null,
         ]);
 
@@ -87,15 +142,60 @@ class RegisterController extends Controller
                 return redirect(route('customer.auth.check', [$user->id]));
             }
             self::getCustomerVerificationCheck($user->id);
+=======
+            'referred_by' => (isset($refer_user) && $refer_user) ? $refer_user->id : null,
+        ]);
+
+        $phone_verification = Helpers::get_business_settings('phone_verification');
+        $email_verification = Helpers::get_business_settings('email_verification');
+
+
+        if($request->ajax()) {
+            if ($phone_verification && !$user->is_phone_verified) {
+                self::varificaton_check($user->id);
+                return response()->json([
+                    'redirect_url'=>route('customer.auth.check', [$user->id]),
+                ]);
+            }
+            if ($email_verification && !$user->is_email_verified) {
+                self::varificaton_check($user->id);
+                return response()->json([
+                    'redirect_url'=>route('customer.auth.check', [$user->id]),
+                ]);
+            }
+            self::varificaton_check($user->id);
+            return response()->json([
+                'redirect_url'=>'',
+            ]);
+
+        }else {
+            if ($phone_verification && !$user->is_phone_verified) {
+                self::varificaton_check($user->id);
+                return redirect(route('customer.auth.check', [$user->id]));
+            }
+            if ($email_verification && !$user->is_email_verified) {
+                self::varificaton_check($user->id);
+                return redirect(route('customer.auth.check', [$user->id]));
+            }
+            self::varificaton_check($user->id);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Toastr::success(translate('registration_success_login_now'));
             return redirect(route('customer.auth.login'));
         }
     }
 
+<<<<<<< HEAD
     public static function getCustomerVerificationCheck($id)
     {
         $user = User::find($id);
         $response = '';
+=======
+    public static function varificaton_check($id)
+    {
+        $user = User::find($id);
+
+        // Time Difference in Minutes
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $token = rand(1000, 9999);
         DB::table('phone_or_email_verifications')->insert([
@@ -105,6 +205,7 @@ class RegisterController extends Controller
             'updated_at' => now(),
         ]);
 
+<<<<<<< HEAD
         $phoneVerification = getWebConfig(name: 'phone_verification');
         $emailVerification = getWebConfig(name: 'email_verification');
         if ($phoneVerification && !$user->is_phone_verified) {
@@ -116,6 +217,20 @@ class RegisterController extends Controller
             }
 
             if($publishedStatus == 1){
+=======
+        $phone_verification = Helpers::get_business_settings('phone_verification');
+        $email_verification = Helpers::get_business_settings('email_verification');
+        if ($phone_verification && !$user->is_phone_verified) {
+
+            $published_status = 0;
+            $payment_published_status = config('get_payment_publish_status');
+            if (isset($payment_published_status[0]['is_published'])) {
+                $published_status = $payment_published_status[0]['is_published'];
+            }
+
+            $response = '';
+            if($published_status == 1){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 SmsGateway::send($user->phone, $token);
             }else{
                 SMS_module::send($user->phone, $token);
@@ -125,12 +240,21 @@ class RegisterController extends Controller
             Toastr::success($response);
         }
 
+<<<<<<< HEAD
         if ($emailVerification && !$user->is_email_verified) {
             $emailServicesSmtp = getWebConfig(name: 'mail_config');
             if ($emailServicesSmtp['status'] == 0) {
                 $emailServicesSmtp = getWebConfig(name: 'mail_config_sendgrid');
             }
             if ($emailServicesSmtp['status'] == 1) {
+=======
+        if ($email_verification && !$user->is_email_verified) {
+            $emailServices_smtp = Helpers::get_business_settings('mail_config');
+            if ($emailServices_smtp['status'] == 0) {
+                $emailServices_smtp = Helpers::get_business_settings('mail_config_sendgrid');
+            }
+            if ($emailServices_smtp['status'] == 1) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 try{
                     EmailVerificationEvent::dispatch($user['email'], $token);
                     $response = translate('check_your_email');

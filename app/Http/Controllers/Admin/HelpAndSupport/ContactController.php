@@ -46,6 +46,7 @@ class ContactController extends BaseController
         return view(Contact::LIST[VIEW], compact('contacts'));
     }
 
+<<<<<<< HEAD
     public function getListByFilter(Request $request):JsonResponse
     {
         $contacts = $this->contactRepo->getListWhere(
@@ -66,6 +67,12 @@ class ContactController extends BaseController
     {
         $this->contactRepo->update(id:$id, data: ['seen'=>1]);
         Toastr::success(translate('message_checked').'.');
+=======
+    public function update(Request $request, $id): RedirectResponse
+    {
+        $this->contactRepo->update(id:$id, data: ['feedback'=>$request['feedback'], 'seen'=>1]);
+        Toastr::success(translate('Feedback_Update_successfully'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return redirect()->route('admin.contact.list');
     }
 
@@ -87,7 +94,11 @@ class ContactController extends BaseController
     {
         $dataArray = $contactService->getAddData(request: $request);
         $this->contactRepo->add(data: $dataArray);
+<<<<<<< HEAD
         return response()->json(['success' => 'Your_Message_Send_Successfully']);
+=======
+        return response()->json(['success' => 'Your Message Send Successfully']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function sendMail(Request $request, $id, ContactService $contactService): RedirectResponse
@@ -104,10 +115,16 @@ class ContactController extends BaseController
             try {
                 $dataArray = $contactService->getMailData(request: $request, data: $data, contact: $contact, companyName: getWebConfig(name: 'company_name'));
                 $this->contactRepo->update(id:$id, data: $dataArray);
+<<<<<<< HEAD
                 Toastr::success(translate('mail_sent_successfully'));
             } catch (Throwable $th) {
                 Toastr::error(translate('This_Mail_Could_Not_be_Sent').'.');
                 Toastr::info(translate('please_go_to_3rd_Party').' > '.translate('Mail_Config').','.translate('and_check_if_you’ve_enabled_and_saved_your_settings_properly'));
+=======
+                Toastr::success(translate('Mail_sent_successfully'));
+            } catch (Throwable $th) {
+                Toastr::error(translate('Mail_Sent_Unsuccessful'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         } else {
             Toastr::error(translate('Configure_your_mail_setup_first'));

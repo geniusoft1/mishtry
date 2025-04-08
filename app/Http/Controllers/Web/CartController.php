@@ -25,12 +25,18 @@ class CartController extends Controller
     public function variant_price(Request $request)
     {
         $product = Product::find($request->id);
+<<<<<<< HEAD
         $productVariationCode = $request['product_variation_code'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $str = '';
         $quantity = 0;
         $price = 0;
         $color_name = '';
+<<<<<<< HEAD
         $requestQuantity = $request['quantity'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         if ($request->has('color')) {
             $str = Color::where('code', $request['color'])->first()->name;
@@ -44,6 +50,7 @@ class CartController extends Controller
             }
         }
 
+<<<<<<< HEAD
         $requestQuantity = $productVariationCode != $str ? $product['minimum_order_qty'] : $request['quantity'];
         $inCartExistStatus = 0;
         $inCartExistKey = null;
@@ -56,25 +63,41 @@ class CartController extends Controller
             }
         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if ($str != null) {
             $count = count(json_decode($product->variation));
             for ($i = 0; $i < $count; $i++) {
                 if (json_decode($product->variation)[$i]->type == $str) {
+<<<<<<< HEAD
                     $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation(product: $product, price: json_decode($product->variation)[$i]->price, tax: $product['tax'], tax_type: $product['tax_type']):0;
                     $update_tax = $tax * $requestQuantity;
                     $discount = Helpers::get_product_discount($product, json_decode($product->variation)[$i]->price);
                     $price = json_decode($product->variation)[$i]->price - $discount + $tax;
                     $discountedUnitPrice = json_decode($product->variation)[$i]->price - $discount;
+=======
+                    $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation(json_decode($product->variation)[$i]->price, $product['tax'], $product['tax_type']):0;
+                    $update_tax = $tax * $request->quantity;
+                    $discount = Helpers::get_product_discount($product, json_decode($product->variation)[$i]->price);
+                    $price = json_decode($product->variation)[$i]->price - $discount + $tax;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $unit_price = json_decode($product->variation)[$i]->price;
                     $quantity = json_decode($product->variation)[$i]->qty;
                 }
             }
         } else {
+<<<<<<< HEAD
             $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation(product: $product, price: $product->unit_price, tax: $product['tax'], tax_type: $product['tax_type']) : 0;
             $update_tax = $tax * $requestQuantity;
             $discount = Helpers::get_product_discount($product, $product->unit_price);
             $price = $product->unit_price - $discount + $tax;
             $discountedUnitPrice = $product->unit_price - $discount;
+=======
+            $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation($product->unit_price, $product['tax'], $product['tax_type']) : 0;
+            $update_tax = $tax * $request->quantity;
+            $discount = Helpers::get_product_discount($product, $product->unit_price);
+            $price = $product->unit_price - $discount + $tax;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $unit_price = $product->unit_price;
             $quantity = $product->current_stock;
         }
@@ -83,7 +106,11 @@ class CartController extends Controller
 
         $stock_limit = 0;
         if(theme_root_path() == 'theme_fashion') {
+<<<<<<< HEAD
             $delivery_info = ProductManager::get_products_delivery_charge($product, $requestQuantity);
+=======
+            $delivery_info = ProductManager::get_products_delivery_charge($product, $request->quantity);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $stock_limit= \App\Models\BusinessSetting::where('type','stock_limit')->first()->value;
             if ($request->has('color')) {
                 $color_name = Color::where(['code'=>$request->color])->first()->name;
@@ -91,13 +118,18 @@ class CartController extends Controller
         }
 
         return [
+<<<<<<< HEAD
             'price' => \App\Utils\Helpers::currency_converter($price * $requestQuantity),
+=======
+            'price' => \App\Utils\Helpers::currency_converter($price * $request->quantity),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'discount' => \App\Utils\Helpers::currency_converter($discount),
             'discount_amount' => $discount,
             'tax' => $product->tax_model=='exclude' ? \App\Utils\Helpers::currency_converter($tax) : 'incl.',
             'update_tax' => $product->tax_model=='exclude' ? \App\Utils\Helpers::currency_converter($update_tax) : 'incl.', // for others theme
             'quantity' => $product['product_type'] == 'physical' ? $quantity : 100,
             'delivery_cost' => isset($delivery_info['delivery_cost']) ? \App\Utils\Helpers::currency_converter($delivery_info['delivery_cost']):0,
+<<<<<<< HEAD
             'unit_price'=>\App\Utils\Helpers::currency_converter($price), //fashion theme
             'total_unit_price'=>\App\Utils\Helpers::currency_converter($unit_price), //fashion theme
             'discounted_unit_price'=>\App\Utils\Helpers::currency_converter($discountedUnitPrice), //fashion theme
@@ -108,6 +140,13 @@ class CartController extends Controller
             'in_cart_quantity' => $requestQuantity,
             'in_cart_key' => $inCartExistKey,
             'variation_code' => $str,
+=======
+            'unit_price'=>\App\Utils\Helpers::currency_converter($price), //fasion theme
+            'total_unit_price'=>\App\Utils\Helpers::currency_converter($unit_price), //fasion theme
+            'color_name'=>$color_name,
+            'stock_limit'=>$stock_limit,
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
     }
 
@@ -214,7 +253,10 @@ class CartController extends Controller
             'quantity_price'=>$quantity_price,
             'total_discount_price'=>$total_discount_price,
             'free_delivery_status'=>$free_delivery_status,
+<<<<<<< HEAD
             'in_cart_key'=>$product['id'],
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ]);
     }
 
@@ -294,14 +336,22 @@ class CartController extends Controller
             $count = count(json_decode($product->variation));
             for ($i = 0; $i < $count; $i++) {
                 if (json_decode($product->variation)[$i]->type == $str) {
+<<<<<<< HEAD
                     $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation(product: $product, price: json_decode($product->variation)[$i]->price, tax: $product['tax'], tax_type: $product['tax_type']):0;
+=======
+                    $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation(json_decode($product->variation)[$i]->price, $product['tax'], $product['tax_type']):0;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $discount = Helpers::get_product_discount($product, json_decode($product->variation)[$i]->price);
                     $price = json_decode($product->variation)[$i]->price - $discount + $tax;
                     $quantity = json_decode($product->variation)[$i]->qty;
                 }
             }
         } else {
+<<<<<<< HEAD
             $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation(product: $product, price:  $product->unit_price, tax: $product['tax'], tax_type: $product['tax_type']) : 0;
+=======
+            $tax = $product->tax_model=='exclude' ? Helpers::tax_calculation($product->unit_price, $product['tax'], $product['tax_type']) : 0;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $discount = Helpers::get_product_discount($product, $product->unit_price);
             $price = $product->unit_price - $discount + $tax;
             $quantity = $product->current_stock;

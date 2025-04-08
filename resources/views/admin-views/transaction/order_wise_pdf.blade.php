@@ -5,8 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta charset="UTF-8">
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css')}}">
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/admin/order-transaction.css') }}">
+=======
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/admin/order-transaction.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>
@@ -89,7 +94,11 @@
                                 <th class="bold black p-0 text-left">{{translate('delivered_By')}} </th>
                                 <td class="p-0 p-3">:
                                     @if($transaction->order->delivery_type =='self_delivery' && !empty($transaction->order->delivery_man_id))
+<<<<<<< HEAD
                                         {{translate('delivery_man')}} {{ isset($transaction->order->deliveryMan->seller_id) ? ($transaction->order->deliveryMan->seller_id == 0 ? 'admin':'seller') : '' }}
+=======
+                                        {{translate('delivery_man')}} {{ isset($transaction->order->delivery_man->seller_id) ? ($transaction->order->delivery_man->seller_id == 0 ? 'admin':'seller') : '' }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @else
                                         {{ $transaction->delivery_type }}
                                     @endif
@@ -173,6 +182,7 @@
                     </td>
                 </tr>
                 <tr>
+<<<<<<< HEAD
                     <td class="text-center">6</td>
                     <td>{{translate('deliveryman_incentive')}}</td>
                     <td class="text-right">
@@ -180,6 +190,8 @@
                     </td>
                 </tr>
                 <tr>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <td class="text-center">7</td>
                     <td>{{translate('order_Amount')}}</td>
                     <td class="text-right">
@@ -236,15 +248,22 @@
             if ($transaction['seller_is'] == 'admin') {
                 $admin_net_income += $transaction['order_amount'] + $transaction['tax'];
             }
+<<<<<<< HEAD
             if (isset($transaction->order->deliveryMan) && $transaction->order->deliveryMan->seller_id == '0') {
+=======
+            if (isset($transaction->order->delivery_man) && $transaction->order->delivery_man->seller_id == '0') {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $admin_net_income += $transaction['delivery_charge'];
             }
             $admin_net_income += $transaction['admin_commission'];
 
+<<<<<<< HEAD
             if($transaction->order->delivery_type == 'self_delivery' && ($transaction->order->shipping_responsibility == 'inhouse_shipping' || $transaction->order->seller_is == 'admin')){
                 $admin_net_income -= $transaction->order->deliveryman_charge;
             }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             if ($transaction['seller_is'] == 'seller') {
                 if ($transaction->order->shipping_responsibility == 'inhouse_shipping') {
                     $admin_net_income -= $transaction->order->coupon_discount_bearer == 'inhouse' ? $admin_coupon_discount : 0;
@@ -267,7 +286,11 @@
         <td class="text-right">
             <?php
             $seller_net_income = 0;
+<<<<<<< HEAD
             if (isset($transaction->order->deliveryMan) && $transaction->order->deliveryMan->seller_id != '0') {
+=======
+            if (isset($transaction->order->delivery_man) && $transaction->order->delivery_man->seller_id != '0') {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $seller_net_income += $transaction['delivery_charge'];
             }
 
@@ -275,10 +298,13 @@
                 $seller_net_income += $transaction['order_amount'] + $transaction['tax'] - $transaction['admin_commission'];
             }
 
+<<<<<<< HEAD
             if($transaction->order->delivery_type == 'self_delivery' && $transaction->order->shipping_responsibility == 'sellerwise_shipping' && $transaction->order->seller_is == 'seller'){
                 $seller_net_income -= $transaction->order->deliveryman_charge;
             }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             if ($transaction['seller_is'] == 'seller') {
                 if ($transaction->order->shipping_responsibility == 'inhouse_shipping') {
                     $seller_net_income += $transaction->order->coupon_discount_bearer == 'inhouse' ? $admin_coupon_discount : 0;

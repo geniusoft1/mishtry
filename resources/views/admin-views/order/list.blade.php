@@ -6,7 +6,11 @@
         <div>
             <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
                 <h2 class="h1 mb-0">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/all-orders.png')}}" class="mb-1 mr-1" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <span class="page-header-title">
                         @if($status =='processing')
                             {{translate('packaging')}}
@@ -149,7 +153,11 @@
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a type="submit" class="dropdown-item d-flex align-items-center gap-2" href="{{ route('admin.orders.export-excel', ['delivery_man_id' => request('delivery_man_id'), 'status' => $status, 'from' => $from, 'to' => $to, 'filter' => $filter, 'searchValue' => $searchValue,'seller_id'=>$vendorId,'customer_id'=>$customerId, 'date_type'=>$dateType]) }}">
+<<<<<<< HEAD
                                                 <img width="14" src="{{asset('public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                                <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 {{translate('excel')}}
                                             </a>
                                         </li>
@@ -164,6 +172,7 @@
                                 <tr>
                                     <th>{{translate('SL')}}</th>
                                     <th>{{translate('order_ID')}}</th>
+<<<<<<< HEAD
                                     <th class="text-capitalize">{{translate('order_date')}}</th>
                                     <th class="text-capitalize">{{translate('customer_info')}}</th>
                                     <th>{{translate('store')}}</th>
@@ -173,6 +182,13 @@
                                     @else
                                         <th class="text-capitalize">{{translate('payment_method')}} </th>
                                     @endif
+=======
+                                    <th>{{translate('order_Date')}}</th>
+                                    <th>{{translate('customer_Info')}}</th>
+                                    <th>{{translate('store')}}</th>
+                                    <th class="text-right">{{translate('total_Amount')}}</th>
+                                    <th class="text-center">{{translate('order_Status')}} </th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <th class="text-center">{{translate('action')}}</th>
                                 </tr>
                             </thead>
@@ -201,11 +217,15 @@
                                                 <a class="text-body text-capitalize" href="{{route('admin.orders.details',['id'=>$order['id']])}}">
                                                     <strong class="title-name">{{$order->customer['f_name'].' '.$order->customer['l_name']}}</strong>
                                                 </a>
+<<<<<<< HEAD
                                                 @if($order->customer['phone'])
                                                     <a class="d-block title-color" href="tel:{{ $order->customer['phone'] }}">{{ $order->customer['phone'] }}</a>
                                                 @else
                                                     <a class="d-block title-color" href="mailto:{{ $order->customer['email'] }}">{{ $order->customer['email'] }}</a>
                                                 @endif
+=======
+                                                <a class="d-block title-color" href="tel:{{ $order->customer['phone'] }}">{{ $order->customer['phone'] }}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             @else
                                                 <label class="badge badge-danger fz-12">{{translate('invalid_customer_data')}}</label>
                                             @endif
@@ -220,7 +240,11 @@
                                             @endif
                                         </span>
                                     </td>
+<<<<<<< HEAD
                                     <td>
+=======
+                                    <td class="text-right">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <div>
                                             @php($discount = 0)
                                             @if($order->order_type == 'default_type' && $order->coupon_discount_bearer == 'inhouse' && !in_array($order['coupon_code'], [0, NULL]))
@@ -236,6 +260,7 @@
                                         </div>
 
                                         @if($order->payment_status=='paid')
+<<<<<<< HEAD
                                             <span class="badge badge-soft-success">{{translate('paid')}}</span>
                                         @else
                                             <span class="badge badge-soft-danger">{{translate('unpaid')}}</span>
@@ -275,11 +300,54 @@
                                             {{str_replace('_',' ',$order['payment_method'])}}
                                         </td>
                                     @endif
+=======
+                                            <span class="badge text-success fz-12 px-0">
+                                                {{translate('paid')}}
+                                            </span>
+                                        @else
+                                            <span class="badge text-danger fz-12 px-0">
+                                                {{translate('unpaid')}}
+                                            </span>
+                                        @endif
+                                    </td>
+                                    <td class="text-center text-capitalize">
+                                        @if($order['order_status']=='pending')
+                                            <span class="badge badge-soft-info fz-12">
+                                                {{translate($order['order_status'])}}
+                                            </span>
+
+                                        @elseif($order['order_status']=='processing' || $order['order_status']=='out_for_delivery')
+                                            <span class="badge badge-soft-warning fz-12">
+                                                {{str_replace('_',' ',$order['order_status'] == 'processing' ? translate('packaging'):translate($order['order_status']))}}
+                                            </span>
+                                        @elseif($order['order_status']=='confirmed')
+                                            <span class="badge badge-soft-success fz-12">
+                                                {{translate($order['order_status'])}}
+                                            </span>
+                                        @elseif($order['order_status']=='failed')
+                                            <span class="badge badge-danger fz-12">
+                                                {{translate('failed_to_deliver')}}
+                                            </span>
+                                        @elseif($order['order_status']=='delivered')
+                                            <span class="badge badge-soft-success fz-12">
+                                                {{translate($order['order_status'])}}
+                                            </span>
+                                        @else
+                                            <span class="badge badge-soft-danger fz-12">
+                                                {{translate($order['order_status'])}}
+                                            </span>
+                                        @endif
+                                    </td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <td>
                                         <div class="d-flex justify-content-center gap-2">
                                             <a class="btn btn-outline--primary square-btn btn-sm mr-1" title="{{translate('view')}}"
                                                 href="{{route('admin.orders.details',['id'=>$order['id']])}}">
+<<<<<<< HEAD
                                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/eye.svg')}}" class="svg" alt="">
+=======
+                                                <img src="{{asset('/public/assets/back-end/img/eye.svg')}}" class="svg" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </a>
                                             <a class="btn btn-outline-success square-btn btn-sm mr-1" target="_blank" title="{{translate('invoice')}}"
                                                 href="{{route('admin.orders.generate-invoice',[$order['id']])}}">
@@ -325,5 +393,9 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/order.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/order.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

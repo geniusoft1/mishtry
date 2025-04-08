@@ -41,7 +41,11 @@
                                                 <h4 class="share-icons-heading mt-3 text-capitalize">{{ translate('share_via') }}</h4>
                                                 <div class="d-flex justify-content-center align-items-center share-on-social">
                                                     @php
+<<<<<<< HEAD
                                                         $text = "Greetings,".getWebConfig('company_name').' '."is the best e-commerce platform in the country.If you are new to this website dont forget to use " . $customer_detail->referral_code . " " ."as the referral code while sign up into ".' '.getWebConfig('company_name').'.';
+=======
+                                                        $text = "Greetings,6Valley is the best e-commerce platform in the country.If you are new to this website dont forget to use " . $customer_detail->referral_code . " " ."as the referral code while sign up into 6valley.";
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         $link = url('/');
                                                     @endphp
                                                     <a href="https://api.whatsapp.com/send?text={{$text}}.{{$link}}" target="_blank">

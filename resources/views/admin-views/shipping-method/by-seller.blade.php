@@ -1,7 +1,11 @@
 @extends('layouts.back-end.app')
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link href="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+=======
+    <link href="{{asset('public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endpush
 
@@ -9,7 +13,11 @@
     <div class="content container-fluid __inline-6">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
+<<<<<<< HEAD
                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard.index')}}">{{translate('dashboard')}}</a></li>
+=======
+                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{translate('dashboard')}}</a></li>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <li class="breadcrumb-item" aria-current="page">{{translate('shipping_Method_by_Vendor')}}</li>
             </ol>
         </nav>
@@ -88,8 +96,13 @@
 
 @push('script')
     <!-- Page level plugins -->
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/jquery.dataTables.min.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end')}}/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{asset('public/assets/back-end')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <!-- Page level custom scripts -->
 
 

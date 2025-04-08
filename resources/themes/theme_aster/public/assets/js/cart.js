@@ -54,7 +54,10 @@ function updateCartCommon(minimum_order_qty, key, e, quantity, ex_quantity) {
     if(minimum_order_qty > quantity && e !== 'delete' ) {
         toastr.error($('.minimum_order_quantity_msg').data('text')+' '+ minimum_order_qty);
         $(".cartQuantity" + key).val(minimum_order_qty);
+<<<<<<< HEAD
         location.reload();
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return false;
     }
     if (parseInt(ex_quantity.val()) === parseInt(ex_quantity.data('min')) && e === 'delete') {

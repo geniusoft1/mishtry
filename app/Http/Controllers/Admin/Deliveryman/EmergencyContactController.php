@@ -7,7 +7,10 @@ use App\Enums\ViewPaths\Admin\EmergencyContact;
 use App\Enums\WebConfigKey;
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admin\EmergencyContactRequest;
+<<<<<<< HEAD
 use App\Services\EmergencyContactService;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -21,7 +24,10 @@ class EmergencyContactController extends BaseController
      */
     public function __construct(
         private readonly EmergencyContactRepositoryInterface    $emergencyContactRepo,
+<<<<<<< HEAD
         private readonly EmergencyContactService    $emergencyContactService,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     )
     {
     }
@@ -49,7 +55,16 @@ class EmergencyContactController extends BaseController
 
     public function add(EmergencyContactRequest $request): RedirectResponse
     {
+<<<<<<< HEAD
         $this->emergencyContactRepo->add(data:$this->emergencyContactService->getEmergencyContactData(request:$request,id:0 ));
+=======
+        $this->emergencyContactRepo->add(data: [
+            'user_id' => 0,
+            'name' => $request['name'],
+            'phone' => $request['phone'],
+            'status' => 1
+        ]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         Toastr::success(translate('emergency_contact_added_successfully'));
         return back();
     }

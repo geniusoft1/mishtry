@@ -13,14 +13,20 @@
                 <div class="bg-white border-lg rounded mobile-full">
                     <div class="p-lg-3 p-0">
                         <div class="d-flex justify-content-between gap-2 flex-wrap mb-3">
+<<<<<<< HEAD
                             @if($order->order_type == 'default_type' && getWebConfig(name: 'order_verification'))
                                 <div class="d-flex gap-3 flex-wrap">
+=======
+                            <div class="d-flex gap-3 flex-wrap">
+                                @if($order->order_type == 'default_type' && getWebConfig(name: 'order_verification'))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div class="bg-light rounded py-2 px-3 d-flex align-items-center">
                                         <div class="fs-14 text-capitalize">
                                             {{translate('order_verification_code')}} : <strong
                                                 class="text-base">{{$order['verification_code']}}</strong>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                 </div>
                             @endif
                             @if($order->order_type == 'POS')
@@ -32,6 +38,18 @@
                                 <button type="button" class="btn btn-square d-none d-md-block get-view-by-onclick"
                                         data-link="{{route('generate-invoice',[$order->id])}}">
                                     <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/downloads.png')}}" alt="">
+=======
+                                @endif
+                                @if($order->order_type == 'POS')
+                                    <span
+                                        class="pos-btn bg-light hover-none border border-primary-light">{{translate('POS_Order')}}</span>
+                                @endif
+                            </div>
+                            <div class="d-flex align-items-start gap-2">
+                                <button type="button" class="btn btn-square d-none d-md-block get-view-by-onclick"
+                                        data-link="{{route('generate-invoice',[$order->id])}}">
+                                    <img src="{{asset('public/assets/front-end/img/icons/downloads.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </button>
                                 @if($order->order_status=='delivered')
                                     <button
@@ -52,10 +70,17 @@
                                                 <div class="">
                                                     <div
                                                         class="_1 py-2 d-flex justify-content-between align-items-center">
+<<<<<<< HEAD
                                                         <h6 class="fs-13 font-bold text-capitalize">{{translate('payment_info')}}</h6>
                                                         <button type="button" class="btn btn-square d-sm-none get-view-by-onclick"
                                                                 data-link="{{route('generate-invoice',[$order->id])}}">
                                                             <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/downloads.png')}}" alt="">
+=======
+                                                        <h6 class="font-weight-bold text-capitalize">{{translate('payment_info')}}</h6>
+                                                        <button type="button" class="btn btn-square d-sm-none get-view-by-onclick"
+                                                                data-link="{{route('generate-invoice',[$order->id])}}">
+                                                            <img src="{{asset('public/assets/front-end/img/icons/downloads.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </button>
                                                     </div>
                                                     <div class="fs-12">
@@ -94,9 +119,14 @@
                                                     <td class="order_table_td">
                                                         <div class="">
                                                             <div class=" py-2">
+<<<<<<< HEAD
                                                                 <h6 class="fs-13 font-bold text-capitalize">
                                                                     {{translate('shipping_address')}}:
                                                                 </h6>
+=======
+                                                                <h6 class="font-weight-bold text-capitalize">{{translate('shipping_address')}}
+                                                                    : </h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             </div>
                                                             <div class="">
                                                                 <span class="text-capitalize fs-12">
@@ -111,6 +141,7 @@
                                                                     </span>
                                                                     <br>
                                                                     <span class="text-capitalize">
+<<<<<<< HEAD
                                                                         <span class="min-w-60px">
                                                                             {{ translate('city') }} / {{translate('zip')}}
                                                                         </span> :&nbsp; {{$shipping->city}}, {{$shipping->zip}}
@@ -120,6 +151,13 @@
                                                                         <span class="min-w-60px">
                                                                             {{ translate('address') }}
                                                                         </span> : {{$shipping->address}}
+=======
+                                                                        <span
+                                                                            class="min-w-60px"> {{translate('address')}}</span> :&nbsp;
+                                                                        {{$shipping->address}},
+                                                                        {{$shipping->city}}
+                                                                        , {{$shipping->zip}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     </span>
                                                                 </span>
                                                             </div>
@@ -128,10 +166,16 @@
                                                 @endif
                                                 <td class="order_table_td">
                                                     <div class="">
+<<<<<<< HEAD
                                                         <div class="py-2">
                                                             <h6 class="fs-13 font-bold text-capitalize">
                                                                 {{translate('billing_address')}}:
                                                             </h6>
+=======
+                                                        <div class=" py-2">
+                                                            <h6 class="font-weight-bold text-capitalize">{{translate('billing_address')}}
+                                                                : </h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </div>
                                                         <div class="">
                                                             @php($billing=$order['billing_address_data'])
@@ -148,6 +192,7 @@
                                                                     </span>
                                                                     <br>
                                                                     <span class="text-capitalize">
+<<<<<<< HEAD
                                                                         <span class="min-w-60px">
                                                                             {{ translate('city') }} / {{translate('zip')}}
                                                                         </span> :&nbsp; {{$billing->city}}, {{$billing->zip}}
@@ -157,6 +202,13 @@
                                                                         <span class="min-w-60px">
                                                                             {{translate('address')}}
                                                                         </span> :&nbsp; {{$billing->address}}
+=======
+                                                                        <span
+                                                                            class="min-w-60px"> {{translate('address')}}</span> :&nbsp;
+                                                                        {{$billing->address}},
+                                                                        {{$billing->city}}
+                                                                        , {{$billing->zip}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     </span>
                                                                 @else
                                                                     <span class="text-capitalize">
@@ -190,7 +242,11 @@
                                 <div class="payment mb-3 table-responsive d-none d-lg-block">
                                     <table class="table table-borderless min-width-600px">
                                         <thead class="thead-light text-capitalize">
+<<<<<<< HEAD
                                         <tr class="fs-13 font-semibold">
+=======
+                                        <tr>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             <th>{{translate('order_details')}}</th>
                                             <th>{{translate('qty')}}</th>
                                             <th class="text-right">{{translate('price')}}</th>
@@ -203,6 +259,7 @@
                                                 <tr>
                                                     <td class="for-tab-img">
                                                         <div class="media gap-3 align-items-center">
+<<<<<<< HEAD
                                                             <div class="position-relative border rounded overflow-hidden">
                                                                 @if($product['discount'] > 0)
                                                                     <span class="for-discount-value px-1 direction-ltr">
@@ -219,6 +276,24 @@
                                                                     <img class="d-block get-view-by-onclick"
                                                                          data-link="{{ route('product',$product['slug']) }}"
                                                                          src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$detail->productAllStatus['thumbnail'], type: 'product') }}"
+=======
+                                                            <div class="position-relative">
+                                                                @if($product['discount'] > 0)
+                                                                    <span class="for-discount-value px-1">
+                                                                            @if ($product['discount_type'] == 'percent')
+                                                                            {{round($product['discount'],(!empty($decimal_point_settings) ? $decimal_point_settings: 0))}}
+                                                                            %
+                                                                        @elseif($product['discount_type'] =='flat')
+                                                                            {{ webCurrencyConverter(amount: $product['discount']) }}
+                                                                        @endif {{translate('off')}}
+                                                                        </span>
+                                                                @endif
+
+                                                                @if($detail->product_all_status)
+                                                                    <img class="d-block get-view-by-onclick"
+                                                                         data-link="{{ route('product',$product['slug']) }}"
+                                                                         src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$detail->product_all_status['thumbnail'], type: 'product') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                          alt="{{ translate('product') }}" width="100">
                                                                 @else
                                                                     <img class="d-block get-view-by-onclick"
@@ -229,8 +304,13 @@
                                                             </div>
 
                                                             <div class="media-body">
+<<<<<<< HEAD
                                                                 <a href="{{route('product',[$product['slug']])}}" class="fs-14 font-semibold">
                                                                     {{isset($product['name']) ? Str::limit($product['name'], 60) : ''}}
+=======
+                                                                <a href="{{route('product',[$product['slug']])}}">
+                                                                    {{isset($product['name']) ? Str::limit($product['name'],40) : ''}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                 </a>
                                                                 @if($detail->refund_request == 1)
                                                                     <small> ({{translate('refund_pending')}}) </small>
@@ -244,6 +324,7 @@
                                                                 @elseif($detail->refund_request == 4)
                                                                     <small> ({{translate('refund_refunded')}}) </small>
                                                                     <br>
+<<<<<<< HEAD
                                                                 @endif
 
                                                                 @if($detail->variant)
@@ -251,6 +332,13 @@
                                                                     <small class="fs-12 text-secondary-50">
                                                                         <span class="font-bold">{{translate('variant')}} : </span>
                                                                         <span class="font-semibold">{{$detail->variant}}</span>
+=======
+                                                                @endif<br>
+                                                                @if($detail->variant)
+                                                                    <small>
+                                                                        <span>{{translate('variant')}} : </span>
+                                                                        {{$detail->variant}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     </small>
                                                                 @endif
 
@@ -290,7 +378,11 @@
                                                                                         class="btn btn-sm rounded btn-warning"
                                                                                         data-toggle="modal"
                                                                                         data-target="#submitReviewModal{{$detail->id}}">
+<<<<<<< HEAD
                                                                                     @if (isset($detail->reviewData))
+=======
+                                                                                    @if (isset($detail->product->reviewsByCustomer[0]))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                                         <i class="tio-star-half"></i>{{translate('Update_Review')}}
                                                                                     @else
                                                                                         <i class="tio-star-half"></i>{{translate('review')}}
@@ -318,6 +410,7 @@
                                                             </div>
                                                         </div>
                                                     </td>
+<<<<<<< HEAD
                                                     <td class="align-middle">
                                                         <div class="pl-2">
                                                             <span class="word-nobreak font-weight-bold">
@@ -329,6 +422,17 @@
                                                         <span class="font-weight-bold amount">
                                                             {{ webCurrencyConverter(amount: $detail->price) }}
                                                         </span>
+=======
+                                                    <td>
+                                                        <div class="pl-2">
+                                                            <span
+                                                                class="word-nobreak font-weight-bold">{{$detail->qty}}</span>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <span
+                                                            class="font-weight-bold amount">{{ webCurrencyConverter(amount: $detail->price) }} </span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </td>
                                                 </tr>
                                             @endif
@@ -349,6 +453,7 @@
                                         <div class="d-flex justify-content-between gap-3">
                                             <div class="for-tab-img">
                                                 <div class="media flex-wrap gap-2">
+<<<<<<< HEAD
                                                     <div class="position-relative border rounded overflow-hidden">
                                                         @if($product['discount'] > 0)
                                                             <span class="for-discount-value px-1 direction-ltr">
@@ -358,6 +463,17 @@
                                                                 @elseif($product['discount_type'] =='flat')
                                                                     -{{ webCurrencyConverter(amount: $product['discount']) }}
                                                                 @endif
+=======
+                                                    <div class="position-relative">
+                                                        @if($product['discount'] > 0)
+                                                            <span class="for-discount-value px-1">
+                                                                @if ($product['discount_type'] == 'percent')
+                                                                    {{round($product['discount'],(!empty($decimal_point_settings) ? $decimal_point_settings: 0))}}
+                                                                    %
+                                                                @elseif($product['discount_type'] =='flat')
+                                                                    {{ webCurrencyConverter(amount: $product['discount']) }}
+                                                                @endif {{translate('off')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             </span>
                                                         @endif
                                                         <img class="d-block get-view-by-onclick"
@@ -397,9 +513,13 @@
                                                             <span class="text-nowrap text-muted">
                                                                 {{translate('price')}} :
                                                             </span>
+<<<<<<< HEAD
                                                             <span class="font-weight-bold amount">
                                                                 {{ webCurrencyConverter(amount: $detail->price) }}
                                                             </span>
+=======
+                                                            <span class="font-weight-bold amount">{{ webCurrencyConverter(amount: $detail->price) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </small>
                                                     </div>
                                                 </div>
@@ -440,7 +560,11 @@
                                                         <button type="button" class="btn btn-sm rounded btn-warning"
                                                                 data-toggle="modal"
                                                                 data-target="#submitReviewModal{{$detail->id}}">
+<<<<<<< HEAD
                                                             @if (isset($detail->reviewData))
+=======
+                                                            @if (isset($detail->product->reviewsByCustomer[0]))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                 <i class="tio-star-half"></i>{{translate('Update_Review')}}
                                                             @else
                                                                 <i class="tio-star-half"></i>{{translate('review')}}
@@ -489,14 +613,21 @@
                                                     </div>
                                                 </td>
                                                 <td>
+<<<<<<< HEAD
                                                     <div class="text-end">
                                                         <span class="fs-15 font-semibold">{{$order->total_qty}}</span>
+=======
+                                                    <div
+                                                        class="text-end">
+                                                        <span>{{$order->total_qty}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>
+<<<<<<< HEAD
                                                     <div class="text-start">
                                                         <span class="product-qty">{{translate('subtotal')}}</span>
                                                     </div>
@@ -504,12 +635,24 @@
                                                 <td>
                                                     <div class="text-end">
                                                         <span class="fs-15 font-semibold">{{ webCurrencyConverter(amount: $summary['subtotal']) }}</span>
+=======
+                                                    <div
+                                                        class="text-start"><span
+                                                            class="product-qty ">{{translate('subtotal')}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div
+                                                        class="text-end">
+                                                        <span>{{ webCurrencyConverter(amount: $summary['subtotal']) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>
+<<<<<<< HEAD
                                                     <div class="text-start">
                                                         <span class="product-qty">
                                                             {{translate('tax_fee')}}
@@ -521,12 +664,24 @@
                                                         <span class="fs-15 font-semibold">
                                                             {{ webCurrencyConverter(amount: $summary['total_tax']) }}
                                                         </span>
+=======
+                                                    <div
+                                                        class="text-start"><span
+                                                            class="product-qty ">{{translate('tax_fee')}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div
+                                                        class="text-end">
+                                                        <span>{{ webCurrencyConverter(amount: $summary['total_tax']) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </td>
                                             </tr>
                                             @if($order->order_type == 'default_type')
                                                 <tr>
                                                     <td>
+<<<<<<< HEAD
                                                         <div class="text-start">
                                                             <span class="product-qty">
                                                                 {{translate('shipping_Fee')}}
@@ -538,6 +693,17 @@
                                                             <span class="fs-15 font-semibold">
                                                                 {{ webCurrencyConverter(amount: $summary['total_shipping_cost'] - ($order['is_shipping_free'] ? $order['extra_discount'] : 0)) }}
                                                             </span>
+=======
+                                                        <div
+                                                            class="text-start"><span
+                                                                class="product-qty ">{{translate('shipping_Fee')}}</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="text-end">
+                                                            <span>{{ webCurrencyConverter(amount: $summary['total_shipping_cost'] - ($order['is_shipping_free'] ? $order['extra_discount'] : 0)) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -545,6 +711,7 @@
 
                                             <tr>
                                                 <td>
+<<<<<<< HEAD
                                                     <div class="text-start">
                                                         <span class="product-qty">
                                                             {{translate('discount_on_product')}}
@@ -556,12 +723,24 @@
                                                         <span class="fs-15 font-semibold">
                                                             - {{ webCurrencyConverter(amount: $summary['total_discount_on_product']) }}
                                                         </span>
+=======
+                                                    <div
+                                                        class="text-start"><span
+                                                            class="product-qty ">{{translate('discount_on_product')}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div
+                                                        class="text-end">
+                                                        <span>- {{ webCurrencyConverter(amount: $summary['total_discount_on_product']) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </td>
                                             </tr>
 
                                             <tr>
                                                 <td>
+<<<<<<< HEAD
                                                     <div class="text-start">
                                                         <span class="product-qty">
                                                             {{translate('coupon_discount')}}
@@ -573,6 +752,17 @@
                                                         <span class="fs-15 font-semibold">
                                                             - {{ webCurrencyConverter(amount: $order->discount_amount) }}
                                                         </span>
+=======
+                                                    <div
+                                                        class="text-start"><span
+                                                            class="product-qty ">{{translate('coupon_discount')}}</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div
+                                                        class="text-end">
+                                                        <span>- {{ webCurrencyConverter(amount: $order->discount_amount) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </td>
                                             </tr>
@@ -580,6 +770,7 @@
                                             @if($order->order_type != 'default_type')
                                                 <tr>
                                                     <td>
+<<<<<<< HEAD
                                                         <div class="text-start">
                                                             <span class="product-qty">
                                                                 {{translate('extra_discount')}}
@@ -591,6 +782,17 @@
                                                             <span class="fs-15 font-semibold">
                                                                 - {{ webCurrencyConverter(amount: $extra_discount) }}
                                                             </span>
+=======
+                                                        <div
+                                                            class="text-start"><span
+                                                                class="product-qty ">{{translate('extra_discount')}}</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div
+                                                            class="text-end">
+                                                            <span>- {{ webCurrencyConverter(amount: $extra_discount) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -598,6 +800,7 @@
 
                                             <tr class="border-top">
                                                 <td>
+<<<<<<< HEAD
                                                     <div class="text-start">
                                                         <span class="font-weight-bold">
                                                             <strong>{{translate('total')}}</strong>
@@ -609,6 +812,18 @@
                                                         <span class="font-weight-bold amount">
                                                             {{ webCurrencyConverter(amount: $order->order_amount) }}
                                                         </span>
+=======
+                                                    <div
+                                                        class="text-start"><span
+                                                            class="font-weight-bold"><strong>{{translate('total')}}</strong></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div
+                                                        class="text-end">
+                                                        <span
+                                                            class="font-weight-bold amount ">{{ webCurrencyConverter(amount: $order->order_amount) }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </div>
                                                 </td>
                                             </tr>
@@ -616,7 +831,11 @@
                                             </tbody>
                                         </table>
                                         @if ($order['order_status']=='pending')
+<<<<<<< HEAD
                                             <button class="btn btn-soft-danger btn-soft-border w-100 btn-sm text-danger font-semibold text-capitalize mt-3 call-route-alert"
+=======
+                                            <button class="btn btn-block bg-soft-danger text-danger mt-3 call-route-alert"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 data-route="{{ route('order-cancel',[$order->id]) }}"
                                                 data-message="{{translate('want_to_cancel_this_order?')}}">
                                                 {{translate('cancel_order')}}
@@ -725,6 +944,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
     <span id="message-ratingContent"
           data-poor="{{ translate('poor') }}"
@@ -736,10 +956,17 @@
           data-excellent="{{ translate('excellent') }}"
           data-excellent-message="{{ translate('best_delivery_service_highly_recommended') }}"
     ></span>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endsection
 
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/spartan-multi-image-picker.js') }}"></script>
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/account-order-details.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/front-end/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{ asset('public/assets/front-end/js/account-order-details.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

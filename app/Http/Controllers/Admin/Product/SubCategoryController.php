@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Admin\Product;
 
 use App\Contracts\Repositories\CategoryRepositoryInterface;
 use App\Contracts\Repositories\TranslationRepositoryInterface;
+<<<<<<< HEAD
 use App\Enums\ExportFileNames\Admin\Category as SubCategoryExport;
 use App\Enums\ViewPaths\Admin\SubCategory;
 use App\Exports\CategoryListExport;
+=======
+use App\Enums\ViewPaths\Admin\SubCategory;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admin\CategoryUpdateRequest;
 use App\Http\Requests\Admin\SubCategoryAddRequest;
@@ -17,8 +21,11 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 class SubCategoryController extends BaseController
 {
@@ -50,8 +57,14 @@ class SubCategoryController extends BaseController
             dataLimit: getWebConfig(name: 'pagination_limit'));
 
         $parentCategories = $this->categoryRepo->getListWhere(
+<<<<<<< HEAD
             filters: ['position' => 0],
             dataLimit: 'all');
+=======
+            searchValue: $request->get('searchValue'),
+            filters: ['position' => 0],
+            dataLimit: getWebConfig(name: 'pagination_limit'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $languages = getWebConfig(name: 'pnc_language') ?? null;
         $defaultLanguage = $languages[0];
 
@@ -101,6 +114,7 @@ class SubCategoryController extends BaseController
         $this->categoryRepo->delete(params: ['id'=>$request['id']]);
         return response()->json(['message'=> translate('deleted_successfully')]);
     }
+<<<<<<< HEAD
     public function getExportList(Request $request): BinaryFileResponse
     {
         $subCategories = $this->categoryRepo->getListWhere(orderBy: ['id'=>'desc'], searchValue: $request->get('searchValue'), filters: ['position' => 1], dataLimit: getWebConfig(name: 'pagination_limit'));
@@ -115,4 +129,6 @@ class SubCategoryController extends BaseController
         ]), SubCategoryExport::SUB_CATEGORY_LIST_XLSX
         );
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

@@ -4,6 +4,7 @@
         <div class=" inline_product clickable d-flex justify-content-center">
             @if($product->discount > 0)
                 <div class="d-flex">
+<<<<<<< HEAD
                     <span class="for-discount-value p-1 pl-2 pr-2 font-bold fs-13">
                         <span class="direction-ltr d-block">
                             @if ($product->discount_type == 'percent')
@@ -12,6 +13,16 @@
                                 -{{ webCurrencyConverter(amount: $product->discount) }}
                             @endif
                         </span>
+=======
+                    <span class="for-discount-value p-1 pl-2 pr-2">
+                    @if ($product->discount_type == 'percent')
+                            {{round($product->discount,(!empty($decimal_point_settings) ? $decimal_point_settings: 0))}}
+                            %
+                        @elseif($product->discount_type =='flat')
+                            {{ webCurrencyConverter(amount: $product->discount) }}
+                        @endif
+                        {{translate('off')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </span>
                 </div>
             @else
@@ -48,7 +59,11 @@
                             <i class="tio-star-outlined text-warning"></i>
                         @endif
                     @endfor
+<<<<<<< HEAD
                     <label class="badge-style">( {{ count($product->reviews) }} )</label>
+=======
+                    <label class="badge-style">( {{$product->reviews_count}} )</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </span>
                 </div>
             @endif

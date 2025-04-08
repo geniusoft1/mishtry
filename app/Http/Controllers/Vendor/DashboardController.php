@@ -67,7 +67,11 @@ class DashboardController extends BaseController
                 'request_status' =>1
             ],
             relations: ['orderDetails']
+<<<<<<< HEAD
         )->take(DASHBOARD_TOP_SELL_DATA_LIMIT);
+=======
+        )->take(DASHBOARD_DATA_LIMIT);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $topRatedProducts = $this->productRepo->getTopRatedList(
             filters:[
                 'user_id'=>$vendorId,
@@ -77,7 +81,10 @@ class DashboardController extends BaseController
             relations: ['reviews'],
         )->take(DASHBOARD_DATA_LIMIT);
         $topRatedDeliveryMan = $this->deliveryManRepo->getTopRatedList(
+<<<<<<< HEAD
             orderBy: ['delivered_orders_count'=>'desc'],
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             filters: [
                 'seller_id'=>$vendorId
             ],
@@ -85,7 +92,11 @@ class DashboardController extends BaseController
                 'seller_is'=>'seller',
                 'seller_id'=>$vendorId
             ],
+<<<<<<< HEAD
             relations: ['deliveredOrders'],
+=======
+            relations: ['orders'],
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         )->take(DASHBOARD_DATA_LIMIT);
 
         $from = now()->startOfYear()->format('Y-m-d');

@@ -37,18 +37,26 @@ class ContactRepository implements ContactRepositoryInterface
 
     public function getListWhere(array $orderBy=[], string $searchValue = null, array $filters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
+<<<<<<< HEAD
         $query = $this->contact->with($relations)
+=======
+        $query = $this->contact
+                ->with($relations)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ->when($searchValue, function ($query) use($searchValue){
                     $query->orWhere('name', 'like', "%$searchValue%")
                         ->orWhere('email', 'like', "%$searchValue%")
                         ->orWhere('mobile_number', 'like', "%$searchValue%");
                 })
+<<<<<<< HEAD
                 ->when(isset($filters['reply']) && $filters['reply'] == 'replied',function ($query){
                     return $query->whereNotNull('reply');
                 })
                 ->when(isset($filters['reply']) && $filters['reply'] == 'not_replied',function ($query){
                     return $query->whereNull('reply');
                 })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ->when(!empty($orderBy), function ($query) use ($orderBy) {
                     $query->orderBy(array_key_first($orderBy),array_values($orderBy)[0]);
                 });

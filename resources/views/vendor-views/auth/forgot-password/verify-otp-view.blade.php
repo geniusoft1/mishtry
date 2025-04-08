@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{translate('forgot_password')}}</title>
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{{ dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/vendor.min.css')}}">
@@ -12,6 +13,16 @@
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/toastr.css')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/style.css')}}">
+=======
+    <link rel="shortcut icon" href="{{ asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/vendor.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/vendor/icon-set/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/toastr.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/style.css')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 </head>
 
@@ -27,14 +38,22 @@
     <div class="container py-5 py-sm-7">
         @php($ecommerceLogo=getWebConfig('company_web_logo'))
         <a class="d-flex justify-content-center mb-5" href="javascript:">
+<<<<<<< HEAD
             <img class="z-index-2 __w-rem" height="40" src="{{getValidImage(path: 'storage/app/public/company/'.$ecommerceLogo,type: 'backend-logo')}}" alt="{{translate('logo')}}">
+=======
+            <img class="z-index-2 __w-rem" src="{{asset('storage/app/public/company/'.$ecommerceLogo)}}" alt="{{translate('logo')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </a>
         <div class="container py-4 py-lg-5 my-4">
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6">
                     <h2 class="h3 mb-4">{{translate('provide_your_otp_and_proceed').'?'}}</h2>
                     <div class="card py-2 mt-4">
+<<<<<<< HEAD
                         <form class="card-body needs-validation" action="{{route('vendor.auth.forgot-password.otp-verification')}}"
+=======
+                        <form class="card-body needs-validation" action="{{route('vendor.auth.otp-verification')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                               method="post">
                             @csrf
                             <div class="form-group">
@@ -53,9 +72,15 @@
         </div>
     </div>
 </main>
+<<<<<<< HEAD
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor.min.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/theme.min.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/toastr.js')}}"></script>
+=======
+<script src="{{asset('public/assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/toastr.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 {!! Toastr::message() !!}
 
 @if ($errors->any())

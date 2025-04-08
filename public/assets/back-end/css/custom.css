@@ -956,6 +956,7 @@ select.theme-input-style[name="mode"] {
 input[name="gateway_image"] {
     padding: .35rem .45rem !important;
 }
+<<<<<<< HEAD
 .text-area-max-min {
     max-height: 500px;
     min-height: 100px
@@ -1122,3 +1123,5 @@ input[name="gateway_image"] {
     height: 16px;
     background-size: contain;
 }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

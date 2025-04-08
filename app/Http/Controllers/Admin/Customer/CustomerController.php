@@ -9,7 +9,10 @@ use App\Contracts\Repositories\SubscriptionRepositoryInterface;
 use App\Contracts\Repositories\TranslationRepositoryInterface;
 use App\Enums\ViewPaths\Admin\Customer;
 use App\Enums\ExportFileNames\Admin\Customer as CustomerExport;
+<<<<<<< HEAD
 use App\Events\CustomerStatusUpdateEvent;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Exports\CustomerListExport;
 use App\Exports\SubscriberListExport;
 use App\Http\Controllers\BaseController;
@@ -68,8 +71,11 @@ class CustomerController extends BaseController
     {
         $this->customerRepo->update(id:$request['id'],data:['is_active'=>$request->get('status', 0)]);
         $this->customerRepo->deleteAuthAccessTokens(id:$request['id']);
+<<<<<<< HEAD
         $customer = $this->customerRepo->getFirstWhere(params: ['id'=>$request['id']]);
         event(new CustomerStatusUpdateEvent(key: $request['status'] ? 'customer_unblock_message':'customer_block_message', type: 'customer', lang: $customer['app_language'] ?? getDefaultLanguage(), status: $request['status'] ? 'unblocked':'blocked', fcmToken: $customer['cm_firebase_token']));
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return response()->json(['message'=> translate('update_successfully')]);
     }
 
@@ -77,7 +83,11 @@ class CustomerController extends BaseController
     {
         $customer = $this->customerRepo->getFirstWhere(params: ['id'=>$id]);
         if (isset($customer)) {
+<<<<<<< HEAD
             $orders = $this->orderRepo->getListWhere(orderBy:['id'=>'desc'],searchValue:$request['searchValue'], filters: ['customer_id'=>$id,'is_guest'=>'0']);
+=======
+            $orders = $this->orderRepo->getListWhere(searchValue:$request['searchValue'], filters: ['customer_id'=>$id,'is_guest'=>'0']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             return view(Customer::VIEW[VIEW], ['customer'=>$customer, 'orders'=>$orders]);
         }
         Toastr::error(translate('customer_Not_Found'));

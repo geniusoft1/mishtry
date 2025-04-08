@@ -24,7 +24,11 @@ class DeliverymanWithdrawController extends Controller
             $status = '0';
         }
 
+<<<<<<< HEAD
         $withdraws = WithdrawRequest::with(['deliveryMan'])
+=======
+        $withdraws = WithdrawRequest::with(['delivery_men'])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where('seller_id', $seller->id)
             ->whereNotNull('delivery_man_id')
             ->when($request->status == 'all', function ($query) {

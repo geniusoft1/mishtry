@@ -21,7 +21,11 @@
 @else
     <div class="d-flex justify-content-center align-items-center w-100 py-5">
         <div>
+<<<<<<< HEAD
             <img src="{{ theme_asset(path: 'public/assets/front-end/img/media/product.svg') }}" class="img-fluid" alt="">
+=======
+            <img src="{{ asset('public/assets/front-end/img/media/product.svg') }}" class="img-fluid" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <h6 class="text-muted">{{ translate('no_product_found') }}</h6>
         </div>
     </div>

@@ -5,7 +5,11 @@
     <div class="content container-fluid ">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/order_report.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/order_report.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('transaction_report')}}
             </h2>
         </div>
@@ -20,7 +24,10 @@
                                 <option value="this_year" {{ $date_type == 'this_year'? 'selected' : '' }}>{{translate('this_year')}}</option>
                                 <option value="this_month" {{ $date_type == 'this_month'? 'selected' : '' }}>{{translate('this_month')}}</option>
                                 <option value="this_week" {{ $date_type == 'this_week'? 'selected' : '' }}>{{translate('this_week')}}</option>
+<<<<<<< HEAD
                                 <option value="today" {{ $date_type == 'today'? 'selected' : '' }}>{{translate('today')}}</option>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <option value="custom_date" {{ $date_type == 'custom_date'? 'selected' : '' }}>{{translate('custom_date')}}</option>
                             </select>
                         </div>
@@ -52,35 +59,55 @@
         <div class="store-report-content mb-2">
             <div class="left-content expense--content">
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/expense.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/expense.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $total_expense), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">
                             <span>{{translate('total_Expense')}}</span>
                             <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                   title="{{translate('free_delivery')}}, {{translate('coupon_discount_will_be_shown_here')}}">
+<<<<<<< HEAD
                                 <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                <img class="info-img" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      alt="img">
                             </span>
                         </h6>
                     </div>
                 </div>
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/free-delivery.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/free-delivery.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $free_delivery), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">{{translate('free_Delivery')}}</h6>
                     </div>
                 </div>
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/coupon-discount.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/coupon-discount.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $coupon_discount), currencyCode: getCurrencyCode()) }}</h4>
                         <h6 class="subtext">
                             <span>{{translate('coupon_Discount')}}</span>
                             <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                   title="{{translate('discount_on_purchase_and_first_delivery_coupon_amount_will_be_shown_here')}}">
+<<<<<<< HEAD
                                 <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                <img class="info-img" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      alt="img">
                             </span>
                         </h6>
@@ -198,7 +225,11 @@
                             <li>
                                 <a class="dropdown-item"
                                    href="{{ route('admin.transaction.expense-transaction-export-excel', ['search'=>request('search'), 'date_type'=>request('date_type'), 'from'=>request('from'), 'to'=>request('to')]) }}">
+<<<<<<< HEAD
                                     <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                    <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('excel')}}
                                 </a>
                             </li>
@@ -252,7 +283,11 @@
                             <td colspan="7">
                                 <div class="text-center p-4">
                                     <img class="mb-3 w-160"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                         src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="Image Description">
                                     <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                                 </div>
@@ -273,8 +308,15 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/expense-report.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/admin/expense-report.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

@@ -291,10 +291,17 @@
             <table class="bs-0">
                 <tr>
                     <th class="h3 p-0 text-left">
+<<<<<<< HEAD
                         {{translate('order_Transaction_Statement')}}
                     </th>
                     <th class="p-0 text-right">
                         <img class="logo" src="{{dynamicStorage(path: "storage/app/public/company/".$data['company_web_logo'])}}"
+=======
+                        {{translate('oder_Transaction_Statement')}}
+                    </th>
+                    <th class="p-0 text-right">
+                        <img class="logo" src="{{asset("storage/app/public/company/".$data['company_web_logo'])}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="">
                     </th>
                 </tr>

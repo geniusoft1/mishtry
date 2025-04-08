@@ -4,9 +4,15 @@
 <meta charset="utf-8">
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="{{ dynamicAsset(path: 'public/assets/back-end/libs/bootstrap-5/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ dynamicAsset(path: 'public/assets/modules/payment/mercado_pogo/css/index.css') }}">
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/jquery.js') }}"></script>
+=======
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/back-end/libs/bootstrap-5/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/modules/payment/mercado_pogo/css/index.css') }}">
+    <script src="{{ asset('public/assets/back-end/js/jquery.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script src="https://sdk.mercadopago.com/js/v2"></script>
 </head>
 <body>

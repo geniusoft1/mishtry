@@ -6,7 +6,11 @@
 <div class="content container-fluid">
     <div class="mb-3">
         <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
             <img src="{{dynamicAsset(path: 'public/assets/back-end/img/subscribers.png')}}" width="20" alt="">
+=======
+            <img src="{{asset('/public/assets/back-end/img/subscribers.png')}}" width="20" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             {{translate('subscriber_list')}}
             <span class="badge badge-soft-dark radius-50 fz-14 ml-1">{{ $subscription_list->total() }}</span>
         </h2>
@@ -35,7 +39,11 @@
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li>
                             <a class="dropdown-item" href="{{route('admin.customer.subscriber-list.export',['searchValue'=>request('searchValue')])}}">
+<<<<<<< HEAD
                                 <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{ translate('excel') }}
                             </a>
                         </li>
@@ -76,7 +84,11 @@
                 </div>
                 @if(count($subscription_list)==0)
                     <div class="text-center p-4">
+<<<<<<< HEAD
                         <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="Image Description">
+=======
+                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="Image Description">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                     </div>
                 @endif

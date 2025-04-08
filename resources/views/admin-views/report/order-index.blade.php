@@ -5,7 +5,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/order_report.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('public/assets/back-end/img/order_report.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('order_Report')}}
             </h2>
         </div>
@@ -30,7 +34,10 @@
                                 <option value="this_year" {{ $date_type == 'this_year'? 'selected' : '' }}>{{translate('this_Year')}}</option>
                                 <option value="this_month" {{ $date_type == 'this_month'? 'selected' : '' }}>{{translate('this_Month')}}</option>
                                 <option value="this_week" {{ $date_type == 'this_week'? 'selected' : '' }}>{{translate('this_Week')}}</option>
+<<<<<<< HEAD
                                 <option value="today" {{ $date_type == 'today'? 'selected' : '' }}>{{translate('today')}}</option>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <option value="custom_date" {{ $date_type == 'custom_date'? 'selected' : '' }}>{{translate('custom_Date')}}</option>
                             </select>
                         </div>
@@ -59,41 +66,71 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/cart.svg')}}" alt="{{translate('image')}}">
+=======
+                    <img src="{{asset('public/assets/back-end/img/cart.svg')}}" alt="{{translate('image')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ $order_count['total_order'] }}</h4>
                         <h6 class="subtext">{{translate('total_Orders')}}</h6>
                     </div>
+<<<<<<< HEAD
                     <div class="coupon__discount w-100 text-right d-flex flex-wrap justify-content-between gap-2">
                         <div class="text-center">
                             <strong class="text-danger fs-12 font-weight-bold">{{ $order_count['canceled_order'] }}</strong>
+=======
+                    <div class="coupon__discount w-100 text-right d-flex justify-content-between">
+                        <div class="text-center">
+                            <strong class="text-danger">{{ $order_count['canceled_order'] }}</strong>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="d-flex">
                                 <span>{{translate('canceled')}}</span>
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('this_count_is_the_summation_of')}} {{translate('failed_to_deliver')}}, {{translate('canceled')}}, {{translate('and')}} {{translate('returned_orders')}}">
+<<<<<<< HEAD
                                     <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                    <img class="info-img" src="{{asset('public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="img">
                                 </span>
                             </div>
                         </div>
                         <div class="text-center">
+<<<<<<< HEAD
                             <strong class="text-primary fs-12 font-weight-bold">{{ $order_count['ongoing_order'] }}</strong>
+=======
+                            <strong class="text-primary">{{ $order_count['ongoing_order'] }}</strong>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="d-flex">
                                 <span>{{translate('ongoing')}}</span>
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('this_count_is_the_summation_of')}} {{translate('pending')}}, {{translate('confirmed')}}, {{translate('packaging')}}, {{translate('out_for_delivery_orders')}}">
+<<<<<<< HEAD
                                     <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                    <img class="info-img" src="{{asset('public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="img">
                                 </span>
                             </div>
                         </div>
                         <div class="text-center">
+<<<<<<< HEAD
                             <strong class="text-success fs-12 font-weight-bold">{{ $order_count['delivered_order'] }}</strong>
+=======
+                            <strong class="text-success">{{ $order_count['delivered_order'] }}</strong>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="d-flex">
                                 <span>{{translate('completed')}}</span>
                                 <span class="ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('this_count_is_the_summation_of_delivered_orders')}}">
+<<<<<<< HEAD
                                     <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                    <img class="info-img" src="{{asset('public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="img">
                                 </span>
                             </div>
@@ -101,7 +138,11 @@
                     </div>
                 </div>
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/products.svg')}}" alt="{{translate('image')}}">
+=======
+                    <img src="{{asset('public/assets/back-end/img/products.svg')}}" alt="{{translate('image')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">
                             {{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $due_amount+$settled_amount), currencyCode: getCurrencyCode()) }}
@@ -117,7 +158,11 @@
                                 <span>{{translate('due_Amount')}}</span>
                                 <span class="trx-y-2 ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('the_ongoing_order_amount_will_be_shown_here')}}">
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="{{translate('image')}}">
+=======
+                                    <img src="{{asset('public/assets/back-end/img/info-circle.svg')}}" alt="{{translate('image')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </span>
                             </div>
                         </div>
@@ -129,7 +174,11 @@
                                 <span>{{translate('already_Settled')}}</span>
                                 <span class="trx-y-2 ml-2" data-toggle="tooltip" data-placement="top"
                                       title="{{translate('after_the_order_is_delivered_total_order_amount_will_be_shown_here')}}">
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="{{translate('image')}}">
+=======
+                                    <img src="{{asset('public/assets/back-end/img/info-circle.svg')}}" alt="{{translate('image')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </span>
                             </div>
                         </div>
@@ -204,6 +253,10 @@
                 </canvas>
             </div>
             <div class="right-content">
+<<<<<<< HEAD
+=======
+                <!-- Dognut Pie -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="card h-100 bg-white payment-statistics-shadow">
                     <div class="card-header border-0 ">
                         <h5 class="card-title">
@@ -213,12 +266,20 @@
                     <div class="card-body px-0 pt-0">
                         <div class="position-relative pie-chart">
                             <div id="dognut-pie" class="label-hide"></div>
+<<<<<<< HEAD
+=======
+                            <!-- Total Orders -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="total--orders">
                                 <h3 class="mb-1">
                                     {{ getCurrencySymbol(currencyCode: getCurrencyCode()) }}{{getFormatCurrency(amount: usdToDefaultCurrency(amount: $payment_data['total_payment'])) }}
                                 </h3>
                                 <span>{{translate('completed')}} <br> {{translate('payments')}}</span>
                             </div>
+<<<<<<< HEAD
+=======
+                            <!-- Total Orders -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                         <div class="apex-legends">
                             <div class="before-bg-004188">
@@ -237,6 +298,10 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+=======
+                <!-- Dognut Pie -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </div>
         </div>
 
@@ -248,6 +313,10 @@
                         <span class="badge badge-soft-dark radius-50 fz-14">{{ $orders->total() }}</span>
                     </h4>
                     <form action="" method="GET" class="mb-0">
+<<<<<<< HEAD
+=======
+                        <!-- Search -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="input-group input-group-merge input-group-custom">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -263,6 +332,10 @@
                                    aria-label="Search orders" required>
                             <button type="submit" class="btn btn--primary">{{ translate('search')}}</button>
                         </div>
+<<<<<<< HEAD
+=======
+                        <!-- End Search -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </form>
                     <div>
                         <button type="button" class="btn btn-outline--primary text-nowrap btn-block"
@@ -275,6 +348,7 @@
                             <li>
                                 <a class="dropdown-item"
                                    href="{{ route('admin.report.order-report-excel', ['date_type'=>request('date_type'), 'seller_id'=>request('seller_id'), 'from'=>request('from'), 'to'=>request('to'), 'search'=>request('search')]) }}">
+<<<<<<< HEAD
                                     <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
                                     {{translate('excel')}}
                                 </a>
@@ -287,6 +361,12 @@
                                     {{ translate('Download_PDF') }}
                                 </a>
                             </li>
+=======
+                                    <img width="14" src="{{asset('public/assets/back-end/img/excel.png')}}" alt="">
+                                    {{translate('excel')}}
+                                </a>
+                            </li>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </ul>
                     </div>
                 </div>
@@ -304,7 +384,10 @@
                         <th>{{translate('shipping_Charge')}}</th>
                         <th>{{translate('VAT/TAX')}}</th>
                         <th>{{translate('commission')}}</th>
+<<<<<<< HEAD
                         <th>{{translate('deliveryman_incentive')}}</th>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <th class="text-center">{{translate('status')}}</th>
                     </tr>
                     </thead>
@@ -322,7 +405,10 @@
                             <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $order->shipping_cost - ($order->extra_discount_type == 'free_shipping_over_order_amount' ? $order->extra_discount : 0)), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $order->details_sum_tax), currencyCode: getCurrencyCode()) }}</td>
                             <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $order->admin_commission), currencyCode: getCurrencyCode()) }}</td>
+<<<<<<< HEAD
                             <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $order->deliveryman_charge), currencyCode: getCurrencyCode()) }}</td>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <td>
                                 <div class="d-flex justify-content-center">
                                     @if($order['order_status']=='pending')
@@ -338,7 +424,11 @@
                                             {{translate($order['order_status'])}}
                                         </span>
                                     @elseif($order['order_status']=='failed')
+<<<<<<< HEAD
                                         <span class="badge badge-soft-danger fz-12">
+=======
+                                        <span class="badge badge-danger fz-12">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             {{translate('failed_to_deliver')}}
                                         </span>
                                     @elseif($order['order_status']=='delivered')
@@ -359,7 +449,11 @@
                             <td colspan="9">
                                 <div class="text-center p-4">
                                     <img class="mb-3 w-160"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                         src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="Image Description">
                                     <p class="mb-0">{{ translate('no_data_to_found')}}</p>
                                 </div>
@@ -372,6 +466,10 @@
         </div>
         <div class="table-responsive mt-4">
             <div class="px-4 d-flex justify-content-center justify-content-md-end">
+<<<<<<< HEAD
+=======
+                <!-- Pagination -->
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {!! $orders->links() !!}
             </div>
         </div>
@@ -396,9 +494,17 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/order-report.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/back-end/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/admin/order-report.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

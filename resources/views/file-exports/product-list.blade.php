@@ -58,7 +58,11 @@
                 <tr>
                     <td> {{++$key}}	</td>
                     <td style="height: 200px"></td>
+<<<<<<< HEAD
                     <td>{{dynamicStorage(path: 'storage/app/public/product/thumbnail/'.$item->thumbnail)}}</td>
+=======
+                    <td>{{asset('storage/app/public/product/thumbnail/'.$item->thumbnail)}}</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <td> {{$item->name}}</td>
                     <td>{{$item->code}}</td>
                     <td>{{strip_tags(str_replace('&nbsp;', ' ', $item->details))}}</td>

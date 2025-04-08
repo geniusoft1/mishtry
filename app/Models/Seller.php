@@ -12,7 +12,10 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $f_name
  * @property string $l_name
+<<<<<<< HEAD
  * @property string $country_code
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
  * @property string $phone
  * @property string $image
  * @property string $email
@@ -37,6 +40,7 @@ class Seller extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
+<<<<<<< HEAD
         'f_name',
         'l_name',
         'country_code',
@@ -65,6 +69,12 @@ class Seller extends Authenticatable
         'f_name' => 'string',
         'l_name' => 'string',
         'country_code' => 'string',
+=======
+        'free_delivery_over_amount',
+    ];
+    protected $casts = [
+        'id' => 'integer',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         'orders_count' => 'integer',
         'product_count' => 'integer',
         'pos+status' => 'integer'

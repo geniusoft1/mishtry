@@ -12,6 +12,7 @@
     @endif
 
     @if($product['meta_image']!=null)
+<<<<<<< HEAD
         <meta property="og:image" content="{{dynamicStorage(path: "storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
         <meta property="twitter:card"
               content="{{dynamicStorage(path: "storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
@@ -19,6 +20,15 @@
         <meta property="og:image" content="{{dynamicStorage(path: "storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
         <meta property="twitter:card"
               content="{{dynamicStorage(path: "storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+=======
+        <meta property="og:image" content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+        <meta property="twitter:card"
+              content="{{asset("storage/app/public/product/meta")}}/{{$product->meta_image}}"/>
+    @else
+        <meta property="og:image" content="{{asset("storage/app/public/product/thumbnail")}}/{{$product->thumbnail}}"/>
+        <meta property="twitter:card"
+              content="{{asset("storage/app/public/product/thumbnail/")}}/{{$product->thumbnail}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     @endif
 
     @if($product['meta_title']!=null)
@@ -31,8 +41,13 @@
     <meta property="og:url" content="{{route('product',[$product->slug])}}">
 
     @if($product['meta_description']!=null)
+<<<<<<< HEAD
         <meta property="twitter:description" content="{!! Str::limit($product['meta_description'], 55) !!}">
         <meta property="og:description" content="{!! Str::limit($product['meta_description'], 55) !!}">
+=======
+        <meta property="twitter:description" content="{!! $product['meta_description'] !!}">
+        <meta property="og:description" content="{!! $product['meta_description'] !!}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     @else
         <meta property="og:description"
               content="@foreach(explode(' ',$product['name']) as $keyword) {{$keyword.' , '}} @endforeach">
@@ -41,7 +56,11 @@
     @endif
     <meta property="twitter:url" content="{{route('product',[$product->slug])}}">
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/product-details.css') }}"/>
+=======
+    <link rel="stylesheet" href="{{asset('public/assets/front-end/css/product-details.css')}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -53,6 +72,7 @@
                         <div class="col-lg-5 col-md-4 col-12">
                             <div class="cz-product-gallery">
                                 <div class="cz-preview">
+<<<<<<< HEAD
                                     <div id="sync1" class="owl-carousel owl-theme product-thumbnail-slider">
                                         @if($product->images!=null && json_decode($product->images)>0)
                                             @if(json_decode($product->colors) && $product->color_image)
@@ -94,6 +114,47 @@
                                             @endif
                                         @endif
                                     </div>
+=======
+                                    @if($product->images!=null && json_decode($product->images)>0)
+                                        @if(json_decode($product->colors) && $product->color_image)
+                                            @foreach (json_decode($product->color_image) as $key => $photo)
+                                                @if($photo->color != null)
+                                                    <div
+                                                        class="cz-preview-item d-flex align-items-center justify-content-center {{$key==0?'active':''}}"
+                                                        id="image{{$photo->color}}">
+                                                        <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
+                                                             src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}"
+                                                             data-zoom="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product')  }}"
+                                                             alt="{{ translate('product') }}" width="">
+                                                        <div class="cz-image-zoom-pane"></div>
+                                                    </div>
+                                                @else
+                                                    <div
+                                                        class="cz-preview-item d-flex align-items-center justify-content-center {{$key==0?'active':''}}"
+                                                        id="image{{$key}}">
+                                                        <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
+                                                             src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}"
+                                                             data-zoom="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}"
+                                                             alt="{{ translate('product') }}" width="">
+                                                        <div class="cz-image-zoom-pane"></div>
+                                                    </div>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            @foreach (json_decode($product->images) as $key => $photo)
+                                                <div
+                                                    class="cz-preview-item d-flex align-items-center justify-content-center {{$key==0?'active':''}}"
+                                                    id="image{{$key}}">
+                                                    <img class="cz-image-zoom img-responsive w-100 __max-h-323px"
+                                                         src="{{ getValidImage(path: 'storage/app/public/product/'.$photo, type: 'product') }}"
+                                                         data-zoom="{{ getValidImage(path: 'storage/app/public/product/'.$photo, type: 'product') }}"
+                                                         alt="{{ translate('product') }}" width="">
+                                                    <div class="cz-image-zoom-pane"></div>
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
 
                                 <div class="d-flex flex-column gap-3">
@@ -110,6 +171,7 @@
                                 <div class="cz">
                                     <div class="table-responsive __max-h-515px" data-simplebar>
                                         <div class="d-flex">
+<<<<<<< HEAD
                                             <div id="sync2" class="owl-carousel owl-theme product-thumb-slider">
                                                 @if($product->images!=null && json_decode($product->images)>0)
                                                     @if(json_decode($product->colors) && $product->color_image)
@@ -146,6 +208,42 @@
                                                     @endif
                                                 @endif
                                             </div>
+=======
+                                            @if($product->images!=null && json_decode($product->images)>0)
+                                                @if(json_decode($product->colors) && $product->color_image)
+                                                    @foreach (json_decode($product->color_image) as $key => $photo)
+                                                        @if($photo->color != null)
+                                                            <div class="cz-thumblist">
+                                                                <a class="cz-thumblist-item  {{$key==0?'active':''}} d-flex align-items-center justify-content-center"
+                                                                   id="preview-img{{$photo->color}}"
+                                                                   href="#image{{$photo->color}}">
+                                                                    <img alt="{{ translate('product') }}"
+                                                                         src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}">
+                                                                </a>
+                                                            </div>
+                                                        @else
+                                                            <div class="cz-thumblist">
+                                                                <a class="cz-thumblist-item  {{$key==0?'active':''}} d-flex align-items-center justify-content-center"
+                                                                   id="preview-img{{$key}}" href="#image{{$key}}">
+                                                                    <img alt="{{ translate('product') }}"
+                                                                         src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}">
+                                                                </a>
+                                                            </div>
+                                                        @endif
+                                                    @endforeach
+                                                @else
+                                                    @foreach (json_decode($product->images) as $key => $photo)
+                                                        <div class="cz-thumblist">
+                                                            <a class="cz-thumblist-item  {{$key==0?'active':''}} d-flex align-items-center justify-content-center"
+                                                               id="preview-img{{$key}}" href="#image{{$key}}">
+                                                                <img alt="{{ translate('product') }}"
+                                                                     src="{{ getValidImage(path: 'storage/app/public/product/'.$photo, type: 'product') }}">
+                                                            </a>
+                                                        </div>
+                                                    @endforeach
+                                                @endif
+                                            @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +278,11 @@
 
                                 </div>
                                 <div class="mb-3">
+<<<<<<< HEAD
                                     <span class="font-weight-normal text-accent d-flex align-items-end gap-2">
+=======
+                                    <span class="f-20 font-weight-normal text-accent ">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {!! getPriceRangeWithDiscount(product: $product) !!}
                                     </span>
                                 </div>
@@ -205,11 +307,18 @@
                                                                        name="color" value="{{ $color }}"
                                                                        @if($key == 0) checked @endif>
                                                                 <label style="background: {{ $color }};"
+<<<<<<< HEAD
                                                                     class="focus-preview-image-by-color shadow-border"
                                                                     for="{{ $product->id }}-color-{{ str_replace('#','',$color) }}"
                                                                     data-toggle="tooltip"
                                                                     data-key="{{ str_replace('#','',$color) }}"
                                                                    data-colorid="preview-box-{{ str_replace('#','',$color) }}">
+=======
+                                                                    class="focus-preview-image-by-color"
+                                                                    for="{{ $product->id }}-color-{{ str_replace('#','',$color) }}"
+                                                                    data-toggle="tooltip"
+                                                                    data-key="{{ str_replace('#','',$color) }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     <span class="outline"></span></label>
                                                             </li>
                                                         @endforeach
@@ -280,8 +389,11 @@
                                                         </button>
                                                     </span>
                                                 </div>
+<<<<<<< HEAD
                                                 <input type="hidden" class="product-generated-variation-code" name="product_variation_code">
                                                 <input type="hidden" value="" class="in_cart_key form-control w-50" name="key">
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                             <div id="chosen_price_div">
                                                 <div
@@ -300,6 +412,16 @@
                                             </div>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+=======
+                                    <div class="row no-gutters d-none mt-2 flex-start d-flex">
+                                        <div class="col-12">
+                                            @if(($product['product_type'] == 'physical') && ($product['current_stock']<=0))
+                                                <h5 class="mt-3 text-danger">{{translate('out_of_stock')}}</h5>
+                                            @endif
+                                        </div>
+                                    </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                                     <div class="__btn-grp mt-2 mb-3 d-none d-sm-flex">
                                         @if(($product->added_by == 'seller' && ($sellerTemporaryClose || (isset($product->seller->shop) && $product->seller->shop->vacation_status && $currentDate >= $sellerVacationStartDate && $currentDate <= $sellerVacationEndDate))) ||
@@ -316,8 +438,14 @@
                                                 type="button">
                                                 <span class="string-limit">{{translate('buy_now')}}</span>
                                             </button>
+<<<<<<< HEAD
                                             <button class="btn btn--primary element-center btn-gap-{{Session::get('direction') === "rtl" ? 'left' : 'right'}} action-add-to-cart-form"
                                                 type="button" data-update-text="{{ translate('update_cart') }}" data-add-text="{{ translate('add_to_cart') }}">
+=======
+                                            <button
+                                                class="btn btn--primary element-center btn-gap-{{Session::get('direction') === "rtl" ? 'left' : 'right'}} action-add-to-cart-form"
+                                                type="button">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <span class="string-limit">{{translate('add_to_cart')}}</span>
                                             </button>
                                         @endif
@@ -335,6 +463,7 @@
                                             </div>
                                         @endif
                                     </div>
+<<<<<<< HEAD
 
                                     <div class="row no-gutters d-none flex-start d-flex">
                                         <div class="col-12">
@@ -343,6 +472,8 @@
                                             @endif
                                         </div>
                                     </div>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </form>
 
                             </div>
@@ -384,7 +515,11 @@
                                                         @endif
                                                         @if ($product['details'])
                                                             <div
+<<<<<<< HEAD
                                                                 class="text-body col-lg-12 col-md-12 overflow-scroll fs-13 text-justify details-text-justify">
+=======
+                                                                class="text-body col-lg-12 col-md-12 overflow-scroll fs-13 text-justify">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                 {!! $product['details'] !!}
                                                             </div>
                                                         @endif
@@ -392,9 +527,15 @@
                                                     </div>
                                                     @if (!$product['details'] && ($product->video_url == null || !(str_contains($product->video_url, "youtube.com/embed/"))))
                                                         <div>
+<<<<<<< HEAD
                                                             <div class="text-center text-capitalize py-5">
                                                                 <img class="mw-90"
                                                                      src="{{theme_asset(path: 'public/assets/front-end/img/icons/nodata.svg')}}"
+=======
+                                                            <div class="text-center text-capitalize">
+                                                                <img class="mw-90"
+                                                                     src="{{asset('/public/assets/front-end/img/icons/nodata.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                      alt="">
                                                                 <p class="text-capitalize mt-2">
                                                                     <small>{{translate('product_details_not_found')}}
@@ -410,7 +551,11 @@
                                                         <div>
                                                             <div class="text-center text-capitalize">
                                                                 <img class="mw-100"
+<<<<<<< HEAD
                                                                      src="{{theme_asset(path: 'public/assets/front-end/img/icons/empty-review.svg')}}"
+=======
+                                                                     src="{{asset('/public/assets/front-end/img/icons/empty-review.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                      alt="">
                                                                 <p class="text-capitalize">
                                                                     <small>{{translate('No_review_given_yet')}}!</small>
@@ -605,7 +750,11 @@
                                     <div class="shipping-details-bottom-border">
                                         <div class="px-3 py-3">
                                             <img class="{{Session::get('direction') === "rtl" ? 'float-right ml-2' : 'mr-2'}} __img-20"
+<<<<<<< HEAD
                                                  src="{{ getValidImage(path: 'storage/app/public/company-reliability/'.$value['image'], type: 'source', source: theme_asset(path: 'public/assets/front-end/img').'/'.$value['item'].'.png') }}"
+=======
+                                                 src="{{ getValidImage(path: 'storage/app/public/company-reliability/'.$value['image'], type: 'source', source: asset('/public/assets/front-end/img').'/'.$value['item'].'.png') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 alt="">
                                             <span>{{translate($value['title'])}}</span>
                                         </div>
@@ -615,7 +764,10 @@
                         </div>
                     @endif
 
+<<<<<<< HEAD
                     @if(getWebConfig(name: 'business_mode')=='multi')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="__inline-31">
 
                         @if($product->added_by=='seller')
@@ -642,7 +794,11 @@
                                                     <span class="chat-seller-info product-details-seller-info"
                                                           data-toggle="tooltip"
                                                           title="{{ translate('this_shop_is_temporary_closed_or_on_vacation').' '.translate('You_cannot_add_product_to_cart_from_this_shop_for_now') }}">
+<<<<<<< HEAD
                                                         <img src="{{theme_asset(path: 'public/assets/front-end/img/info.png')}}" alt="i">
+=======
+                                                        <img src="{{asset('/public/assets/front-end/img/info.png')}}" alt="i">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </span>
                                                 @endif
                                             </div>
@@ -654,7 +810,11 @@
                                                 <div
                                                     class="d-flex justify-content-center align-items-center rounded __h-79px hr-right-before">
                                                     <div class="text-center">
+<<<<<<< HEAD
                                                         <img src="{{theme_asset(path: 'public/assets/front-end/img/rating.svg')}}"
+=======
+                                                        <img src="{{asset('/public/assets/front-end/img/rating.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                              class="mb-2" alt="">
                                                         <div class="__text-12px text-base">
                                                             <strong>{{$totalReviews}}</strong> {{translate('reviews')}}
@@ -667,7 +827,11 @@
                                                     class="d-flex justify-content-center align-items-center rounded __h-79px">
                                                     <div class="text-center">
                                                         <img
+<<<<<<< HEAD
                                                             src="{{theme_asset(path: 'public/assets/front-end/img/products.svg')}}"
+=======
+                                                            src="{{asset('/public/assets/front-end/img/products.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             class="mb-2" alt="">
                                                         <div class="__text-12px text-base">
                                                             <strong>{{$productsForReview->count()}}</strong> {{translate('products')}}
@@ -684,7 +848,11 @@
                                                         data-toggle="modal"
                                                         data-target="#chatting_modal" {{ ($product->seller->shop->temporary_close || ($product->seller->shop->vacation_status && date('Y-m-d') >= date('Y-m-d', strtotime($product->seller->shop->vacation_start_date)) && date('Y-m-d') <= date('Y-m-d', strtotime($product->seller->shop->vacation_end_date)))) ? 'disabled' : '' }}>
                                                     <img class="mb-1" alt=""
+<<<<<<< HEAD
                                                         src="{{theme_asset(path: 'public/assets/front-end/img/chat-16-filled-icon.png')}}">
+=======
+                                                        src="{{asset('/public/assets/front-end/img/chat-16-filled-icon.png')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <span class="d-none d-sm-inline-block text-capitalize">
                                                         {{translate('chat_with_vendor')}}
                                                     </span>
@@ -692,9 +860,16 @@
                                             @else
                                                 <a href="{{route('customer.auth.login')}}"
                                                    class="btn w-100 d-block text-center web--bg-primary text-white">
+<<<<<<< HEAD
                                                     <img src="{{theme_asset(path: 'public/assets/front-end/img/chat-16-filled-icon.png')}}"
                                                         class="mb-1" alt="">
                                                     <span class="d-none d-sm-inline-block text-capitalize">{{translate('chat_with_vendor')}}</span>
+=======
+                                                    <img src="{{asset('/public/assets/front-end/img/chat-16-filled-icon.png')}}"
+                                                        class="mb-1" alt="">
+                                                    <span
+                                                        class="d-none d-sm-inline-block text-capitalize">{{translate('chat_with_vendor')}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </a>
                                             @endif
                                         </div>
@@ -720,7 +895,11 @@
                                             <div class="{{Session::get('direction') === "rtl" ? 'right' : 'ml-3'}}">
                                                 <span class="chat-seller-info" data-toggle="tooltip"
                                                       title="{{translate('this_shop_is_temporary_closed_or_on_vacation._You_cannot_add_product_to_cart_from_this_shop_for_now')}}">
+<<<<<<< HEAD
                                                     <img src="{{theme_asset(path: 'public/assets/front-end/img/info.png')}}"
+=======
+                                                    <img src="{{asset('/public/assets/front-end/img/info.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                          alt="i">
                                                 </span>
                                             </div>
@@ -734,7 +913,11 @@
                                             <div
                                                 class="d-flex justify-content-center align-items-center rounded __h-79px hr-right-before">
                                                 <div class="text-center">
+<<<<<<< HEAD
                                                     <img src="{{theme_asset(path: 'public/assets/front-end/img/rating.svg')}}"
+=======
+                                                    <img src="{{asset('/public/assets/front-end/img/rating.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                          class="mb-2" alt="">
                                                     <div class="__text-12px text-base">
                                                         <strong>{{$totalReviews}}</strong> {{translate('reviews')}}
@@ -746,7 +929,11 @@
                                             <div
                                                 class="d-flex justify-content-center align-items-center rounded __h-79px">
                                                 <div class="text-center">
+<<<<<<< HEAD
                                                     <img src="{{theme_asset(path: 'public/assets/front-end/img/products.svg')}}"
+=======
+                                                    <img src="{{asset('/public/assets/front-end/img/products.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                          class="mb-2" alt="">
                                                     <div class="__text-12px text-base">
                                                         <strong>{{$productsForReview->count()}}</strong> {{translate('products')}}
@@ -756,6 +943,7 @@
                                         </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="col-12 position-static mt-3">
                                     <div class="chat_with_seller-buttons">
                                         @if (auth('customer')->id())
@@ -776,11 +964,22 @@
                                                 </button>
                                             </a>
                                         @endif
+=======
+                                <div class="col-12 mt-2">
+                                    <div class="row">
+                                        <a href="{{ route('shopView',[0]) }}" class="text-center d-block w-100">
+                                            <button class="btn text-center d-block w-100 text-white web--bg-primary">
+                                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                                                {{translate('visit_Store')}}
+                                            </button>
+                                        </a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
                         @endif
                     </div>
+<<<<<<< HEAD
                     @endif
 
                     <div class="pt-4 pb-3">
@@ -790,6 +989,12 @@
                             @else
                                 {{ translate('you_may_also_like')}}
                             @endif
+=======
+
+                    <div class="pt-4 pb-3">
+                        <span class=" __text-16px font-bold text-capitalize">
+                            {{ translate('more_from_the_store')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </span>
                     </div>
                     <div>
@@ -847,7 +1052,11 @@
                     <div class="card-body">
                         <div class="row flex-between">
                             <div class="ms-1">
+<<<<<<< HEAD
                                 <h4 class="text-capitalize font-bold fs-16">{{ translate('similar_products')}}</h4>
+=======
+                                <h4 class="text-capitalize font-bold">{{ translate('similar_products')}}</h4>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div class="view_all d-flex justify-content-center align-items-center">
                                 <div>
@@ -865,7 +1074,11 @@
                         <div class="row g-3 mt-1">
                             @foreach($relatedProducts as $key => $relatedProduct)
                                 <div class="col-xl-2 col-sm-3 col-6">
+<<<<<<< HEAD
                                     @include('web-views.partials._inline-single-product-without-eye',['product'=>$relatedProduct,'decimal_point_settings'=>$decimalPointSettings])
+=======
+                                    @include('web-views.partials._inline-single-product',['product'=>$relatedProduct,'decimal_point_settings'=>$decimalPointSettings])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             @endforeach
                         </div>
@@ -890,7 +1103,11 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     @include('layouts.front-end.partials.modal._chatting',['seller'=>$product->seller, 'user_type'=>$product->added_by])
+=======
+    @include('layouts.front-end.partials.modal._chatting',['seller'=>$product->seller])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     <div class="modal fade" id="remove-wishlist-modal">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -902,7 +1119,11 @@
                 </div>
                 <div class="modal-body pb-5">
                     <div class="text-center">
+<<<<<<< HEAD
                         <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/remove-wishlist.png')}}" alt="{{ translate('wishlist') }}">
+=======
+                        <img src="{{asset('/public/assets/front-end/img/icons/remove-wishlist.png')}}" alt="{{ translate('wishlist') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <h6 class="font-semibold mt-3 mb-4 mx-auto __max-w-220">
                             {{ translate('Product_has_been_removed_from_wishlist') }} ?
                         </h6>
@@ -922,7 +1143,11 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/product-details.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/front-end/js/product-details.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script type="text/javascript" async="async"
             src="https://platform-api.sharethis.com/js/sharethis.js#property=5f55f75bde227f0012147049&product=sticky-share-buttons"></script>
 @endpush

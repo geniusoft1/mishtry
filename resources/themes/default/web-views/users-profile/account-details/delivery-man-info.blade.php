@@ -3,7 +3,11 @@
 @section('title', translate('order_Details'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/deliveryman-info.css') }}">
+=======
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/deliveryman-info.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -17,10 +21,15 @@
                     <div class="bg-sm-white mt-3">
                         <div class="p-sm-3">
                             <div class="delivery-man-info-box bg-white media gap-2 gap-sm-3 shadow-sm rounded p-3">
+<<<<<<< HEAD
                                 <div class="img-avatar-parent-element">
                                     <img class="rounded-circle" width="77" alt=""
                                          src="{{ getValidImage(path: 'storage/app/public/delivery-man/'.$order->deliveryMan->image, type: 'avatar') }}">
                                 </div>
+=======
+                                <img class="rounded-circle" width="77" alt=""
+                                     src="{{ getValidImage(path: 'storage/app/public/delivery-man/'.$order->deliveryMan->image, type: 'avatar') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="media-body">
                                     <div
                                         class="d-flex gap-2 gap-sm-3 align-items-start align-items-sm-center justify-content-between">
@@ -49,12 +58,20 @@
                                                     data-toggle="modal"
                                                     data-target="#chatting_modal">
                                                 <img
+<<<<<<< HEAD
                                                     src="{{theme_asset(path: 'public/assets/front-end/img/seller-info-chat.png')}}"
+=======
+                                                    src="{{asset('/public/assets/front-end/img/seller-info-chat.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     alt="">
                                                 <span
                                                     class="d-none d-md-inline-block">{{translate('chat_with_delivery_man')}}</span>
                                             </button>
+<<<<<<< HEAD
                                             @if($order->payment_status == 'paid' && $order->order_type == 'default_type' && $order->order_status=='delivered' && $order->delivery_man_id)
+=======
+                                            @if($order->order_type == 'default_type' && $order->order_status=='delivered' && $order->delivery_man_id)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <button type="button" class="btn btn-sm btn-warning px-2 px-md-4"
                                                         data-toggle="modal"
                                                         data-target="#submitReviewModal">
@@ -92,7 +109,14 @@
                                         &nbsp{{$order->deliveryMan->l_name}}
                                     </h6>
                                     @foreach ($order->verificationImages as $image)
+<<<<<<< HEAD
                                         <img class="rounded" width="100" src="{{ getValidImage(path: "storage/app/public/delivery-man/verification-image/".$image->image, type: 'product') }}" alt="">
+=======
+                                        @if(file_exists(base_path("storage/app/public/delivery-man/verification-image/".$image->image)))
+                                            <img class="rounded" width="100"
+                                                 src="{{asset('public/assets/front-end/img/cod.png')}}" alt="">
+                                        @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @endforeach
                                 </div>
                             @endif
@@ -136,7 +160,11 @@
                     <div class="login-card">
                         <div class="text-center pt-5 text-capitalize">
 
+<<<<<<< HEAD
                             <img src="{{theme_asset(path: 'public/assets/front-end/img/icons/delivery-man.svg')}}" alt="">
+=======
+                            <img src="{{asset('public/assets/front-end/img/icons/delivery-man.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <p class="opacity-60 mt-3">
                                 @if ($order->order_type == "POS")
                                     <span>{{translate('this_order_is_a_POS_order.delivery_man_is_not_assigned_to_POS_orders')}}</span>
@@ -175,6 +203,7 @@
                         <div class="d-flex flex-column gap-2 align-items-center my-4">
                             <h5 class="text-center text-capitalize">{{translate('rate_the_delivery_quality')}}</h5>
                             <div class="rating-label-wrap position-relative">
+<<<<<<< HEAD
 
                                 @php($style = '')
                                 @if(isset($order->deliveryManReview))
@@ -200,34 +229,70 @@
                                         }
                                     ?>
                                 @endif
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <label class="rating-label">
                                     <input
                                         name="rating"
                                         class="rating cursor-pointer"
                                         max="5"
                                         min="1"
+<<<<<<< HEAD
                                         onchange="this.style.setProperty('--value', `${this.valueAsNumber}`)"
                                         step="1"
                                         style="--value:{{isset($order->deliveryManReview) ? $order->deliveryManReview->rating : 1}}"
                                         type="range"
                                         value="{{$rating??1}}">
                                 </label>
+=======
+                                        oninput="this.style.setProperty('--value', `${this.valueAsNumber}`)"
+                                        step="1"
+                                        style="--value:{{isset($order->deliveryManReview) ? $order->deliveryManReview->rating : '4'}}"
+                                        type="range"
+                                        value="5">
+                                </label>
+                                @php($style = '')
+                                @if(isset($order->deliveryManReview))
+                                        <?php
+                                        $rating = $order->deliveryManReview->rating;
+                                        $style = match ($rating) {
+                                            1 => 'left:5px',
+                                            2 => 'left:36px',
+                                            3 => 'left:85px',
+                                            4 => 'left:112px',
+                                            default => 'left:155px',
+                                        };
+                                        ?>
+                                @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <span class="rating_content_delivery_man text-primary fs-12 text-nowrap"
                                       style="{{$style}}">
                                     @if(isset($order->deliveryManReview))
                                             <?php
                                             $rating = $order->deliveryManReview->rating;
                                             $rating_status = match ($rating) {
+<<<<<<< HEAD
                                                 2 => translate('average'),
                                                 3 => translate('good'),
                                                 4 => translate('very_good'),
                                                 5 => translate('excellent'),
                                                 default => translate('poor'),
+=======
+                                                1 => translate('poor'),
+                                                2 => translate('average'),
+                                                3 => translate('good'),
+                                                4 => translate('very_good'),
+                                                default => translate('excellent'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             };
                                             ?>
                                         {{$rating_status}}
                                     @else
+<<<<<<< HEAD
                                         {{ translate('poor') }}
+=======
+                                        {{ translate('excellent') }}!
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @endif
                                 </span>
                             </div>

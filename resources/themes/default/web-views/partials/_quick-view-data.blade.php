@@ -26,6 +26,7 @@
         <div class="col-lg-5 col-md-4 col-12">
             <div class="cz-product-gallery position-relative">
                 <div class="cz-preview">
+<<<<<<< HEAD
                     <div id="sync1" class="owl-carousel owl-theme product-thumbnail-slider">
                         @if($product->images!=null && json_decode($product->images)>0)
                             @if(json_decode($product->colors) && $product->color_image)
@@ -55,6 +56,35 @@
                             @endif
                         @endif
                     </div>
+=======
+                    @if($product->images!=null && json_decode($product->images)>0)
+                        @if(json_decode($product->colors) && $product->color_image)
+                            @foreach (json_decode($product->color_image) as $key => $photo)
+                                @if($photo->color != null)
+                                    <div class="cz-preview-item d-flex align-items-center justify-content-center  {{$key==0?'active':''}}">
+                                        <img class="show-imag img-responsive max-height-500px"
+                                             src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}"
+                                             alt="{{ translate('product') }}" width="">
+                                    </div>
+                                @else
+                                    <div class="cz-preview-item d-flex align-items-center justify-content-center  {{$key==0?'active':''}}">
+                                        <img class="show-imag img-responsive max-height-500px"
+                                             src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}"
+                                             alt="{{ translate('product') }}" width="">
+                                    </div>
+                                @endif
+                            @endforeach
+                        @else
+                            @foreach (json_decode($product->images) as $key => $photo)
+                                <div class="cz-preview-item d-flex align-items-center justify-content-center  {{$key==0?'active':''}}">
+                                    <img class="show-imag img-responsive max-height-500px"
+                                         src="{{ getValidImage(path: 'storage/app/public/product/'.$photo, type: 'product') }}"
+                                         alt="{{ translate('product') }}">
+                                </div>
+                            @endforeach
+                        @endif
+                    @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
 
                 <div class="cz-product-gallery-icons">
@@ -70,6 +100,7 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div class="table-responsive">
                     <div class="d-flex">
                         <div id="sync2" class="owl-carousel owl-theme product-thumb-slider max-height-100px d--none">
@@ -110,6 +141,46 @@
                                 @endif
                             @endif
                         </div>
+=======
+                <div class="table-responsive max-height-500px">
+                    <div class="d-flex">
+                        @if($product->images!=null && json_decode($product->images)>0)
+                            @if(json_decode($product->colors) && $product->color_image)
+                                @foreach (json_decode($product->color_image) as $key => $photo)
+                                    @if($photo->color != null)
+                                        <div class="cz-thumblist">
+                                            <a href="javascript:"
+                                               class=" cz-thumblist-item d-flex align-items-center justify-content-center">
+                                                <img class="click-img" id="preview-img{{$photo->color}}"
+                                                     src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}"
+                                                     alt="{{ translate('product') }}">
+                                            </a>
+                                        </div>
+                                    @else
+                                        <div class="cz-thumblist">
+                                            <a href="javascript:"
+                                               class=" cz-thumblist-item d-flex align-items-center justify-content-center">
+                                                <img class="click-img" id="preview-img{{$key}}"
+                                                     src="{{ getValidImage(path: 'storage/app/public/product/'.$photo->image_name, type: 'product') }}"
+                                                     alt="{{ translate('product') }}">
+                                            </a>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @else
+                                @foreach (json_decode($product->images) as $key => $photo)
+                                    <div class="cz-thumblist">
+                                        <a href="javascript:"
+                                           class=" cz-thumblist-item d-flex align-items-center justify-content-center">
+                                            <img class="click-img" id="preview-img{{$key}}"
+                                                 src="{{ getValidImage(path: 'storage/app/public/product/'.$photo, type: 'product') }}"
+                                                 alt="{{ translate('product') }}">
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @endif
+                        @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                 </div>
             </div>
@@ -145,7 +216,11 @@
                 </div>
 
                 <div class="mb-3">
+<<<<<<< HEAD
                     <span class="font-weight-normal text-accent d-flex align-items-end gap-2">
+=======
+                    <span class="f-20 font-weight-normal text-accent ">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {!! getPriceRangeWithDiscount(product: $product) !!}
                     </span>
                 </div>
@@ -159,7 +234,11 @@
                                     {{translate('color')}}:
                                 </div>
                                 <div class="__pl-15 mt-1">
+<<<<<<< HEAD
                                     <ul class="flex-start checkbox-color mb-0 p-0 list-inline">
+=======
+                                    <ul class="flex-start checkbox-color mb-0 p-0 list-style">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         @foreach (json_decode($product->colors) as $key => $color)
                                             <li>
                                                 <input type="radio"
@@ -167,11 +246,19 @@
                                                        name="color" value="{{ $color }}"
                                                        @if($key == 0) checked @endif>
                                                 <label style="background: {{ $color }};"
+<<<<<<< HEAD
                                                     class="quick-view-preview-image-by-color shadow-border"
                                                     for="{{ $product->id }}-color-{{ str_replace('#','',$color) }}"
                                                     data-toggle="tooltip"
                                                     data-key="{{ str_replace('#','',$color) }}">
                                                     <span class="outline"></span>
+=======
+                                                    class="quick-view-preview-image-by-color"
+                                                    for="{{ $product->id }}-color-{{ str_replace('#','',$color) }}"
+                                                    data-toggle="tooltip"
+                                                    data-key="{{ str_replace('#','',$color) }}">
+                                                    <span class="outline" style="border-color: {{ $color }}"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </label>
                                             </li>
                                         @endforeach
@@ -198,17 +285,28 @@
                                 <ul class="checkbox-alphanumeric checkbox-alphanumeric--style-1 mt-1">
                                     @foreach ($choice->options as $index => $option)
                                         <span>
+<<<<<<< HEAD
                                             <input type="radio" id="{{ $choice->name }}-{{ $option }}" name="{{ $choice->name }}"
                                                    value="{{ $option }}" @if($index==0) checked @endif>
                                             <label class="user-select-none" for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
                                         </span>
+=======
+                                <input type="radio" id="{{ $choice->name }}-{{ $option }}" name="{{ $choice->name }}"
+                                       value="{{ $option }}" @if($index==0) checked @endif>
+                                <label for="{{ $choice->name }}-{{ $option }}">{{ $option }}</label>
+                            </span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @endforeach
                                 </ul>
                             </div>
                         </div>
                     @endforeach
 
+<<<<<<< HEAD
                     <div class="mb-3">
+=======
+                    <div class="mt-3">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="product-quantity d-flex flex-column __gap-15">
                             <div class="d-flex align-items-center gap-3">
                                 <div class="product-description-label text-dark font-bold mt-0">{{translate('quantity')}}
@@ -236,8 +334,11 @@
                                     </button>
                                 </span>
                                 </div>
+<<<<<<< HEAD
                                 <input type="hidden" class="product-generated-variation-code" name="product_variation_code">
                                 <input type="hidden" value="" class="in_cart_key form-control w-50" name="key">
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div id="chosen_price_div">
                                 <div
@@ -255,7 +356,19 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <div class="__btn-grp align-items-center mb-2">
+=======
+                    <div class="row no-gutters d-none mt-2 flex-start d-flex">
+                        <div class="col-12">
+                            @if(($product['product_type'] == 'physical') && ($product['current_stock']<=0))
+                                <h5 class="mt-3 text-danger">{{translate('out_of_stock')}}</h5>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="__btn-grp align-items-center mt-2">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         @if(($product->added_by == 'seller' && ($seller_temporary_close || (isset($product->seller->shop) &&
                         $product->seller->shop->vacation_status && $currentDate >= $seller_vacation_start_date && $currentDate
                         <= $seller_vacation_end_date))) || ($product->added_by == 'admin' && ($inhouse_temporary_close ||
@@ -273,7 +386,11 @@
                             <button class="btn btn-secondary action-buy-now-this-product" type="button">
                                 {{translate('buy_now')}}
                             </button>
+<<<<<<< HEAD
                             <button class="btn btn--primary string-limit action-add-to-cart-form" type="button" data-update-text="{{ translate('update_cart') }}" data-add-text="{{ translate('add_to_cart') }}">
+=======
+                            <button class="btn btn--primary string-limit action-add-to-cart-form" type="button">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('add_to_cart')}}
                             </button>
                         @endif
@@ -294,6 +411,7 @@
                             <div class="alert alert-danger" role="alert">
                                 {{translate('this_shop_is_temporary_closed_or_on_vacation._You_cannot_add_product_to_cart_from_this_shop_for_now')}}
                             </div>
+<<<<<<< HEAD
                        @endif
                     </div>
 
@@ -304,6 +422,9 @@
                             @endif
                         </div>
                     </div>
+=======
+                    @endif
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </form>
             </div>
         </div>

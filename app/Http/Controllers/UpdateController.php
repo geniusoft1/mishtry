@@ -38,6 +38,7 @@ class UpdateController extends Controller
         $newRouteServiceProvier = base_path('app/Providers/RouteServiceProvider.txt');
         copy($newRouteServiceProvier, $previousRouteServiceProvier);
 
+<<<<<<< HEAD
         //start symlink
         if(DOMAIN_POINTED_DIRECTORY == 'public'){
             shell_exec('ln -s ../resources/themes themes');
@@ -45,6 +46,8 @@ class UpdateController extends Controller
         Artisan::call('storage:link');
         //start symlink
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         Artisan::call('cache:clear');
         Artisan::call('view:clear');
 
@@ -58,7 +61,10 @@ class UpdateController extends Controller
         $this->insert_data_of('14.2');
         $this->insert_data_of('14.3');
         $this->insert_data_of('14.3.1');
+<<<<<<< HEAD
         $this->insert_data_of('14.4');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         return redirect(env('APP_URL'));
     }

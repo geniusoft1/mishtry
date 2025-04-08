@@ -136,7 +136,13 @@ class ProductReportController extends Controller
             $current_end_year = date('Y-12-31');
             $from_year = Carbon::parse($from)->format('Y');
 
+<<<<<<< HEAD
             return self::all_product_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+=======
+            $this_year = self::all_product_same_year($request, $current_start_year, $current_end_year, $from_year, $number, $default_inc);
+            return $this_year;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'this_month') { //this month table
             $current_month_start = date('Y-m-01');
             $current_month_end = date('Y-m-t');
@@ -144,11 +150,21 @@ class ProductReportController extends Controller
             $month = date('m');
             $number = date('d', strtotime($current_month_end));
 
+<<<<<<< HEAD
             return self::all_product_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
         } elseif ($date_type == 'this_week') {
             return self::all_product_this_week($request);
         } elseif ($date_type == 'today') {
             return self::getAllProductForToday($request);
+=======
+            $this_month = self::all_product_same_month($request, $current_month_start, $current_month_end, $month, $number, $inc);
+            return $this_month;
+
+        } elseif ($date_type == 'this_week') {
+            $this_week = self::all_product_this_week($request);
+            return $this_week;
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         } elseif ($date_type == 'custom_date' && !empty($from) && !empty($to)) {
             $start_date = Carbon::parse($from)->format('Y-m-d 00:00:00');
             $end_date = Carbon::parse($to)->format('Y-m-d 23:59:59');
@@ -256,6 +272,7 @@ class ProductReportController extends Controller
             'total_product' => $total_product,
         );
     }
+<<<<<<< HEAD
     public function getAllProductForToday($request): array
     {
         $number = 1;
@@ -282,6 +299,8 @@ class ProductReportController extends Controller
             'total_product' => $total_product ?? [],
         ];
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function all_product_different_year($request, $start_date, $end_date, $from_year, $to_year)
     {
@@ -309,6 +328,7 @@ class ProductReportController extends Controller
     public function all_product_date_common_query($request, $start_date, $end_date)
     {
         $seller_id = $request['seller_id'] ?? 'all';
+<<<<<<< HEAD
         return Product::when($seller_id != 'all', function ($query) use ($seller_id) {
                 $query->when($seller_id == 'inhouse', function ($query) {
                     $query->where(['user_id' => 1, 'added_by' => 'admin']);
@@ -317,6 +337,20 @@ class ProductReportController extends Controller
                 });
             })
             ->whereBetween('created_at', [$start_date, $end_date]);
+=======
+
+        $query = Product::when($seller_id != 'all', function ($query) use ($seller_id) {
+            $query->when($seller_id == 'inhouse', function ($q) {
+                $q->where(['user_id' => 1, 'added_by' => 'admin']);
+            })->when($seller_id != 'inhouse', function ($q) use ($seller_id) {
+                $q->where(['user_id' => $seller_id, 'added_by' => 'seller']);
+            });
+        })
+            ->whereDate('created_at', '>=', $start_date)
+            ->whereDate('created_at', '<=', $end_date);
+
+        return $query;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function all_product_export_excel(Request $request){
@@ -374,9 +408,12 @@ class ProductReportController extends Controller
             ->when(($date_type == 'this_week'), function ($query) {
                 return $query->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
             })
+<<<<<<< HEAD
             ->when(($date_type == 'today'), function ($query) {
                 return $query->whereBetween('created_at', [Carbon::now()->startOfDay(), Carbon::now()->endOfDay()]);
             })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when(($date_type == 'custom_date' && !is_null($from) && !is_null($to)), function ($query) use ($from, $to) {
                 return $query->whereDate('created_at', '>=', $from)
                     ->whereDate('created_at', '<=', $to);

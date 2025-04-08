@@ -6416,6 +6416,7 @@ a.close.disabled {
 
 .tooltip {
     position: absolute;
+<<<<<<< HEAD
     z-index: 1070;
     display: block;
     margin: 0;
@@ -6423,6 +6424,15 @@ a.close.disabled {
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
+=======
+    z-index: 9999;
+    display: block;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     text-align: left;
     text-align: start;
     text-decoration: none;
@@ -6433,6 +6443,7 @@ a.close.disabled {
     word-spacing: normal;
     white-space: normal;
     line-break: auto;
+<<<<<<< HEAD
     font-size: 0.875rem;
     word-wrap: break-word;
     opacity: 0;
@@ -6440,20 +6451,38 @@ a.close.disabled {
 
 .tooltip.show {
     opacity: 0.9;
+=======
+    font-size: .8125rem;
+    word-wrap: break-word;
+    opacity: 0
+}
+
+.tooltip.show {
+    opacity: 1
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }
 
 .tooltip .arrow {
     position: absolute;
     display: block;
+<<<<<<< HEAD
     width: 0.8rem;
     height: 0.4rem;
+=======
+    width: .8rem;
+    height: .4rem
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }
 
 .tooltip .arrow::before {
     position: absolute;
     content: "";
     border-color: transparent;
+<<<<<<< HEAD
     border-style: solid;
+=======
+    border-style: solid
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }
 
 .bs-tooltip-auto[x-placement^=top], .bs-tooltip-top {
@@ -24597,4 +24626,8 @@ a:hover .text-hover-primary {
 
 .text-warning {
     color: #ec9a3c !important
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

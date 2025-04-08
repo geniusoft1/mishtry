@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business-setup.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/business-setup.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('business_Setup') }}
             </h2>
             <div class="btn-group">
@@ -21,7 +25,11 @@
                 <div
                     class="dropdown-menu dropdown-menu-right bg-aliceblue border border-color-primary-light p-4 dropdown-w-lg">
                     <div class="d-flex align-items-center gap-2 mb-3">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/note.png')}}" alt="">
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/note.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <h5 class="text-primary mb-0">{{translate('note')}}</h5>
                     </div>
                     <p class="title-color font-weight-medium mb-0">{{ translate('please_click_save_information_button_below_to_save_all_the_changes') }}</p>
@@ -104,7 +112,11 @@
                         <div class="col-sm-6 col-lg-4">
                             <div class="form-group">
                                 <label class="title-color d-flex">{{translate('country')}} </label>
+<<<<<<< HEAD
                                 <select id="country" name="country_code" class="form-control js-select2-custom">
+=======
+                                <select id="country" name="country_code" class="form-control  js-select2-custom">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @foreach(COUNTRIES as $country)
                                         <option value="{{$country['code']}}" {{ $countryCode?($countryCode==$country['code']?'selected':''):'' }} >
                                             {{$country['name']}}
@@ -135,7 +147,11 @@
                                     @if (isset($businessSetting['language']))
                                         @foreach (json_decode($businessSetting['language']) as $item)
                                             <option
+<<<<<<< HEAD
                                                 value="{{ $item->code }}" {{ $item->default == 1?'selected':'' }}>{{ ucwords($item->name).' ('.ucwords($item->code).')' }}</option>
+=======
+                                                value="{{ $item->code }}" {{ $item->default == 1?'selected':'' }}>{{ $item->name }}</option>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         @endforeach
                                     @endif
                                 </select>
@@ -145,7 +161,11 @@
                             <div class="form-group">
                                 <label class="title-color d-flex">{{translate('company_address')}}</label>
                                 <input type="text" value="{{ $businessSetting['shop_address'] }}"
+<<<<<<< HEAD
                                        name="shop_address" class="form-control" id="shop-address"
+=======
+                                       name="shop_address" class="form-control"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        placeholder="{{translate('your_shop_address')}}"
                                        required>
                             </div>
@@ -158,6 +178,7 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('copy_the_latitude_of_your_business_location_from_Google_Maps_and_paste_it_here')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
                                              alt="">
                                     </span>
@@ -165,6 +186,15 @@
                                 <input class="form-control latitude" type="text" name="latitude" id="latitude"
                                        value="{{ !empty($default_location['lat'])?$default_location['lat']: '-33.8688' }}"
                                        placeholder="{{translate('latitude')}}"  disabled>
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+                                             alt="">
+                                    </span>
+                                </label>
+                                <input class="form-control" type="text" name="latitude"
+                                       value="{{ isset($default_location)?$default_location['lat']:'' }}"
+                                       placeholder="{{translate('latitude')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
@@ -174,6 +204,7 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('copy_the_longitude_of_your_business_location_from_Google_Maps_and_paste_it_here')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
                                              alt="">
                                     </span>
@@ -205,6 +236,15 @@
                                        placeholder="{{translate('search_here')}}"/>
                                 <div class="rounded w-100 __h-200px mb-5"
                                      id="location-map-canvas"></div>
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+                                             alt="">
+                                    </span>
+                                </label>
+                                <input class="form-control" type="text" name="longitude"
+                                       value="{{ isset($default_location)?$default_location['lng']:'' }}"
+                                       placeholder="{{translate('longitude')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>
@@ -262,7 +302,11 @@
                                 <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                       data-placement="right"
                                       title="{{translate('set_how_users_of_recover_their_forgotten_password')}}">
+<<<<<<< HEAD
                                     <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                    <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="">
                                 </span>
                             </label>
@@ -309,7 +353,11 @@
                                               data-placement="right"
                                               title="{{translate('if_enabled_users_can_receive_verification_codes_on_their_registered_email_addresses')}}">
                                             <img width="16"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                                                 src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </span>
 
@@ -344,7 +392,11 @@
                                               data-placement="right"
                                               title="{{translate('if_enabled_users_can_receive_verification_codes_via_OTP_messages_on_their_registered_phone_numbers')}}">
                                             <img width="16"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                                                 src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </span>
 
@@ -374,7 +426,11 @@
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip"
                                           data-placement="right"
                                           title="{{translate('this_number_indicates_how_much_data_will_be_shown_in_the_list_or_table')}}">
+<<<<<<< HEAD
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
+=======
+                                        <img width="16" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </span>
                                 </label>
@@ -414,7 +470,11 @@
                     <div class="row gy-3">
                         <div class="col-lg-6">
                             <div class="d-flex gap-2 align-items-center text-capitalize mb-3">
+<<<<<<< HEAD
                                 <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/apple.png')}}" alt="">
+=======
+                                <img width="22" src="{{asset('/public/assets/back-end/img/apple.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('apple_store')}}:
                             </div>
 
@@ -428,7 +488,11 @@
                                               data-placement="right"
                                               title="{{translate('if_enabled_the_download_button_from_the_App_Store_will_be_visible_in_the_Footer_section')}}">
                                             <img width="16"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                                                 src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </span>
 
@@ -456,7 +520,11 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex gap-2 align-items-center text-capitalize mb-3">
+<<<<<<< HEAD
                                 <img width="22" src="{{dynamicAsset(path: 'public/assets/back-end/img/play_store.png')}}" alt="">
+=======
+                                <img width="22" src="{{asset('/public/assets/back-end/img/play_store.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('google_play_store').':'}}
                             </div>
 
@@ -469,7 +537,11 @@
                                               data-placement="right"
                                               title="{{translate('if_enabled_the_Google_Play_Store_will_be_visible_in_the_website_footer_section')}}">
                                             <img width="16"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
+=======
+                                                 src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </span>
 
@@ -504,7 +576,11 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/website-color.png')}}" alt="">
+=======
+                                <img src="{{asset('/public/assets/back-end/img/website-color.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('website_Color')}}
                             </h5>
                         </div>
@@ -549,7 +625,11 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/header-logo.png')}}" alt="">
+=======
+                                <img src="{{asset('/public/assets/back-end/img/header-logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('website_header_logo')}}
                             </h5>
                             <span
@@ -574,7 +654,11 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+=======
+                                <img src="{{asset('/public/assets/back-end/img/footer-logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('website_footer_logo')}}
                             </h5>
                             <span
@@ -599,7 +683,11 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+=======
+                                <img src="{{asset('/public/assets/back-end/img/footer-logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('website_Favicon')}}
                             </h5>
                             <span class="badge badge-soft-info">( {{translate('ratio').'1:1'}} )</span>
@@ -623,7 +711,11 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+=======
+                                <img src="{{asset('/public/assets/back-end/img/footer-logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('loading_gif')}}
                             </h5>
                             <span class="badge badge-soft-info">( {{translate('ratio').'1:1'}})</span>
@@ -647,7 +739,11 @@
                     <div class="card h-100">
                         <div class="card-header">
                             <h5 class="mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/footer-logo.png')}}" alt="">
+=======
+                                <img src="{{asset('/public/assets/back-end/img/footer-logo.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('App_Logo')}}
                             </h5>
                             <span class="badge badge-soft-info">{{'('.'100X60'.'px'.')'}}</span>
@@ -673,13 +769,20 @@
             </div>
         </form>
     </div>
+<<<<<<< HEAD
     <span id="get-default-latitude" data-latitude="{{$default_location['lat']??'-33.8688'}}"></span>
     <span id="get-default-longitude" data-longitude="{{$default_location['lng']??'151.2195'}}"></span>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="https://maps.googleapis.com/maps/api/js?key={{getWebConfig('map_api_key')}}&callback=initAutocomplete&libraries=places&v=3.49"
         defer></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/business-setting.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/business-setting.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

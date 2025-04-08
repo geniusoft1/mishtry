@@ -6,6 +6,7 @@
     <title>@yield('title')</title>
     <meta name="_token" content="{{csrf_token()}}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <link rel="apple-touch-icon" sizes="180x180" href="{{theme_asset(path: 'storage/app/public/company')}}/{{$web_config['fav_icon']->value}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{theme_asset(path: 'storage/app/public/company')}}/{{$web_config['fav_icon']->value}}">
     <link rel="stylesheet" media="screen" href="{{ theme_asset(path: 'public/assets/front-end/vendor/simplebar/dist/simplebar.min.css') }}">
@@ -28,6 +29,29 @@
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/responsive1.css') }}"/>
 
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/css/style.css') }}">
+=======
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}">
+    <link rel="stylesheet" media="screen" href="{{ asset('public/assets/front-end/vendor/simplebar/dist/simplebar.min.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('public/assets/front-end/vendor/tiny-slider/dist/tiny-slider.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('public/assets/front-end/vendor/drift-zoom/dist/drift-basic.min.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('public/assets/front-end/vendor/lightgallery.js/dist/css/lightgallery.min.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('public/assets/front-end/css/theme.css') }}">
+    <link rel="stylesheet" media="screen" href="{{ asset('public/assets/front-end/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/toastr.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/master.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/roboto-font.css')  }}">
+    <link rel="stylesheet" href="{{ asset('public/css/lightbox.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/vendor/icon-set/style.css') }}">
+
+    @stack('css_or_js')
+
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/home.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/responsive1.css') }}"/>
+
+    <link rel="stylesheet" href="{{ asset('public/assets/front-end/css/style.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     <style>
         :root {
@@ -54,7 +78,11 @@
         }
     </style>
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{theme_asset(path: 'public/assets/front-end/css/custom.css')}}">
+=======
+    <link rel="stylesheet" href="{{asset('public/assets/front-end/css/custom.css')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     @php($google_tag_manager_id = getWebConfig(name: 'google_tag_manager_id'))
     @if($google_tag_manager_id )
@@ -112,7 +140,11 @@
         <div id="loading" class="d--none">
            <div class="text-center">
             <img width="200" alt=""
+<<<<<<< HEAD
                  src="{{ getValidImage(path: 'storage/app/public/company/'.getWebConfig(name: 'loader_gif'), type: 'source', source: theme_asset(path: 'public/assets/front-end/img/loader.gif')) }}">
+=======
+                 src="{{ getValidImage(path: 'storage/app/public/company/'.getWebConfig(name: 'loader_gif'), type: 'source', source: asset('public/assets/front-end/img/loader.gif')) }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </div>
         </div>
     </div>
@@ -163,10 +195,13 @@
 <span id="route-checkout-details" data-url="{{ route('checkout-details') }}"></span>
 <span id="route-checkout-payment" data-url="{{ route('checkout-payment') }}"></span>
 <span id="route-order-note" data-url="{{ route('order_note') }}"></span>
+<<<<<<< HEAD
 <span id="password-error-message" data-max-character="{{translate('at_least_8_characters').'.'}}" data-uppercase-character="{{translate('at_least_one_uppercase_letter_').'(A...Z)'.'.'}}" data-lowercase-character="{{translate('at_least_one_uppercase_letter_').'(a...z)'.'.'}}"
       data-number="{{translate('at_least_one_number').'(0...9)'.'.'}}" data-symbol="{{translate('at_least_one_symbol').'(!...%)'.'.'}}"></span>
 <span class="system-default-country-code" data-value="{{ getWebConfig(name: 'country_code') ?? 'us' }}"></span>
 <span id="system-session-direction" data-value="{{ session()->get('direction') ?? 'ltr' }}"></span>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 <span id="is-request-customer-auth-sign-up" data-value="{{ Request::is('customer/auth/sign-up*') ? 1:0 }}"></span>
 <span id="is-customer-auth-active" data-value="{{ auth('customer')->check() ? 1:0 }}"></span>
@@ -185,12 +220,17 @@
     @if(isset($whatsapp['status']) && $whatsapp['status'] == 1 )
         <div class="wa-widget-send-button">
             <a href="https://wa.me/{{ $whatsapp['phone'] }}?text=Hello%20there!" target="_blank">
+<<<<<<< HEAD
                 <img src="{{theme_asset(path: 'public/assets/front-end/img/whatsapp.svg')}}" class="wa-messenger-svg-whatsapp wh-svg-icon" alt="{{ translate('Chat_with_us_on_WhatsApp') }}">
+=======
+                <img src="{{asset('public/assets/front-end/img/whatsapp.svg')}}" class="wa-messenger-svg-whatsapp wh-svg-icon" alt="{{ translate('Chat_with_us_on_WhatsApp') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </a>
         </div>
     @endif
 </div>
 
+<<<<<<< HEAD
 <script src="{{ theme_asset(path: 'public/assets/front-end/vendor/jquery/dist/jquery-2.2.4.min.js') }}"></script>
 <script src="{{ theme_asset(path: 'public/assets/front-end/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ theme_asset(path: 'public/assets/front-end/vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js') }}"></script>
@@ -208,6 +248,24 @@
 <script src="{{ theme_asset(path: 'public/assets/front-end/js/sweet_alert.js') }}"></script>
 <script src="{{ theme_asset(path: "public/assets/back-end/js/toastr.js") }}"></script>
 <script src="{{ theme_asset(path: 'public/assets/front-end/js/custom.js') }}"></script>
+=======
+<script src="{{ asset('public/assets/front-end/vendor/jquery/dist/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/bs-custom-file-input/dist/bs-custom-file-input.min.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/simplebar/dist/simplebar.min.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+<script src="{{ asset('public/js/lightbox.min.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/drift-zoom/dist/Drift.min.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/lightgallery.js/dist/js/lightgallery.min.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/vendor/lg-video.js/dist/lg-video.min.js') }}"></script>
+<script src="{{ asset("public/assets/back-end/js/toastr.js" )}}"></script>
+<script src="{{ asset('public/assets/front-end/js/theme.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/js/slick.js') }}"></script>
+<script src="{{ asset('public/assets/front-end/js/sweet_alert.js') }}"></script>
+<script src="{{ asset("public/assets/back-end/js/toastr.js") }}"></script>
+<script src="{{ asset('public/assets/front-end/js/custom.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 {!! Toastr::message() !!}
 
@@ -265,8 +323,13 @@
                         <div>{{ $cookie ? $cookie['cookie_text'] : '' }}</div>
                     </div>
                     <div class="btn-wrapper">
+<<<<<<< HEAD
                         <button class="btn bg-dark text-white cursor-pointer" id="cookie-reject">{{ translate("no_thanks")}}</button>
                         <button class="btn btn-success cookie-accept" id="cookie-accept">{{ translate('i_Accept')}}</button>
+=======
+                        <span class="text-white cursor-pointer" id="cookie-reject">{{ translate("no_thanks")}}</span>
+                        <button class="btn btn-success cookie-accept" id="cookie-accept">{{ translate('yes_i_Accept')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                 </div>
             </div>

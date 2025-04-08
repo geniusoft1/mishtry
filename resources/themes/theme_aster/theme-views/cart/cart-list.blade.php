@@ -7,7 +7,10 @@
         @include(VIEW_FILE_NAMES['products_cart_details_partials'])
     </main>
 @endsection
+<<<<<<< HEAD
 
 @push('script')
     <script src="{{ theme_asset('assets/js/cart-list-page.js') }}"></script>
 @endpush
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

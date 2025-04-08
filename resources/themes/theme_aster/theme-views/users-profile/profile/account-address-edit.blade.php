@@ -56,19 +56,30 @@
                                                 <div
                                                     class="select-wrap focus-border form-control rounded d-flex align-items-center px-0">
                                                     <input type="tel" id="phone"
+<<<<<<< HEAD
                                                            class="form-control bg-transparent focus-input phone-input-with-country-picker"
                                                            name="phone" value="{{ $shippingAddress['phone'] }}"
                                                            placeholder="{{translate('ex').':'.('01xxxxxxxxx')}}">
                                                     <input type="hidden" class="country-picker-phone-number w-50" name="phone" readonly>
+=======
+                                                           class="form-control bg-transparent px-3 border-0 focus-input"
+                                                           name="phone" value="{{ $shippingAddress['phone'] }}"
+                                                           placeholder="{{translate('ex').':'.('01xxxxxxxxx')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </div>
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label for="country">{{translate('country')}}</label>
                                                 <select name="country" id="country"
                                                         class="form-select select2 select_picker">
+<<<<<<< HEAD
                                                     <option value="" disabled selected>
                                                         {{ translate('select_country') }}
                                                     </option>
+=======
+                                                    <option value="" disabled
+                                                            selected>{{translate('select_country')}}</option>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     @if($country_restrict_status)
                                                         @foreach($delivery_countries as $country)
                                                             <option

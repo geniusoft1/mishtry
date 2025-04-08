@@ -123,7 +123,11 @@ class POSOrderController extends BaseController
                 $product = $this->productRepo->getFirstWhere(params:['id'=>$item['id']]);
                 if($product)
                 {
+<<<<<<< HEAD
                     $tax = $this->getTaxAmount($item['price']-$item['discount'], $product['tax']);
+=======
+                    $tax = $this->getTaxAmount($item['price'], $product['tax']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $price = $product['tax_model'] == 'include' ? $item['price']-$tax : $item['price'];
                     $orderDetail = $this->orderDetailsService->getPOSOrderDetailsData(
                         orderId:$orderId, item: $item,
@@ -165,10 +169,15 @@ class POSOrderController extends BaseController
     {
         session()->remove($request['cart_id']);
         $totalHoldOrders = $this->POSService->getTotalHoldOrders();
+<<<<<<< HEAD
         $cartNames = $this->POSService->getCartNames();
         $cartItems = $this->getHoldOrderCalculationData(cartNames:$cartNames);
         return response()->json([
             'message' => $request['cart_id'].' '.translate('order_is_cancel'),
+=======
+        $cartItems = $this->getCartData(cartName: session(SessionKey::CURRENT_USER));
+        return response()->json([
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'status' => 'success',
             'view' => view(POSOrder::CANCEL_ORDER[VIEW], compact('totalHoldOrders', 'cartItems'))->render(),
         ]);
@@ -177,6 +186,7 @@ class POSOrderController extends BaseController
     /**
      * @return JsonResponse
      */
+<<<<<<< HEAD
     public function getAllHoldOrdersView(Request $request):JsonResponse
     {
         $totalHoldOrders = $this->POSService->getTotalHoldOrders();
@@ -189,6 +199,13 @@ class POSOrderController extends BaseController
             });
             $cartItems = $filteredItems->all();
         }
+=======
+    public function getAllHoldOrdersView():JsonResponse
+    {
+        $cartNames = $this->POSService->getCartNames();
+        $cartItems = $this->getHoldOrderCalculationData(cartNames:$cartNames);
+        $totalHoldOrders = $this->POSService->getTotalHoldOrders();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return response()->json([
             'flag' => 'inactive',
             'totalHoldOrders'=>$totalHoldOrders,
@@ -281,7 +298,10 @@ class POSOrderController extends BaseController
                     if ($cartItem['customerId'] == $customerCartData[$cartName]['customerId']) {
                         $cartItem['productSubtotal'] = $subTotalCalculation['productSubtotal'];
                         $cartItemValue[] = $cartItem;
+<<<<<<< HEAD
                         $subTotalCalculation['customerOnHold']=$cartItem['customerOnHold'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     }
                 }
             }
@@ -301,7 +321,10 @@ class POSOrderController extends BaseController
             'cartItemValue' => $cartItemValue,
             'couponDiscount' => $totalCalculation['couponDiscount'],
             'extraDiscount' => $totalCalculation['extraDiscount'],
+<<<<<<< HEAD
             'customerOnHold' => $subTotalCalculation['customerOnHold']??false,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
     }
 

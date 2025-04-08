@@ -127,6 +127,9 @@ interface ProductRepositoryInterface extends RepositoryInterface
      */
     public function getProductIds(array $filters = []): \Illuminate\Support\Collection|array;
 
+<<<<<<< HEAD
     public function updateByParams(array $params, array $data): bool;
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

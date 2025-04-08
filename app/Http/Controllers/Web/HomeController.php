@@ -20,7 +20,10 @@ use App\Models\Review;
 use App\Utils\ProductManager;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Artisan;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -61,7 +64,10 @@ class HomeController extends Controller
         $home_categories->map(function ($data) {
             $id = '"' . $data['id'] . '"';
             $data['products'] = Product::active()
+<<<<<<< HEAD
                 ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ->where('category_ids', 'like', "%{$id}%")
                 ->inRandomOrder()->take(12)->get();
         });
@@ -127,14 +133,22 @@ class HomeController extends Controller
         if ($topRated->count() == 0) {
             $topRated = $bestSellProduct;
         }
+<<<<<<< HEAD
+=======
+//        dd($featured_products);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $deal_of_the_day = DealOfTheDay::join('products', 'products.id', '=', 'deal_of_the_days.product_id')->select('deal_of_the_days.*', 'products.unit_price')->where('products.status', 1)->where('deal_of_the_days.status', 1)->first();
         $main_banner = $this->banner->where(['banner_type'=>'Main Banner', 'theme'=>$theme_name, 'published'=> 1])->latest()->get();
         $main_section_banner = $this->banner->where(['banner_type'=> 'Main Section Banner', 'theme'=>$theme_name, 'published'=> 1])->orderBy('id', 'desc')->latest()->first();
 
         $product=$this->product->active()->inRandomOrder()->first();
+<<<<<<< HEAD
         $footer_banner = $this->banner->where('banner_type','Footer Banner')->where('theme', theme_root_path())->where('published',1)->orderBy('id','desc')->get();
 
+=======
+        $footer_banner = $this->banner->where('banner_type','Footer Banner')->where('theme', theme_root_path())->where('published',1)->orderBy('id','desc')->take(2)->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return view(VIEW_FILE_NAMES['home'],
             compact(
                 'featured_products', 'topRated', 'bestSellProduct', 'latest_products', 'categories', 'brands',
@@ -165,7 +179,10 @@ class HomeController extends Controller
                         return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                     }
                 ])
+<<<<<<< HEAD
                 ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ->where('category_id',$data['id'])
                 ->inRandomOrder()->take(12)->get();
 
@@ -361,7 +378,10 @@ class HomeController extends Controller
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
             ])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->whereHas('flashDealProducts.featureDeal', function($query){
                 $query->whereDate('start_date', '<=', date('Y-m-d'))
                     ->whereDate('end_date', '>=', date('Y-m-d'));
@@ -722,7 +742,11 @@ class HomeController extends Controller
 
         $most_searching_product = Product::active()->with(['category', 'wishList'=>function($query){
             return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+<<<<<<< HEAD
         }])->withCount('reviews')->withSum('tags', 'visit_count')->orderBy('tags_sum_visit_count', 'desc')->get();
+=======
+        }])->withSum('tags', 'visit_count')->orderBy('tags_sum_visit_count', 'desc')->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $all_categories = Category::withCount(['product'=>function($query){
                                 $query->active();

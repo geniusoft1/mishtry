@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/product-review.png')}}" class="mb-1 mr-1"
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/product-review.png')}}" class="mb-1 mr-1"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                      alt="">
                 {{translate('product_reviews')}}
             </h2>
@@ -234,5 +238,9 @@
     </div>
 @endsection
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/search-product.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/search-product.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

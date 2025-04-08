@@ -6,22 +6,39 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-10">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand-setup.png') }}" alt="">
                 {{ translate('category_Setup') }}
             </h2>
         </div>
+=======
+                <img src="{{ asset('public/assets/back-end/img/brand-setup.png') }}" alt="">
+                {{ translate('category_Setup') }}
+            </h2>
+        </div>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body text-start">
                         <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+<<<<<<< HEAD
                             <ul class="nav nav-tabs w-fit-content mb-4">
                                 @foreach($languages as $lang)
                                     <li class="nav-item text-capitalize">
                                         <span
                                             class="nav-link form-system-language-tab cursor-pointer {{ $lang == $defaultLanguage? 'active':''}}"
                                             id="{{ $lang}}-link">
+=======
+
+                            <ul class="nav nav-tabs w-fit-content mb-4">
+                                @foreach($languages as $lang)
+                                    <li class="nav-item text-capitalize">
+                                        <span class="nav-link form-system-language-tab cursor-pointer {{ $lang == $defaultLanguage? 'active':''}}"
+                                           id="{{ $lang}}-link">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             {{ucfirst(getLanguageName($lang)).'('.strtoupper($lang).')'}}
                                         </span>
                                     </li>
@@ -31,11 +48,18 @@
                                 <div class="col-lg-6">
                                     <div>
                                         @foreach($languages as $lang)
+<<<<<<< HEAD
                                             <div
                                                 class="form-group {{ $lang != $defaultLanguage ? 'd-none':''}} form-system-language-form"
                                                 id="{{ $lang}}-form">
                                                 <label class="title-color">{{ translate('category_Name') }}<span
                                                         class="text-danger">*</span> ({{strtoupper($lang) }})</label>
+=======
+                                            <div class="form-group {{ $lang != $defaultLanguage ? 'd-none':''}} form-system-language-form"
+                                                 id="{{ $lang}}-form">
+                                                <label class="title-color">{{ translate('category_Name') }}<span
+                                                            class="text-danger">*</span> ({{strtoupper($lang) }})</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <input type="text" name="name[]" class="form-control"
                                                        placeholder="{{ translate('new_Category') }}" {{ $lang == $defaultLanguage? 'required':''}}>
                                             </div>
@@ -46,7 +70,11 @@
                                     <div class="form-group">
                                         <label class="title-color" for="priority">{{ translate('priority') }}
                                             <span>
+<<<<<<< HEAD
                                             <i class="tio-info-outined" data-toggle="tooltip" data-placement="top"
+=======
+                                            <i class="tio-info-outined"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                title="{{ translate('the_lowest_number_will_get_the_highest_priority') }}"></i>
                                             </span>
                                         </label>
@@ -54,7 +82,12 @@
                                         <select class="form-control" name="priority" id="" required>
                                             <option disabled selected>{{ translate('set_Priority') }}</option>
                                             @for ($i = 0; $i <= 10; $i++)
+<<<<<<< HEAD
                                                 <option value="{{ $i}}">{{ $i}}</option>
+=======
+                                                <option
+                                                        value="{{ $i}}">{{ $i}}</option>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             @endfor
                                         </select>
                                     </div>
@@ -76,7 +109,11 @@
                                     <div class="form-group">
                                         <div class="text-center mx-auto">
                                             <img class="upload-img-view" id="viewer" alt=""
+<<<<<<< HEAD
                                                  src="{{ dynamicAsset(path: 'public/assets/back-end/img/image-place-holder.png') }}">
+=======
+                                                src="{{ asset('public/assets/back-end/img/image-place-holder.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </div>
                                     </div>
                                 </div>
@@ -97,6 +134,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="px-3 py-4">
+<<<<<<< HEAD
                         <div class="d-flex flex-wrap justify-content-between gap-3 align-items-center">
                             <div class="">
                                 <h5 class="text-capitalize d-flex gap-1">
@@ -106,6 +144,16 @@
                                 </h5>
                             </div>
                             <div class="d-flex flex-wrap gap-3 align-items-center">
+=======
+                        <div class="row align-items-center">
+                            <div class="col-sm-4 col-md-6 col-lg-8 mb-2 mb-sm-0">
+                                <h5 class="text-capitalize d-flex gap-1">
+                                    {{ translate('category_list') }}
+                                    <span class="badge badge-soft-dark radius-50 fz-12">{{ $categories->total() }}</span>
+                                </h5>
+                            </div>
+                            <div class="col-sm-8 col-md-6 col-lg-4">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <form action="{{ url()->current() }}" method="GET">
                                     <div class="input-group input-group-custom input-group-merge">
                                         <div class="input-group-prepend">
@@ -114,6 +162,7 @@
                                             </div>
                                         </div>
                                         <input id="" type="search" name="searchValue" class="form-control"
+<<<<<<< HEAD
                                                placeholder="{{ translate('search_by_category_name') }}"
                                                value="{{ request('searchValue') }}">
                                         <button type="submit"
@@ -140,18 +189,34 @@
                                 </div>
                             </div>
 
+=======
+                                               placeholder="{{ translate('search_here') }}"
+                                               value="{{ request('searchValue') }}" required>
+                                        <button type="submit" class="btn btn--primary">{{ translate('search') }}</button>
+                                    </div>
+                                </form>
+                            </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                     </div>
 
                     <div class="table-responsive">
+<<<<<<< HEAD
                         <table
                             class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table w-100 text-start">
+=======
+                        <table class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table w-100 text-start">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <thead class="thead-light thead-50 text-capitalize">
                             <tr>
                                 <th>{{ translate('ID') }}</th>
                                 <th class="text-center">{{ translate('category_Image') }}</th>
                                 <th>{{ translate('name') }}</th>
+<<<<<<< HEAD
                                 <th class="text-center">{{ translate('priority') }}</th>
+=======
+                                <th>{{ translate('priority') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <th class="text-center">{{ translate('home_category_status') }}</th>
                                 <th class="text-center">{{ translate('action') }}</th>
                             </tr>
@@ -160,6 +225,7 @@
                             @foreach($categories as $key=>$category)
                                 <tr>
                                     <td>{{ $category['id'] }}</td>
+<<<<<<< HEAD
                                     <td class="d-flex justify-content-center">
                                         <div class="avatar-60 d-flex align-items-center rounded">
                                             <img class="img-fluid" alt=""
@@ -168,6 +234,16 @@
                                     </td>
                                     <td>{{ $category['defaultname'] }}</td>
                                     <td class="text-center">
+=======
+                                    <td class="text-center">
+                                        <div class="avatar-60 d-flex align-items-center rounded">
+                                            <img class="img-fluid" alt=""
+                                             src="{{ getValidImage(path: 'storage/app/public/category/'.$category['icon'], type: 'backend-category') }}">
+                                        </div>
+                                    </td>
+                                    <td>{{ $category['defaultname'] }}</td>
+                                    <td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{ $category['priority'] }}
                                     </td>
                                     <td class="text-center">
@@ -177,6 +253,7 @@
                                             @csrf
                                             <input type="hidden" name="id" value="{{ $category['id'] }}">
                                             <label class="switcher mx-auto">
+<<<<<<< HEAD
                                                 <input type="checkbox" class="switcher_input toggle-switch-message"
                                                        name="home_status"
                                                        id="category-status{{ $category['id'] }}" value="1"
@@ -189,21 +266,42 @@
                                                        data-off-title="{{ translate('Want_to_Turn_OFF').' '.$category['defaultname'].' '.translate('status') }}"
                                                        data-on-message="<p>{{ translate('if_enabled_this_category_it_will_be_visible_from_the_category_wise_product_section_in_the_website_and_customer_app_in_the_homepage') }}</p>"
                                                        data-off-message="<p>{{ translate('if_disabled_this_category_it_will_be_hidden_from_the_category_wise_product_section_in_the_website_and_customer_app_in_the_homepage') }}</p>">
+=======
+                                                <input type="checkbox" class="switcher_input toggle-switch-message" name="home_status"
+                                                       id="category-status{{ $category['id'] }}" value="1" {{ $category['home_status'] == 1 ? 'checked' : '' }}
+                                                       data-modal-id="toggle-status-modal"
+                                                       data-toggle-id="category-status{{ $category['id'] }}"
+                                                       data-on-image = "category-status-on.png"
+                                                       data-off-image = "category-status-off.png"
+                                                       data-on-title = "{{ translate('Want_to_Turn_ON').' '.$category['defaultname'].' '. translate('status') }}"
+                                                       data-off-title = "{{ translate('Want_to_Turn_OFF').' '.$category['defaultname'].' '.translate('status') }}"
+                                                       data-on-message = "<p>{{ translate('if_enabled_this_category_it_will_be_visible_from_the_category_wise_product_section_in_the_website_and_customer_app_in_the_homepage') }}</p>"
+                                                       data-off-message = "<p>{{ translate('if_disabled_this_category_it_will_be_hidden_from_the_category_wise_product_section_in_the_website_and_customer_app_in_the_homepage') }}</p>">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <span class="switcher_control"></span>
                                             </label>
                                         </form>
                                     </td>
                                     <td>
                                         <div class="d-flex justify-content-center gap-10">
+<<<<<<< HEAD
                                             <a class="btn btn-outline-info btn-sm square-btn "
+=======
+                                            <a class="btn btn-outline-info btn-sm square-btn"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                title="{{ translate('edit') }}"
                                                href="{{ route('admin.category.update',[$category['id']]) }}">
                                                 <i class="tio-edit"></i>
                                             </a>
+<<<<<<< HEAD
                                             <a class="btn btn-outline-danger btn-sm square-btn delete-category"
                                                title="{{ translate('delete') }}"
                                                data-product-count = "{{count($category?->product)}}"
                                                data-text="{{translate('there_were_').count($category?->product).translate('_products_under_this_category').'.'.translate('please_update_their_category_from_the_below_list_before_deleting_this_one').'.'}}"
+=======
+                                            <a class="btn btn-outline-danger btn-sm square-btn category-delete-button"
+                                               title="{{ translate('delete') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                id="{{ $category['id'] }}">
                                                 <i class="tio-delete"></i>
                                             </a>
@@ -220,10 +318,18 @@
                             {{ $categories->links() }}
                         </div>
                     </div>
+<<<<<<< HEAD
                     @if(count($categories) == 0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+
+                    @if(count($categories) == 0)
+                        <div class="text-center p-4">
+                            <img class="mb-3 w-160"
+                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{ translate('no_data_found') }}</p>
                         </div>
@@ -232,6 +338,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <span id="route-admin-category-delete" data-url="{{ route('admin.category.delete') }}"></span>
     <span id="get-categories" data-categories="{{ json_encode($categories) }}"></span>
     <div class="modal fade" id="select-category-modal" tabindex="-1" aria-labelledby="toggle-modal" aria-hidden="true">
@@ -276,4 +383,12 @@
 
 @push('script')
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+
+    <span id="route-admin-category-delete" data-url="{{ route('admin.category.delete') }}"></span>
+@endsection
+
+@push('script')
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

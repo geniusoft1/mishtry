@@ -18,6 +18,18 @@ $(document).ready(function () {
 
 cartQuantityInitialize();
 getVariantPrice();
+<<<<<<< HEAD
+=======
+$('#add-to-cart-form input').on('change', function () {
+    getVariantPrice();
+});
+
+$('.focus-preview-image-by-color').on('click', function () {
+    let key = $(this).data('key');
+    $('a[href="#image' + key + '"]')[0].click();
+});
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 $('.view_more_button').on('click', function () {
     loadReviewOnDetailsPage();
@@ -78,6 +90,7 @@ $('#chat-form').on('submit', function (e) {
         }
     });
 });
+<<<<<<< HEAD
 
 function renderFocusPreviewImageByColor() {
     $('.focus-preview-image-by-color').on('click', function (){
@@ -86,3 +99,5 @@ function renderFocusPreviewImageByColor() {
     })
 }
 renderFocusPreviewImageByColor()
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

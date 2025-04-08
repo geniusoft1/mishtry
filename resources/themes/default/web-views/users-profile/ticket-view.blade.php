@@ -27,6 +27,7 @@
                                 <div class="media-body">
                                     <div class="d-flex flex-column">
                                         <div class="d-flex gap-2 align-items-center">
+<<<<<<< HEAD
                                             <h6 class="text-capitalize m-0 fs-14 font-semibold">{{ \App\Utils\customer_info()->f_name }} {{ \App\Utils\customer_info()->l_name }}</h6>
                                             <div class="d-none d-sm-block">
                                                 <span
@@ -38,6 +39,19 @@
                                                         class="py-2 badge badge-success rounded text-capitalize"
                                                     @else
                                                         class="py-2 badge badge-info rounded text-capitalize"
+=======
+                                            <h6 class="text-capitalize m-0">{{ \App\Utils\customer_info()->f_name }} {{ \App\Utils\customer_info()->l_name }}</h6>
+                                            <div class="d-none d-sm-block">
+                                                <span
+                                                    @if($ticket->priority == 'Urgent')
+                                                        class="badge badge-danger rounded text-capitalize"
+                                                    @elseif($ticket->priority == 'High')
+                                                        class="badge badge-warning rounded text-capitalize"
+                                                    @elseif($ticket->priority == 'Medium')
+                                                        class="badge badge-success rounded text-capitalize"
+                                                    @else
+                                                        class="badge badge-info rounded text-capitalize"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     @endif
                                                     >{{ translate($ticket->type) }}</span>
                                             </div>
@@ -66,7 +80,11 @@
                                 </div>
                             </div>
                             @if($ticket->status != 'close')
+<<<<<<< HEAD
                                 <a href="{{route('support-ticket.close',[$ticket['id']])}}" class="btn btn-sm fs-14 font-semibold text-capitalize btn-outline-danger d-none d-sm-inline-block">{{ translate('close_this_ticket') }}</a>
+=======
+                                <a href="{{route('support-ticket.close',[$ticket['id']])}}" class="btn btn-outline-danger d-none d-sm-inline-block">{{ translate('close_this_ticket') }}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <a href="{{route('support-ticket.close',[$ticket['id']])}}" class="btn btn-outline-danger btn-sm d-sm-none">{{ translate('close') }}</a>
                             @endif
                         </div>
@@ -95,7 +113,11 @@
                                                 <div class="row g-2 flex-wrap mt-3 justify-content-start">
                                                     @foreach (json_decode($conversation['attachment']) as $key => $photo)
                                                         <div class="col-sm-6 col-md-4 position-relative img_row{{$key}}">
+<<<<<<< HEAD
                                                             <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/support-ticket/".$photo)}}"
+=======
+                                                            <a data-lightbox="mygallery" href="{{asset("storage/app/public/support-ticket/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                class="aspect-1 overflow-hidden d-block border rounded">
                                                                 <img class="img-fit" alt="{{ translate('ticket') }}"
                                                                      src="{{ getValidImage(path: 'storage/app/public/support-ticket/'.$photo, type: 'product') }}">
@@ -125,7 +147,11 @@
                                             <div class="row g-2 flex-wrap mt-3 justify-content-end">
                                                 @foreach (json_decode($conversation['attachment']) as $key => $photo)
                                                     <div class="col-sm-6 col-md-4 position-relative img_row{{$key}}">
+<<<<<<< HEAD
                                                         <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/support-ticket/".$photo)}}"
+=======
+                                                        <a data-lightbox="mygallery" href="{{asset("storage/app/public/support-ticket/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                            class="aspect-1 overflow-hidden d-block border rounded">
                                                             <img class="img-fit" alt="{{ translate('ticket') }}"
                                                                  src="{{ getValidImage(path: 'storage/app/public/support-ticket/'.$photo, type: 'product') }}">
@@ -155,7 +181,11 @@
                                     <div class="row g-2 flex-wrap mt-3 justify-content-end">
                                         @foreach (json_decode($ticket['attachment']) as $key => $photo)
                                             <div class="col-sm-6 col-md-4 position-relative img_row{{$key}}">
+<<<<<<< HEAD
                                                 <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/support-ticket/".$photo)}}"
+=======
+                                                <a data-lightbox="mygallery" href="{{asset("storage/app/public/support-ticket/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                    class="aspect-1 overflow-hidden d-block border rounded">
                                                     <img class="img-fit" alt="{{ translate('ticket') }}"
                                                          src="{{ getValidImage(path: 'storage/app/public/support-ticket/'.$photo, type: 'product') }}">
@@ -171,7 +201,10 @@
                         </div>
 
                     </div>
+<<<<<<< HEAD
                     @if($ticket->status != 'close')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="card-footer py-0 px-0">
                         <form class="needs-validation" href="{{route('support-ticket.comment',[$ticket['id']])}}" enctype="multipart/form-data"
                             method="post" novalidate>
@@ -202,7 +235,10 @@
                             </div>
                         </form>
                     </div>
+<<<<<<< HEAD
                     @endif
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
             </section>
         </div>
@@ -211,5 +247,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/ticket-view.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/front-end/js/ticket-view.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

@@ -3,7 +3,11 @@
         <div class="card-body p-xl-35">
             <div class="row d-flex justify-content-between mx-1 mb-3">
                 <div>
+<<<<<<< HEAD
                     <img class="size-30" src="{{theme_asset(path: "public/assets/front-end/png/best-sellings.png")}}"
+=======
+                    <img class="size-30" src="{{asset("public/assets/front-end/png/best-sellings.png")}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                          alt="">
                     <span class="font-bold pl-1">{{ translate('best_sellings')}}</span>
                 </div>
@@ -21,6 +25,7 @@
                             <a class="__best-selling" href="{{route('product',$bestSell->product->slug)}}">
                                 @if($bestSell->product->discount > 0)
                                     <div class="d-flex">
+<<<<<<< HEAD
                                         <span class="for-discount-value p-1 pl-2 pr-2 font-bold fs-13">
                                             <span class="direction-ltr d-block">
                                                 @if ($bestSell->product->discount_type == 'percent')
@@ -29,6 +34,14 @@
                                                     -{{ webCurrencyConverter(amount: $bestSell->product->discount) }}
                                                 @endif
                                             </span>
+=======
+                                        <span class="for-discount-value p-1 pl-2 pr-2">
+                                            @if ($bestSell->product->discount_type == 'percent')
+                                                {{round($bestSell->product->discount)}}%
+                                            @elseif($bestSell->product->discount_type =='flat')
+                                                {{ webCurrencyConverter(amount: $bestSell->product->discount) }}
+                                            @endif {{translate('off')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </div>
                                 @endif
@@ -57,7 +70,11 @@
                                                         <i class="tio-star-outlined text-warning"></i>
                                                     @endif
                                                 @endfor
+<<<<<<< HEAD
                                                 <label class="badge-style">( {{ count($bestSell->product['reviews']) }} )</label>
+=======
+                                                <label class="badge-style">( {{$bestSell->product->reviews_count}} )</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </span>
                                             </div>
                                         @endif

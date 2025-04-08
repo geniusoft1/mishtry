@@ -1,17 +1,24 @@
 @extends('layouts.back-end.app-seller')
 @section('title',translate('order_Details'))
 
+<<<<<<< HEAD
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @section('content')
     @php($shippingAddress = $order['shipping_address_data'] ?? null)
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/all-orders.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/all-orders.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('order_details')}}
             </h2>
         </div>
@@ -20,14 +27,22 @@
             <div class="col-lg-8">
                 <div class="card h-100">
                     <div class="card-body">
+<<<<<<< HEAD
                         <div class="d-flex flex-wrap gap-10 flex-md-nowrap justify-content-between mb-4">
+=======
+                        <div class="d-flex flex-wrap gap-10 justify-content-between mb-4">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="d-flex flex-column gap-10">
                                 <h4 class="text-capitalize">{{translate('Order_ID')}} #{{$order['id']}}</h4>
                                 <div class="">
                                     {{date('d M, Y , h:i A',strtotime($order['created_at']))}}
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="text-sm-right flex-grow-1">
+=======
+                            <div class="text-sm-right">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="d-flex flex-wrap gap-10 justify-content-end">
                                     @if (isset($order->verificationImages) && $order->verification_status ==1)
                                         <div>
@@ -159,7 +174,11 @@
                                                         </div>
                                                         <div>
                                                             <strong>{{translate('unit_price')}} :</strong>
+<<<<<<< HEAD
                                                             {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $detail->price+( $detail->tax_model =='include' ? $detail->tax : 0)), currencyCode: getCurrencyCode())}}
+=======
+                                                            {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $detail['price']+($detail->tax_model =='include' ? $detail['tax']:0)), currencyCode: getCurrencyCode())}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             @if ($detail->tax_model =='include')
                                                                 ({{translate('tax_incl.')}})
                                                             @else
@@ -172,7 +191,11 @@
                                                         @endif
                                                     </div>
                                                 </div>
+<<<<<<< HEAD
                                                 @if(isset($productDetails->digital_product_type) && $productDetails->digital_product_type == 'ready_after_sell')
+=======
+                                                @if($productDetails->digital_product_type == 'ready_after_sell')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <button type="button" class="btn btn-sm btn--primary mt-2"
                                                             title="File Upload" data-toggle="modal"
                                                             data-target="#fileUploadModal-{{ $detail->id }}"
@@ -209,9 +232,16 @@
                                                             @if($detail->digital_file_after_sell)
                                                                 <div class="mb-4">
                                                                     {{translate('uploaded_file')}} :
+<<<<<<< HEAD
                                                                     <a href="{{ dynamicStorage(path: 'storage/app/public/product/digital-product/'.$detail->digital_file_after_sell) }}"
                                                                        class="btn btn-success btn-sm" title=" {{translate('download')}}">
                                                                         <i class="tio-download"></i> {{translate('download')}}
+=======
+                                                                    <a href="{{ asset('storage/app/public/product/digital-product/'.$detail->digital_file_after_sell) }}"
+                                                                       class="btn btn-success btn-sm" title="Download"
+                                                                       download><i
+                                                                            class="tio-download"></i> {{translate('download')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     </a>
                                                                 </div>
                                                             @else
@@ -265,11 +295,15 @@
                                     <dd class="col-6 title-color">
                                         <strong>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $item_price-$discount), currencyCode: getCurrencyCode())}}</strong>
                                     </dd>
+<<<<<<< HEAD
                                     <dt class="col-5">
                                         {{translate('coupon_discount')}}
                                         <br>
                                         {{(!in_array($order['coupon_code'], [0, NULL]) ? '('.translate('expense_bearer_').($order['coupon_discount_bearer']=='inhouse' ? 'admin' : $order['coupon_discount_bearer']).')': '' )}}
                                     </dt>
+=======
+                                    <dt class="col-5">{{translate('coupon_discount')}}</dt>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <dd class="col-6 title-color">
                                         -
                                         <strong>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $coupon_discount), currencyCode: getCurrencyCode())}}</strong>
@@ -278,19 +312,46 @@
                                     <dd class="col-6 title-color">
                                         <strong>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $tax), currencyCode: getCurrencyCode())}}</strong>
                                     </dd>
+<<<<<<< HEAD
                                     <dt class="col-5 text-capitalize">
                                         {{translate('delivery_fee')}}
                                         <br>
                                         {{($order['is_shipping_free'] ? '('.translate('expense_bearer_').($order['free_delivery_bearer']).')': '' )}}
                                     </dt>
+=======
+                                    <dt class="col-5 text-capitalize">{{translate('delivery_fee')}}</dt>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <dd class="col-6 title-color">
                                         <strong>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $shipping), currencyCode: getCurrencyCode())}}</strong>
                                     </dd>
 
                                     @php($delivery_fee_discount = 0)
                                     @if ($order['is_shipping_free'])
+<<<<<<< HEAD
                                         @php($delivery_fee_discount = $shipping)
                                     @endif
+=======
+                                        <dt class="col-5">{{translate('delivery_fee_discount')}}
+                                            ({{ translate($order['free_delivery_bearer']) }} {{translate('bearer')}})
+                                        </dt>
+                                        <dd class="col-6 title-color">
+                                            + {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $shipping), currencyCode: getCurrencyCode())}}
+                                        </dd>
+                                        @php($delivery_fee_discount = $shipping)
+                                        @php($total += $delivery_fee_discount)
+                                    @endif
+
+                                    @if($order['coupon_discount_bearer'] == 'inhouse' && !in_array($order['coupon_code'], [0, NULL]))
+                                        <dt class="col-5">{{translate('coupon_discount')}}({{translate('admin_bearer')}}
+                                            )
+                                        </dt>
+                                        <dd class="col-6 title-color">
+                                            + {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $coupon_discount), currencyCode: getCurrencyCode())}}
+                                        </dd>
+                                        @php($total += $coupon_discount)
+                                    @endif
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <dt class="col-5"><strong>{{translate('total')}}</strong></dt>
                                     <dd class="col-6 title-color">
                                         <strong>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $total+$shipping-$coupon_discount -$delivery_fee_discount), currencyCode: getCurrencyCode())}}</strong>
@@ -307,7 +368,11 @@
                         <div class="card-body">
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/product_setup.png')}}" alt="" width="20">
+=======
+                                    <img src="{{asset('/public/assets/back-end/img/product_setup.png')}}" alt="" width="20">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('Payment_Information')}}
                                 </h4>
                             </div>
@@ -382,11 +447,18 @@
                             <div class="d-flex justify-content-end min-w-100 align-items-center gap-2">
                                 <span
                                     class="text--primary font-weight-bold">{{ $order->payment_status=='paid' ? translate('paid'):translate('unpaid')}}</span>
+<<<<<<< HEAD
                                 <label class="switcher payment-status-text {{$order->payment_method == 'cash_on_delivery' && $order['order_status'] != 'delivered' ? 'payment-status-alert' : ($order['payment_status'] == 'paid' ? 'payment-status-alert' : '')}}">
                                     <input class="switcher_input payment-status" type="checkbox" name="status"
                                            data-id="{{$order->id}}"
                                            value="{{$order->payment_status}}"
                                         {{ $order->payment_method == 'cash_on_delivery'&& $order->order_status != 'delivered' ? 'disabled' : ($order->payment_status=='paid' ? 'disabled' : '')}}
+=======
+                                <label class="switcher payment-status-text">
+                                    <input class="switcher_input payment_status" type="checkbox" name="status"
+                                           data-id="{{$order->id}}"
+                                           value="{{$order->payment_status}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{ $order->payment_status=='paid' ? 'checked':''}} >
                                     <span class="switcher_control switcher_control_add
                                         {{ $order->payment_status=='paid' ? 'checked':'unchecked'}}"></span>
@@ -455,7 +527,11 @@
                                         @else
                                             <div class="p-2 bg-light rounded mt-4">
                                                 <div class="media m-1 gap-3">
+<<<<<<< HEAD
                                                     <img class="avatar rounded-circle" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery-man.png')}}" alt="{{translate('image')}}">
+=======
+                                                    <img class="avatar rounded-circle" src="{{asset('public/assets/back-end/img/delivery-man.png')}}" alt="{{translate('image')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <div class="media-body">
                                                         <h5 class="mt-3">{{translate('no_delivery_man_assigned')}}</h5>
                                                     </div>
@@ -465,6 +541,7 @@
                                     </li>
                                     @if (isset($order->deliveryMan))
                                         <li class="choose_delivery_man mt-3">
+<<<<<<< HEAD
                                             <label class="font-weight-bold title-color d-flex fz-14">
                                                 {{translate('delivery_man_incentive')}} ({{ session('currency_symbol') }})
                                                 <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{translate('encourage_your_deliveryman_by_giving_him_incentive').' '.translate('this_amount_will_be_count_as_vendor_expense').'.'}}">
@@ -477,6 +554,15 @@
                                                        class="form-control" placeholder="{{translate('ex').': 20'}}" {{$order['order_status']=='delivered' ? 'readonly':''}} required>
                                                 <button class="btn btn--primary {{$order['order_status']=='delivered' ? 'disabled deliveryman-charge-alert':'deliveryman-charge'}}">{{translate('update')}}</button>
                                             </div>
+=======
+                                            <label class="font-weight-bold title-color fz-14">
+                                                {{translate('deliveryman_will_get')}} ({{ session('currency_symbol') }})
+                                            </label>
+                                            <input type="number" id="deliveryman_charge"
+                                                   value="{{ usdToDefaultCurrency(amount: $order->deliveryman_charge) }}" name="deliveryman_charge"
+                                                   data-order-id="{{$order['id']}}"
+                                                   class="form-control amountDateUpdate" placeholder="{{translate('ex').':'.'20'}}" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </li>
                                         <li class="choose_delivery_man mt-3">
                                             <label class="font-weight-bold title-color fz-14">
@@ -495,7 +581,11 @@
                                 <li class=" mt-3" id="by_third_party_delivery_service_info">
                                     <div class="p-2 bg-light rounded mt-4">
                                         <div class="media m-1 gap-3">
+<<<<<<< HEAD
                                             <img class="avatar rounded-circle" src="{{dynamicAsset(path: 'public/assets/back-end/img/third-party-delivery.png')}}"
+=======
+                                            <img class="avatar rounded-circle" src="{{asset('public/assets/back-end/img/third-party-delivery.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="{{translate('image')}}">
                                             <div class="media-body">
                                                 <h5 class="">{{$order->delivery_service_name ?? translate('not_assign_yet')}}</h5>
@@ -514,7 +604,11 @@
                         <div class="card-body">
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" alt="">
+=======
+                                    <img src="{{asset('public/assets/back-end/img/vendor-information.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('customer_information')}}
                                 </h4>
                             </div>
@@ -543,6 +637,7 @@
                             <div class="card-body">
                                 <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                     <h4 class="d-flex gap-2">
+<<<<<<< HEAD
                                         <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" alt="">
                                         {{translate('shipping_address')}}
                                     </h4>
@@ -552,6 +647,15 @@
                                             <i class="tio-edit"></i>
                                         </button>
                                     @endif
+=======
+                                        <img src="{{asset('public/assets/back-end/img/vendor-information.png')}}" alt="">
+                                        {{translate('shipping_address')}}
+                                    </h4>
+                                    <button class="btn btn-outline-primary btn-sm square-btn" title="Edit"
+                                            data-toggle="modal" data-target="#shippingAddressUpdateModal">
+                                        <i class="tio-edit"></i>
+                                    </button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                                 <div class="d-flex flex-column gap-2">
                                     <div>
@@ -581,7 +685,11 @@
                                         <strong>{{$shippingAddress->zip}}</strong>
                                     </div>
                                     <div class="d-flex align-items-start gap-2">
+<<<<<<< HEAD
                                         <img src="{{asset('public/assets/back-end/img/location.png')}}" alt="">
+=======
+                                        <img src="{{asset('/public/assets/back-end/img/location.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{$shippingAddress->address}}
                                     </div>
                                 </div>
@@ -601,6 +709,7 @@
                         <div class="card-body">
                             <div class="d-flex gap-2 align-items-center justify-content-between mb-4">
                                 <h4 class="d-flex gap-2">
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/vendor-information.png')}}" alt="">
                                     {{translate('billing_address')}}
                                 </h4>
@@ -610,6 +719,16 @@
                                         <i class="tio-edit"></i>
                                     </button>
                                 @endif
+=======
+                                    <img src="{{asset('public/assets/back-end/img/vendor-information.png')}}" alt="">
+                                    {{translate('billing_address')}}
+                                </h4>
+
+                                <button class="btn btn-outline-primary btn-sm square-btn" title="Edit"
+                                        data-toggle="modal" data-target="#billingAddressUpdateModal">
+                                    <i class="tio-edit"></i>
+                                </button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
 
                             <div class="d-flex flex-column gap-2">
@@ -640,7 +759,11 @@
                                     <strong>{{$billing->zip}}</strong>
                                 </div>
                                 <div class="d-flex align-items-start gap-2">
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}" alt="">
+=======
+                                    <img src="{{asset('/public/assets/back-end/img/location.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{$billing->address}}
                                 </div>
                             </div>
@@ -656,14 +779,22 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="mb-4 d-flex gap-2">
+<<<<<<< HEAD
                             <img src="{{dynamicAsset(path: 'public/assets/back-end/img/shop-information.png')}}" alt="">
+=======
+                            <img src="{{asset('/public/assets/back-end/img/shop-information.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             {{translate('shop_Information')}}
                         </h4>
                         <div class="media">
                             @if(!empty($order->seller->shop))
                                 <div class="mr-3">
                                     <img class="avatar rounded avatar-70"
+<<<<<<< HEAD
                                          src="{{getValidImage(path: 'storage/app/public/shop/'.$order->seller->shop['image'],type: 'backend-basic')}}"
+=======
+                                         src="{{getValidImage(path: 'storage/app/public/seller/'.auth('seller')->user()->image,type: 'backend-basic')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="">
                                 </div>
                                 <div class="media-body d-flex flex-column gap-2">
@@ -672,7 +803,11 @@
                                     <span
                                         class="title-color"> <strong>{{ $order->seller->shop->contact }}</strong></span>
                                     <div class="d-flex align-items-start gap-2">
+<<<<<<< HEAD
                                         <img src="{{dynamicAsset(path: 'public/assets/back-end/img/location.png')}}" class="mt-1"
+=======
+                                        <img src="{{asset('/public/assets/back-end/img/location.png')}}" class="mt-1"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                         {{ $order->seller->shop->address }}
                                     </div>
@@ -680,7 +815,11 @@
                             @else
                                 <div class="card-body">
                                     <div class="media align-items-center">
+<<<<<<< HEAD
                                         <span>{{translate('no_data_found').'!'}}</span>
+=======
+                                        <span>{{translate('no_data_found')}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             @endif
@@ -725,17 +864,145 @@
             </div>
         </div>
     @endif
+<<<<<<< HEAD
     @if($order['order_status'] != 'delivered')
         <div class="modal fade" id="shippingAddressUpdateModal" tabindex="-1" aria-labelledby="shippingAddressUpdateModal"
+=======
+    <div class="modal fade" id="shippingAddressUpdateModal" tabindex="-1" aria-labelledby="shippingAddressUpdateModal"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header pb-4">
+                    <h3 class="mb-0 text-center w-100">{{translate('shipping_address')}}</h3>
+                    <button type="button" class="btn-close border-0" data-dismiss="modal" aria-label="Close"><i
+                            class="tio-clear"></i></button>
+                </div>
+                <div class="modal-body px-4 px-sm-5 pt-0">
+                    <form action="{{route('vendor.orders.address-update')}}" method="post">
+                        @csrf
+                        <div class="d-flex flex-column align-items-center gap-2">
+                            <input name="address_type" value="shipping" hidden>
+                            <input name="order_id" value="{{$order->id}}" hidden>
+                            <div class="row gx-2">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name"
+                                               class="title-color">{{translate('contact_person_name')}}</label>
+                                        <input type="text" name="name" id="name" class="form-control"
+                                               value="{{$shippingAddress? $shippingAddress->contact_person_name : ''}}"
+                                               placeholder="{{ translate('ex') }}: {{translate('john_doe')}}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone_number"
+                                               class="title-color">{{translate('phone_number')}}</label>
+                                        <input type="tel" name="phone_number" id="phone_number"
+                                               value="{{$shippingAddress ? $shippingAddress->phone  : ''}}"
+                                               class="form-control" placeholder="{{ translate('ex') }}:32416436546"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="country" class="title-color">{{translate('country')}}</label>
+                                        <select name="country" id="country" class="form-control">
+                                            @forelse($countries as $country)
+                                                <option
+                                                    value="{{ $country['name'] }}" {{ isset($shippingAddress) && $country['name'] == $shippingAddress->country ? 'selected'  : ''}}>{{ $country['name'] }}</option>
+                                            @empty
+                                                <option value="">{{ translate('No_country_to_deliver') }}</option>
+                                            @endforelse
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="city" class="title-color">{{translate('city')}}</label>
+                                        <input type="text" name="city" id="city"
+                                               value="{{$shippingAddress ? $shippingAddress->city : ''}}"
+                                               class="form-control"
+                                               placeholder="{{ translate('ex') }}:{{translate('dhaka')}}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="zip_code" class="title-color">{{translate('zip')}}</label>
+                                        @if($zipRestrictStatus == 1)
+                                            <select name="zip" class="form-control" data-live-search="true" required>
+                                                @forelse($zipCodes as $code)
+                                                    <option
+                                                        value="{{ $code->zipcode }}"{{isset($shippingAddress) && $code->zipcode == $shippingAddress->zip ? 'selected'  : ''}}>{{ $code->zipcode }}</option>
+                                                @empty
+                                                    <option value="">{{ translate('No_zip_to_deliver') }}</option>
+                                                @endforelse
+                                            </select>
+                                        @else
+                                            <input type="text" class="form-control"
+                                                   value="{{$shippingAddress ? $shippingAddress->zip  : ''}}" id="zip"
+                                                   name="zip"
+                                                   placeholder="{{ translate('ex') }}: 1216" {{$shippingAddress?'required':''}}>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="address" class="title-color">{{translate('address')}}</label>
+                                        <textarea name="address" id="address" name="address" rows="3"
+                                                  class="form-control"
+                                                  placeholder="{{ translate('ex') }} : {{translate('street_1,_street_2,_street_3,_street_4')}}">{{$shippingAddress ? $shippingAddress->address : ''}}</textarea>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="latitude"
+                                       name="latitude" class="form-control d-inline"
+                                       placeholder="{{ translate('Ex') }} : -94.22213"
+                                       value="{{$shippingAddress->latitude ?? 0}}" required readonly>
+                                <input type="hidden"
+                                       name="longitude" class="form-control"
+                                       placeholder="{{ translate('Ex') }} : 103.344322" id="longitude"
+                                       value="{{$shippingAddress->longitude??0}}" required readonly>
+                                <!--End -->
+                                <div class="col-12 ">
+                                    <input id="pac-input" class="form-control rounded __map-input mt-1"
+                                           title="{{translate('search_your_location_here')}}" type="text"
+                                           placeholder="{{translate('search_here')}}"/>
+                                    <div class="dark-support rounded w-100 __h-200px mb-5"
+                                         id="location_map_canvas_shipping"></div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="d-flex justify-content-end gap-3">
+                                        <button type="button" class="btn btn-secondary px-5"
+                                                data-dismiss="modal">{{translate('cancel')}}</button>
+                                        <button type="submit"
+                                                class="btn btn--primary px-5">{{translate('update')}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if($billing)
+        <div class="modal fade" id="billingAddressUpdateModal" tabindex="-1" aria-labelledby="billingAddressUpdateModal"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-header pb-4">
+<<<<<<< HEAD
                         <h3 class="mb-0 text-center w-100">{{translate('shipping_address')}}</h3>
+=======
+                        <h3 class="mb-0 text-center w-100">{{translate('billing_address')}}</h3>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <button type="button" class="btn-close border-0" data-dismiss="modal" aria-label="Close"><i
                                 class="tio-clear"></i></button>
                     </div>
                     <div class="modal-body px-4 px-sm-5 pt-0">
+<<<<<<< HEAD
                         <form action="{{route('vendor.orders.address-update')}}" method="post">
                             @csrf
                             <div class="d-flex flex-column align-items-center gap-2">
@@ -840,10 +1107,122 @@
                                 </div>
                             </div>
                         </form>
+=======
+                        <div class="d-flex flex-column align-items-center gap-2">
+                            <form action="{{route('vendor.orders.address-update')}}" method="post">
+                                @csrf
+                                <div class="d-flex flex-column align-items-center gap-2">
+                                    <input name="address_type" value="billing" hidden>
+                                    <input name="order_id" value="{{$order->id}}" hidden>
+                                    <div class="row gx-2">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name"
+                                                       class="title-color">{{translate('contact_person_name')}}</label>
+                                                <input type="text" name="name" id="name" class="form-control"
+                                                       value="{{$billing? $billing->contact_person_name : ''}}"
+                                                       placeholder="{{ translate('ex') }}: {{translate('john_doe')}}"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="phone_number"
+                                                       class="title-color">{{translate('phone_number')}}</label>
+                                                <input type="tel" name="phone_number" id="phone_number"
+                                                       value="{{$billing ? $billing->phone  : ''}}" class="form-control"
+                                                       placeholder="{{ translate('ex') }}:32416436546" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="country"
+                                                       class="title-color">{{translate('country')}}</label>
+                                                <select name="country" id="country" class="form-control">
+                                                    @forelse($countries as $country)
+                                                        <option
+                                                            value="{{ $country['name'] }}" {{ isset($billing) && $country['name'] == $billing->country ? 'selected'  : ''}}>{{ $country['name'] }}</option>
+                                                    @empty
+                                                        <option
+                                                            value="">{{ translate('No_country_to_deliver') }}</option>
+                                                    @endforelse
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="city" class="title-color">{{translate('city')}}</label>
+                                                <input type="text" name="city" id="city"
+                                                       value="{{$billing ? $billing->city : ''}}" class="form-control"
+                                                       placeholder="{{ translate('ex') }}:{{translate('dhaka')}}"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="zip_code" class="title-color">{{translate('zip')}}</label>
+                                                @if($zipRestrictStatus == 1)
+                                                    <select name="zip" class="form-control" data-live-search="true"
+                                                            required>
+                                                        @forelse($zipCodes as $code)
+                                                            <option
+                                                                value="{{ $code->zipcode }}"{{isset($billing) && $code->zipcode == $billing->zip ? 'selected'  : ''}}>{{ $code->zipcode }}</option>
+                                                        @empty
+                                                            <option
+                                                                value="">{{ translate('no_zip_to_deliver') }}</option>
+                                                        @endforelse
+                                                    </select>
+                                                @else
+                                                    <input type="text" class="form-control"
+                                                           value="{{$billing ? $billing->zip  : ''}}" id="zip"
+                                                           name="zip"
+                                                           placeholder="{{ translate('ex') }}: 1216" {{$billing?'required':''}}>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="address"
+                                                       class="title-color">{{translate('address')}}</label>
+                                                <textarea name="address" id="billing_address" rows="3"
+                                                          class="form-control"
+                                                          placeholder="{{ translate('ex') }} : {{translate('street_1,_street_2,_street_3,_street_4')}}">{{$billing ? $billing->address : ''}}</textarea>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="billing_latitude"
+                                               name="latitude" class="form-control d-inline"
+                                               placeholder="{{ translate('ex') }} : -94.22213"
+                                               value="{{$billing->latitude ?? 0}}" required readonly>
+                                        <input type="hidden"
+                                               name="longitude" class="form-control"
+                                               placeholder="{{ translate('ex') }} : 103.344322" id="billing_longitude"
+                                               value="{{$billing->longitude ?? 0}}" required readonly>
+                                        <div class="col-12 ">
+                                            <input id="billing-pac-input" class="form-control rounded __map-input mt-1"
+                                                   title="{{translate('search_your_location_here')}}" type="text"
+                                                   placeholder="{{translate('search_here')}}"/>
+                                            <div class="rounded w-100 __h-200px mb-5"
+                                                 id="location_map_canvas_billing"></div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="d-flex justify-content-end gap-3">
+                                                <button type="button" class="btn btn-secondary px-5"
+                                                        data-dismiss="modal">{{translate('cancel')}}</button>
+                                                <button type="submit"
+                                                        class="btn btn--primary px-5">{{translate('update')}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         @if($billing)
             <div class="modal fade" id="billingAddressUpdateModal" tabindex="-1" aria-labelledby="billingAddressUpdateModal"
                  aria-hidden="true">
@@ -973,6 +1352,10 @@
             </div>
         @endif
     @endif
+=======
+    @endif
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -1029,7 +1412,10 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <span id="payment-status-message" data-title="{{translate('confirm_payments_before_change_the_status').'.'}}" data-message="{{translate('change_the_status_paid_only_when_you_received_the_payment_from_customer').translate('_once_you_change_the_status_to_paid').','.translate('_you_cannot_change_the_status_again').'!' }}"></span>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     <span id="message-status-title-text" data-text="{{ translate("are_you_sure_change_this") }}"></span>
     <span id="message-status-subtitle-text" data-text="{{ translate("you_will_not_be_able_to_revert_this") }}!"></span>
@@ -1049,8 +1435,13 @@
     <span id="message-deliveryman-add-success-text"
           data-text="{{ translate("delivery_man_successfully_assigned/changed") }}"></span>
     <span id="message-deliveryman-add-error-text"
+<<<<<<< HEAD
           data-text="{{ translate("deliveryman_man_can_not_assign_or_change_in_that_status") }}"></span>
     <span id="message-deliveryman-add-invalid-text" data-text="{{ translate("deliveryman_man_can_not_assign_or_change_in_that_status") }}"></span>
+=======
+          data-text="{{ translate("deliveryman_man_can_not_assign/change_in_that_status") }}"></span>
+    <span id="message-deliveryman-add-invalid-text" data-text="{{ translate("add_valid_data") }}"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <span id="delivery-type" data-type="{{ $order->delivery_type }}"></span>
     <span id="add-delivery-man-url" data-url="{{url('/vendor/orders/add-delivery-man/'.$order['id'])}}/"></span>
 
@@ -1068,6 +1459,7 @@
     <span id="shipping-longitude" data-longitude="{{$shippingAddress->longitude??'151.2195'}}"></span>
     <span id="billing-latitude" data-latitude="{{$billing->latitude??'-33.8688'}}"></span>
     <span id="billing-longitude" data-longitude="{{$billing->longitude??'151.2195'}}"></span>
+<<<<<<< HEAD
     <span id="location-icon" data-path="{{dynamicAsset(path: 'public/assets/front-end/img/customer_location.png')}}"></span>
     <span id="customer-image" data-path="{{dynamicStorage(path: 'storage/app/public/profile/')}}{{$order->customer->image??""}}"></span>
     <span id="deliveryman-charge-alert-message" data-message="{{translate('when_order_status_delivered_you_can`t_update_the_delivery_man_incentive').'.'}}"></span>
@@ -1078,4 +1470,13 @@
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/order.js')}}"></script>
+=======
+    <span id="location-icon" data-path="{{asset('public/assets/front-end/img/customer_location.png')}}"></span>
+    <span id="customer-image" data-path="{{asset('storage/app/public/profile/')}}{{$order->customer->image??""}}"></span>
+
+@endsection
+@push('script')
+    <script src="https://maps.googleapis.com/maps/api/js?key={{getWebConfig(name: 'map_api_key')}}&callback=map_callback_fucntion&libraries=places&v=3.49" defer></script>
+    <script src="{{asset('public/assets/back-end/js/vendor/order.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

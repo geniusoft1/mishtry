@@ -7,7 +7,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/support_ticket.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/support_ticket.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('support_ticket')}}
                 <span class="badge badge-soft-dark radius-50 fz-14">{{ $tickets->total() }}</span>
             </h2>
@@ -78,6 +82,7 @@
                                             <div
                                                 class="mb-2 fz-12 {{Session::get('direction') === "rtl" ? 'text-right' : 'text-left'}}">{{$ticket->customer->email??""}}</div>
                                             <div class="d-flex flex-wrap gap-2 align-items-center">
+<<<<<<< HEAD
                                                 <span class="badge-soft-danger fz-12 font-weight-bold px-2 radius-50">{{translate(str_replace('_',' ',$ticket->priority))}}</span>
                                                 <span class="badge-soft-info fz-12 font-weight-bold px-2 radius-50">{{translate(str_replace('_',' ',$ticket->status))}}</span>
                                                 <h6 class="mb-0">{{translate(str_replace('_',' ',$ticket->type))}}</h6>
@@ -92,6 +97,25 @@
                                         </div>
                                         @else
                                             <h6>{{ translate('customer_not_found').'!' }}</h6>
+=======
+                                                <span
+                                                    class="badge-soft-danger fz-12 font-weight-bold px-2 radius-50">{{translate(str_replace('_',' ',$ticket->priority))}}</span>
+                                                <span
+                                                    class="badge-soft-info fz-12 font-weight-bold px-2 radius-50">{{translate(str_replace('_',' ',$ticket->status))}}</span>
+                                                <h6 class="mb-0">{{translate(str_replace('_',' ',$ticket->type))}}</h6>
+                                                <div
+                                                    class="text-nowrap {{Session::get('direction') === "rtl" ? 'pr-9' : 'pl-9'}}">
+                                                    @if ($ticket->created_at->diffInDays(Carbon::now()) < 7)
+                                                        {{ date('D h:i:A',strtotime($ticket->created_at)) }}
+                                                    @else
+                                                        {{ date('d M Y h:i:A',strtotime($ticket->created_at)) }}
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @else
+                                            <h6>{{ translate('customer_not_found') }}</h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         @endif
                                     </div>
 
@@ -141,7 +165,11 @@
                 @if(count($tickets)==0)
                     <div class="text-center p-4">
                         <img class="mb-3 w-160"
+<<<<<<< HEAD
                              src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                             src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="{{translate('image_description')}}">
                         <p class="mb-0">{{translate('no_data_to_show')}}</p>
                     </div>
@@ -152,5 +180,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/support-tickets.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/support-tickets.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

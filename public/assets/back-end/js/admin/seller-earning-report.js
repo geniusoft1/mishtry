@@ -64,9 +64,15 @@ var options = {
         type: 'donut',
     },
     labels: [
+<<<<<<< HEAD
         $('#withdrawable_balance_text').data('text') + " " + $('#currency_symbol').data('text') + " " + $('#withdrawable_balance_format').data('text') + " ",
         $('#pending_withdraw_text').data('text') + " " + $('#currency_symbol').data('text') + " " + $('#pending_withdraw_format').data('text') + " ",
         $('#already_withdrawn_text').data('text') + " " + $('#currency_symbol').data('text') + " " + $('#already_withdrawn_format').data('text') + " ",
+=======
+        "'" + $('#withdrawable_balance_text').data('text') + "'" + $('#currency_symbol').data('text') + " " + $('#withdrawable_balance_format').data('text') + "'",
+        "'" + $('#pending_withdraw_text').data('text') + "'" + $('#currency_symbol').data('text') + " " + $('#pending_withdraw_format').data('text') + "'",
+        "'" + $('#already_withdrawn_text').data('text') + "'" + $('#currency_symbol').data('text') + " " + $('#already_withdrawn_format').data('text') + "'",
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     ],
     dataLabels: {
         enabled: false,

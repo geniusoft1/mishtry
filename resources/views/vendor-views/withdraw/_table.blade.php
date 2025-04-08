@@ -44,7 +44,11 @@
             @endforeach
         @else
             <td colspan="5" class="text-center">
+<<<<<<< HEAD
                 <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="{{translate('image_description')}}">
+=======
+                <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}" alt="{{translate('image_description')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <p class="mb-0">{{translate('no_data_to_show')}}</p>
             </td>
         @endif

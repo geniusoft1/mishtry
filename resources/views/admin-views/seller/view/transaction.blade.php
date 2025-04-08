@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-seller.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('vendor_details')}}
             </h2>
         </div>
@@ -188,7 +192,11 @@
                         @if(count($transactions)==0)
                             <div class="text-center p-4">
                                 <img class="mb-3 w-160"
+<<<<<<< HEAD
                                      src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                     src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      alt="{{translate('image_description')}}">
                                 <p class="mb-0">{{translate('no_data_to_show')}}</p>
                             </div>

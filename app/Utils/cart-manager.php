@@ -338,7 +338,11 @@ class CartManager
             $price = $product->unit_price;
         }
 
+<<<<<<< HEAD
         $tax = Helpers::tax_calculation(product: $product, price: $price, tax: $product['tax'], tax_type: 'percent');
+=======
+        $tax = Helpers::tax_calculation($price, $product['tax'], 'percent');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         //generate group id
         if ($user == 'offline') {
@@ -403,8 +407,12 @@ class CartManager
 
         return [
             'status' => 1,
+<<<<<<< HEAD
             'in_cart_key' => $cart['id'],
             'message' => translate('successfully_added!'),
+=======
+            'message' => translate('successfully_added!')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
     }
 

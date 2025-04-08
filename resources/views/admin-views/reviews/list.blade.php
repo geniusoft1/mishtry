@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/customer_review.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/customer_review.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('customer_reviews')}}
             </h2>
         </div>
@@ -122,7 +126,11 @@
                                 <li>
                                     <a class="dropdown-item"
                                        href="{{ route('admin.reviews.export', ['search'=>request('search'), 'product_id' => $product_id, 'customer_id' => $customer_id, 'status' => $status, 'from' => $from, 'to' => $to]) }}">
+<<<<<<< HEAD
                                         <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                        <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{ translate('excel') }}
                                     </a>
                                 </li>
@@ -156,7 +164,11 @@
                             </td>
                             <td>
                                 @if(isset($review->product))
+<<<<<<< HEAD
                                     <a href="{{$review['product_id'] ? route('admin.products.view', ['addedBy'=>$review->product->added_by,'id'=>$review->product->id]) : 'javascript:'}}"
+=======
+                                    <a href="{{$review['product_id'] ? route('admin.products.view', [$review['product_id']]) : 'javascript:'}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        class="title-color hover-c1">
                                         {{ Str::limit($review->product['name'], 25) }}
                                     </a>
@@ -191,7 +203,11 @@
                                     @if($review->attachment)
                                         <div class="d-flex flex-wrap">
                                             @foreach (json_decode($review->attachment) as $img)
+<<<<<<< HEAD
                                                 <a href="{{ dynamicStorage(path: 'storage/app/public/review').'/'.$img }}"
+=======
+                                                <a href="{{ asset('storage/app/public/review').'/'.$img }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                    data-lightbox="mygallery">
                                                     <img width="60" height="60"
                                                          class="mx-1"
@@ -241,5 +257,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/search-product.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/search-product.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

@@ -5667,7 +5667,11 @@
   'ex: 2.1' => 'Ex: 2.1',
   'download_URL_For_Customer_App' => 'Download URL For Customer App',
   'customers_will_download_the_latest_customer_app_version_using_this_URL' => 'Customers will download the latest customer app version using this URL',
+<<<<<<< HEAD
   'for_ios' => 'For iOS',
+=======
+  'for_ios' => 'For ios',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
   'seller_app_version_control' => 'Seller app version control',
   'minimum_Seller_app_version' => 'Minimum Seller app version',
   'the_minimum_seller_app_version_required_for_the_app_functionality' => 'The minimum seller app version required for the app functionality',
@@ -7320,8 +7324,13 @@
   'enter_a_name_for_your_client ID_and_click_ Create ' => 'Enter a name for your client ID and click  Create ',
   'facebook_API_set_up_instructions' => 'Facebook API set up instructions',
   'push_a_description_and_also_identifier_and_continue' => 'Push a description and also identifier and continue',
+<<<<<<< HEAD
   'You_need_to_Sign_in_to_view_this_feature' => 'You need to Sign in to view this feature',
   'Please_Sign_in' => 'Please Sign in',
+=======
+  'Please_Sign_in' => 'Please Sign in',
+  'You_need_to_Sign_in_to_view_this_feature' => 'You need to Sign in to view this feature',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
   'vendor_Login' => 'Vendor Login',
   'best_delivery_service_highly_recommended' => 'Best delivery service highly recommended',
   'collect_cash' => 'Collect cash',
@@ -7376,6 +7385,7 @@
   'meta_description_not_found' => 'Meta description not found',
   'meta_title_not_found' => 'Meta title not found',
   'select_sub_category_first' => 'Select sub category first',
+<<<<<<< HEAD
   'category_name_is_required' => 'Category name is required',
   'category_priority_is_required' => 'Category priority is required',
   'approval_note' => 'Approval note',
@@ -7753,10 +7763,15 @@
   'your_account_has_been_unblocked' => 'Your account has been unblocked',
   'user not found' => 'User not found',
   'Delivery_man_removed' => 'Delivery man removed',
+=======
+  'invalid_react_setup' => 'Invalid react setup',
+  'This_option_is_disabled_for_demo' => 'This option is disabled for demo',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
   'Shipping Cost is required!' => 'Shipping Cost is required!',
   'Code is required!' => 'Code is required!',
   'The minimum order quantity is required!' => 'The minimum order quantity is required!',
   'The minimum order quantity must be positive!' => 'The minimum order quantity must be positive!',
+<<<<<<< HEAD
   'denied_product_request' => 'Denied product request',
   'your_account_is_suspended' => 'Your account is suspended',
   'Data_updated' => 'Data updated',
@@ -7798,4 +7813,7 @@
   'employee_updated_successfully' => 'Employee updated successfully',
   'please-wait_for_admin_approval' => 'Please-wait for admin approval',
   'social' => 'Social',
+=======
+  '659e451dea80a' => '659e451dea80a',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 );

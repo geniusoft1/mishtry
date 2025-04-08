@@ -11,7 +11,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/flash_deal.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/flash_deal.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('flash_deals')}}
             </h2>
         </div>
@@ -67,7 +71,11 @@
                                     <div class="form-group">
                                         <div class="text-center">
                                             <img class="border radius-10 ratio-4:1 max-w-655px w-100" id="viewer"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/front-end/img/placeholder.png')}}"
+=======
+                                                 src="{{asset('public/assets/front-end/img/placeholder.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                  alt="{{translate('banner_image')}}"/>
                                         </div>
                                     </div>
@@ -182,7 +190,11 @@
                                         <div class="d-flex align-items-center justify-content-center gap-10">
                                             <a class="h-30 d-flex gap-2 text-capitalize align-items-center btn btn-soft-info btn-sm border-info"
                                                href="{{route('admin.deal.add-product',[$deal['id']])}}">
+<<<<<<< HEAD
                                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/plus.svg')}}" class="svg"
+=======
+                                                <img src="{{asset('/public/assets/back-end/img/plus.svg')}}" class="svg"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                                 {{translate('add_product')}}
                                             </a>
@@ -208,7 +220,11 @@
                     @if(count($flashDeals)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                 src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{translate('no_data_to_show')}}</p>
                         </div>
@@ -219,5 +235,9 @@
     </div>
 @endsection
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deal.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/deal.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

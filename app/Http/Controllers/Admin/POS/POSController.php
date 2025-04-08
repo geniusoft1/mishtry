@@ -74,7 +74,11 @@ class POSController extends BaseController
         $summaryData = array_merge($this->POSService->getSummaryData(), $getCurrentCustomerData);
         $cartItems = $this->getCartData(cartName: session(SessionKey::CURRENT_USER));
         $order = $this->orderRepo->getFirstWhere(params: ['id' => session(SessionKey::LAST_ORDER)]);
+<<<<<<< HEAD
         $totalHoldOrder = $summaryData['totalHoldOrders'];
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return view(POS::INDEX[VIEW], compact(
             'categories',
             'categoryId',
@@ -85,7 +89,10 @@ class POSController extends BaseController
             'summaryData',
             'cartItems',
             'order',
+<<<<<<< HEAD
             'totalHoldOrder',
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ));
     }
 
@@ -357,7 +364,10 @@ class POSController extends BaseController
                     if ($cartItem['customerId'] == $customerCartData[$cartName]['customerId']) {
                         $cartItem['productSubtotal'] = $subTotalCalculation['productSubtotal'];
                         $cartItemValue[] = $cartItem;
+<<<<<<< HEAD
                         $subTotalCalculation['customerOnHold']=$cartItem['customerOnHold'];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     }
                 }
             }
@@ -375,7 +385,10 @@ class POSController extends BaseController
             'discountOnProduct' => $subTotalCalculation['discountOnProduct'],
             'productSubtotal' => $subTotalCalculation['productSubtotal'],
             'cartItemValue' => $cartItemValue,
+<<<<<<< HEAD
             'customerOnHold' => $subTotalCalculation['customerOnHold']??false,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'couponDiscount' => $totalCalculation['couponDiscount'],
             'extraDiscount' => $totalCalculation['extraDiscount'],
         ];

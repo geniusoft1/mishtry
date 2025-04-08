@@ -7,7 +7,11 @@ if (!function_exists('reactDomainStatusCheck')) {
     function reactDomainStatusCheck(): void
     {
         $data = getWebConfig('react_setup');
+<<<<<<< HEAD
         if($data && !empty($data['react_domain']) && !empty($data['react_license_code'])){
+=======
+        if($data && isset($data['react_domain']) && isset($data['react_license_code'])){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             if(isset($data['react_platform']) && $data['react_platform'] == 'codecanyon'){
                 $data['status'] = (int)activationSubmit(purchaseKey: $data['react_license_code']);
             }elseif(!reactActivationCheck(reactDomain: $data['react_domain'], reactLicenseCode: $data['react_license_code'])){

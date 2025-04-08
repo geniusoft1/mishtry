@@ -34,11 +34,15 @@
                                         </li>
                                     </ul>
                                 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div class="tab-content p-2 pt-0">
                                     <div class="tab-pane fade show active" id="seller-tab-pane" role="tabpanel"
                                          aria-labelledby="seller-tab" tabindex="0">
                                         <div class="chat-list custom-scrollbar ">
+<<<<<<< HEAD
                                             @if(isset($inhouseShop))
                                                 <div  data-link="{{route('chat', ['type' => 'seller'])}}/?id=0"
                                                       class="chat-list get-view-by-onclick chat-list-item {{ (request()->has('id') && request('id') == 0) || ($last_chat->seller_id == null && $last_chat->admin_id == 0) ? 'active':'' }} media gap-2 align-items-center"
@@ -65,6 +69,8 @@
                                                 </div>
                                             @endif
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             @if (isset($unique_shops))
                                                 @foreach($unique_shops as $key=>$shop)
                                                     @php($type = $shop->delivery_man_id ? 'delivery-man' : 'seller')
@@ -90,9 +96,14 @@
                                                                     <div class="fs-12 text-muted"></div>
                                                                 </div>
 
+<<<<<<< HEAD
                                                                 <div class="fs-10">
                                                                     {{ $shop->created_at->diffForHumans() }}
                                                                 </div>
+=======
+                                                                <div
+                                                                    class="fs-10">{{date('M d',strtotime($shop->created_at))}}</div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             </div>
                                                             <p class="fs-10">{{$shop->seller_email ?? $shop->email}}</p>
                                                         </div>
@@ -103,7 +114,11 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="position-relative">
+=======
+                            <div class="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @if(isset($last_chat))
                                     <div class="border-bottom px-3 py-2">
                                         <div class="media gap-2 align-items-center">
@@ -111,16 +126,23 @@
                                                 @if($last_chat->deliveryMan)
                                                     <img alt="" loading="lazy" id="image" class="img-fit rounded-circle dark-support"
                                                         src="{{ getValidImage(path: 'storage/app/public/delivery-man/'.$last_chat->deliveryMan->image, type:'avatar') }}">
+<<<<<<< HEAD
                                                 @elseif($last_chat->seller_id)
                                                     <img alt="" loading="lazy" id="image" class="img-fit rounded-circle dark-support"
                                                          src="{{ getValidImage(path: 'storage/app/public/shop/'.$last_chat->shop->image, type:'shop') }}">
                                                 @elseif(isset($last_chat->admin_id) && $last_chat->admin_id == 0)
                                                     <img alt="" loading="lazy" id="image" class="img-fit rounded-circle dark-support"
                                                          src="{{ getValidImage(path: 'storage/app/public/company/'.($web_config['fav_icon']->value), type: 'shop') }}">
+=======
+                                                @else
+                                                    <img alt="" loading="lazy" id="image" class="img-fit rounded-circle dark-support"
+                                                         src="{{ getValidImage(path: 'storage/app/public/shop/'.$last_chat->shop->image, type:'shop') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @endif
                                             </div>
                                             <div class="media-body">
                                                 <div class="d-flex flex-column gap-1">
+<<<<<<< HEAD
                                                     @if($last_chat->deliveryMan)
                                                         <h6 id="name">{{ $last_chat->deliveryMan->f_name.' '.$last_chat->deliveryMan->l_name }}</h6>
                                                     @elseif($last_chat->seller_id)
@@ -128,6 +150,11 @@
                                                     @elseif(isset($last_chat->admin_id) && $last_chat->admin_id == 0)
                                                         <h6 id="name">{{ $web_config['name']->value }}</h6>
                                                     @endif
+=======
+                                                    <h6 class="" id="name">
+                                                        {{$last_chat?->deliveryMan?$last_chat->deliveryMan->f_name.' '.$last_chat->deliveryMan->l_name : $last_chat->shop->name  }}
+                                                    </h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </div>
                                             </div>
                                         </div>
@@ -137,7 +164,11 @@
                                              id="show_msg">
                                             @if (isset($chattings))
                                                 @foreach($chattings as $key => $chat)
+<<<<<<< HEAD
                                                     @if ($chat->sent_by_admin || $chat->sent_by_seller || $chat->sent_by_delivery_man)
+=======
+                                                    @if ($chat->sent_by_seller ?? $chat->sent_by_delivery_man)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             <div class="received_msg">
                                                                 @if($chat->message)
                                                                 <p class="message_text">
@@ -145,12 +176,21 @@
                                                                 </p>
                                                                 @endif
                                                                 @if (json_decode($chat['attachment']) !=null)
+<<<<<<< HEAD
                                                                     <div class="d-flex gap-2 flex-wrap mt-3 justify-content-start">
                                                                         @foreach (json_decode($chat['attachment']) as $index => $photo)
                                                                             @if(file_exists(base_path("storage/app/public/chatting/".$photo)))
                                                                                 <a class="inbox-image-element custom-image-popup" href="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type:'product') }}">
                                                                                     <img src="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type:'product') }}" alt="">
                                                                                 </a>
+=======
+                                                                    <div class="row g-2 flex-wrap mt-3 justify-content-start">
+                                                                        @foreach (json_decode($chat['attachment']) as $index => $photo)
+                                                                            @if(file_exists(base_path("storage/app/public/chatting/".$photo)))
+                                                                            <div class="col-sm-6 col-md-3">
+                                                                                <img src="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type:'product') }}" class="height-100 rounded remove-mask-img" alt="">
+                                                                            </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                             @endif
                                                                         @endforeach
                                                                     </div>
@@ -165,12 +205,22 @@
                                                             </p>
                                                             @endif
                                                             @if ($chat['attachment'] !=null)
+<<<<<<< HEAD
                                                                 <div class="d-flex gap-2 flex-wrap mt-3 justify-content-end">
                                                                     @foreach (json_decode($chat['attachment']) as $index => $photo)
                                                                         @if(file_exists(base_path("storage/app/public/chatting/".$photo)))
                                                                             <a class="inbox-image-element custom-image-popup" href="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type:'product') }}">
                                                                                 <img src="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type:'product') }}" alt="">
                                                                             </a>
+=======
+                                                                <div class="row g-2 flex-wrap mt-3 justify-content-end">
+                                                                    @foreach (json_decode($chat['attachment']) as $index => $photo)
+                                                                        @if(file_exists(base_path("storage/app/public/chatting/".$photo)))
+                                                                            <div class="col-sm-6 col-md-3">
+                                                                                <img class="height-100 rounded remove-mask-img" alt=""
+                                                                                    src="{{ getValidImage(path: 'storage/app/public/chatting/'.$photo, type:'product') }}">
+                                                                            </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                         @endif
                                                                     @endforeach
                                                                 </div>
@@ -185,12 +235,25 @@
                                         <div class="type_msg px-2">
                                             <form action="{{route('messages_store')}}" method="post" class="mt-4" id="submit-message">
                                                 @csrf
+<<<<<<< HEAD
                                                 <div class="input_msg_write border rounded py-2 px-2 px-sm-3 d-flex align-items-center justify-content-between gap-2">
                                                     <div class="d-flex align-items-center gap-2 py-0 h-auto form-control focus-border rounded-10">
                                                         @if( Request::is('chat/seller') )
                                                             <input type="text" id="shop-id" hidden value="{{$last_chat->shop_id}}" name="">
                                                             @if($last_chat->shop)
                                                                 <input type="text" id="seller-id" hidden value="{{$last_chat->shop->seller_id}}" name="">
+=======
+                                                <div
+                                                    class="input_msg_write border rounded py-2 px-2 px-sm-3 d-flex align-items-center justify-content-between gap-2">
+                                                    <div
+                                                        class="d-flex align-items-center gap-2 py-0 h-auto form-control focus-border rounded-10">
+                                                        @if( Request::is('chat/seller') )
+                                                            <input type="text" id="shop-id" hidden
+                                                                   value="{{$last_chat->shop_id}}" name="">
+                                                            @if($last_chat->shop)
+                                                                <input type="text" id="seller-id" hidden
+                                                                       value="{{$last_chat->shop->seller_id}}" name="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             @endif
                                                         @elseif( Request::is('chat/delivery-man') )
                                                             <input type="text" id="delivery-man-id" hidden
@@ -207,6 +270,7 @@
                                             </form>
                                         </div>
                                     </div>
+<<<<<<< HEAD
 
                                     @if(Request::is('chat/seller') && (($last_chat->shop && $last_chat->shop->temporary_close) || (isset($last_chat->admin_id) && $last_chat->admin_id == 0 && getWebConfig(name: 'temporary_close')['status'])))
                                         <div class="temporarily-closed-sticky-alert">
@@ -227,6 +291,8 @@
                                             </div>
                                         </div>
                                     @endif
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @else
                                     <p class="text-center mt-5">
                                         {{ translate('no_conversation_found') }}

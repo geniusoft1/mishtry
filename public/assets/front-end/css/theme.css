@@ -17899,6 +17899,7 @@ html:not([dir="rtl"]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
     overflow: hidden;
 }
 
+<<<<<<< HEAD
 .product-preview-item {
     z-index: 1;
     width: 100%;
@@ -17910,6 +17911,8 @@ html:not([dir="rtl"]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
 }
 
 .product-preview-item > img,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 .cz-preview-item > img {
     display: block;
     width: 100%;
@@ -18696,10 +18699,13 @@ html:not([dir="rtl"]) .cz-range-slider-ui.noUi-horizontal .noUi-handle {
     border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
+<<<<<<< HEAD
 .opacity-0 {
     opacity: 0 !important;
 }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 .opacity-25 {
     opacity: 0.25 !important;
 }
@@ -19008,8 +19014,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgba(255, 255, 255, 0.7);
+<<<<<<< HEAD
     font-size: 16px;
     font-weight: 800;
+=======
+    font-size: 14px;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }
 
 .card-img-top img,
@@ -19155,8 +19165,12 @@ html[dir="rtl"] .feature_header span {
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgba(255, 255, 255, 0.7);
+<<<<<<< HEAD
     font-size: 16px;
     font-weight: 800;
+=======
+    font-size: 14px;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }
 
 .navbar-tool .navbar-tool-label {

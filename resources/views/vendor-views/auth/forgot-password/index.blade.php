@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{translate('forgot_password')}}</title>
 
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{{ dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
 
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css') }}">
@@ -25,6 +26,20 @@
             </div>
         </div>
     </div>
+=======
+    <link rel="shortcut icon" href="{{ asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon')) }}">
+
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/google-fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/vendor/icon-set/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/theme.minc619.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/toastr.css') }}">
+</head>
+<body>
+<main id="content" role="main" class="main">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <div class="position-fixed top-0 right-0 left-0 bg-img-hero __h-32rem">
         <figure class="position-absolute right-0 bottom-0 left-0">
             <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1921 273">
@@ -62,7 +77,11 @@
                                 <input class="form-control" type="email" name="identity" id="recover-email" required>
                                 <div class="invalid-feedback">{{translate('please_provide_valid_email_address.')}}</div>
                             </div>
+<<<<<<< HEAD
                             <button class="btn btn-primary forget-password-form" type="button">{{translate('get_new_password')}}</button>
+=======
+                            <button class="btn btn-primary" type="submit">{{translate('get_new_password')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </form>
                     </div>
                 @else
@@ -71,6 +90,7 @@
                               method="post">
                             @csrf
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label for="phoneLabel"
                                        class="col-form-label input-label">{{translate('phone')}} </label>
                                 <div class=" mb-3">
@@ -80,12 +100,20 @@
                                 </div>
                             </div>
                             <button class="btn btn--primary forget-password-form" type="button">{{translate('get_new password')}}</button>
+=======
+                                <label for="recover-email">{{translate('enter_your_phone_number')}}</label>
+                                <input class="form-control" type="text" name="identity" id="recover-email" required>
+                                <div class="invalid-feedback">{{translate('please_provide_valid_phone_number.')}}</div>
+                            </div>
+                            <button class="btn btn--primary" type="submit">{{translate('get_new password')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </form>
                     </div>
                 @endif
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <div class="modal fade password-reset-successfully-modal" tabindex="-1" aria-labelledby="toggle-modal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content shadow-lg">
@@ -111,6 +139,16 @@
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/forgot-password.js')}}"></script>
 
 {!! Toastr::message() !!}
+=======
+</main>
+
+<script src="{{asset('public/assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/toastr.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/vendor/forgot-password.js')}}"></script>
+{!! Toastr::message() !!}
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @if ($errors->any())
     <script>
         "use strict";

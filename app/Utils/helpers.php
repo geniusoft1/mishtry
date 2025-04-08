@@ -404,6 +404,7 @@ class Helpers
         return $language;
     }
 
+<<<<<<< HEAD
     public static function tax_calculation($product, $price, $tax, $tax_type)
     {
         $amount = ($price / 100) * $tax;
@@ -411,6 +412,12 @@ class Helpers
 
 //        $discount = self::get_product_discount(product: $product, price: $price);
 //        return (($price-$discount) / 100) * $tax; //after discount decrease
+=======
+    public static function tax_calculation($price, $tax, $tax_type)
+    {
+        $amount = ($price / 100) * $tax;
+        return $amount;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public static function get_price_range($product)
@@ -1261,8 +1268,12 @@ if (!function_exists('order_status_history')) {
 if (!function_exists('get_shop_name')) {
     function get_shop_name($seller_id)
     {
+<<<<<<< HEAD
         $shop = Shop::where(['seller_id' => $seller_id])->first();
         return $shop ? $shop->name : null;
+=======
+        return Shop::where(['seller_id' => $seller_id])->first()->name;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 }
 

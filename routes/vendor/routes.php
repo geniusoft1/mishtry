@@ -26,7 +26,10 @@ use App\Enums\ViewPaths\Vendor\Withdraw;
 use App\Http\Controllers\Vendor\Auth\ForgotPasswordController;
 use App\Http\Controllers\Vendor\Auth\LoginController;
 use App\Enums\ViewPaths\Vendor\Order;
+<<<<<<< HEAD
 use App\Http\Controllers\Vendor\Auth\RegisterController;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Http\Controllers\Vendor\DashboardController;
 use App\Http\Controllers\Vendor\ChattingController;
 use App\Http\Controllers\Vendor\Coupon\CouponController;
@@ -74,12 +77,15 @@ Route::group(['prefix' => 'vendor', 'as' => 'vendor.'], function () {
                 Route::post(ForgotPassword::RESET_PASSWORD[URI],'resetPassword');
             });
         });
+<<<<<<< HEAD
         Route::group(['prefix' => 'registration', 'as' => 'registration.'], function () {
             Route::controller(RegisterController::class)->group(function () {
                 Route::get(Auth::VENDOR_REGISTRATION[URI],'index')->name('index');
                 Route::post(Auth::VENDOR_REGISTRATION[URI],'add');
             });
         });
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     });
     /* end authentication */
     Route::group(['middleware' => ['seller']], function () {
@@ -129,13 +135,21 @@ Route::group(['prefix' => 'vendor', 'as' => 'vendor.'], function () {
         /* product */
         Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
             Route::controller(ProductController::class)->group(function () {
+<<<<<<< HEAD
                 Route::get(Product::LIST[URI]. '/{type}', 'index')->name('list');
+=======
+                Route::get(Product::LIST[URI], 'index')->name('list');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 Route::get(Product::ADD[URI], 'getAddView')->name('add');
                 Route::post(Product::ADD[URI], 'add');
                 Route::get(Product::GET_CATEGORIES[URI], 'getCategories')->name('get-categories');
                 Route::post(Product::SKU_COMBINATION[URI], 'getSkuCombinationView')->name('sku-combination');
                 Route::post(Product::UPDATE_STATUS[URI], 'updateStatus')->name('status-update');
+<<<<<<< HEAD
                 Route::get(Product::EXPORT_EXCEL[URI]. '/{type}', 'exportList')->name('export-excel');
+=======
+                Route::get(Product::EXPORT_EXCEL[URI], 'exportList')->name('export-excel');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 Route::get(Product::VIEW[URI] . '/{id}', 'getView')->name('view');
                 Route::get(Product::BARCODE_VIEW[URI] . '/{id}', 'getBarcodeView')->name('barcode');
                 Route::delete(Product::DELETE[URI] . '/{id}', 'delete')->name('delete');
@@ -315,7 +329,10 @@ Route::group(['prefix' => 'vendor', 'as' => 'vendor.'], function () {
             Route::controller(OrderReportController::class)->group(function (){
                 Route::get('order-report', 'order_report')->name('order-report');
                 Route::get('order-report-excel', 'order_report_export_excel')->name('order-report-excel');
+<<<<<<< HEAD
                 Route::get('order-report-pdf', 'exportOrderReportInPDF')->name('order-report-pdf');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             });
 
             Route::any('set-date', 'App\Http\Controllers\Vendor\ReportController@set_date')->name('set-date');

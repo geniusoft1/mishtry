@@ -2,8 +2,11 @@
 
 namespace App\Traits;
 
+<<<<<<< HEAD
 use App\Models\Brand;
 use App\Models\Category;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Models\Shop;
 use App\Utils\Helpers;
 use App\Enums\GlobalConstant;
@@ -14,7 +17,10 @@ use App\Models\BusinessSetting;
 use App\Models\NotificationMessage;
 use App\Models\Order;
 use App\User;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Artisan;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
@@ -580,6 +586,7 @@ trait UpdateClass
             DB::table('translations')->where('translationable_type', 'LIKE', "%Category%")->update(['translationable_type'=>'App\Models\Category']);
             DB::table('translations')->where('translationable_type', 'LIKE', "%NotificationMessage%")->update(['translationable_type'=>'App\Models\NotificationMessage']);
         }
+<<<<<<< HEAD
 
         if ($version_number == '14.4') {
             if (!NotificationMessage::where(['key' => 'product_request_approved_message'])->first()) {
@@ -616,6 +623,8 @@ trait UpdateClass
             shell_exec('ln -s ../resources/themes themes');
         }
         Artisan::call('storage:link');
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public static function notification_message_processing(){

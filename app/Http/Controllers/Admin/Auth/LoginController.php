@@ -90,7 +90,11 @@ class LoginController extends BaseController
 
         if (isset($admin) && in_array($request['role'], [UserRole::ADMIN, UserRole::EMPLOYEE]) && $admin->status) {
             if ($this->adminService->isLoginSuccessful($request['email'], $request['password'], $request['remember'])) {
+<<<<<<< HEAD
                 return redirect()->route('admin.dashboard.index');
+=======
+                return redirect()->route('admin.dashboard');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         }
 

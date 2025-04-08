@@ -3,8 +3,13 @@
 @section('title', translate('language'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <link href="{{ dynamicAsset(path: 'public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
     <link href="{{ dynamicAsset(path: 'public/assets/back-end/css/custom.css')}}" rel="stylesheet">
+=======
+    <link href="{{ asset('public/assets/select2/css/select2.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('public/assets/back-end/css/custom.css')}}" rel="stylesheet">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -12,7 +17,11 @@
         <!-- Page Heading -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
+<<<<<<< HEAD
                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard.index')}}">{{translate('dashboard')}}</a>
+=======
+                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">{{translate('dashboard')}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </li>
                 <li class="breadcrumb-item" aria-current="page">{{translate('language_setting_for_app')}}</li>
             </ol>
@@ -46,7 +55,11 @@
                                     @foreach(\Illuminate\Support\Facades\File::files(base_path('public/assets/front-end/img/flags')) as $path)
                                         <option value="{{ pathinfo($path)['filename'] }}"
                                                 {{in_array(pathinfo($path)['filename'],$language)?'selected':''}}
+<<<<<<< HEAD
                                                 title="{{ dynamicAsset(path: 'public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+=======
+                                                title="{{ asset('public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             {{ strtoupper(pathinfo($path)['filename']) }}
                                         </option>
                                     @endforeach

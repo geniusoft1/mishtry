@@ -1,21 +1,35 @@
 "use strict";
 
+<<<<<<< HEAD
 $('.status-filter').on('change',function (){
     let status = $(this).val();
+=======
+$("#status-filter").on('change', function () {
+    let url = $('#status-filter-url').data('url');
+    let type = $(this).val();
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
     $.post({
+<<<<<<< HEAD
         url: $('#get-status-filter-route').data('action'),
         data: {
             status: status
+=======
+        url: url,
+        data: {
+            status: type
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         },
         beforeSend: function () {
             $('#loading').fadeIn();
         },
         success: function (data) {
+<<<<<<< HEAD
             $('#status-wise-view').html(data.view);
             $('#withdraw-requests-count').empty().html(data.count);
             closeRequest();
@@ -23,11 +37,16 @@ $('.status-filter').on('change',function (){
             openNote();
             formSubmit();
             withdrawInfoShow();
+=======
+            $('#statusWiseView').html(data.view)
+            $('#withdrawRequestsCount').empty().html(data.count)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         },
         complete: function () {
             $('#loading').fadeOut();
         }
     });
+<<<<<<< HEAD
 })
 function closeRequest(){
     $('.close-request').on('click',function (){
@@ -152,4 +171,6 @@ $('.withdraw-request-file-export').on('click',function (){
     let checkedStatusValuesArray = $('.status-filter').val();
     let queryParams = '?status=' + checkedStatusValuesArray;
     window.location.href = $(this).data('action')+queryParams;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 });

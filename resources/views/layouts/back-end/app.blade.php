@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
     <meta name="_token" content="{{csrf_token()}}">
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{{dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/vendor.min.css')}}">
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/bootstrap.min.css')}}">
@@ -28,6 +29,27 @@
     <style>
         select {
             background-image: url('{{dynamicAsset(path: 'public/assets/back-end/img/arrow-down.png')}}');
+=======
+    <link rel="shortcut icon" href="{{asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/vendor.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/custom.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/vendor/icon-set/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/theme.minc619.css?v=1.0')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/toastr.css')}}">
+    @if(Session::get('direction') === "rtl")
+        <link rel="stylesheet" href="{{asset('public/assets/back-end/css/menurtl.css')}}">
+    @endif
+    <link rel="stylesheet" href="{{asset('public/css/lightbox.css')}}">
+    @stack('css_or_js')
+    <script
+        src="{{asset('public/assets/back-end/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js')}}"></script>
+    <style>
+        select {
+            background-image: url('{{asset('/public/assets/back-end/img/arrow-down.png')}}');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             background-size: 7px;
             background-position: 96% center;
         }
@@ -48,7 +70,11 @@
 <body class="footer-offset">
 
 @include('layouts.back-end.partials._front-settings')
+<<<<<<< HEAD
 <span class="d-none" id="placeholderImg" data-img="{{dynamicAsset(path: 'public/assets/back-end/img/400x400/img3.png')}}"></span>
+=======
+<span class="d-none" id="placeholderImg" data-img="{{asset('public/assets/back-end/img/400x400/img3.png')}}"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 <div class="row">
     <div class="col-12 position-fixed z-9999 mt-10rem">
         <div id="loading" class="d--none">
@@ -59,6 +85,7 @@
 @include('layouts.back-end.partials._header')
 @include('layouts.back-end.partials._side-bar')
 @include('layouts.back-end._translator-for-js')
+<<<<<<< HEAD
 <span id="get-root-path-for-toggle-modal-image" data-path="{{dynamicAsset(path: 'public/assets/back-end/img/modal')}}"></span>
 
 <main id="content" role="main" class="main pointer-event">
@@ -67,6 +94,18 @@
     @include('layouts.back-end.partials._modals')
     @include('layouts.back-end.partials._toggle-modal')
     @include('layouts.back-end.partials._sign-out-modal')
+=======
+<span id="get-root-path-for-toggle-modal-image" data-path="{{asset('/public/assets/back-end/img/modal')}}"></span>
+
+<main id="content" role="main" class="main pointer-event">
+    @yield('content')
+
+    @include('layouts.back-end.partials._footer')
+
+    @include('layouts.back-end.partials._modals')
+
+    @include('layouts.back-end.partials._toggle-modal')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </main>
 
 <span class="please_fill_out_this_field" data-text="{{ translate('please_fill_out_this_field') }}"></span>
@@ -89,6 +128,7 @@
 
 <span id="get-search-product-route" data-action="{{route('admin.products.search-product')}}"></span>
 <span id="get-orders-list-route" data-action="{{route('admin.orders.list',['status'=>'all'])}}"></span>
+<<<<<<< HEAD
 <span class="system-default-country-code" data-value="{{ getWebConfig(name: 'country_code') ?? 'us' }}"></span>
 
 <audio id="myAudio">
@@ -104,6 +144,23 @@
 <script src="{{dynamicAsset(path: 'public/js/lightbox.min.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/custom.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/app-script.js')}}"></script>
+=======
+
+<audio id="myAudio">
+    <source src="{{ asset('public/assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
+</audio>
+
+
+<script src="{{asset('public/assets/back-end/js/vendor.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/sweet_alert.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/toastr.js')}}"></script>
+<script src="{{asset('public/js/lightbox.min.js')}}"></script>
+<script src="{{asset('/vendor/ckeditor/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/custom.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/app-script.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 {!! Toastr::message() !!}
 
@@ -136,7 +193,11 @@
                     }
                 },
             });
+<<<<<<< HEAD
         }, 5000);
+=======
+        }, 10000);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </script>
 @endif
 

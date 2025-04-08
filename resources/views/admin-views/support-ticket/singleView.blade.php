@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/support_ticket.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/support_ticket.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('support_ticket')}}
             </h2>
         </div>
@@ -47,7 +51,11 @@
                                         <div class="row g-2 flex-wrap pt-1 justify-content-end">
                                             @foreach (json_decode($message['attachment']) as $index => $photo)
                                                 <div class="col-6 col-md-2 position-relative img_row{{$index}}">
+<<<<<<< HEAD
                                                     <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/support-ticket/".$photo)}}"
+=======
+                                                    <a data-lightbox="mygallery" href="{{asset("storage/app/public/support-ticket/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                        class="aspect-1 overflow-hidden d-block border rounded">
                                                         <img src="{{ getValidImage(path: 'storage/app/public/support-ticket/'.$photo, type: 'backend-basic') }}"
                                                              alt="" class="img-fit">
@@ -58,7 +66,11 @@
                                     @endif
                                     @if($message->admin_message || json_decode($message['attachment']) !=null)
                                     <span class="time_date fz-12 pt-2 d-flex justify-content-end">
+<<<<<<< HEAD
                                         {{$message->created_at->diffForHumans()}}
+=======
+                                        {{$message->created_at->format('h:i A').'|'.$message->created_at->format('M d')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </span>
                                     @endif
                                 </div>
@@ -79,7 +91,11 @@
                                     <div class="row g-2 flex-wrap pt-1 justify-content-start">
                                         @foreach (json_decode($message['attachment']) as $index => $photo)
                                             <div class="col-6 col-md-2 position-relative img_row{{$index}}">
+<<<<<<< HEAD
                                                 <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/support-ticket/".$photo)}}"
+=======
+                                                <a data-lightbox="mygallery" href="{{asset("storage/app/public/support-ticket/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                    class="aspect-1 overflow-hidden d-block border rounded">
                                                     <img src="{{ getValidImage(path: 'storage/app/public/support-ticket/'.$photo, type: 'backend-basic') }}"
                                                          alt="" class="img-fit">
@@ -91,7 +107,11 @@
 
                                 @if($message->customer_message || json_decode($message['attachment']) !=null)
                                     <span class="time_date fz-12 d-flex justify-content-start pt-2">
+<<<<<<< HEAD
                                         {{$message->created_at->diffForHumans()}}
+=======
+                                        {{$message->created_at->format('h:i A').'|'.$message->created_at->format('M d')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </span>
                                 @endif
                             </div>
@@ -113,7 +133,11 @@
                                 <div class="row g-2 flex-wrap pt-1">
                                     @foreach (json_decode($ticket['attachment']) as $index => $photo)
                                         <div class="col-6 col-md-2 position-relative img_row{{$index}}">
+<<<<<<< HEAD
                                             <a data-lightbox="mygallery" href="{{dynamicStorage(path: "storage/app/public/support-ticket/".$photo)}}"
+=======
+                                            <a data-lightbox="mygallery" href="{{asset("storage/app/public/support-ticket/".$photo)}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                class="aspect-1 overflow-hidden d-block border rounded">
                                                 <img src="{{ getValidImage(path: 'storage/app/public/support-ticket/'.$photo, type: 'backend-basic') }}"
                                                      alt="" class="img-fit">
@@ -122,7 +146,11 @@
                                     @endforeach
                                 </div>
                             @endif
+<<<<<<< HEAD
                             <span class="time_date fz-12 pt-2 d-flex justify-content-start"> {{$ticket->created_at->diffForHumans()}} </span>
+=======
+                            <span class="time_date fz-12 pt-2 d-flex justify-content-start"> {{$ticket->created_at->format('h:i A').'|'.$ticket->created_at->format('M d')}} </span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                     </div>
                 </div>
@@ -168,5 +196,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/select-multiple-image-for-message.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/select-multiple-image-for-message.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

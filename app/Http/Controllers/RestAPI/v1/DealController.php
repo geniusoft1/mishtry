@@ -28,7 +28,11 @@ class DealController extends Controller
         }
 
         $products = Product::with(['rating','tags'])
+<<<<<<< HEAD
             ->withCount(['reviews','wishList' => function($query) use($user){
+=======
+            ->withCount(['wishList' => function($query) use($user){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->whereIn('id', $p_ids)

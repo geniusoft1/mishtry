@@ -83,6 +83,9 @@ const FILE_NAME = 'file_name';
 const ROUTE = 'route';
 const MAXIMUM_IMAGE_UPLOAD_SIZE = '2MB';
 const DASHBOARD_DATA_LIMIT = 6;
+<<<<<<< HEAD
 const DASHBOARD_TOP_SELL_DATA_LIMIT = 5;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 const TABLE_VIEW = 'table_view';
 const FILTER_PRODUCT_DATA_LIMIT = 2;

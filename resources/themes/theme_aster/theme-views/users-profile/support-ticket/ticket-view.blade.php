@@ -117,16 +117,24 @@
                                     @endif
                                 @endforeach
                             </div>
+<<<<<<< HEAD
 
                             @if($ticket->status ==  'open')
                                 <div class="type_msg">
                                     <form action="{{route('support-ticket.comment',[$ticket['id']])}}" method="post">
                                         @csrf
                                         <div class="input_msg_write border-top py-2 px-2 px-sm-3 d-flex align-items-start justify-content-between gap-2 gap-sm-3 lh-base">
+=======
+                            <div class="type_msg">
+                                <form action="{{route('support-ticket.comment',[$ticket['id']])}}" method="post">
+                                    @csrf
+                                    <div class="input_msg_write border-top py-2 px-2 px-sm-3 d-flex align-items-start justify-content-between gap-2 gap-sm-3 lh-base">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                                         <textarea class="w-100 custom-height h--5rem" id="msgInputValueTicket"
                                                   name="comment" rows="6"
                                                   placeholder="{{translate('start_typing').'...'}}"></textarea>
+<<<<<<< HEAD
                                             <button class="btn btn-primary px-2 py-1 lh-1 rounded" type="submit">
                                                 <i class="bi bi-send-fill fs-16"></i>
                                             </button>
@@ -135,6 +143,14 @@
                                 </div>
                             @endif
 
+=======
+                                        <button class="btn btn-primary px-2 py-1 lh-1 rounded" type="submit">
+                                            <i class="bi bi-send-fill fs-16"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                     </div>
                 </div>

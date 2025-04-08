@@ -8,7 +8,11 @@
         <div class="d-flex justify-content-between mb-3">
             <div>
                 <h2 class="h1 mb-1 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                     <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/banner.png') }}" alt="">
+=======
+                    <img width="20" src="{{ asset('public/assets/back-end/img/banner.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     {{ translate('banner_update_form') }}
                 </h2>
             </div>
@@ -112,7 +116,11 @@
                                         <div class="mx-auto text-center">
                                             <div class="uploadDnD">
                                                 <div class="form-group inputDnD input_image input_image_edit"
+<<<<<<< HEAD
                                                      data-bg-img="{{ dynamicStorage(path: 'storage/app/public/banner') }}/{{$banner['photo']}}"
+=======
+                                                     data-bg-img="{{ asset('storage/app/public/banner') }}/{{$banner['photo']}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      data-title="{{ file_exists('storage/app/public/banner/'.$banner['photo']) ? '': 'Drag and drop file or Browse file'}}">
                                                     <input type="file" name="image" class="form-control-file text--primary font-weight-bold" onchange="readUrl(this)"  accept=".jpg, .png, .jpeg, .gif, .bmp, .webp |image/*">
                                                 </div>
@@ -120,7 +128,11 @@
                                         </div>
                                         <label for="name" class="title-color text-capitalize">
                                             <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="" data-original-title="{{ translate('banner_image_ratio_is_not_same_for_all_sections_in_website').' '.translate('Please_review_the_ratio_before_upload') }}">
+<<<<<<< HEAD
                                                 <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
+=======
+                                                <img alt="" width="16" src={{asset('public/assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </span>
                                             {{ translate('banner_image') }}
                                         </label>
@@ -154,7 +166,11 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/banner.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/banner.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script>
         "use strict";
         $(document).on('ready', function () {

@@ -192,10 +192,16 @@
                                                         <div class="col-sm-6">
                                                             <div class="form-group mb-3">
                                                                 <label for="phone">{{ translate('phone') }}</label>
+<<<<<<< HEAD
                                                                 <input type="tel" id="phoneNumber"
                                                                        class="form-control phone-input-with-country-picker-shipping"
                                                                        placeholder="{{ translate('ex') }}: {{translate('+8801000000000')}}" {{$shipping_addresses->count()==0?'required':''}}>
                                                                 <input type="hidden" class="country-picker-phone-number-shipping w-50" name="phone" readonly>
+=======
+                                                                <input type="tel" name="phone" id="phoneNumber"
+                                                                       class="form-control"
+                                                                       placeholder="{{ translate('ex') }}: {{translate('+8801000000000')}}" {{$shipping_addresses->count()==0?'required':''}}>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             </div>
                                                         </div>
                                                         @if(!auth('customer')->check())
@@ -325,6 +331,7 @@
                                         </div>
                                     </div>
 
+<<<<<<< HEAD
                                     @if(!$physical_product_view)
                                         <div class="rounded px-3 py-3 fs-15 text-base font-weight-medium bg-light mt-2 d-flex align-items-center gap-2">
                                             <img src="{{ theme_asset('assets/img/icons/info-light.svg') }}" alt="">
@@ -332,6 +339,8 @@
                                         </div>
                                     @endif
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <form method="post" id="billing-address-form">
                                         <div class="toggle-billing-address mt-3" id="hide-billing-address">
                                             <div class="d-flex flex-wrap justify-content-between gap-3 mb-3">
@@ -507,11 +516,17 @@
                                                                     <div class="form-group mb-3">
                                                                         <label
                                                                             for="billing_phone">{{ translate('phone') }}</label>
+<<<<<<< HEAD
                                                                         <input type="tel"
                                                                                id="billing-phone" class="form-control phone-input-with-country-picker-billing"
                                                                                placeholder="{{ translate('ex') }}: {{translate('+88 01000000000')}}" {{$billing_addresses->count()==0?'required':''}}>
                                                                         <input type="hidden" class="country-picker-phone-number-billing w-50" name="billing_phone" readonly>
 
+=======
+                                                                        <input type="tel" name="billing_phone"
+                                                                               id="billing-phone" class="form-control"
+                                                                               placeholder="{{ translate('ex') }}: {{translate('+88 01000000000')}}" {{$billing_addresses->count()==0?'required':''}}>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                     </div>
                                                                 </div>
                                                                 @if(!auth('customer')->check())

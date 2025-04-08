@@ -19,7 +19,11 @@ class CustomerWalletService
                     'title' => setCurrencySymbol(amount: currencyConverter(amount: $request['amount']), currencyCode: getCurrencyCode(type: 'default')).' '.translate('_fund_added'),
                     'description' => $value,
                     'image' => '',
+<<<<<<< HEAD
                     'type' => 'wallet'
+=======
+                    'type' => 'notification'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ];
                 $this->sendPushNotificationToDevice($customer_fcm_token, $data);
             }

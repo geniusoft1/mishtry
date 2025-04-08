@@ -3,8 +3,11 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+<<<<<<< HEAD
 use App\Traits\ResponseHandler;
 use Illuminate\Http\Exceptions\HttpResponseException;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Support\Carbon;
 
 /**
@@ -24,8 +27,12 @@ use Illuminate\Support\Carbon;
  */
 class DeliveryManAddRequest extends FormRequest
 {
+<<<<<<< HEAD
     use ResponseHandler;
     protected $stopOnFirstFailure = false;
+=======
+    protected $stopOnFirstFailure = true;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function authorize(): bool
     {
@@ -37,11 +44,18 @@ class DeliveryManAddRequest extends FormRequest
         return [
             'f_name' => 'required',
             'l_name' => 'required',
+<<<<<<< HEAD
             'phone' => 'required',
             'email' => 'required|unique:delivery_men',
             'country_code' => 'required',
             'image' => 'required|mimes:jpg,jpeg,png,webp,gif,bmp,tif,tiff',
             'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)(?!.*\s).{8,}$/|same:confirm_password',
+=======
+            'phone' => 'required|unique:delivery_men',
+            'email' => 'required|unique:delivery_men',
+            'country_code' => 'required',
+            'password' => 'required|same:confirm_password|min:8'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
     }
 
@@ -54,17 +68,25 @@ class DeliveryManAddRequest extends FormRequest
             'email.required' => translate('The_email_field_is_required'),
             'email.unique' => translate('The_email_has_already_been_taken'),
             'country_code.required' => translate('The_country_code_field_is_required'),
+<<<<<<< HEAD
             'image.required' => translate('The_image_field_is_required'),
             'image.mimes' => translate('The_image_type_must_be').'.jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff,.webp',
             'password.required' => translate('The_password_field_is_required'),
             'password.same' => translate('The_password_and_confirm_password_must_match'),
             'password.regex' => translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.',
+=======
+            'password.required' => translate('The_password_field_is_required'),
+            'password.same' => translate('The_password_and_confirm_password_must_match'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'password.min' => translate('The_password_must_be_at_least :min_characters', ['min' => 8]),
         ];
     }
 
+<<<<<<< HEAD
     protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
     {
         throw new HttpResponseException(response()->json(['errors' => $this->errorProcessor($validator)]));
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

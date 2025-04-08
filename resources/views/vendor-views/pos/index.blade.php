@@ -74,9 +74,25 @@
                                 <button type="button"
                                         class="btn btn-outline--primary d-flex align-items-center gap-2 action-view-all-hold-orders">
                                     {{ translate('view_All_Hold_Orders') }}
+<<<<<<< HEAD
                                     <span class="total_hold_orders">
                                         {{$totalHoldOrder}}
                                     </span>
+=======
+                                    <span class="badge badge-danger rounded-circle total_hold_orders">
+                                <?php
+                                $viewAllHoldOrders = 0;
+                                if (session()->has('cart_name')) {
+                                    foreach (session('cart_name') as $item) {
+                                        if (session()->has($item) && count(session($item)) > 1) {
+                                            $viewAllHoldOrders++;
+                                        }
+                                    }
+                                }
+                                ?>
+                                {{ $viewAllHoldOrders }}
+                            </span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </button>
                             </div>
 
@@ -176,7 +192,11 @@
 @endsection
 
 @push('script_2')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/vendor/pos-script.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/vendor/pos-script.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     <script>
         "use strict";

@@ -1,16 +1,24 @@
 @extends('layouts.back-end.app-seller')
 
 @section('title', translate('profile_Settings'))
+<<<<<<< HEAD
 @push('css_or_js')
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/css/intlTelInput.css') }}">
 @endpush
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @section('content')
     <div class="content container-fluid">
         <div class="mb-3">
             <div class="row gy-2 align-items-center">
                 <div class="col-sm">
                     <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img src="{{dynamicAsset(path: 'public/assets/back-end/img/support-ticket.png')}}" alt="">
+=======
+                        <img src="{{asset('/public/assets/back-end/img/support-ticket.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {{translate('settings')}}
                     </h2>
                 </div>
@@ -59,6 +67,7 @@
 
             <div class="col-lg-9">
                 <form action="{{route('vendor.profile.update',[$vendor->id])}}" method="post"
+<<<<<<< HEAD
                       enctype="multipart/form-data" id="update-profile-form">
                 @csrf
                     <div class="card mb-3 mb-lg-5" id="general-div">
@@ -76,6 +85,23 @@
                                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-photo.png') }}" alt="">
                             </label>
                         </div>
+=======
+                      enctype="multipart/form-data" id="vendor-profile-form">
+                @csrf
+                    <div class="card mb-3 mb-lg-5" id="general-div">
+                        <div class="profile-cover">
+                            @php($banner = !empty($shopBanner) ? asset('storage/app/public/shop/banner/'.$shopBanner) : asset('public/assets/back-end/img/1920x400/img2.jpg'))
+                            <div class="profile-cover-img-wrapper profile-bg" style="background-image: url({{ $banner }})"></div>
+                        </div>
+                        <label
+                            class="avatar avatar-xxl avatar-circle avatar-border-lg avatar-uploader profile-cover-avatar"
+                            for="custom-file-upload">
+                            <img id="viewer"
+                                 class="avatar-img"
+                                 src="{{getValidImage(path:'storage/app/public/seller/'.$vendor->image, type:'backend-profile')}}"
+                                 alt="{{translate('image')}}">
+                        </label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </div>
                     <div class="card mb-3 mb-lg-5">
                         <div class="card-header">
@@ -87,8 +113,13 @@
                                        class="col-sm-3 col-form-label input-label">{{translate('full_Name')}}
                                     <i
                                         class="tio-help-outlined text-body ml-1" data-toggle="tooltip"
+<<<<<<< HEAD
                                         data-placement="right"
                                         title="{{ucwords($vendor->f_name.' '.$vendor->l_name)}}"></i></label>
+=======
+                                        data-placement="top"
+                                        title="{{translate('display_name')}}"></i></label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                                 <div class="col-sm-9">
                                     <div class="row">
@@ -112,6 +143,7 @@
                             <div class="row">
                                 <label for="phoneLabel"
                                        class="col-sm-3 col-form-label input-label">{{translate('phone')}} </label>
+<<<<<<< HEAD
                                 <div class="col-sm-9 mb-3">
                                     <input class="form-control form-control-user phone-input-with-country-picker"
                                            type="tel" id="exampleInputPhone" value="{{$vendor->phone ?? old('phone')}}"
@@ -119,6 +151,14 @@
                                     <div class="">
                                         <input type="text" class="country-picker-phone-number w-50" value="{{$vendor->phone}}" name="phone" hidden  readonly>
                                     </div>
+=======
+
+                                <div class="col-sm-9 mb-3">
+                                    <div class="text-info mb-2">( * {{translate('country_code_is_must_like_for_BD_880')}} )</div>
+                                    <input type="number" class="js-masked-input form-control" name="phone" id="phoneLabel"
+                                           placeholder="{{translate('+x(xxx)xxx-xx-xx')}}"
+                                           value="{{$vendor->phone}}" required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             </div>
                             <div class="row form-group">
@@ -131,6 +171,7 @@
                                            placeholder="{{translate('enter_new_email_address')}}" readonly>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="d-none" id="select-img">
                                 <input type="file" name="image" id="custom-file-upload" class="custom-file-input image-input"
                                        data-image-id="viewer"
@@ -138,6 +179,23 @@
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button type="button" data-form-id="update-profile-form" data-message="{{translate('want_to_update_vendor_info').'?'}}" class="btn btn--primary {{env('APP_MODE')!='demo'?'form-submit':'call-demo'}}">{{translate('save_changes')}}</button>
+=======
+                            <div class="row">
+                                <div class="col-md-3 col-form-label">
+                                </div>
+                                <div class="form-group col-md-9" id="select-img">
+                                    <div class="custom-file">
+                                        <input type="file" name="image" id="custom-file-upload" class="custom-file-input image-input"
+                                               data-image-id="viewer"
+                                               accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
+                                        <label class="custom-file-label text-capitalize"
+                                               for="custom-file-upload">{{translate('image_upload')}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="button" data-id="vendor-profile-form" data-message="{{translate('want_to_update_vendor_info').'?'}}" class="btn btn--primary {{env('APP_MODE')!='demo'?'form-alert':'call-demo'}}">{{translate('save_changes')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>
@@ -147,11 +205,16 @@
                         <h5 class="mb-0">{{translate('change_your_password')}}</h5>
                     </div>
                     <div class="card-body">
+<<<<<<< HEAD
                         <form id="update-password-form" action="{{route('vendor.profile.update',[auth('seller')->id()])}}" method="POST"
+=======
+                        <form id="change-password-form" action="{{route('vendor.profile.update',[auth('seller')->id()])}}" method="POST"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                               enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
                             <div class="row form-group">
+<<<<<<< HEAD
                                 <label for="newPassword" class="col-sm-3 col-form-label input-label d-flex align-items-center"> {{translate('new_Password')}}
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="" data-original-title="{{translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.'}}">
                                         <img alt="" width="16" src={{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg') }} alt="" class="m-1">
@@ -207,6 +270,29 @@
                             </div>
                             <div class="d-flex justify-content-end">
                                 <button type="button" data-form-id="update-password-form" data-message="{{translate('want_to_update_vendor_password').'?'}}" class="btn btn--primary {{env('APP_MODE')!='demo'?'form-submit':'call-demo'}}" >{{translate('save_changes')}}</button>
+=======
+                                <label for="newPassword"
+                                       class="col-sm-3 col-form-label input-label"> {{translate('new_Password')}}</label>
+
+                                <div class="col-sm-9">
+                                    <input type="password" class="js-pwstrength form-control" name="password"
+                                           id="newPassword" placeholder="{{translate('enter_new_password')}}">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <label for="confirmNewPasswordLabel"
+                                       class="col-sm-3 col-form-label input-label pt-0"> {{translate('confirm_Password')}} </label>
+
+                                <div class="col-sm-9">
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" name="confirm_password"
+                                               id="confirmNewPasswordLabel" placeholder="{{translate('confirm_your_new_password')}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <button type="button" data-id="change-password-form" data-message="{{translate('want_to_update_vendor_password').'?'}}" class="btn btn--primary {{env('APP_MODE')!='demo'?'form-alert':'call-demo'}}">{{translate('save_changes')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </form>
                     </div>
@@ -215,7 +301,10 @@
         </div>
     </div>
 @endsection
+<<<<<<< HEAD
 @push('script')
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/plugins/intl-tel-input/js/intlTelInput.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/country-picker-init.js') }}"></script>
 @endpush
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

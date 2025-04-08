@@ -4,7 +4,11 @@
 </div>
 <div class="modal-body px-4 px-sm-5 text-center">
     <div class="mb-3 text-center">
+<<<<<<< HEAD
         <img width="75" src="{{dynamicAsset(path: 'public/assets/back-end/img/shift.png')}}" alt="">
+=======
+        <img width="75" src="{{asset('public/assets/back-end/img/shift.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     </div>
     <h3>
         {{ translate('you_have_switched_theme_successfully') }}

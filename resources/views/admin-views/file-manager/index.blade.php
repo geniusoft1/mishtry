@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/file-manager.png')}}" width="20" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/file-manager.png')}}" width="20" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('file_manager')}}
             </h2>
         </div>
@@ -40,14 +44,22 @@
                                         <a class="btn p-0"
                                            href="{{route('admin.file-manager.index', base64_encode($file['path']))}}">
                                             <img class="img-thumbnail mb-2"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/back-end/img/folder.png')}}" alt="">
+=======
+                                                 src="{{asset('public/assets/back-end/img/folder.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             <p class="title-color">{{Str::limit($file['name'],10)}}</p>
                                         </a>
                                     @elseif($file['type']=='file')
                                         <button class="btn p-0 w-100" data-toggle="modal"
                                                 data-target="#imagemodal{{$key}}" title="{{$file['name']}}">
                                             <span class="d-flex flex-column justify-content-center gallary-card aspect-1 overflow-hidden border rounded">
+<<<<<<< HEAD
                                                 <img src="{{dynamicStorage(path: 'storage/app/'.$file['path'])}}"
+=======
+                                                <img src="{{asset('storage/app/'.$file['path'])}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="{{$file['name']}}" class="h-auto w-100">
                                             </span>
                                             <span class="overflow-hidden pt-2 m-0">{{Str::limit($file['name'],10)}}</span>
@@ -64,7 +76,11 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
+<<<<<<< HEAD
                                                         <img src="{{dynamicStorage(path: 'storage/app/'.$file['path'])}}"
+=======
+                                                        <img src="{{asset('storage/app/'.$file['path'])}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                              class="w-100 h-auto" alt="">
                                                     </div>
                                                     <div class="modal-footer">
@@ -140,5 +156,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/file-manager.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/file-manager.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

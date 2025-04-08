@@ -5,8 +5,13 @@
     <meta http-equiv="Content-Type" content="text/html;"/>
     <meta charset="UTF-8">
 
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css')}}">
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/vendor/order-transaction.css') }}">
+=======
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/vendor/order-transaction.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 <body>
 <table class="content-position">
@@ -15,7 +20,11 @@
             <table class="bs-0">
                 <tr>
                     <th class="h3 p-0 text-left">
+<<<<<<< HEAD
                         {{translate('order_Transaction_Statement')}}
+=======
+                        {{translate('oder_Transaction_Statement')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </th>
                     <th class="p-0 text-right">
                         <img class="logo" src="{{getValidImage(path: 'storage/app/public/company/'.$company_web_logo,type:'backend-logo')}}" alt="">
@@ -162,6 +171,7 @@
                     </td>
                 </tr>
                 <tr>
+<<<<<<< HEAD
                     <td class="text-center">6</td>
                     <td>{{translate('total_Deliveryman_incentive')}}</td>
                     <td class="text-right">
@@ -169,6 +179,8 @@
                     </td>
                 </tr>
                 <tr>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <td class="text-center">7</td>
                     <td>{{translate('total_Order_Amount')}}</td>
                     <td class="text-right">

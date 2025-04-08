@@ -26,7 +26,11 @@ class OrderDeliveryVerification extends Model
         'order_id' => 'integer',
         'image' => 'string',
         'created_at' => 'datetime',
+<<<<<<< HEAD
         'updated_at' => 'datetime',
+=======
+        'updated_at' => 'time',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     ];
 
     protected $fillable = [

@@ -107,7 +107,11 @@ class LoginController extends Controller
         $data = $this->login_attemp($request->role, $request->email, $request->password, $request->remember);
 
         if ($data == 'admin' || $data == 'employee') {
+<<<<<<< HEAD
             return redirect()->route('admin.dashboard.index');
+=======
+            return redirect()->route('admin.dashboard');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         return redirect()->back()->withInput($request->only('email', 'remember'))

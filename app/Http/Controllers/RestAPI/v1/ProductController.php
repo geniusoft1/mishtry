@@ -15,7 +15,10 @@ use App\Utils\CategoryManager;
 use App\Utils\Helpers;
 use App\Utils\ImageManager;
 use App\Utils\ProductManager;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -182,7 +185,10 @@ class ProductController extends Controller
             $product['inhouse_vacation_start_date'] = $inhouse_vacation_start_date;
             $product['inhouse_vacation_end_date'] = $inhouse_vacation_end_date;
             $product['inhouse_temporary_close'] = $inhouse_temporary_close;
+<<<<<<< HEAD
             $product['reviews_count'] = $product->reviews->count();
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         return response()->json($product, 200);
     }
@@ -230,6 +236,7 @@ class ProductController extends Controller
         return response()->json($storage, 200);
     }
 
+<<<<<<< HEAD
     public function getProductReviewByOrder(Request $request, $productId, $orderId)
     {
         $user = $request->user();
@@ -268,6 +275,8 @@ class ProductController extends Controller
         return response()->json(translate('review_image_removed_successfully'), 200);
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public function get_product_rating($id)
     {
         try {
@@ -306,7 +315,10 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'product_id' => 'required',
+<<<<<<< HEAD
             'order_id' => 'required',
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'comment' => 'required',
             'rating' => 'required',
         ]);
@@ -329,8 +341,12 @@ class ProductController extends Controller
             [
                 'delivery_man_id'=> null,
                 'customer_id'=>$request->user()->id,
+<<<<<<< HEAD
                 'product_id'=>$request->product_id,
                 'order_id' => $request->order_id
+=======
+                'product_id'=>$request->product_id
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ],
             [
                 'customer_id' => $request->user()->id,
@@ -344,6 +360,7 @@ class ProductController extends Controller
         return response()->json(['message' => translate('successfully_review_submitted')], 200);
     }
 
+<<<<<<< HEAD
     public function updateProductReview(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
@@ -376,6 +393,8 @@ class ProductController extends Controller
         return response()->json(['message' => translate('successfully_review_updated')], 200);
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     public function submit_deliveryman_review(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -464,7 +483,11 @@ class ProductController extends Controller
     {
         $user = Helpers::get_customer($request);
         if($user != 'offline') {
+<<<<<<< HEAD
             $products = Product::active()->with('seller.shop','reviews')
+=======
+            $products = Product::active()->with('seller.shop')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 ->withCount(['wishList' => function($query) use($user){
                     $query->where('customer_id', $user != 'offline' ? $user->id : '0');
                 }])
@@ -474,11 +497,15 @@ class ProductController extends Controller
                 ->select('id','name','slug','thumbnail','unit_price','purchase_price','added_by','user_id')
                 ->inRandomOrder()->take(12)->get();
 
+<<<<<<< HEAD
             $products?->map(function ($product) {
                 $product['reviews_count'] = $product->reviews->count();
                 unset($product->reviews);
                 return $product;
             });
+=======
+            unset($products['reviews']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }else{
             $products = [];
         }

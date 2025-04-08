@@ -116,9 +116,15 @@ class AddonService
         ];
 
         $response = Http::post(base64_decode('aHR0cHM6Ly9jaGVjay42YW10ZWNoLmNvbS9hcGkvdjEvYWN0aXZhdGlvbi1jaGVjaw=='), $post)->json();
+<<<<<<< HEAD
         $status = 1;
 
         if(true){
+=======
+        $status = base64_decode($response['active']) ?? 1;
+
+        if((int)$status){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $full_data['is_published'] = 1;
             $full_data['username'] = $request['username'];
             $full_data['purchase_code'] = $request['purchase_code'];

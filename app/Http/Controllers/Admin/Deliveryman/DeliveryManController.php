@@ -106,6 +106,7 @@ class DeliveryManController extends Controller
     }
 
 
+<<<<<<< HEAD
     public function add(DeliveryManAddRequest $request, DeliveryManService $deliveryManService): JsonResponse|RedirectResponse
     {
         $deliveryMan = $this->deliveryManRepo->getFirstWhere(params:['phone' => $request['phone'], 'country_code' => $request['country_code']]);
@@ -119,13 +120,39 @@ class DeliveryManController extends Controller
 
 
     public function update(DeliveryManUpdateRequest $request, $id, DeliveryManService $deliveryManService): JsonResponse
+=======
+    public function add(DeliveryManAddRequest $request, DeliveryManService $deliveryManService): RedirectResponse
+    {
+        $deliveryMan = $this->deliveryManRepo->getFirstWhere(params:['phone' => $request['phone'], 'country_code' => $request['country_code']]);
+        if ($deliveryMan) {
+            Toastr::error(translate('this_phone_number_is_already_taken'));
+            return back();
+        }
+
+        $dataArray = $deliveryManService->getDeliveryManAddData(request:$request, addedBy: 'admin');
+        $this->deliveryManRepo->add(data: $dataArray);
+
+        Toastr::success(translate('Delivery_man_added_successfully'));
+        return redirect()->route('admin.delivery-man.list');
+    }
+
+
+    public function update(DeliveryManUpdateRequest $request, $id, DeliveryManService $deliveryManService): RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $deliveryMan = $this->deliveryManRepo->getFirstWhere(params:['id' => $id, 'seller_id' => 0]);
         $deliveryManExists = $this->deliveryManRepo->getFirstWhere(params:['phone' => $request['phone'], 'country_code' => $request['country_code']]);
 
         if (isset($deliveryManExists) && $deliveryManExists['id'] != $deliveryMan['id']) {
+<<<<<<< HEAD
             return response()->json(['errors'=>translate('this_phone_number_is_already_taken')]);
         }
+=======
+            Toastr::error(translate('This_phone_number_is_already_taken'));
+            return back();
+        }
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $dataArray = $deliveryManService->getDeliveryManUpdateData(
             request:$request,
             addedBy:'admin',
@@ -133,7 +160,12 @@ class DeliveryManController extends Controller
             deliveryManImage: $deliveryMan['image']
         );
         $this->deliveryManRepo->update(id: $id, data: $dataArray);
+<<<<<<< HEAD
         return response()->json(['message'=>translate('delivery_man_updated_successfully')]);
+=======
+        Toastr::success(translate('Delivery_man_updated_successfully'));
+        return redirect()->route('admin.delivery-man.list');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
 
@@ -175,6 +207,7 @@ class DeliveryManController extends Controller
             params: ['id' => $id],
             relations: ['wallet'],
         );
+<<<<<<< HEAD
         $orders = $this->orderRepo->getListWhere(
             orderBy: ['id'=>'desc'],
             searchValue: $request['searchValue'],
@@ -185,6 +218,16 @@ class DeliveryManController extends Controller
             ],
             dataLimit: 'all',
         );
+=======
+
+        $orders = $this->orderRepo->getListWhere(
+            orderBy: ['id'=>'desc'],
+            searchValue: $request['searchValue'],
+            filters: ['delivery_man_id' => $id, 'whereHas_deliveryMan' =>  0],
+            dataLimit: 'all',
+        );
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $data = $deliveryManService->getOrderHistoryListExportData(request: $request, deliveryMan: $deliveryMan, orders: $orders);
         $fileName = $request['type'] == 'earn' ? DeliveryManExport::EXPORT_EARNING_LIST_XLSX : DeliveryManExport::EXPORT_ORDER_LIST_XLSX ;
         return Excel::download(new DeliveryManOrderHistory($data), $fileName);
@@ -206,6 +249,7 @@ class DeliveryManController extends Controller
         $withdrawalableBalance = self::delivery_man_withdrawable_balance($id);
         return view(DeliveryMan::EARNING_OVERVIEW[VIEW], compact('deliveryMan', 'totalEarn', 'withdrawalableBalance', 'orders'));
     }
+<<<<<<< HEAD
     public function getOrderWiseEarningListByFilter(Request $request,$id):JsonResponse
     {
         $orders = $this->orderRepo->getListWhere(
@@ -225,6 +269,8 @@ class DeliveryManController extends Controller
             ]
         );
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function getOrderStatusHistory($order): View
     {

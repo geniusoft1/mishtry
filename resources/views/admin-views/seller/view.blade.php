@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-seller.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('vendor_details')}}
             </h2>
         </div>
@@ -15,6 +19,7 @@
                 <ul class="nav nav-tabs flex-wrap page-header-tabs">
                     <li class="nav-item">
                         <a class="nav-link active"
+<<<<<<< HEAD
                            href="{{ route('admin.sellers.view',$seller['id']) }}">{{translate('shop_overview')}}</a>
                     </li>
                     @if ($seller['status']!="pending")
@@ -37,6 +42,30 @@
                         <li class="nav-item">
                             <a class="nav-link"
                                href="{{ route('admin.sellers.view',['id'=>$seller['id'], 'tab'=>'review']) }}">{{translate('review')}}</a>
+=======
+                           href="{{ route('admin.sellers.view',$seller->id) }}">{{translate('shop_overview')}}</a>
+                    </li>
+                    @if ($seller->status!="pending")
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('admin.sellers.view',['id'=>$seller->id, 'tab'=>'order']) }}">{{translate('order')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('admin.sellers.view',['id'=>$seller->id, 'tab'=>'product']) }}">{{translate('product')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('admin.sellers.view',['id'=>$seller->id, 'tab'=>'setting']) }}">{{translate('setting')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('admin.sellers.view',['id'=>$seller->id, 'tab'=>'transaction']) }}">{{translate('transaction')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               href="{{ route('admin.sellers.view',['id'=>$seller->id, 'tab'=>'review']) }}">{{translate('review')}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </li>
                     @endif
                 </ul>
@@ -121,11 +150,19 @@
                                     <a href="javascript:"
                                        class="text-dark">{{$seller->total_rating}} {{translate('ratings')}}</a>
                                     <span class="border-left"></span>
+<<<<<<< HEAD
                                     <a href="{{ $seller['status']!="pending" ? route('admin.sellers.view',['id'=>$seller['id'], 'tab'=>'review']): 'javascript:' }}"
                                        class="text-dark">{{$seller->rating_count}} {{translate('reviews')}}</a>
                                 </div>
                                 @if ( $seller['status']!="pending" && $seller['status']!="suspended" && $seller['status']!="rejected")
                                     <a href="{{route('shopView',['id'=>$seller['id']])}}"
+=======
+                                    <a href="{{ $seller->status!="pending" ? route('admin.sellers.view',['id'=>$seller->id, 'tab'=>'review']): 'javascript:' }}"
+                                       class="text-dark">{{$seller->rating_count}} {{translate('reviews')}}</a>
+                                </div>
+                                @if ( $seller->status!="pending" && $seller->status!="suspended" && $seller->status!="rejected")
+                                    <a href="{{route('shopView',['id'=>$seller->id])}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                        class="btn btn-outline--primary px-4" target="_blank"><i
                                                 class="tio-globe"></i> {{translate('view_live')}}
                                         @endif
@@ -133,6 +170,7 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     @if ($seller['status']=="pending")
                         <div class="d-flex justify-content-sm-end flex-wrap gap-2 mb-3">
                             <form class="d-inline-block" action="{{route('admin.sellers.updateStatus')}}" id="reject-form" method="POST">
@@ -166,6 +204,45 @@
                                 <input type="hidden" name="id" value="{{$seller['id']}}">
                                 <input type="hidden" name="status" value="approved">
                                 <button type="button" class="btn btn-success px-5 form-alert" data-message="{{translate('want_to_active_this_vendor').'?'}}" data-id="active-form">{{translate('active')}}</button>
+=======
+                    @if ($seller->status=="pending")
+                        <div class="d-flex justify-content-sm-end flex-wrap gap-2 mb-3">
+                            <form class="d-inline-block" action="{{route('admin.sellers.updateStatus')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$seller->id}}">
+                                <input type="hidden" name="status" value="rejected">
+                                <button type="submit"
+                                        class="btn btn-danger px-5">{{translate('reject')}}</button>
+                            </form>
+                            <form class="d-inline-block" action="{{route('admin.sellers.updateStatus')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$seller->id}}">
+                                <input type="hidden" name="status" value="approved">
+                                <button type="submit"
+                                        class="btn btn-success px-5">{{translate('approve')}}</button>
+                            </form>
+                        </div>
+                    @endif
+                    @if ($seller->status=="approved")
+                        <div class="d-flex justify-content-sm-end flex-wrap gap-2 mb-3">
+                            <form class="d-inline-block" action="{{route('admin.sellers.updateStatus')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$seller->id}}">
+                                <input type="hidden" name="status" value="suspended">
+                                <button type="submit"
+                                        class="btn btn-danger px-5">{{translate('suspend_this_vendor')}}</button>
+                            </form>
+                        </div>
+                    @endif
+                    @if ($seller->status=="suspended" || $seller->status=="rejected")
+                        <div class="d-flex justify-content-sm-end flex-wrap gap-2 mb-3">
+                            <form class="d-inline-block" action="{{route('admin.sellers.updateStatus')}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$seller->id}}">
+                                <input type="hidden" name="status" value="approved">
+                                <button type="submit"
+                                        class="btn btn-success px-5">{{translate('active')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </form>
                         </div>
                     @endif
@@ -210,8 +287,13 @@
                                     <span class="key">{{translate('status')}}</span>
                                     <span>:</span>
                                     <span class="value">
+<<<<<<< HEAD
                                         <span class="badge badge-{{$seller['status']=='approved'? 'info' :'danger'}}">
                                             {{ $seller['status']=='approved'? translate('active') : translate('inactive') }}
+=======
+                                        <span class="badge badge-{{$seller->status=='approved'? 'info' :'danger'}}">
+                                            {{ $seller->status=='approved'? translate('active') : translate('inactive') }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </span>
                                 </div>
@@ -224,23 +306,39 @@
                                 <div>
                                     <span class="key">{{translate('name')}}</span>
                                     <span>:</span>
+<<<<<<< HEAD
                                     <span class="value text-capitalize">{{$seller['f_name'].' '.$seller['l_name']}}</span>
+=======
+                                    <span class="value">{{$seller->f_name}} {{$seller->l_name}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
 
                                 <div>
                                     <span class="key">{{translate('email')}}</span>
                                     <span>:</span>
+<<<<<<< HEAD
                                     <span class="value">{{$seller['email']}}</span>
+=======
+                                    <span class="value">{{$seller->email}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
 
                                 <div>
                                     <span class="key">{{translate('phone')}}</span>
                                     <span>:</span>
+<<<<<<< HEAD
                                     <span class="value">{{$seller['phone']}}</span>
                                 </div>
                             </div>
                         </div>
                         @if ($seller['status']!="pending")
+=======
+                                    <span class="value">{{$seller->phone}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        @if ($seller->status!="pending")
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="col-xxl-6">
                                 <div class="bg-light p-3 border border-primary-light rounded">
                                     <h4 class="mb-3 text-capitalize">{{translate('bank_information')}}</h4>
@@ -250,26 +348,42 @@
                                             <div>
                                                 <span class="key text-nowrap">{{translate('bank_name')}}</span>
                                                 <span class="px-2">:</span>
+<<<<<<< HEAD
                                                 <span class="value ">{{ $seller['bank_name'] ?? translate('no_data_found') }}</span>
+=======
+                                                <span class="value ">{{ $seller->bank_name ?? translate('no_data_found') }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
 
                                             <div>
                                                 <span class="key text-nowrap">{{translate('branch')}}</span>
                                                 <span class="px-2">:</span>
+<<<<<<< HEAD
                                                 <span class="value">{{ $seller['branch'] ?? translate('no_data_found') }}</span>
+=======
+                                                <span class="value">{{ $seller->bank_name ?? translate('no_data_found') }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                         </div>
                                         <div class="pair-list">
                                             <div>
                                                 <span class="key text-nowrap">{{translate('holder_name')}}</span>
                                                 <span class="px-2">:</span>
+<<<<<<< HEAD
                                                 <span class="value">{{ $seller['holder_name'] ?? translate('no_data_found') }}</span>
+=======
+                                                <span class="value">{{ $seller->bank_name ?? translate('no_data_found') }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
 
                                             <div>
                                                 <span class="key text-nowrap">{{translate('A/C_No')}}</span>
                                                 <span class="px-2">:</span>
+<<<<<<< HEAD
                                                 <span class="value">{{ $seller['account_no'] ?? translate('no_data_found') }}</span>
+=======
+                                                <span class="value">{{ $seller->bank_name ?? translate('no_data_found') }}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                         </div>
                                     </div>
@@ -280,14 +394,22 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         @if ($seller['status']!="pending")
+=======
+        @if ($seller->status!="pending")
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="card mt-3">
                 <div class="card-body">
                     <div class="row justify-content-between align-items-center g-2 mb-3">
                         <div class="col-sm-6">
                             <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
                                 <img width="20" class="mb-1"
+<<<<<<< HEAD
                                      src="{{dynamicAsset(path: 'public/assets/back-end/img/admin-wallet.png')}}" alt="">
+=======
+                                     src="{{asset('/public/assets/back-end/img/admin-wallet.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 {{translate('vendor_Wallet')}}
                             </h4>
                         </div>
@@ -298,7 +420,11 @@
                             <div class="card h-100 d-flex justify-content-center align-items-center">
                                 <div class="card-body d-flex flex-column gap-10 align-items-center justify-content-center">
                                     <img width="48" class="mb-2"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/img/withdraw.png')}}" alt="">
+=======
+                                         src="{{asset('/public/assets/back-end/img/withdraw.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <h3 class="for-card-count mb-0 fz-24">{{ $seller->wallet ? setCurrencySymbol(amount: usdToDefaultCurrency(amount: $seller->wallet->total_earning)) : 0 }}</h3>
                                     <div class="font-weight-bold text-capitalize mb-30">
                                         {{translate('withdrawable_balance')}}
@@ -317,7 +443,11 @@
                                             </div>
                                             <div>
                                                 <img width="40" class="mb-2"
+<<<<<<< HEAD
                                                      src="{{dynamicAsset(path: 'public/assets/back-end/img/pw.png')}}" alt="">
+=======
+                                                     src="{{asset('/public/assets/back-end/img/pw.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                         </div>
                                     </div>
@@ -330,7 +460,11 @@
                                                 <div class="text-capitalize mb-0">{{translate('total_Commission_given')}}</div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/tcg.png')}}"
+=======
+                                                <img width="40" src="{{asset('/public/assets/back-end/img/tcg.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                             </div>
                                         </div>
@@ -344,7 +478,11 @@
                                                 <div class="text-capitalize mb-0">{{translate('aready_Withdrawn')}}</div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/aw.png')}}"
+=======
+                                                <img width="40" src="{{asset('/public/assets/back-end/img/aw.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                             </div>
                                         </div>
@@ -358,7 +496,11 @@
                                                 <div class="text-capitalize mb-0">{{translate('total_delivery_charge_earned')}}</div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/tdce.png')}}"
+=======
+                                                <img width="40" src="{{asset('/public/assets/back-end/img/tdce.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                             </div>
                                         </div>
@@ -372,7 +514,11 @@
                                                 <div class="text-capitalize mb-0">{{translate('total_tax_given')}}</div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/ttg.png')}}"
+=======
+                                                <img width="40" src="{{asset('/public/assets/back-end/img/ttg.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                             </div>
                                         </div>
@@ -386,7 +532,11 @@
                                                 <div class="text-capitalize mb-0">{{translate('collected_cash')}}</div>
                                             </div>
                                             <div>
+<<<<<<< HEAD
                                                 <img width="40" src="{{dynamicAsset(path: 'public/assets/back-end/img/cc.png')}}" alt="">
+=======
+                                                <img width="40" src="{{asset('/public/assets/back-end/img/cc.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                         </div>
                                     </div>

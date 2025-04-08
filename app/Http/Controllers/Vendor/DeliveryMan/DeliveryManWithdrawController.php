@@ -66,7 +66,10 @@ class DeliveryManWithdrawController extends BaseController
         }
         $vendorId = auth('seller')->id();
         $withdrawRequests = $this->withdrawRequestRepo->getListWhere(
+<<<<<<< HEAD
             orderBy: ['id'=>'desc'],
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             filters:[
                 'vendorId' => $vendorId,
                 'whereNotNull' => 'delivery_man_id'
@@ -84,7 +87,10 @@ class DeliveryManWithdrawController extends BaseController
     {
         $vendorId =auth('seller')->id() ;
         $withdrawRequests = $this->withdrawRequestRepo->getListWhere(
+<<<<<<< HEAD
             orderBy: ['id'=>'desc'],
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             filters: [
                 'vendorId'=> $vendorId,
                 'whereNotNull' => 'delivery_man_id',
@@ -101,21 +107,32 @@ class DeliveryManWithdrawController extends BaseController
 
     /**
      * @param string|int $withdrawId
+<<<<<<< HEAD
      * @return JsonResponse
      */
     public function getDetails(string|int $withdrawId): JsonResponse
+=======
+     * @return View
+     */
+    public function getDetails(string|int $withdrawId): View
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $details = $this->withdrawRequestRepo->getFirstWhere(
             params: ['id' => $withdrawId,'seller_id' => auth('seller')->id()],
             relations:['deliveryMan']);
+<<<<<<< HEAD
         return response()->json([
             'view'=>view(DeliveryManWithdraw::DETAILS[VIEW],compact('details'))->render(),
         ]);
+=======
+        return view(DeliveryManWithdraw::DETAILS[VIEW],compact('details'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     /**
      * @param DeliveryManWithdrawRequest $request
      * @param string|int $withdrawId
+<<<<<<< HEAD
      * @return JsonResponse
      */
     public function updateStatus(DeliveryManWithdrawRequest $request , string|int $withdrawId):JsonResponse
@@ -123,6 +140,16 @@ class DeliveryManWithdrawController extends BaseController
         $withdraw = $this->withdrawRequestRepo->getFirstWhere(params: ['id' => $withdrawId,'seller_id' => auth('seller')->id()],relations:['deliveryMan']);
         if(!$withdraw){
             return response()->json(['error'=>translate('Invalid_withdraw')]);
+=======
+     * @return RedirectResponse
+     */
+    public function updateStatus(DeliveryManWithdrawRequest $request , string|int $withdrawId):RedirectResponse
+    {
+        $withdraw = $this->withdrawRequestRepo->getFirstWhere(params: ['id' => $withdrawId,'seller_id' => auth('seller')->id()],relations:['deliveryMan']);
+        if(!$withdraw){
+            Toastr::warning(translate('Invalid_withdraw'));
+            return redirect()->route(DeliveryManWallet::INDEX[ROUTE]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         $wallet = $this->deliveryManWalletRepo->getFirstWhere(params:['delivery_man_id'=>$withdraw['delivery_man_id']]);
         $updateWalletData = $this->deliveryManWalletService->getDeliveryManWalletData(
@@ -139,22 +166,37 @@ class DeliveryManWithdrawController extends BaseController
             WithdrawStatusUpdateEvent::dispatch('withdraw_request_status_message', 'delivery_man', $withdraw->delivery_men?->app_language ?? getDefaultLanguage(), $request['approved'], $withdraw->deliveryMan?->fcm_token);
         }
         if ($request['approved'] == 1) {
+<<<<<<< HEAD
             return response()->json(['success'=>translate('Delivery_man_payment_has_been_approved_successfully')]);
         }else{
             return response()->json(['success'=>translate('Delivery_man_payment_request_has_been_Denied_successfully')]);
         }
+=======
+            Toastr::success(translate('Delivery_man_payment_has_been_approved_successfully'));
+        }else{
+            Toastr::info(translate('Delivery_man_payment_request_has_been_Denied_successfully'));
+        }
+        return redirect()->route(DeliveryManWallet::INDEX[ROUTE]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
 
     /**
      *
+<<<<<<< HEAD
      * @return BinaryFileResponse
      */
     public function exportList(Request $request):BinaryFileResponse
+=======
+     * @return BinaryFileResponse|RedirectResponse
+     */
+    public function exportList():BinaryFileResponse|RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
 
         $vendorId = auth('seller')->id();
         $withdrawRequests = $this->withdrawRequestRepo->getListWhere(
+<<<<<<< HEAD
             orderBy: ['id'=>'desc'],
             filters: [
                 'vendorId'=> $vendorId,
@@ -163,6 +205,13 @@ class DeliveryManWithdrawController extends BaseController
             ],
             relations: ['deliveryMan'],
             dataLimit: 'all'
+=======
+            filters:[
+                'vendorId' => $vendorId,
+                'whereNotNull' => 'delivery_man_id'
+            ],
+            relations:['deliveryMan'] ,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         );
         $pendingRequest = $withdrawRequests->where('approved',0)->count();
         $approvedRequest = $withdrawRequests->where('approved',1)->count();

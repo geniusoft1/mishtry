@@ -260,7 +260,11 @@
                                 style="font-weight: normal">{{ date('d/m/Y') }}</span></p>
                 </th>
                 <th class="content-position-y text-right">
+<<<<<<< HEAD
                     <img height="50" src="{{dynamicStorage(path: "storage/app/public/company/$company_web_logo")}}" alt="">
+=======
+                    <img height="50" src="{{asset("storage/app/public/company/$company_web_logo")}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </th>
             </tr>
         </table>
@@ -315,21 +319,32 @@
                 </tr>
                 <tr>
                     <td>4</td>
+<<<<<<< HEAD
                     <td>{{translate('deliveryman_incentive')}}</td>
                     <td class="text-right">{{ \App\Utils\BackEndHelper::set_symbol(\App\Utils\BackEndHelper::usd_to_currency($earning_data['deliveryman_incentive'])) }}</td>
                 </tr>
                 <tr>
                     <td>5</td>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <td>{{translate('discount_Given')}}</td>
                     <td class="text-right">{{ \App\Utils\BackEndHelper::set_symbol(\App\Utils\BackEndHelper::usd_to_currency($earning_data['discount_given'])) }}</td>
                 </tr>
                 <tr>
+<<<<<<< HEAD
                     <td>6</td>
+=======
+                    <td>5</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <td>{{translate('total_Tax')}}</td>
                     <td class="text-right">{{ \App\Utils\BackEndHelper::set_symbol(\App\Utils\BackEndHelper::usd_to_currency($earning_data['total_tax'])) }}</td>
                 </tr>
                 <tr>
+<<<<<<< HEAD
                     <td>7</td>
+=======
+                    <td>6</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <td>{{translate('refund_Given')}}</td>
                     <td class="text-right">{{ \App\Utils\BackEndHelper::set_symbol(\App\Utils\BackEndHelper::usd_to_currency($earning_data['refund_given'])) }}</td>
                 </tr>

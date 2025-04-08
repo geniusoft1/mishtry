@@ -10,7 +10,11 @@ class BusinessSetting extends Model
 {
 //    use Rememberable;
 
+<<<<<<< HEAD
     protected $fillable = ['type', 'value', 'created_at', 'updated_at'];
+=======
+    protected $fillable = ['type', 'value'];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     protected $casts = [
         'id' => 'integer',

@@ -3,7 +3,10 @@
 namespace App\Services;
 
 use App\Traits\FileManagerTrait;
+<<<<<<< HEAD
 use Illuminate\Support\Str;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 class VendorService
 {
@@ -25,10 +28,17 @@ class VendorService
     /**
      * @return array
      */
+<<<<<<< HEAD
     public function getInitialWalletData(int $vendorId): array
     {
         return [
             'seller_id' => $vendorId,
+=======
+    public function getInitialWalletData(): array
+    {
+        return [
+            'seller_id' => auth('seller')->id(),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'withdrawn' => 0,
             'commission_given' => 0,
             'total_earning' => 0,
@@ -107,6 +117,7 @@ class VendorService
             'account_no' => $request['account_no'],
         ];
     }
+<<<<<<< HEAD
     public function getAddData(object $request):array
     {
         return [
@@ -119,4 +130,6 @@ class VendorService
             'status' => $request['status'] == 'approved' ? 'approved' : 'pending',
         ];
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

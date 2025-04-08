@@ -34,7 +34,10 @@
         <td> {{translate('shipping_Charge')}}</td>
         <td> {{translate('VAT/TAX')}}</td>
         <td> {{translate('commission')}}</td>
+<<<<<<< HEAD
         <td> {{translate('deliveryman_incentive')}}</td>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <td> {{translate('status')}}</td>
     </tr>
     @foreach ($data['orders'] as $key=>$item)
@@ -47,7 +50,10 @@
             <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount:$item->shipping_cost - ($item->extra_discount_type == 'free_shipping_over_order_amount' ? $item->extra_discount : 0))) }}</td>
             <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount:$item->details_sum_tax ?? 0)) }}</td>
             <td>{{ setCurrencySymbol(amount: usdToDefaultCurrency(amount:$item->admin_commission ?? 0)) }}</td>
+<<<<<<< HEAD
             <td>{{ ($item->delivery_type=='self_delivery' && $item->delivery_man_id) ? setCurrencySymbol(amount: usdToDefaultCurrency(amount:$item->deliveryman_charge ?? 0)) : setCurrencySymbol(amount: usdToDefaultCurrency(amount: 0)) }}</td>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <td>{{translate($item['order_status'])}}</td>
         </tr>
     @endforeach

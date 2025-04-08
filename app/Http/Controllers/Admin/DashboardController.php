@@ -53,9 +53,15 @@ class DashboardController extends BaseController
     public function dashboard(): View
     {
         $mostRatedProducts = $this->productRepo->getTopRatedList()->take(DASHBOARD_DATA_LIMIT);
+<<<<<<< HEAD
         $topSellProduct = $this->productRepo->getTopSellList(relations: ['orderDetails'])->take(DASHBOARD_TOP_SELL_DATA_LIMIT);
         $topCustomer = $this->orderRepo->getTopCustomerList(relations: ['customer'], dataLimit: 'all')->take(DASHBOARD_DATA_LIMIT);
         $topRatedDeliveryMan = $this->deliveryManRepo->getTopRatedList(filters: ['seller_id' => 0], relations: ['deliveredOrders'], dataLimit: 'all')->take(DASHBOARD_DATA_LIMIT);
+=======
+        $topSellProduct = $this->productRepo->getTopSellList(relations: ['orderDetails'])->take(DASHBOARD_DATA_LIMIT);
+        $topCustomer = $this->orderRepo->getTopCustomerList(relations: ['customer'], dataLimit: 'all')->take(DASHBOARD_DATA_LIMIT);
+        $topRatedDeliveryMan = $this->deliveryManRepo->getTopRatedList(relations: ['orders'], dataLimit: 'all')->take(DASHBOARD_DATA_LIMIT);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $topVendorByEarning = $this->vendorWalletRepo->getListWhere(orderBy: ['total_earning' => 'desc'], relations: ['seller.shop'])->take(DASHBOARD_DATA_LIMIT);
         $topVendorByOrderReceived = $this->orderRepo->getTopVendorListByOrderReceived(relations: ['seller.shop'], dataLimit: 'all')->take(DASHBOARD_DATA_LIMIT);
 
@@ -71,6 +77,7 @@ class DashboardController extends BaseController
             dataRange: ['from' => $from, 'to' => $to],
             groupBy: ['year', 'month']
         );
+<<<<<<< HEAD
 
         $commissionEarningStatisticsData = $this->orderTransactionRepo->getCommissionEarningStatisticsData(
             dataRange: ['from' => Carbon::now()->startOfYear()->format('Y-m-d'), 'to' => Carbon::now()->endOfYear()->format('Y-m-d')],
@@ -87,6 +94,12 @@ class DashboardController extends BaseController
         $inHouseOrderEarningArray = $this->getOrderStatisticsData(from:$from ,to: $to,range: $range,type:'month',userType:'admin');
         $vendorOrderEarningArray = $this->getOrderStatisticsData(from: $from, to: $to, range: $range,type:'month',userType:'seller');
         $dateType = 'yearEarn';
+=======
+        $commissionEarningStatisticsData = $this->orderTransactionRepo->getCommissionEarningStatisticsData(dataRange: ['from' => $from, 'to' => $to]);
+
+        $data = self::getOrderStatusData();
+        $admin_wallet = $this->adminWalletRepo->getFirstWhere(params: ['admin_id' => 1]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $data += [
             'order' => $this->orderRepo->getListWhere(dataLimit: 'all')->count(),
             'brand' => $this->brandRepo->getListWhere(dataLimit: 'all')->count(),
@@ -101,11 +114,17 @@ class DashboardController extends BaseController
             'delivery_charge_earned' => $admin_wallet['delivery_charge_earned'] ?? 0,
             'pending_amount' => $admin_wallet['pending_amount'] ?? 0,
             'total_tax_collected' => $admin_wallet['total_tax_collected'] ?? 0,
+<<<<<<< HEAD
             'getTotalCustomerCount' => $this->customerRepo->getList()->count(),
             'getTotalVendorCount' => $this->vendorRepo->getListWhere(dataLimit: 'all')->count(),
             'getTotalDeliveryManCount' => $this->deliveryManRepo->getListWhere(filters:['seller_id' => 0],dataLimit: 'all')->count(),
         ];
         return view(Dashboard::VIEW[VIEW], compact('data', 'inhouseEarningStatisticsData', 'sellerEarningStatisticsData', 'commissionEarningStatisticsData','inHouseOrderEarningArray','vendorOrderEarningArray','label','dateType'));
+=======
+        ];
+
+        return view(Dashboard::VIEW[VIEW], compact('data', 'inhouseEarningStatisticsData', 'sellerEarningStatisticsData', 'commissionEarningStatisticsData'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function getOrderStatus(Request $request): JsonResponse
@@ -269,6 +288,7 @@ class DashboardController extends BaseController
             'commission_label' => $commissionLabel,
             'commission_earn' => array_values($commissionEarningStatisticsData)
         ];
+<<<<<<< HEAD
         return response()->json($data);
     }
     public function getOrderStatistics(Request $request):JsonResponse
@@ -328,4 +348,10 @@ class DashboardController extends BaseController
         }
         return $orderEarningArray;
     }
+=======
+
+        return response()->json($data);
+    }
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

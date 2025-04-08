@@ -22,7 +22,11 @@
                         </div>
                         <div class="col-md-4">
                             <div class="custom_search position-relative float-end">
+<<<<<<< HEAD
                                 <form action="{{ route('vendors') }}">
+=======
+                                <form action="{{route('search-shop')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     @csrf
                                     <div class="d-flex">
                                         <div
@@ -56,6 +60,7 @@
                                class="store-item grid-center py-2">
                                 <div class="position-relative">
                                     <div class="avatar rounded-circle border" style="--size: 6.875rem">
+<<<<<<< HEAD
                                         @if($shop['id'] != 0)
                                             <img class="dark-support img-fit rounded-circle img-w-h-100"
                                                  src="{{ getValidImage(path: 'storage/app/public/shop/'.$shop->image, type:'shop') }}"
@@ -65,6 +70,11 @@
                                                  src="{{ getValidImage(path: 'storage/app/public/company/'.$shop->image, type:'shop') }}"
                                                  alt="{{$shop->name}}" loading="lazy">
                                         @endif
+=======
+                                        <img class="dark-support img-fit rounded-circle img-w-h-100"
+                                             src="{{ getValidImage(path: 'storage/app/public/shop/'.$shop->image, type:'shop') }}"
+                                             alt="{{$shop->name}}" loading="lazy">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                     @if($shop->vacation_status && ($currentDate >= $startDate) && ($currentDate <= $endDate))
                                         <span class="temporary-closed position-absolute rounded-circle">
@@ -79,7 +89,12 @@
 
                                 <div class="d-flex flex-column align-items-center flex-wrap gap-2 mt-3">
                                     <h6 class="text-truncate mx-auto text-center">{{Str::limit($shop->name, 14)}}</h6>
+<<<<<<< HEAD
                                     <p>{{ $shop['products_count'] < 1000 ? $shop['products_count'] : number_format($shop['products_count']/1000 , 1).'K'}} {{translate('products')}}</p>
+=======
+                                    @php($seller = ProductManager::get_user_total_product('seller', $shop->seller_id))
+                                    <p>{{$seller}} {{translate('products')}}</p>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                             </a>
                         @endforeach

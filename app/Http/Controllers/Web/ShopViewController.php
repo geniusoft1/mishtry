@@ -37,6 +37,7 @@ class ShopViewController extends Controller
         };
     }
 
+<<<<<<< HEAD
     public function default_theme($request, $id) {
         $business_mode = getWebConfig(name: 'business_mode');
 
@@ -61,6 +62,23 @@ class ShopViewController extends Controller
 
         $id = $id != 0 ? Shop::where('id', $id)->first()->seller_id : $id;
 
+=======
+    public function default_theme($request, $id){
+        $business_mode=Helpers::get_business_settings('business_mode');
+
+        $active_seller = Seller::approved()->find($id);
+
+        if(($id != 0) && empty($active_seller)) {
+            Toastr::warning(translate('not_found'));
+            return redirect('/');
+        }
+
+        if($id!=0 && $business_mode == 'single')
+        {
+            Toastr::error(translate('access_denied!!'));
+            return back();
+        }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $product_ids = Product::active()->when($id == 0, function ($query) {
                 return $query->where(['added_by' => 'admin']);
             })
@@ -68,8 +86,13 @@ class ShopViewController extends Controller
                 return $query->where(['added_by' => 'seller','user_id'=> $id]);
             })
             ->pluck('id')->toArray();
+<<<<<<< HEAD
             $avg_rating = Review::active()->where('status',1)->whereIn('product_id', $product_ids)->avg('rating');
             $total_review = Review::active()->where('status',1)->whereIn('product_id', $product_ids)->count();
+=======
+            $avg_rating = Review::where('status',1)->whereIn('product_id', $product_ids)->avg('rating');
+            $total_review = Review::where('status',1)->whereIn('product_id', $product_ids)->count();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             if($id == 0){
                 $total_order = Order::where('seller_is','admin')->where('order_type','default_type')->count();
             }else{
@@ -78,7 +101,11 @@ class ShopViewController extends Controller
             }
 
 
+<<<<<<< HEAD
         $products = Product::withCount('reviews')->whereIn('id', $product_ids)->paginate(12);
+=======
+        $products = Product::whereIn('id', $product_ids)->paginate(12);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         //finding category ids
 
         $category_info = [];
@@ -108,7 +135,10 @@ class ShopViewController extends Controller
         $categories = array_unique($categories);
 
         $products = Product::active()
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when($id == 0, function ($query) {
 
                 return $query->where(['added_by' => 'admin']);
@@ -156,18 +186,35 @@ class ShopViewController extends Controller
             ->when(!empty($request->sub_sub_category_id), function($query) use($request){
                 $query->where('sub_sub_category_id',$request->sub_sub_category_id);
             })
+<<<<<<< HEAD
             ->latest()
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->paginate(12)->appends([
                 'category_id'=>$request->category_id,
                 'sub_category_id'=>$request->sub_category_id,
                 'sub_sub_category_id'=>$request->sub_sub_category_id,
                 'product_name'=>$request->product_name
             ]);
+<<<<<<< HEAD
 
         if ($id == 0) {
             $shop = ['id' => 0, 'name' => Helpers::get_business_settings('company_name')];
         } else {
             $shop = Shop::where('seller_id', $id)->first();
+=======
+        if ($id == 0) {
+            $shop = [
+                'id' => 0,
+                'name' => Helpers::get_business_settings('company_name'),
+            ];
+        } else {
+            $shop = Shop::where('seller_id', $id)->first();
+            if (isset($shop) == false) {
+                Toastr::error(translate('shop_does_not_exist'));
+                return back();
+            }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $current_date = date('Y-m-d');
@@ -196,13 +243,28 @@ class ShopViewController extends Controller
     }
 
     public function theme_aster($request, $id){
+<<<<<<< HEAD
         $business_mode = getWebConfig(name: 'business_mode');
 
         if($id!=0 && $business_mode == 'single') {
+=======
+        $business_mode=Helpers::get_business_settings('business_mode');
+
+        $active_seller = Seller::approved()->find($id);
+
+        if(($id != 0) && empty($active_seller)) {
+            Toastr::warning(translate('not_found'));
+            return redirect('/');
+        }
+
+        if($id!=0 && $business_mode == 'single')
+        {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Toastr::error(translate('access_denied!!'));
             return back();
         }
 
+<<<<<<< HEAD
         if ($id != 0) {
             $shop = Shop::where('id', $id)->first();
             if (!$shop) {
@@ -222,6 +284,9 @@ class ShopViewController extends Controller
 
         $product_rating = Product::active()->with('rating')
             ->withCount('reviews')
+=======
+        $product_rating = Product::with('rating')->active()
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when($id == 0, function ($query) {
                 return $query->where(['added_by' => 'admin']);
             })
@@ -256,6 +321,7 @@ class ShopViewController extends Controller
             'rating_5'=>$rating_5,
         ];
 
+<<<<<<< HEAD
         $product_ids = Product::active()->when($id == 0, function ($query) {
                 return $query->where(['added_by' => 'admin']);
             })
@@ -291,6 +357,25 @@ class ShopViewController extends Controller
             $totalOrder = Order::where('seller_is','admin')->where('order_type','default_type')->count();
             $products_for_review = Product::active()->where('added_by', 'admin')->withCount('reviews')->count();
             $featured_products = Product::active()->with([
+=======
+        $product_ids = Product::when($id == 0, function ($query) {
+                return $query->where(['added_by' => 'admin']);
+            })
+            ->when($id != 0, function ($query) use ($id) {
+                return $query->where(['added_by' => 'seller'])
+                    ->where('user_id', $id);
+            })
+            ->pluck('id')->toArray();
+
+        $review_data = Review::whereIn('product_id', $product_ids)->where('status',1);
+        $avg_rating = $review_data->avg('rating');
+        $total_review = $review_data->count();
+
+        if($id == 0){
+            $total_order = Order::where('seller_is','admin')->where('order_type','default_type')->count();
+            $products_for_review = Product::where('added_by', 'admin')->withCount('reviews')->count();
+            $featured_products = Product::with([
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 'seller.shop',
                 'wishList'=>function($query){
                     return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
@@ -299,6 +384,7 @@ class ShopViewController extends Controller
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
             ])
+<<<<<<< HEAD
             ->withCount('reviews')
             ->where(['added_by'=>'admin','featured'=>'1'])->get();
         }else{
@@ -306,6 +392,14 @@ class ShopViewController extends Controller
             $totalOrder = $seller->orders->where('seller_is','seller')->where('order_type','default_type')->count();
             $products_for_review = Product::active()->where('added_by', 'seller')->where('user_id', $seller->id)->withCount('reviews')->count();
             $featured_products = Product::active()->with([
+=======
+            ->where(['added_by'=>'admin','featured'=>'1'])->get();
+        }else{
+            $seller = Seller::find($id);
+            $total_order = $seller->orders->where('seller_is','seller')->where('order_type','default_type')->count();
+            $products_for_review = Product::active()->where('added_by', 'seller')->where('user_id', $seller->id)->withCount('reviews')->count();
+            $featured_products = Product::with([
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 'seller.shop',
                 'wishList'=>function($query){
                     return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
@@ -314,7 +408,10 @@ class ShopViewController extends Controller
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
             ])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where(['added_by'=>'seller','user_id'=>$seller->id,'featured'=>'1'])->get();
         }
         // Followers
@@ -335,7 +432,10 @@ class ShopViewController extends Controller
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
             ])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when($id == 0, function ($query) {
                 return $query->where(['added_by' => 'admin']);
             })
@@ -385,9 +485,22 @@ class ShopViewController extends Controller
         }
 
         if ($id == 0) {
+<<<<<<< HEAD
             $shop = ['id' => 0, 'name' => Helpers::get_business_settings('company_name')];
         } else {
             $shop = Shop::where('seller_id', $id)->first();
+=======
+            $shop = [
+                'id' => 0,
+                'name' => Helpers::get_business_settings('company_name'),
+            ];
+        } else {
+            $shop = Shop::where('seller_id', $id)->first();
+            if (isset($shop) == false) {
+                Toastr::error(translate('shop_does_not_exist'));
+                return back();
+            }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         //products search
@@ -401,7 +514,10 @@ class ShopViewController extends Controller
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
             ])
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when($id == '0', function ($query) {
                 return $query->where(['added_by' => 'admin']);
             })
@@ -451,7 +567,11 @@ class ShopViewController extends Controller
                 return $query->latest();
             })
             ->when($request['data_from'] == 'top-rated', function($query){
+<<<<<<< HEAD
                 $reviews = Review::active()->select('product_id', DB::raw('AVG(rating) as count'))
+=======
+                $reviews = Review::select('product_id', DB::raw('AVG(rating) as count'))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     ->groupBy('product_id')->where('status', 1)
                     ->orderBy("count", 'desc')->get();
                 $product_ids = [];
@@ -543,6 +663,7 @@ class ShopViewController extends Controller
 
         return view(VIEW_FILE_NAMES['shop_view_page'], compact('products', 'shop', 'categories','current_date','seller_vacation_start_date','seller_vacation_status',
             'seller_vacation_end_date','seller_temporary_close','inhouse_vacation_start_date','inhouse_vacation_end_date','inHouseVacationStatus','inhouse_temporary_close',
+<<<<<<< HEAD
             'products_for_review','featured_products','followers','follow_status','brands','data','ratings','rattingStatusArray'))
             ->with('seller_id', $id)
             ->with('total_review', $totalReviews)
@@ -554,10 +675,31 @@ class ShopViewController extends Controller
         $business_mode = getWebConfig(name: 'business_mode');
 
         if($id!=0 && $business_mode == 'single') {
+=======
+            'products_for_review','featured_products','followers','follow_status','brands','data','ratings'))
+            ->with('seller_id', $id)
+            ->with('total_review', $total_review)
+            ->with('avg_rating', $avg_rating)
+            ->with('total_order', $total_order);
+    }
+
+    public function theme_fashion($request, $id){
+        $business_mode=Helpers::get_business_settings('business_mode');
+        $active_seller = Seller::approved()->find($id);
+
+        if(($id != 0) && empty($active_seller)) {
+            Toastr::warning(translate('not_found'));
+            return redirect('/');
+        }
+
+        if($id!=0 && $business_mode == 'single')
+        {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Toastr::error(translate('access_denied!!'));
             return back();
         }
 
+<<<<<<< HEAD
         if ($id != 0) {
             $shop = Shop::where('id', $id)->first();
             if (!$shop) {
@@ -579,11 +721,17 @@ class ShopViewController extends Controller
             ->when($id == 0, function ($query) {
                 return $query->where(['added_by' => 'admin']);
             })
+=======
+        $product_ids = Product::active()->when($id == 0, function ($query) {
+            return $query->where(['added_by' => 'admin']);
+        })
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when($id != 0, function ($query) use ($id) {
                 return $query->where(['added_by' => 'seller'])
                     ->where('user_id', $id);
             })
             ->pluck('id')->toArray();
+<<<<<<< HEAD
         $reviewData = Review::active()->whereIn('product_id', $product_ids);
         $averageRating = $reviewData->avg('rating');
         $totalReviews = $reviewData->count();
@@ -609,6 +757,32 @@ class ShopViewController extends Controller
 
         $reviews = $reviewData->take(4)->get();
         $colors_collection = Product::active()->withCount('reviews')->whereIn('id', $product_ids)
+=======
+        $review_data = Review::whereIn('product_id', $product_ids)->where('status', 1);
+        $avg_rating = $review_data->avg('rating');
+        $total_review = $review_data->count();
+
+        // color & seller wise review start
+        $ratting_status_positive = 0;
+        $ratting_status_good = 0;
+        $ratting_status_neutral = 0;
+        $ratting_status_negative = 0;
+        foreach($review_data->pluck('rating') as $single_rating)
+        {
+            ($single_rating >= 4?($ratting_status_positive++):'');
+            ($single_rating == 3?($ratting_status_good++):'');
+            ($single_rating == 2?($ratting_status_neutral++):'');
+            ($single_rating == 1?($ratting_status_negative++):'');
+        }
+        $ratting_status = [
+            'positive' => $total_review != 0 ? ($ratting_status_positive*100)/ $total_review:0,
+            'good' => $total_review != 0 ?($ratting_status_good*100)/ $total_review:0,
+            'neutral' => $total_review != 0 ?($ratting_status_neutral*100)/ $total_review:0,
+            'negative' => $total_review != 0 ?($ratting_status_negative*100)/ $total_review:0,
+        ];
+        $reviews = $review_data->take(4)->get();
+        $colors_collection = Product::active()->whereIn('id', $product_ids)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where('colors', '!=', '[]')
             ->pluck('colors')
             ->unique()
@@ -624,11 +798,19 @@ class ShopViewController extends Controller
 
         if($id == 0){
             $total_order = Order::where('seller_is','admin')->where('order_type','default_type')->count();
+<<<<<<< HEAD
             $products_for_review = Product::active()->where('added_by', 'admin')->withCount('reviews')->count();
             $featured_products = Product::active()->where(['added_by'=>'admin','featured'=>'1'])
                                     ->with(['wishList'=>function($query){
                                         return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
                                     }])->withCount('reviews')->get();
+=======
+            $products_for_review = Product::where('added_by', 'admin')->withCount('reviews')->count();
+            $featured_products = Product::active()->where(['added_by'=>'admin','featured'=>'1'])
+                                    ->with(['wishList'=>function($query){
+                                        return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+                                    }])->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }else{
             $seller = Seller::find($id);
             $total_order = $seller->orders->where('seller_is','seller')->where('order_type','default_type')->count();
@@ -636,7 +818,11 @@ class ShopViewController extends Controller
             $featured_products = Product::active()->where(['added_by'=>'seller','user_id'=>$seller->id,'featured'=>'1'])
                                     ->with(['wishList'=>function($query){
                                         return $query->where('customer_id', Auth::guard('customer')->user()->id ?? 0);
+<<<<<<< HEAD
                                     }])->withCount('reviews')->get();
+=======
+                                    }])->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         // Followers
@@ -661,7 +847,10 @@ class ShopViewController extends Controller
             }])->withSum('orderDetails', 'qty', function ($query) {
                 $query->where('delivery_status', 'delivered');
             })
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->get();
 
             $category_info_for_fashion = [];
@@ -705,9 +894,22 @@ class ShopViewController extends Controller
         }
 
         if ($id == 0) {
+<<<<<<< HEAD
             $shop = ['id' => 0, 'name' => Helpers::get_business_settings('company_name')];
         } else {
             $shop = Shop::where('seller_id', $id)->first();
+=======
+            $shop = [
+                'id' => 0,
+                'name' => Helpers::get_business_settings('company_name'),
+            ];
+        } else {
+            $shop = Shop::where('seller_id', $id)->first();
+            if (isset($shop) == false) {
+                Toastr::error(translate('shop_does_not_exist'));
+                return back();
+            }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $paginate_count = ceil($products->count() / 20);
@@ -728,10 +930,17 @@ class ShopViewController extends Controller
 
         return view(VIEW_FILE_NAMES['shop_view_page'], compact('products', 'shop', 'categories','current_date','seller_vacation_start_date','seller_vacation_status',
             'seller_vacation_end_date','seller_temporary_close','inhouse_vacation_start_date','inhouse_vacation_end_date','inHouseVacationStatus','inhouse_temporary_close',
+<<<<<<< HEAD
             'products_for_review','featured_products','followers','follow_status','brands','rattingStatusArray','reviews','colors_in_shop','paginate_count'))
             ->with('seller_id', $id)
             ->with('total_review', $totalReviews)
             ->with('avg_rating', $averageRating)
+=======
+            'products_for_review','featured_products','followers','follow_status','brands','ratting_status','reviews','colors_in_shop','paginate_count'))
+            ->with('seller_id', $id)
+            ->with('total_review', $total_review)
+            ->with('avg_rating', $avg_rating)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->with('total_order', $total_order);
     }
 
@@ -766,7 +975,11 @@ class ShopViewController extends Controller
         $rating = $request->rating ?? [];
 
         // products search
+<<<<<<< HEAD
         $products = Product::active()->withCount('reviews')->withSum('orderDetails', 'qty', function ($query) {
+=======
+        $products = Product::active()->withSum('orderDetails', 'qty', function ($query) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('delivery_status', 'delivered');
             })
             ->with(['wishList'=>function($query){
@@ -842,7 +1055,11 @@ class ShopViewController extends Controller
                 })->when($request->filter_by == 'discount', function($query) use($request){
                     $query->where('discount', '!=', 0);
                 })->when($request->filter_by == 'top_rated', function($query) use($request){
+<<<<<<< HEAD
                     $reviews = Review::active()->select('product_id', DB::raw('AVG(rating) as count'))
+=======
+                    $reviews = Review::select('product_id', DB::raw('AVG(rating) as count'))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         ->groupBy('product_id')
                         ->orderBy("count", 'DESC')->get();
                     $product_ids = [];
@@ -910,13 +1127,26 @@ class ShopViewController extends Controller
     }
 
     public function theme_all_purpose($request, $id){
+<<<<<<< HEAD
         $business_mode = getWebConfig(name: 'business_mode');
 
         if($id!=0 && $business_mode == 'single') {
+=======
+        $business_mode=Helpers::get_business_settings('business_mode');
+        $active_seller = Seller::approved()->find($id);
+        if(($id != 0) && empty($active_seller)) {
+            Toastr::warning(translate('not_found'));
+            return redirect('/');
+        }
+
+        if($id!=0 && $business_mode == 'single')
+        {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             Toastr::error(translate('access_denied!!'));
             return back();
         }
 
+<<<<<<< HEAD
         if ($id != 0) {
             $shop = Shop::where('id', $id)->first();
             if (!$shop) {
@@ -935,6 +1165,9 @@ class ShopViewController extends Controller
 
 
         $product_ids = Product::active()->when($id == 0, function ($query) {
+=======
+        $product_ids = Product::when($id == 0, function ($query) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             return $query->where(['added_by' => 'admin']);
         })
             ->when($id != 0, function ($query) use ($id) {
@@ -943,7 +1176,11 @@ class ShopViewController extends Controller
             })
             ->pluck('id')->toArray();
 
+<<<<<<< HEAD
         $review_data = Review::active()->whereIn('product_id', $product_ids)->where('status',1);
+=======
+        $review_data = Review::whereIn('product_id', $product_ids)->where('status',1);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $avg_rating = $review_data->avg('rating');
         $total_review = $review_data->count();
 
@@ -982,13 +1219,22 @@ class ShopViewController extends Controller
 
         if($id == 0){
             $total_order = Order::where('seller_is','admin')->where('order_type','default_type')->count();
+<<<<<<< HEAD
             $products_for_review = Product::active()->where('added_by', 'admin')->withCount('reviews')->count();
             $featured_products = Product::active()->withCount('reviews')->where(['added_by'=>'admin','featured'=>'1'])->get();
+=======
+            $products_for_review = Product::where('added_by', 'admin')->withCount('reviews')->count();
+            $featured_products = Product::where(['added_by'=>'admin','featured'=>'1'])->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }else{
             $seller = Seller::find($id);
             $total_order = $seller->orders->where('seller_is','seller')->where('order_type','default_type')->count();
             $products_for_review = Product::active()->where('added_by', 'seller')->where('user_id', $seller->id)->withCount('reviews')->count();
+<<<<<<< HEAD
             $featured_products = Product::active()->withCount('reviews')->where(['added_by'=>'seller','user_id'=>$seller->id,'featured'=>'1'])->get();
+=======
+            $featured_products = Product::where(['added_by'=>'seller','user_id'=>$seller->id,'featured'=>'1'])->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         // Followers
@@ -1044,9 +1290,22 @@ class ShopViewController extends Controller
         }
 
         if ($id == 0) {
+<<<<<<< HEAD
             $shop = ['id' => 0, 'name' => Helpers::get_business_settings('company_name')];
         } else {
             $shop = Shop::where('seller_id', $id)->first();
+=======
+            $shop = [
+                'id' => 0,
+                'name' => Helpers::get_business_settings('company_name'),
+            ];
+        } else {
+            $shop = Shop::where('seller_id', $id)->first();
+            if (isset($shop) == false) {
+                Toastr::error(translate('shop_does_not_exist'));
+                return back();
+            }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         $current_date = date('Y-m-d');
         $seller_vacation_start_date = $id != 0 ? date('Y-m-d', strtotime($shop->vacation_start_date)) : null;
@@ -1065,10 +1324,17 @@ class ShopViewController extends Controller
         $new_arrival = [];
         $coupons = [];
         if($request['tab']== 'store' || null){
+<<<<<<< HEAD
             //top-rated
             $top_rated = Product::active()
                                 ->when($id == 0, function($query){
                                     $reviews = Review::active()->select('product_id', DB::raw('AVG(rating) as count'))
+=======
+            //top rated
+            $top_rated = Product::active()
+                                ->when($id == 0, function($query){
+                                    $reviews = Review::select('product_id', DB::raw('AVG(rating) as count'))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         ->groupBy('product_id')
                                         ->orderBy("count", 'desc')->get();
                                     $product_ids = [];
@@ -1078,7 +1344,11 @@ class ShopViewController extends Controller
                                     return $query->where('added_by', 'admin')->whereIn('id', $product_ids);
                                 })
                                 ->when($id != 0, function($query)use($id){
+<<<<<<< HEAD
                                     $reviews = Review::active()->select('product_id', DB::raw('AVG(rating) as count'))
+=======
+                                    $reviews = Review::select('product_id', DB::raw('AVG(rating) as count'))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         ->groupBy('product_id')
                                         ->orderBy("count", 'desc')->get();
                                     $product_ids = [];

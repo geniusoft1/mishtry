@@ -10,7 +10,11 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/system-setting.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/system-setting.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('system_setup')}}
             </h2>
         </div>
@@ -24,12 +28,18 @@
                     <div class="px-3 py-4">
                         <div class="row justify-content-between align-items-center flex-grow-1">
                             <div class="col-sm-4 col-md-6 col-lg-8 mb-2 mb-sm-0">
+<<<<<<< HEAD
                                 <span class="title-color text-capitalize font-weight-bold">
                                     {{translate('language_table')}}
                                     <span class="input-label-secondary cursor-pointer" data-toggle="tooltip" data-placement="right" title="{{translate('after_adding_a_new_language,_you_need_to_translate_the_key_contents_for_users_to_experience_this_feature').' . '.translate('to_translate_a_language_click_the_action_button_from_the_language_table_&_click_translate').'.'.translate('then_change_the_key_language_value_manually_or_click_the_‘Auto_Translate’_button').'.'.translate('Finally,_click_‘Update’_to_save_the_changes').'.'}}">
                                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="">
                                     </span>
                                 </span>
+=======
+                                <h5 class="mb-0 d-flex">
+                                    {{translate('language_table')}}
+                                </h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                             <div class="col-sm-8 col-md-6 col-lg-4">
                                 <div class="d-flex gap-10 justify-content-sm-end">
@@ -75,7 +85,12 @@
                                             </label>
                                         @else
                                             <form action="{{ route('admin.business-settings.language.update-status') }}"
+<<<<<<< HEAD
                                                   method="post" id="language-id-{{$data['id']}}-form">
+=======
+                                                  method="post" id="language-id-{{$data['id']}}-form"
+                                                  class="update-status" >
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @csrf
                                                 <input type="hidden" name="code" value="{{$data['code']}}">
                                                 <label class="switcher mx-auto">
@@ -104,7 +119,12 @@
                                         @elseif(array_key_exists('default', $data) && $data['default']===false)
                                             <form
                                                 action="{{route('admin.business-settings.language.update-default-status', ['code'=>$data['code']])}}"
+<<<<<<< HEAD
                                                 method="get" id="language-default-id-{{$data['id']}}-form" data-from="default-language">
+=======
+                                                method="get" id="language-default-id-{{$data['id']}}-form"
+                                                class="update-status" data-from="default-language">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @csrf
                                                 <input type="hidden" name="code" value="{{$data['code']}}">
                                                 <label class="switcher mx-auto">
@@ -190,7 +210,11 @@
                                             @foreach(File::files(base_path('public/assets/front-end/img/flags')) as $path)
                                                 @if(pathinfo($path)['filename'] !='en')
                                                     <option value="{{ pathinfo($path)['filename'] }}"
+<<<<<<< HEAD
                                                             title="{{ dynamicAsset(path: 'public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+=======
+                                                            title="{{ asset('public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         {{ strtoupper(pathinfo($path)['filename']) }}
                                                     </option>
                                                 @endif
@@ -251,7 +275,11 @@
                                                 @foreach(File::files(base_path('public/assets/front-end/img/flags')) as $path)
                                                     @if(pathinfo($path)['filename'] !='en' && $data['code']==pathinfo($path)['filename'])
                                                         <option value="{{ pathinfo($path)['filename'] }}"
+<<<<<<< HEAD
                                                                 title="{{ dynamicAsset(path: 'public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+=======
+                                                                title="{{ asset('public/assets/front-end/img/flags/'.pathinfo($path)['filename'].'.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             {{ strtoupper(pathinfo($path)['filename']) }}
                                                         </option>
                                                     @endif
@@ -290,5 +318,9 @@
     </div>
 @endsection
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/language.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/language.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

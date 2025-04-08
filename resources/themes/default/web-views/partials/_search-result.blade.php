@@ -1,5 +1,6 @@
 <ul class="list-group list-group-flush">
     @foreach($products as $product)
+<<<<<<< HEAD
         <li class="list-group-item px-0 overflow-hidden">
             <button type="submit" class="search-result-product btn p-0 m-0 search-result-product-button align-items-baseline text-start" data-product-name="{{ $product['name'] }}">
                 <span><i class="czi-search"></i></span>
@@ -10,6 +11,12 @@
                     </svg>
                 </span>
             </button>
+=======
+        <li class="list-group-item">
+            <a href="{{route('product', $product->slug)}}">
+                {{$product['name']}}
+            </a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </li>
     @endforeach
 </ul>

@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('withdraw')}}
             </h2>
         </div>
@@ -56,7 +60,10 @@
                 </div>
             </div>
             @if($withdrawalMethod)
+<<<<<<< HEAD
                 @php($withdrawalMethod = is_array($withdrawalMethod) ? $withdrawalMethod : (is_object($withdrawalMethod) ? (array) $withdrawalMethod : json_decode($withdrawalMethod, true)))
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <div class="col-md-4 mb-3">
                     <div class="card h-100">
                         <div class="card-body">

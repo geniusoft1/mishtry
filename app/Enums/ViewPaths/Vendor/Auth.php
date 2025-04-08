@@ -16,10 +16,13 @@ enum Auth
     const RECAPTURE = [
         URI => 'recaptcha',
     ];
+<<<<<<< HEAD
     const VENDOR_REGISTRATION = [
         URI => 'index',
         VIEW => 'seller_registration'
     ];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 
 }

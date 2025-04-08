@@ -8,7 +8,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/social media.png')}}" width="20" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/social media.png')}}" width="20" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('social_media')}}
             </h2>
         </div>
@@ -106,5 +110,9 @@
     </span>
 @endsection
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/business-setting/social-media.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/business-setting/social-media.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

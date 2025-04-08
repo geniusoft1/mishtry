@@ -4,9 +4,13 @@ $(window).on('load',function () {
     $('.js-select2-custom').siblings('.select2-container').addClass('border-0');
     $('.js-select2-custom').siblings('.select2-container').find('.border-0').removeClass('border-0').addClass('border');
 });
+<<<<<<< HEAD
 $('input[name=deliveryman_charge]').mousewheel(function(event) {
     event.preventDefault();
 });
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 $(document).ready(function () {
     $('#dataTable').DataTable();
 
@@ -78,8 +82,11 @@ $('.js-data-example-ajax').select2({
 $(document).ready(function () {
     $('.select2-container--default').addClass('form-control').addClass('p-0');
     $('.select2-selection').addClass('border-0');
+<<<<<<< HEAD
     initializePhoneInput(".phone-input-with-country-picker-2", ".country-picker-phone-number-2");
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 });
 
 $("#date_type").change(function () {
@@ -97,16 +104,27 @@ $("#date_type").change(function () {
         $('.filter-btn').attr('class', 'col-sm-6 col-md-3 filter-btn');
     }
 }).change();
+<<<<<<< HEAD
 $('.payment-status-alert').on('click',function (){
     toastr.info($('#payment-status-alert-message').data('message'));
 })
 $(".payment-status").on('click', function (e) {
+=======
+
+
+$(".payment_status").on('click', function (e) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     e.preventDefault();
     let id = $(this).data('id');
     let value = $(this).val();
     Swal.fire({
+<<<<<<< HEAD
         title: $("#payment-status-message").data('title'),
         text: $("#payment-status-message").data('message'),
+=======
+        title: $("#message-status-title-text").data('text'),
+        text: $("#message-status-subtitle-text").data('text'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         showCancelButton: true,
         confirmButtonColor: '#377dff',
         cancelButtonColor: 'secondary',
@@ -132,11 +150,18 @@ $(".payment-status").on('click', function (e) {
                     "payment_status": value
                 },
                 success: function (data) {
+<<<<<<< HEAD
                     if (data.customer_status == 0) {
                         location.reload();
                         toastr.warning($("#message-status-warning-text").data('text'));
                     }else if(data.error){
                         toastr.warning(data.error);
+=======
+
+                    if (data.customer_status == 0) {
+                        location.reload();
+                        toastr.warning($("#message-status-warning-text").data('text'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     } else {
                         location.reload();
                         toastr.success($("#message-status-success-text").data('text'));
@@ -240,6 +265,7 @@ $("#addDeliveryMan").on('change', function () {
         }
     });
 });
+<<<<<<< HEAD
 $('input[name=deliveryman_charge]').on('keyup',function(event) {
     if (event.which === 13) {
         let value = $(this);
@@ -253,6 +279,13 @@ $(".deliveryman-charge").on('click', function () {
 $('.deliveryman-charge-alert').on('click',function (){
     toastr.info($('#deliveryman-charge-alert-message').data('message'))
 })
+=======
+
+$("#deliveryman_charge").on('keyup', function () {
+    amountDateUpdate(this);
+});
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 $("#expected_delivery_date").on('change', function () {
     amountDateUpdate(this);
 });
@@ -280,7 +313,10 @@ function amountDateUpdate(t){
                     CloseButton: true,
                     ProgressBar: true
                 });
+<<<<<<< HEAD
                 location.reload();
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             } else {
                 toastr.error($("#message-deliveryman-charge-error-text").data('text'), {
                     CloseButton: true,
@@ -551,6 +587,9 @@ $(".readUrl").on('change', function () {
         reader.readAsDataURL(input.files[0]);
     }
 });
+<<<<<<< HEAD
 $('input[type=number]').on('mousewheel', function(e) {
     $(e.target).blur();
 });
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

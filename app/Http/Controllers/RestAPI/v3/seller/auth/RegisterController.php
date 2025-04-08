@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\RestAPI\v3\seller\auth;
 
+<<<<<<< HEAD
 use App\Events\VendorRegistrationMailEvent;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Http\Controllers\Controller;
 use App\Models\Seller;
 use App\Models\Shop;
@@ -70,6 +73,7 @@ class RegisterController extends Controller
                 'updated_at' => now(),
             ]);
             DB::commit();
+<<<<<<< HEAD
             $data = [
                 'name' => $request['f_name'],
                 'status' => 'pending',
@@ -78,6 +82,8 @@ class RegisterController extends Controller
                 'message' => translate('congratulation').'!'.translate('Your_registration_request_has_been_send_to_admin_successfully').'!'.translate('Please_wait_until_admin_reviewal').'.',
             ];
             event(new VendorRegistrationMailEvent($request['email'],$data));
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             return response()->json(['message' => 'Shop apply successfully!'], 200);
 
         } catch (\Exception $e) {

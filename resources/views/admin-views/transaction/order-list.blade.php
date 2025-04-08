@@ -6,7 +6,11 @@
     <div class="content container-fluid ">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/order_report.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/order_report.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('transaction_report')}}
             </h2>
         </div>
@@ -20,7 +24,11 @@
                             <div class="">
                                 <select class="form-control __form-control" name="status">
                                     <option class="text-center" value="0" disabled>
+<<<<<<< HEAD
                                         {{'---'.translate('select_status').'---'}}
+=======
+                                        ---{{translate('select_status')}}---
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </option>
                                     <option class="text-capitalize"
                                             value="all" {{ $status == 'all'? 'selected' : '' }} >{{translate('all_status')}} </option>
@@ -72,7 +80,10 @@
                                 <option value="this_year" {{ $date_type == 'this_year'? 'selected' : '' }}>{{translate('this_Year')}}</option>
                                 <option value="this_month" {{ $date_type == 'this_month'? 'selected' : '' }}>{{translate('this_Month')}}</option>
                                 <option value="this_week" {{ $date_type == 'this_week'? 'selected' : '' }}>{{translate('this_Week')}}</option>
+<<<<<<< HEAD
                                 <option value="today" {{ $date_type == 'today'? 'selected' : '' }}>{{translate('today')}}</option>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <option value="custom_date" {{ $date_type == 'custom_date'? 'selected' : '' }}>{{translate('custom_Date')}}</option>
                             </select>
                         </div>
@@ -104,7 +115,11 @@
         <div class="store-report-content mb-2">
             <div class="left-content">
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/cart.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/cart.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ $order_data['total_orders'] }}</h4>
                         <h6 class="subtext">{{translate('total_Orders')}}</h6>
@@ -125,7 +140,11 @@
                     </div>
                 </div>
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/products.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/products.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="coupon__discount w-100 text-right d-flex justify-content-between">
                         <div class="text-center">
                             <strong class="text-primary">{{ $order_data['total_in_house_products'] }}</strong>
@@ -142,7 +161,11 @@
                     </div>
                 </div>
                 <div class="left-content-card">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/stores.svg')}}" alt="">
+=======
+                    <img src="{{asset('/public/assets/back-end/img/stores.svg')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="info">
                         <h4 class="subtitle">{{ $order_data['total_stores'] }}</h4>
                         <h6 class="subtext">{{translate('total_Stores')}}</h6>
@@ -292,7 +315,11 @@
                             <li>
                                 <a class="dropdown-item"
                                    href="{{ route('admin.transaction.order-transaction-export-excel', ['date_type'=>request('date_type'), 'seller_id'=>request('seller_id'), 'customer_id'=>request('customer_id'), 'status'=>request('status'), 'from'=>request('from'), 'to'=>request('to')]) }}">
+<<<<<<< HEAD
                                     <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                    <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('excel')}}
                                 </a>
                             </li>
@@ -318,7 +345,10 @@
                         <th>{{translate('shipping_charge')}}</th>
                         <th>{{translate('order_amount')}}</th>
                         <th>{{translate('delivered_by')}}</th>
+<<<<<<< HEAD
                         <th>{{translate('deliveryman_incentive')}}</th>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <th>{{translate('admin_discount')}}</th>
                         <th>{{translate('vendor_discount') }}</th>
                         <th>{{translate('admin_commission') }}</th>
@@ -370,7 +400,10 @@
                                 <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $transaction->order->shipping_cost), currencyCode: getCurrencyCode()) }}</td>
                                 <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $transaction->order->order_amount), currencyCode: getCurrencyCode()) }}</td>
                                 <td>{{$transaction['delivered_by']}}</td>
+<<<<<<< HEAD
                                 <td>{{setCurrencySymbol(amount: usdToDefaultCurrency(amount: ($transaction->order->delivery_type == 'self_delivery' && $transaction->order->delivery_man_id) ? $transaction->order->deliveryman_charge : 0), currencyCode: getCurrencyCode()) }}</td>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <td>
                                     @php($admin_coupon_discount = ($transaction->order->coupon_discount_bearer == 'inhouse' && $transaction->order->discount_type == 'coupon_discount') ? $transaction->order->discount_amount : 0)
                                     @php($admin_shipping_discount = ($transaction->order->free_delivery_bearer=='admin' && $transaction->order->is_shipping_free) ? $transaction->order->extra_discount : 0)
@@ -388,15 +421,22 @@
                                         if ($transaction['seller_is'] == 'admin') {
                                             $admin_net_income += $transaction['order_amount'] + $transaction['tax'];
                                         }
+<<<<<<< HEAD
                                         if (isset($transaction->order->deliveryMan) && $transaction->order->deliveryMan->seller_id == 0) {
+=======
+                                        if (isset($transaction->order->delivery_man) && $transaction->order->delivery_man->seller_id == '0') {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             $admin_net_income += $transaction['delivery_charge'];
                                         }
                                         $admin_net_income += $transaction['admin_commission'];
 
+<<<<<<< HEAD
                                         if($transaction->order->delivery_type == 'self_delivery' && ($transaction->order->shipping_responsibility == 'inhouse_shipping' || $transaction->order->seller_is == 'admin')){
                                             $admin_net_income -= $transaction->order->deliveryman_charge;
                                         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         if ($transaction['seller_is'] == 'seller') {
                                             if ($transaction->order->shipping_responsibility == 'inhouse_shipping') {
                                                 $admin_net_income -= $transaction->order->coupon_discount_bearer == 'inhouse' ? $admin_coupon_discount : 0;
@@ -414,7 +454,11 @@
                                 <td>
                                         <?php
                                         $seller_net_income = 0;
+<<<<<<< HEAD
                                         if (isset($transaction->order->deliveryMan) && $transaction->order->deliveryMan->seller_id != '0') {
+=======
+                                        if (isset($transaction->order->delivery_man) && $transaction->order->delivery_man->seller_id != '0') {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             $seller_net_income += $transaction['delivery_charge'];
                                         }
 
@@ -422,10 +466,13 @@
                                             $seller_net_income += $transaction['order_amount'] + $transaction['tax'] - $transaction['admin_commission'];
                                         }
 
+<<<<<<< HEAD
                                         if($transaction->order->delivery_type == 'self_delivery' && $transaction->order->shipping_responsibility == 'sellerwise_shipping' && $transaction->order->seller_is == 'seller'){
                                             $seller_net_income -= $transaction->order->deliveryman_charge;
                                         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         if ($transaction['seller_is'] == 'seller') {
                                             if ($transaction->order->shipping_responsibility == 'inhouse_shipping') {
                                                 $seller_net_income += $transaction->order->coupon_discount_bearer == 'inhouse' ? $admin_coupon_discount : 0;
@@ -465,7 +512,11 @@
                 </table>
                 @if(count($transactions)==0)
                     <div class="text-center p-4">
+<<<<<<< HEAD
                         <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                        <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="{{translate('image_description')}}">
                         <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                     </div>
@@ -499,9 +550,17 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/apexcharts.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/admin/transaction-report.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chart.js.extensions/chartjs-extensions.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}"></script>
+    <script src="{{ asset('/public/assets/back-end/js/apexcharts.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/admin/transaction-report.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

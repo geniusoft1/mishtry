@@ -53,10 +53,15 @@
 
                                             <div class="form-group mb-3">
                                                 <label for="phone">{{translate('phone')}}</label>
+<<<<<<< HEAD
                                                 <input type="tel" id="phone" class="form-control phone-input-with-country-picker" required
                                                        placeholder="{{translate('ex').':'.translate('01xxxxxxxxx')}}">
 
                                                 <input type="hidden" class="country-picker-phone-number w-50" name="phone" readonly>
+=======
+                                                <input type="tel" id="phone" class="form-control " name="phone" required
+                                                       placeholder="{{translate('ex').':'.translate('01xxxxxxxxx')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
 
                                             <div class="form-group mb-3 ">

@@ -161,7 +161,11 @@ html[dir="rtl"] .footer_banner:nth-child(5) {
     overflow: hidden;
     max-height: 1.2em;
     line-height: 1.2em;
+<<<<<<< HEAD
     font-weight: 600;
+=======
+    font-weight: 400;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     font-size: 13px;
 }
 

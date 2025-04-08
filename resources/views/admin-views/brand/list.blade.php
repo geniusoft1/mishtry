@@ -6,11 +6,19 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 d-flex gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand.png') }}" alt="">
+=======
+                <img width="20" src="{{ asset('public/assets/back-end/img/brand.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('brand_List') }}
                 <span class="badge badge-soft-dark radius-50 fz-14">{{ $brands->total() }}</span>
             </h2>
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <div class="row mt-20">
             <div class="col-md-12">
                 <div class="card">
@@ -36,10 +44,18 @@
                                     {{ translate('export') }}
                                     <i class="tio-chevron-down"></i>
                                 </button>
+<<<<<<< HEAD
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a class="dropdown-item" href="{{ route('admin.brand.export', ['searchValue'=>request('searchValue')]) }}">
                                             <img width="14" src="{{ dynamicAsset(path: 'public/assets/back-end/img/excel.png') }}" alt="">
+=======
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.brand.export', ['searchValue'=>request('searchValue')]) }}">
+                                            <img width="14" src="{{ asset('public/assets/back-end/img/excel.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             {{ translate('excel') }}
                                         </a>
                                     </li>
@@ -47,6 +63,10 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table table-hover table-borderless table-thead-bordered table-nowrap table-align-middle card-table w-100 text-start">
@@ -54,7 +74,11 @@
                                 <tr>
                                     <th>{{ translate('SL') }}</th>
                                     <th>{{ translate('brand_Logo') }}</th>
+<<<<<<< HEAD
                                     <th class="max-width-100px">{{ translate('name') }}</th>
+=======
+                                    <th>{{ translate('name') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <th class="text-center">{{ translate('total_Product') }}</th>
                                     <th class="text-center">{{ translate('total_Order') }}</th>
                                     <th class="text-center">{{ translate('status') }}</th>
@@ -62,6 +86,10 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @foreach($brands as $key => $brand)
                                     <tr>
                                         <td>{{ $brands->firstItem()+$key }}</td>
@@ -71,11 +99,15 @@
                                                      src="{{ getValidImage(path: 'storage/app/public/brand/'.$brand['image'], type: 'backend-brand') }}">
                                             </div>
                                         </td>
+<<<<<<< HEAD
                                         <td class="overflow-hidden max-width-100px">
                                             <span data-toggle="tooltip" data-placement="right" title="{{$brand['defaultname']}}">
                                                  {{ Str::limit($brand['defaultname'],20) }}
                                             </span>
                                         </td>
+=======
+                                        <td>{{ $brand['defaultname'] }}</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <td class="text-center">{{ $brand['brand_all_products_count'] }}</td>
                                         <td class="text-center">{{ $brand['brandAllProducts']->sum('order_details_count') }}</td>
                                         <td>
@@ -100,6 +132,7 @@
                                         <td>
                                             <div class="d-flex justify-content-center gap-2">
                                                 <a class="btn btn-outline-info btn-sm square-btn" title="{{ translate('edit') }}"
+<<<<<<< HEAD
                                                     href="{{ route('admin.brand.update', [$brand['id']]) }}">
                                                     <i class="tio-edit"></i>
                                                 </a>
@@ -108,13 +141,28 @@
                                                    data-text="{{translate('there_were_').count($brand?->brandAllProducts).translate('_products_under_this_brand').'.'.translate('please_update_their_brand_from_the_below_list_before_deleting_this_one').'.'}}"
                                                    id="{{ $brand['id'] }}">
                                                     <i class="tio-delete"></i>
+=======
+                                                href="{{ route('admin.brand.update', [$brand['id']]) }}">
+                                                <i class="tio-edit"></i>
+                                                </a>
+                                                <a class="btn btn-outline-danger btn-sm brand-delete-button square-btn" title="{{ translate('delete') }}"
+                                                id="{{ $brand['id'] }}">
+                                                <i class="tio-delete"></i>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </a>
                                             </div>
                                         </td>
                                     </tr>
                                 @endforeach
+<<<<<<< HEAD
                                 </tbody>
                             </table>
+=======
+
+                                </tbody>
+                            </table>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </div>
                     </div>
                     <div class="table-responsive mt-4">
@@ -124,7 +172,11 @@
                     </div>
                     @if(count($brands)==0)
                         <div class="text-center p-4">
+<<<<<<< HEAD
                             <img class="mb-3 w-160" src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}" alt="">
+=======
+                            <img class="mb-3 w-160" src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>
                     @endif
@@ -132,6 +184,7 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <span id="route-admin-brand-delete" data-url="{{ route('admin.brand.delete') }}"></span>
     <span id="route-admin-brand-status-update" data-url="{{ route('admin.brand.status-update') }}"></span>
     <span id="get-brands" data-brands="{{ json_encode($brands) }}"></span>
@@ -177,4 +230,13 @@
 
 @push('script')
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+
+    <span id="route-admin-brand-delete" data-url="{{ route('admin.brand.delete') }}"></span>
+    <span id="route-admin-brand-status-update" data-url="{{ route('admin.brand.status-update') }}"></span>
+@endsection
+
+@push('script')
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

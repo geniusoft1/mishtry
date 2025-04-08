@@ -10,9 +10,13 @@ use App\Contracts\Repositories\ReviewRepositoryInterface;
 use App\Contracts\Repositories\SellerRepositoryInterface;
 use App\Contracts\Repositories\TagRepositoryInterface;
 use App\Http\Controllers\Controller;
+<<<<<<< HEAD
 use App\Models\Product;
 use App\Models\ProductTag;
 use App\Models\Review;
+=======
+use App\Models\ProductTag;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Models\Seller;
 use App\Models\Tag;
 use App\Models\Wishlist;
@@ -105,7 +109,11 @@ class ProductDetailsController extends Controller
             $countWishlist = $this->wishlistRepo->getListWhereCount(filters: ['product_id' => $product['id']]);
             $relatedProducts = $this->productRepo->getWebListWithScope(
                 scope: 'active',
+<<<<<<< HEAD
                 filters: ['category_id' => $product['category_id']],
+=======
+                filters: ['category_ids' => $product['category_ids']],
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 whereNotIn: ['id' => [$product['id']]],
                 relations: ['reviews'],
                 dataLimit: 12,
@@ -155,7 +163,10 @@ class ProductDetailsController extends Controller
                 filters: ['category_ids' => $product['category_ids'], 'customer_id' => Auth::guard('customer')->user()->id ?? 0],
                 whereNotIn: ['id' => [$product['id']]],
                 relations: ['reviews', 'flashDealProducts.flashDeal', 'wishList', 'compareList'],
+<<<<<<< HEAD
                 withCount: ['reviews' => 'reviews'],
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 dataLimit: 12,
                 offset: 1
             );
@@ -227,6 +238,7 @@ class ProductDetailsController extends Controller
                 $totalReviews += $item->reviews_count;
             }
 
+<<<<<<< HEAD
             $productIds = Product::active()->where(['added_by' => $product['added_by']])
                 ->where('user_id', $product['user_id'])->pluck('id')->toArray();
             $vendorReviewData = Review::active()->whereIn('product_id', $productIds);
@@ -240,11 +252,25 @@ class ProductDetailsController extends Controller
 
             $positiveReview = $ratingCount != 0 ? ($vendorRattingStatusPositive*100)/ $ratingCount:0;
 
+=======
+            $productIds = $this->productRepo->getProductIds(filters: ['added_by' => $product['added_by'], 'user_id' => $product['user_id']]);
+
+            $ratingCount = $this->reviewRepo->getCount(whereInFilters: ['product_id' => $productIds]);
+            $avgRating = $this->reviewRepo->getListWhereIn(
+                whereInFilters: ['product_id' => $productIds->toArray()],
+                dataLimit: 'all');
+            $avgRating = $ratingCount != 0 ? $avgRating->avg('rating') : 0;
+            $ratingPercentage = round(($avgRating * 100) / 5);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             return view(VIEW_FILE_NAMES['products_details'], compact('product', 'wishlistStatus', 'countWishlist',
                 'countOrder', 'relatedProducts', 'dealOfTheDay', 'currentDate', 'sellerVacationStartDate', 'sellerVacationEndDate',
                 'sellerTemporaryClose', 'inHouseVacationStartDate', 'inHouseVacationEndDate', 'inHouseVacationStatus', 'inHouseTemporaryClose',
                 'overallRating', 'decimalPointSettings', 'moreProductFromSeller', 'productsForReview', 'totalReviews', 'rating', 'productReviews',
+<<<<<<< HEAD
                 'avgRating', 'compareList', 'positiveReview'));
+=======
+                'avgRating', 'ratingPercentage', 'compareList'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         Toastr::error(translate('not_found'));
@@ -334,6 +360,7 @@ class ProductDetailsController extends Controller
                 $totalReviews += $item->reviews_count;
             }
 
+<<<<<<< HEAD
             $productIds = Product::active()->where(['added_by' => $product['added_by']])
                 ->where('user_id', $product['user_id'])->pluck('id')->toArray();
             $vendorReviewData = Review::active()->whereIn('product_id', $productIds);
@@ -346,6 +373,15 @@ class ProductDetailsController extends Controller
             }
 
             $positiveReview = $ratingCount != 0 ? ($vendorRattingStatusPositive*100)/ $ratingCount:0;
+=======
+            $productIds = $this->productRepo->getProductIds(filters: ['added_by' => $product['added_by'], 'user_id' => $product['user_id']]);
+            $ratingCount = $this->reviewRepo->getCount(whereInFilters: ['product_id' => $productIds]);
+            $avgRating = $this->reviewRepo->getListWhereIn(
+                whereInFilters: ['product_id' => $productIds->toArray()],
+                dataLimit: 'all');
+            $avgRating = $ratingCount != 0 ? $avgRating->avg('rating') : 0;
+            $ratingPercentage = round(($avgRating * 100) / 5);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
             $sellerList = $this->sellerRepo->getListWithScope(
                 scope: 'active',
@@ -380,7 +416,11 @@ class ProductDetailsController extends Controller
             $productsThisStoreTopRated = $this->productRepo->getWebListWithScope(
                 orderBy: ['reviews_count' => 'DESC'],
                 scope: 'active',
+<<<<<<< HEAD
                 filters: ['added_by' => $product['added_by'] == 'admin' ? 'in_house' : $product['added_by'], 'seller_id' => $product['user_id']],
+=======
+                filters: ['added_by' => $product['added_by'], 'seller_id' => $product['user_id']],
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 whereHas: ['reviews'=>'reviews'],
                 relations: ['category', 'rating', 'reviews','wishList','compare_list'],
                 withCount: ['reviews' => 'reviews'],
@@ -394,7 +434,10 @@ class ProductDetailsController extends Controller
                 scope: 'active',
                 filters: ['category_id' => $product['category_id'], 'customer_id' => Auth::guard('customer')->user()->id ?? 0],
                 relations: ['wishList', 'compareList'],
+<<<<<<< HEAD
                 withCount: ['reviews' => 'reviews'],
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 dataLimit: 12,
                 offset: 1
             );
@@ -410,9 +453,15 @@ class ProductDetailsController extends Controller
 
             return view(VIEW_FILE_NAMES['products_details'], compact('product', 'wishlistStatus', 'countWishlist',
                 'relatedProducts', 'currentDate', 'sellerVacationStartDate', 'sellerVacationEndDate', 'rattingStatus', 'productsLatest',
+<<<<<<< HEAD
                 'sellerTemporaryClose', 'inHouseVacationStartDate', 'inHouseVacationEndDate', 'inHouseVacationStatus', 'inHouseTemporaryClose', 'positiveReview',
                 'overallRating', 'decimalPointSettings', 'moreProductFromSeller', 'productsForReview', 'productsCount', 'totalReviews', 'rating', 'productReviews',
                 'avgRating', 'topRatedShops', 'newSellers', 'deliveryInfo', 'productsTopRated', 'productsThisStoreTopRated'));
+=======
+                'sellerTemporaryClose', 'inHouseVacationStartDate', 'inHouseVacationEndDate', 'inHouseVacationStatus', 'inHouseTemporaryClose',
+                'overallRating', 'decimalPointSettings', 'moreProductFromSeller', 'productsForReview', 'productsCount', 'totalReviews', 'rating', 'productReviews',
+                'avgRating', 'ratingPercentage', 'topRatedShops', 'newSellers', 'deliveryInfo', 'productsTopRated', 'productsThisStoreTopRated'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         Toastr::error(translate('not_found'));
@@ -421,7 +470,11 @@ class ProductDetailsController extends Controller
 
     public function theme_all_purpose($slug): View|RedirectResponse
     {
+<<<<<<< HEAD
         $product = Product::active()->with(['reviews', 'seller.shop'])->withCount('reviews')->where('slug', $slug)->first();
+=======
+        $product = Product::active()->with(['reviews', 'seller.shop'])->where('slug', $slug)->first();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if ($product != null) {
 
             $tags = ProductTag::where('product_id', $product->id)->pluck('tag_id');
@@ -432,7 +485,11 @@ class ProductDetailsController extends Controller
             $countWishlist = Wishlist::where('product_id', $product->id)->count();
             $wishlist_status = Wishlist::where(['product_id' => $product->id, 'customer_id' => auth('customer')->id()])->count();
 
+<<<<<<< HEAD
             $relatedProducts = Product::active()->with(['reviews', 'flashDealProducts.flashDeal'])->withCount('reviews')->where('category_ids', $product->category_ids)->where('id', '!=', $product->id)->limit(12)->get();
+=======
+            $relatedProducts = Product::with(['reviews', 'flashDealProducts.flashDeal'])->active()->where('category_ids', $product->category_ids)->where('id', '!=', $product->id)->limit(12)->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $relatedProducts?->map(function ($product) use ($current_date) {
                 $flash_deal_status = 0;
                 $flash_deal_end_date = 0;
@@ -478,7 +535,11 @@ class ProductDetailsController extends Controller
             $rating = getRating($product->reviews);
             $reviews_of_product = Review::where('product_id', $product->id)->latest()->paginate(2);
             $decimal_point_settings = \App\Utils\Helpers::get_business_settings('decimal_point_settings');
+<<<<<<< HEAD
             $more_product_from_seller = Product::active()->withCount('reviews')->where('added_by', $product->added_by)->where('id', '!=', $product->id)->where('user_id', $product->user_id)->latest()->take(5)->get();
+=======
+            $more_product_from_seller = Product::active()->where('added_by', $product->added_by)->where('id', '!=', $product->id)->where('user_id', $product->user_id)->latest()->take(5)->get();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $more_product_from_seller_count = Product::active()->where('added_by', $product->added_by)->where('id', '!=', $product->id)->where('user_id', $product->user_id)->count();
 
             if ($product->added_by == 'seller') {

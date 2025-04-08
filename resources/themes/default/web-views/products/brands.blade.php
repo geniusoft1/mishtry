@@ -3,13 +3,21 @@
 @section('title', translate('all_Brands'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <meta property="og:image" content="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+=======
+    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <meta property="og:title" content="Brands of {{$web_config['name']->value}} "/>
     <meta property="og:url" content="{{env('APP_URL')}}">
     <meta property="og:description"
           content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
 
+<<<<<<< HEAD
     <meta property="twitter:card" content="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+=======
+    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <meta property="twitter:title" content="Brands of {{$web_config['name']->value}}"/>
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description"
@@ -20,7 +28,11 @@
 
     <div class="container pb-5 mb-2 mb-md-4 rtl text-align-direction">
         <div class="bg-primary-light rounded-10 my-4 p-3 p-sm-4"
+<<<<<<< HEAD
              data-bg-img="{{ theme_asset(path: 'public/assets/front-end/img/media/bg.png') }}">
+=======
+             data-bg-img="{{ asset('public/assets/front-end/img/media/bg.png') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="d-flex flex-column gap-1 text-primary">
                 <h4 class="mb-0 text-start fw-bold text-primary text-uppercase">
                     {{ translate('brands') }}
@@ -52,5 +64,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{theme_asset(path: 'public/assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/front-end/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

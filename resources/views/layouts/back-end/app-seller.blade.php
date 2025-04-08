@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
     <meta name="_token" content="{{ csrf_token() }}">
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{{dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
 
     <link rel="stylesheet" href="{{dynamicAsset(path: 'public/assets/back-end/css/bootstrap.min.css')}}">
@@ -25,6 +26,26 @@
     <style>
         select {
             background-image: url('{{dynamicAsset(path: 'public/assets/back-end/img/arrow-down.png')}}');
+=======
+    <link rel="shortcut icon" href="{{asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
+
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/google-fonts.css')}}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/vendor/icon-set/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/theme.minc619.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{asset('public/assets/back-end/css/style.css')}}">
+    @if (Session::get('direction') === 'rtl')
+        <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/menurtl.css')}}">
+    @endif
+    <link rel="stylesheet" href="{{ asset('public/css/lightbox.css') }}">
+    @stack('css_or_js')
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/toastr.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/custom.css') }}">
+    <style>
+        select {
+            background-image: url('{{asset('/public/assets/back-end/img/arrow-down.png')}}');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             background-size: 7px;
             background-position: 96% center;
         }
@@ -51,11 +72,15 @@
 
         @include('layouts.back-end.partials-seller._toggle-modal')
         @include('layouts.back-end._translator-for-js')
+<<<<<<< HEAD
         @include('layouts.back-end.partials-seller._sign-out-modal')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     </main>
 
     <audio id="myAudio">
+<<<<<<< HEAD
         <source src="{{ dynamicAsset(path: 'public/assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
     </audio>
 
@@ -67,6 +92,19 @@
     <span id="get-search-product-route" data-action="{{route('vendor.products.search-product')}}"></span>
     <span id="get-orders-list-route" data-action="{{route('vendor.orders.list', ['status' => 'all'])}}"></span>
     <span class="system-default-country-code" data-value="{{ getWebConfig(name: 'country_code') ?? 'us' }}"></span>
+=======
+        <source src="{{ asset('public/assets/back-end/sound/notification.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <span class="please_fill_out_this_field" data-text="{{ translate('please_fill_out_this_field') }}"></span>
+    <span id="onerror-chatting" data-onerror-chatting="{{asset('public/assets/back-end/img/image-place-holder.png')}}"></span>
+    <span id="onerror-user" data-onerror-user="{{asset('public/assets/back-end/img/160x160/img1.jpg')}}"></span>
+    <span id="get-root-path-for-toggle-modal-image" data-path="{{asset('/public/assets/back-end/img/modal')}}"></span>
+    <span id="get-customer-list-route" data-action="{{route('vendor.customer.list')}}"></span>
+    <span id="get-search-product-route" data-action="{{route('vendor.products.search-product')}}"></span>
+    <span id="get-orders-list-route" data-action="{{route('vendor.orders.list', ['status' => 'all'])}}"></span>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <span id="message-select-word" data-text="{{ translate('select') }}"></span>
     <span id="message-yes-word" data-text="{{ translate('yes') }}"></span>
     <span id="message-no-word" data-text="{{ translate('no') }}"></span>
@@ -78,6 +116,7 @@
     <span id="message-you-will-not-be-able-to-revert-this"
           data-text="{{ translate('you_will_not_be_able_to_revert_this') }}"></span>
 
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/vendor.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/theme.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
@@ -87,6 +126,17 @@
     <script src="{{ dynamicAsset(path: 'public/js/lightbox.min.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/custom.js') }}"></script>
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/app-script.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/vendor.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/theme.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/sweet_alert.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/toastr.js') }}"></script>
+    <script src="{{ asset('public/js/lightbox.min.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/custom.js') }}"></script>
+    <script src="{{ asset('public/assets/back-end/js/app-script.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     {!! Toastr::message() !!}
     @if ($errors->any())
@@ -146,7 +196,11 @@
             });
         })
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write(
+<<<<<<< HEAD
             '<script src="{{ dynamicAsset(path: 'public/assets/back-end') }}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+=======
+            '<script src="{{ asset('public/assets/back-end') }}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     </script>
 
     @stack('script')

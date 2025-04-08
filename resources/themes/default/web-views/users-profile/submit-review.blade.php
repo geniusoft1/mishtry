@@ -57,7 +57,11 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{theme_asset(path: 'public/assets/front-end/js/spartan-multi-image-picker.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/front-end/js/spartan-multi-image-picker.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <script type="text/javascript">
         $(function () {
             $(".coba").spartanMultiImagePicker({
@@ -66,7 +70,11 @@
                 rowHeight: '150px',
                 groupClassName: 'col-md-4',
                 placeholderImage: {
+<<<<<<< HEAD
                     image: '{{theme_asset(path: 'public/assets/front-end/img/image-place-holder.png')}}',
+=======
+                    image: '{{asset('public/assets/front-end/img/image-place-holder.png')}}',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     width: '100%'
                 },
                 dropFileLabel: "{{translate('drop_here')}}",

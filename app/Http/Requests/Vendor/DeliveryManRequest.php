@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vendor;
 
+<<<<<<< HEAD
 use App\Traits\ResponseHandler;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -9,6 +10,12 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 class DeliveryManRequest extends FormRequest
 {
     use ResponseHandler;
+=======
+use Illuminate\Foundation\Http\FormRequest;
+
+class DeliveryManRequest extends FormRequest
+{
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -31,10 +38,17 @@ class DeliveryManRequest extends FormRequest
             'l_name' => 'required',
             'phone' => 'required',
             'email' => 'required|unique:delivery_men,email',
+<<<<<<< HEAD
             'identity_image*' => 'required|mimes:jpg,jpeg,png,webp,gif,bmp,tif,tiff',
             'image' => 'required|mimes:jpg,jpeg,png,webp,gif,bmp,tif,tiff',
             'country_code' => 'required',
             'password' => 'required|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)(?!.*\s).{8,}$/|same:confirm_password',
+=======
+            'identity_image.0' => 'required|mimes:jpg,jpeg,png,webp',
+            'image' => 'required|mimes:jpg,jpeg,png,webp',
+            'country_code' => 'required',
+            'password' => 'required|same:confirm_password|min:8'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ];
     }
     /**
@@ -49,6 +63,7 @@ class DeliveryManRequest extends FormRequest
             'phone.required' => translate('The_phone_field_is_required'),
             'email.required' => translate('The_email_field_is_required'),
             'email.unique' => translate('The_email_has_already_been_taken'),
+<<<<<<< HEAD
             'image.required' => translate('The_image_field_is_required'),
             'image.mimes' => translate('The_image_type_must_be').'.jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff,.webp',
             'identity_image.required' => translate('The_identity_image_is_required'),
@@ -63,4 +78,11 @@ class DeliveryManRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json(['errors' => $this->errorProcessor($validator)]));
     }
+=======
+            'country_code.required' => translate('The_country_code_field_is_required'),
+            'password.same' => translate('The_password_and_confirm_password_must_be_match'),
+            'password.min' => translate('The_password_must_be_at_least :min_characters', ['min' => 8]),
+        ];
+    }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

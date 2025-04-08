@@ -13,7 +13,10 @@ use App\Http\Requests\Vendor\DeliveryManWithdrawRequest;
 use App\Services\DeliveryManWithdrawService;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\View\View;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -54,6 +57,7 @@ class DeliverymanWithdrawController extends Controller
         );
         return view(DeliverymanWithdraw::LIST[VIEW], compact('withdrawRequests'));
     }
+<<<<<<< HEAD
     public function getFiltered(Request $request): JsonResponse
     {
         $withdrawRequests = $this->withdrawRequestRepo->getListWhere(
@@ -69,13 +73,22 @@ class DeliverymanWithdrawController extends Controller
     }
 
     public function getView($withdraw_id): JsonResponse
+=======
+
+
+    public function getView($withdraw_id): View
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $details = $this->withdrawRequestRepo->getFirstWhereNotNull(
             params: ['id' => $withdraw_id],
             filters: ['whereNotNull' => 'delivery_man_id'],
             relations: ['deliveryMan'],
         );
+<<<<<<< HEAD
         return response()->json(['view'=>view(DeliverymanWithdraw::VIEW[VIEW],compact('details'))->render()]);
+=======
+        return view(DeliverymanWithdraw::VIEW[VIEW], compact('details'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
 
@@ -100,6 +113,7 @@ class DeliverymanWithdrawController extends Controller
         return redirect()->route('admin.delivery-man.withdraw-list');
     }
 
+<<<<<<< HEAD
     public function exportList(Request $request): BinaryFileResponse
     {
         $withdrawRequests = $this->withdrawRequestRepo->getListWhere(
@@ -108,6 +122,22 @@ class DeliverymanWithdrawController extends Controller
             relations: ['deliveryMan'],
             dataLimit: 'all'
         );
+=======
+    public function exportList(Request $request): BinaryFileResponse|RedirectResponse
+    {
+        $withdrawRequests = $this->withdrawRequestRepo->getListWhere(
+            orderBy: ['id'=>'desc'],
+            filters: ['admin_id'=> 0, 'whereNotNull' => 'delivery_man_id', 'status' => $request['approved']],
+            relations: ['deliveryMan'],
+            dataLimit: 'all'
+        );
+
+        if ($withdrawRequests->count() == 0) {
+            Toastr::warning(translate('no_data_available'));
+            return back();
+        }
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return Excel::download(new DeliveryManWithdrawRequestExport([
                     'withdraw_request'=>$withdrawRequests,
                     'filter' => session('delivery_withdraw_status_filter'),

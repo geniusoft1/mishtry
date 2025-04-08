@@ -24,7 +24,11 @@ class ProductManager
         $user = Helpers::get_customer($request);
         $paginator = Product::active()
             ->with(['rating', 'tags', 'seller.shop', 'flashDealProducts.flashDeal'])
+<<<<<<< HEAD
             ->withCount(['reviews','wishList' => function ($query) use ($user) {
+=======
+            ->withCount(['wishList' => function ($query) use ($user) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->orderBy('id', 'desc')
@@ -67,7 +71,11 @@ class ProductManager
         $currentDate = date('Y-m-d H:i:s');
         //change review to ratting
         $paginator = Product::with(['seller.shop', 'rating', 'tags', 'flashDealProducts.flashDeal'])->active()
+<<<<<<< HEAD
             ->withCount(['reviews','wishList' => function ($query) use ($user) {
+=======
+            ->withCount(['wishList' => function ($query) use ($user) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->where('featured', 1)
@@ -151,7 +159,11 @@ class ProductManager
     {
         $user = Helpers::get_customer($request);
         //change reviews to rattings
+<<<<<<< HEAD
         $paginator = OrderDetail::with(['product.seller.shop', 'product.rating', 'product.reviews', 'product.flashDealProducts.flashDeal', 'product' => function ($query) use ($user) {
+=======
+        $paginator = OrderDetail::with(['product.seller.shop', 'product.rating', 'product.flashDealProducts.flashDeal', 'product' => function ($query) use ($user) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $query->withCount(['wishList' => function ($query) use ($user) {
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }]);
@@ -185,8 +197,11 @@ class ProductManager
                 }
                 $product->product['flash_deal_status'] = $flashDealStatus;
                 $product->product['flash_deal_end_date'] = $flashDealEndDate;
+<<<<<<< HEAD
                 $product->product['reviews_count'] = $product->product->reviews->count();
                 unset($product->product->reviews);
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
             return $product;
         });
@@ -244,7 +259,11 @@ class ProductManager
         $user = Helpers::get_customer($request);
         $product = Product::find($product_id);
         $products = Product::active()->with(['rating', 'flashDealProducts.flashDeal', 'tags','seller.shop'])
+<<<<<<< HEAD
             ->withCount(['reviews','wishList' => function ($query) use ($user) {
+=======
+            ->withCount(['wishList' => function ($query) use ($user) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->where('category_ids', $product->category_ids)
@@ -543,7 +562,11 @@ class ProductManager
         $limit = $request['limit'];
         $offset = $request['offset'];
         $products = Product::active()->with(['rating', 'flashDealProducts.flashDeal', 'tags'])
+<<<<<<< HEAD
             ->withCount(['reviews','wishList' => function ($query) use ($user) {
+=======
+            ->withCount(['wishList' => function ($query) use ($user) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->when($seller_id == 0, function ($query) {
@@ -569,7 +592,11 @@ class ProductManager
                         ->orWhereIn('sub_sub_category_id', $categories);
                 });
             })
+<<<<<<< HEAD
             ->when($request->has('product_id') && $request['product_id'], function ($query) use($request){
+=======
+            ->when($request->has('product_id'), function ($query) use($request){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 return $query->whereNotIn('id', [$request['product_id']]);
             })
             ->orderBy('id', 'desc')
@@ -625,8 +652,13 @@ class ProductManager
     {
         $user = Helpers::get_customer($request);
         //change review to ratting
+<<<<<<< HEAD
         $paginator = Product::with(['rating', 'reviews', 'tags'])->active()
             ->withCount(['reviews','wishList' => function ($query) use ($user) {
+=======
+        $paginator = Product::with(['rating', 'tags'])->active()
+            ->withCount(['wishList' => function ($query) use ($user) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->where('discount', '!=', 0)

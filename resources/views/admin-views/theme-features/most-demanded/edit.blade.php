@@ -7,7 +7,11 @@
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 text-capitalize">
+<<<<<<< HEAD
                 <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/most-demanded.png') }}" alt="">
+=======
+                <img width="20" src="{{ asset('public/assets/back-end/img/most-demanded.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('edit_most_demanded') }}
             </h2>
         </div>

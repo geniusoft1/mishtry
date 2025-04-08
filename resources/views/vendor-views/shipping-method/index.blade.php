@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 @section('content')
     @php($direction = Session::get('direction'))
     <div class="content container-fluid">
+<<<<<<< HEAD
         <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/shipping_method.png')}}" alt="">
@@ -45,13 +46,24 @@ use Illuminate\Support\Facades\Session;
                     </div>
                 </div>
             </div>
+=======
+        <div class="mb-3">
+            <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+                <img width="20" src="{{asset('/public/assets/back-end/img/shipping_method.png')}}" alt="">
+                {{translate('shipping_method')}}
+            </h2>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </div>
         <div class="row">
             <div class="col-md-12 ">
                 <div class="card">
                     <div class="card-header">
                         <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                             <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+=======
+                            <img width="20" src="{{asset('/public/assets/back-end/img/delivery.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             {{translate('shipping')}}
                         </h5>
                     </div>
@@ -71,7 +83,11 @@ use Illuminate\Support\Facades\Session;
                             <div class="mt-2 mx-3" id="product_wise_note">
                                 <p>
                                     <img width="16" class="mt-n1"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/back-end/img/danger-info.png')}}" alt="">
+=======
+                                         src="{{asset('/public/assets/back-end/img/danger-info.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <strong>{{translate('note').' '.':'}}</strong>
                                     {{translate('please_make_sure_all_the product`s_delivery_charges_are_up_to_date').'.'}}
                                 </p>
@@ -85,7 +101,11 @@ use Illuminate\Support\Facades\Session;
             <div class="card mt-2">
                 <div class="card-header">
                     <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/delivery.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {{translate('add_order_wise_shipping')}}
                     </h5>
                 </div>
@@ -134,7 +154,11 @@ use Illuminate\Support\Facades\Session;
             <div class="card mt-2">
                 <div class="px-3 py-4">
                     <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+=======
+                        <img width="20" src="{{asset('/public/assets/back-end/img/delivery.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         {{translate('order_wise_shipping_method')}}
                         <span class="badge badge-soft-dark radius-50 fz-12">{{ $shippingMethods->count() }}</span>
                     </h5>
@@ -214,7 +238,11 @@ use Illuminate\Support\Facades\Session;
         <div class="card mt-2" id="update_category_shipping_cost">
             <div class="px-3 pt-4">
                 <h5 class="text-capitalize mb-0 d-flex align-items-center gap-2">
+<<<<<<< HEAD
                     <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/delivery.png')}}" alt="">
+=======
+                    <img width="20" src="{{asset('/public/assets/back-end/img/delivery.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     {{translate('category_wise_shipping_cost')}}
                 </h5>
             </div>
@@ -276,6 +304,10 @@ use Illuminate\Support\Facades\Session;
     <span id="get-shipping-type-value" data-value="{{$shippingType}}"></span>
 @endsection
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/shipping-method.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/vendor/shipping-method.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 

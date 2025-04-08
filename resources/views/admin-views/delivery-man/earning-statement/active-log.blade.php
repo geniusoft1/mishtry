@@ -5,7 +5,11 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-seller.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('earning_statement')}}
             </h2>
         </div>
@@ -47,7 +51,11 @@
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a type="submit" class="dropdown-item d-flex align-items-center gap-2 " href="{{route('admin.delivery-man.order-history-log-export',['id'=>$deliveryMan->id,'type'=>'log','searchValue'=>request('searchValue')])}}">
+<<<<<<< HEAD
                                                 <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                                <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 {{translate('excel')}}
                                             </a>
                                         </li>
@@ -122,7 +130,11 @@
                                         <tr>
                                             <td colspan="4">
                                                 <div class="text-center p-4">
+<<<<<<< HEAD
                                                     <img class="mb-3 w-160" src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}" alt="Image Description">
+=======
+                                                    <img class="mb-3 w-160" src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}" alt="Image Description">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <p class="mb-0">{{ translate('no_order_history_found') }}</p>
                                                 </div>
                                             </td>
@@ -154,5 +166,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/deliveryman.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/deliveryman.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

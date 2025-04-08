@@ -122,7 +122,11 @@ class ProductRepository implements ProductRepositoryInterface
             return $query->where(['added_by' => 'admin']);
         })->when(isset($filters['added_by']) && !$this->isAddedByInHouse($filters['added_by']), function ($query) use ($filters) {
             return $query->where(['added_by' => 'seller'])
+<<<<<<< HEAD
                 ->when(isset($filters['request_status']) && $filters['request_status'] != 'all', function ($query) use ($filters) {
+=======
+                ->when(isset($filters['request_status']), function ($query) use ($filters) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $query->where(['request_status' => $filters['request_status']]);
                 })
                 ->when(isset($filters['seller_id']), function ($query) use ($filters) {
@@ -226,6 +230,7 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function getWebListWithScope(array $orderBy = [], string $searchValue = null, string $scope = null, array $filters = [], array $whereHas = [], array $whereIn = [], array $whereNotIn = [], array $relations = [], array $withCount = [], array $withSum = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
+<<<<<<< HEAD
         $query = $this->product
             ->when(isset($scope) && $scope == 'active', function ($query) {
                 return $query->active();
@@ -240,6 +245,13 @@ class ProductRepository implements ProductRepositoryInterface
                     return $query->active();
                 });
             })
+=======
+        $query = $this->product->when(isset($relations['reviews']), function ($query) use ($relations) {
+            return $query->with(isset($relations['reviews']), function ($query) use($relations) {
+                return $query->active();
+            });
+        })
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when(isset($relations['seller.shop']), function ($query) use ($relations) {
                 return $query->with($relations['seller.shop']);
             })
@@ -279,7 +291,18 @@ class ProductRepository implements ProductRepositoryInterface
             ->when(isset($withSum['qty']), function ($query) use ($withSum) {
                 return $query->withSum($withSum['qty']);
             })
+<<<<<<< HEAD
             ->when($searchValue, function ($query) use ($searchValue) {
+=======
+            ->when(isset($scope) && $scope == 'active', function ($query) {
+                return $query->active();
+            })
+            ->when(isset($filters['added_by']) && $this->isAddedByInHouse(addedBy: $filters['added_by']), function ($query) {
+                return $query->where(['added_by' => 'admin']);
+            })->when(isset($filters['added_by']) && !$this->isAddedByInHouse($filters['added_by']), function ($query) use ($filters) {
+                return $query->where(['added_by' => 'seller']);
+            })->when($searchValue, function ($query) use ($searchValue) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $product_ids = $this->translation->where('translationable_type', 'App\Models\Product')
                     ->where('key', 'name')
                     ->where('value', 'like', "%{$searchValue}%")
@@ -315,11 +338,14 @@ class ProductRepository implements ProductRepositoryInterface
     {
         return $this->product->where('id', $id)->update($data);
     }
+<<<<<<< HEAD
     public function updateByParams(array $params, array $data): bool
     {
         return $this->product->where($params)->update($data);
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function getListWhereNotIn(array $filters = [], array $whereNotIn = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null): Collection|LengthAwarePaginator
     {
@@ -342,11 +368,16 @@ class ProductRepository implements ProductRepositoryInterface
                     $query->active();
                 });
             })
+<<<<<<< HEAD
             ->withCount(['reviews' => function ($query){
                 return $query->whereNull('delivery_man_id');
             }])
             ->withAvg('rating as ratings_average', 'rating')
             ->orderByDesc('reviews_count')
+=======
+            ->withAvg('rating as ratings_average', 'rating')
+            ->orderBy('reviews_count', 'desc')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->get();
     }
 

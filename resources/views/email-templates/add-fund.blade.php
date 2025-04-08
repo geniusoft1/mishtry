@@ -12,6 +12,7 @@
         body {
             font-family: 'Helvetica', sans-serif;
             font-style: normal;
+<<<<<<< HEAD
             background-color: #ececec;
             -ms-text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%;
@@ -19,6 +20,54 @@
 
         .congrats-box { margin-top: 10px; margin-bottom: 38px; }
         .col { padding: 11px 0 11px 0; }
+=======
+        }
+
+        body,
+        table,
+        td,
+        a {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%; /* 2 */
+        }
+
+        table,
+        td {
+            mso-table-rspace: 0;
+            mso-table-lspace: 0;
+
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        a[x-apple-data-detectors] {
+            font-family: inherit !important;
+            font-size: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        .congrats-box {
+            margin-top: 10px;
+            margin-bottom: 38px;
+        }
+
+        .col {
+            padding: 11px 0 11px 0;
+        }
+    </style>
+
+    <style>
+        body {background-color: #ececec}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         .d-flex { display: flex}
         .d-block { display: block}
         .align-items-center { align-items: center}
@@ -51,7 +100,11 @@
     <div class="d-block">
         @if(is_file('storage/app/public/company/'.$companyLogo))
             <div class="d-flex justify-content-center align-items-center gap-1">
+<<<<<<< HEAD
                 <img src="{{ dynamicStorage(path: 'storage/app/public/company/'.$companyLogo) }}" alt="{{ $companyName }}"
+=======
+                <img src="{{ asset('storage/app/public/company/'.$companyLogo) }}" alt="{{ $companyName }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                      style="height: 50px;" class="width-auto">
                 {{ $companyName }}
             </div>
@@ -60,7 +113,11 @@
         @endif
     </div>
 
+<<<<<<< HEAD
     <img src="{{ dynamicAsset(path: 'public/assets/front-end/img/icons/add_fund_vector.png') }}" alt="" style="height: 50px; width:50px; margin-top:40px;">
+=======
+    <img src="{{ asset('public/assets/front-end/img/icons/add_fund_vector.png') }}" alt="" style="height: 50px; width:50px; margin-top:40px;">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     <div class="congrats-box">
         <span class="d-block" style="font-weight: 700;font-size: 22px;line-height: 135.5%;margin-bottom:10px;">
@@ -128,7 +185,11 @@
                     @foreach ($social_media as $item)
                         <div style="display: inline-block;">
                             <a href="{{$item->link}}" target=”_blank”>
+<<<<<<< HEAD
                                 <img src="{{dynamicAsset(path: 'public/assets/admin/img/'.$item->name.'.png') }}" alt=""
+=======
+                                <img src="{{asset('public/assets/admin/img/'.$item->name.'.png') }}" alt=""
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                      style="height: 14px; width:14px; padding: 0 3px 0 5px;">
                             </a>
                         </div>

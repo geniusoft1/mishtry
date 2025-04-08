@@ -63,6 +63,7 @@ class PaymentMethodController extends BaseController
             'offlinePayment' => getWebConfig(name: 'offline_payment'),
         ]);
     }
+<<<<<<< HEAD
     public function getPaymentOptionView():View
     {
         return view(PaymentMethod::PAYMENT_OPTION[VIEW], [
@@ -73,6 +74,10 @@ class PaymentMethodController extends BaseController
     }
 
     public function updatePaymentOption(Request $request): RedirectResponse
+=======
+
+    public function update(Request $request): RedirectResponse
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $this->businessSettingRepo->updateOrInsert(type: 'cash_on_delivery', value: json_encode(['status' => $request->get('cash_on_delivery', 0)]));
         $this->businessSettingRepo->updateOrInsert(type: 'digital_payment', value: json_encode(['status' => $request->get('digital_payment', 0)]));

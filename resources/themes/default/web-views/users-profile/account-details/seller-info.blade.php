@@ -45,7 +45,11 @@
                                             <button type="button" class="btn btn-soft-info text-capitalize px-2 px-sm-4"
                                                     data-toggle="modal"
                                                     data-target="#chatting_modal" {{ ($order->seller->shop->temporary_close || ($order->seller->shop->vacation_status && date('Y-m-d') >= date('Y-m-d', strtotime($order->seller->shop->vacation_start_date)) && date('Y-m-d') <= date('Y-m-d', strtotime($order->seller->shop->vacation_end_date)))) ? 'disabled' : '' }}>
+<<<<<<< HEAD
                                                 <img alt="" src="{{theme_asset(path: 'public/assets/front-end/img/seller-info-chat.png')}}">
+=======
+                                                <img alt="" src="{{asset('/public/assets/front-end/img/seller-info-chat.png')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <span class="d-none d-sm-inline-block">
                                                     {{translate('chat_with_vendor')}}
                                                 </span>
@@ -82,6 +86,7 @@
                                                 <li class="mb-0">{{$rating_count}} {{('reviews')}} </li>
                                             </ul>
                                         </div>
+<<<<<<< HEAD
 
                                         <div>
                                             <button type="button" class="btn btn-soft-info text-capitalize px-2 px-sm-4"
@@ -94,6 +99,8 @@
                                             </button>
                                         </div>
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                             </div>
@@ -104,5 +111,9 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     @include('layouts.front-end.partials.modal._chatting',['seller'=>$order->seller, 'user_type'=>$order->seller_is])
+=======
+    @include('layouts.front-end.partials.modal._chatting',['seller'=>$order->seller])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endsection

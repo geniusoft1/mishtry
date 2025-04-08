@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Admin\Product;
 
 use App\Contracts\Repositories\CategoryRepositoryInterface;
 use App\Contracts\Repositories\TranslationRepositoryInterface;
+<<<<<<< HEAD
 use App\Enums\ExportFileNames\Admin\Category as SubSubCategoryExport;
 use App\Enums\ViewPaths\Admin\SubSubCategory;
 use App\Exports\CategoryListExport;
+=======
+use App\Enums\ViewPaths\Admin\SubSubCategory;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\Admin\CategoryUpdateRequest;
 use App\Http\Requests\Admin\SubCategoryAddRequest;
@@ -17,8 +21,11 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 class SubSubCategoryController extends BaseController
 {
@@ -50,8 +57,14 @@ class SubSubCategoryController extends BaseController
             dataLimit: getWebConfig(name: 'pagination_limit'));
 
         $parentCategories = $this->categoryRepo->getListWhere(
+<<<<<<< HEAD
             filters: ['position' => 0],
             dataLimit: 'all');
+=======
+            searchValue: $request->get('searchValue'),
+            filters: ['position' => 0],
+            dataLimit: getWebConfig(name: 'pagination_limit'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $languages = getWebConfig(name: 'pnc_language') ?? null;
         $defaultLanguage = $languages[0];
@@ -110,6 +123,7 @@ class SubSubCategoryController extends BaseController
         ]);
     }
 
+<<<<<<< HEAD
     public function getExportList(Request $request): BinaryFileResponse
     {
         $subSubCategories = $this->categoryRepo->getListWhere(orderBy: ['id'=>'desc'], searchValue: $request->get('searchValue'), filters: ['position' => 2], dataLimit: getWebConfig(name: 'pagination_limit'));
@@ -125,4 +139,6 @@ class SubSubCategoryController extends BaseController
         );
     }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

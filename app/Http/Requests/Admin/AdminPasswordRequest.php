@@ -23,6 +23,7 @@ class AdminPasswordRequest extends FormRequest
     public function rules(): array
     {
         return [
+<<<<<<< HEAD
             'password' => 'required|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\W)(?!.*\s).{8,}$/|same:confirm_password',
             'confirm_password' => 'required',
         ];
@@ -36,4 +37,10 @@ class AdminPasswordRequest extends FormRequest
             'password.regex' => translate('The_password_must_be_at_least_8_characters_long_and_contain_at_least_one_uppercase_letter').','.translate('_one_lowercase_letter').','.translate('_one_digit_').','.translate('_one_special_character').','.translate('_and_no_spaces').'.',
         ];
     }
+=======
+            'password' => 'required|same:confirm_password|min:8',
+            'confirm_password' => 'required',
+        ];
+    }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

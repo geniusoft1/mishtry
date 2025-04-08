@@ -9,12 +9,21 @@
         <div class="page-header pb-0 border-0 mb-3">
             <div class="flex-between row align-items-center mx-1">
                 <div>
+<<<<<<< HEAD
                     <h1 class="page-header-title text-capitalize">{{translate('welcome').' '.auth('seller')->user()->f_name.' '.auth('seller')->user()->l_name}}</h1>
                     <p>{{ translate('monitor_your_business_analytics_and_statistics').'.'}}</p>
                 </div>
 
                 <div>
                     <a class="btn btn--primary" href="{{route('vendor.products.list',['type'=>'all'])}}">
+=======
+                    <h1 class="page-header-title">{{translate('dashboard')}}</h1>
+                    <div>{{ translate('welcome_message')}}.</div>
+                </div>
+
+                <div>
+                    <a class="btn btn--primary" href="{{route('vendor.products.list')}}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <i class="tio-premium-outlined mr-1"></i> {{translate('products')}}
                     </a>
                 </div>
@@ -25,8 +34,13 @@
                 <div class="row justify-content-between align-items-center g-2 mb-3">
                     <div class="col-sm-6">
                         <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
+<<<<<<< HEAD
                             <img src="{{dynamicAsset(path: 'public/assets/back-end/img/business_analytics.png')}}" alt="">
                             {{translate('order_analytics')}}
+=======
+                            <img src="{{asset('/public/assets/back-end/img/business_analytics.png')}}" alt="">
+                            {{translate('business_analytics')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         </h4>
                     </div>
                     <div class="col-sm-6 d-flex justify-content-sm-end">
@@ -53,7 +67,11 @@
                 <div class="row justify-content-between align-items-center g-2 mb-3">
                     <div class="col-sm-6">
                         <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
+<<<<<<< HEAD
                             <img width="20" class="mb-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/admin-wallet.png')}}" alt="">
+=======
+                            <img width="20" class="mb-1" src="{{asset('/public/assets/back-end/img/admin-wallet.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             {{translate('vendor_Wallet')}}
                         </h4>
                     </div>
@@ -113,7 +131,11 @@
                         <div class="row g-2 align-items-center">
                             <div class="col-md-6">
                                 <h4 class="d-flex align-items-center text-capitalize gap-10 mb-0">
+<<<<<<< HEAD
                                     <img src="{{dynamicAsset(path: 'public/assets/back-end/img/earning_statictics.png')}}" alt="">
+=======
+                                    <img src="{{asset('/public/assets/back-end/img/earning_statictics.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('earning_statistics')}}
                                 </h4>
                             </div>
@@ -147,7 +169,11 @@
                             "data": {
                               "labels": ["Jan","Feb","Mar","April","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
                               "datasets": [{
+<<<<<<< HEAD
                                 "label": "{{ translate('income')}}",
+=======
+                                "label": "{{ translate('vendor')}}",
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 "data": [
                                             @php($index = 0)
                                             @php($array_count = count($vendorEarningArray))
@@ -159,7 +185,11 @@
                                         "borderColor": "#0177CD"
                                       },
                                       {
+<<<<<<< HEAD
                                         "label": "{{ translate('commission_Given')}}",
+=======
+                                        "label": "{{ translate('commission')}}",
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         "data": [
                                                 @php($index = 0)
                                                 @php($array_count = count($commissionGivenToAdminArray))
@@ -234,16 +264,21 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="col-lg-4">
                 <div class="card h-100 remove-card-shadow">
                     @include('vendor-views.partials._top-rated-products',['topRatedProducts'=>$dashboardData['topRatedProducts']])
                 </div>
             </div>
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             <div class="col-lg-4">
                 <div class="card h-100 remove-card-shadow">
                     @include('vendor-views.partials._top-selling-products',['topSell'=>$dashboardData['topSell']])
                 </div>
             </div>
+<<<<<<< HEAD
             @php( $shippingMethod = getWebConfig('shipping_method'))
             @if($shippingMethod=='sellerwise_shipping')
                 <div class="col-lg-4">
@@ -252,6 +287,20 @@
                     </div>
                 </div>
            @endif
+=======
+
+            <div class="col-lg-4">
+                <div class="card h-100 remove-card-shadow">
+                    @include('vendor-views.partials._top-rated-products',['topRatedProducts'=>$dashboardData['topRatedProducts']])
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card h-100 remove-card-shadow">
+                    @include('vendor-views.partials._top-rated-delivery-man',['topRatedDeliveryMan'=>$dashboardData['topRatedDeliveryMan']])
+                </div>
+            </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         </div>
     </div>
     <span id="earning-statistics-url" data-url="{{ route('vendor.dashboard.earning-statistics') }}"></span>
@@ -272,6 +321,7 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/chart.js/dist/Chart.min.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/chart.js.extensions/chartjs-extensions.js')}}"></script>
     <script src="{{dynamicAsset(path: 'public/assets/back-end/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js')}}"></script>
@@ -279,4 +329,13 @@
 
 @push('script_2')
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/dashboard.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/vendor/chart.js/dist/Chart.min.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/vendor/chart.js.extensions/chartjs-extensions.js')}}"></script>
+    <script src="{{asset('public/assets/back-end/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js')}}"></script>
+@endpush
+
+@push('script_2')
+    <script src="{{asset('public/assets/back-end/js/vendor/dashboard.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

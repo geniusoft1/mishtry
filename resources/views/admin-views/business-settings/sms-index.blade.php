@@ -10,12 +10,17 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/3rd-party.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('3rd_party')}}
             </h2>
         </div>
         @include('admin-views.business-settings.third-party-inline-menu')
         <div class="row gy-3" id="sms-gateway-cards">
+<<<<<<< HEAD
             <div class="col-12">
                 <div class="mt-2 valley-alert">
                     <img width="16" class="mt-1" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}"
@@ -26,6 +31,8 @@
                     </p>
                 </div>
             </div>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             @if($paymentGatewayPublishedStatus)
                 <div class="col-12">
                     <div class="card">

@@ -71,7 +71,11 @@
                                         <div class="form-group mb-4">
                                             <label for="message">{{ translate('contact_number') }}</label>
                                             <input type="text" name="mobile_number" value="{{ old('mobile_number') }}"
+<<<<<<< HEAD
                                                    class="form-control"
+=======
+                                                   class="form-control" rows="6"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                    placeholder="{{ translate('contact_number') }}">
                                         </div>
                                     </div>
@@ -79,7 +83,11 @@
                                         <div class="form-group mb-4">
                                             <label for="message">{{ translate('Subject') }}</label>
                                             <input type="text" name="subject" value="{{ old('subject') }}"
+<<<<<<< HEAD
                                                    class="form-control"
+=======
+                                                   class="form-control" rows="6"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                    placeholder="{{ translate('short_title') }}">
                                         </div>
                                     </div>

@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/3rd-party.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('3rd_party')}}
             </h2>
         </div>
@@ -17,7 +21,11 @@
                 @csrf
                 <div class="card-header mb-3">
                     <div class="d-flex align-items-center gap-2">
+<<<<<<< HEAD
                         <img width="16" src="{{dynamicAsset(path: 'public/assets/back-end/img/whatsapp.png')}}" alt="">
+=======
+                        <img width="16" src="{{asset('/public/assets/back-end/img/whatsapp.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <h4 class="text-center mb-0">{{translate('whatsApp')}}</h4>
                     </div>
                     <label class="switcher">
@@ -39,7 +47,11 @@
                         <div class="form-group">
                             <label class="title-color font-weight-bold text-capitalize">{{translate('whatsapp_number')}}</label>
                             <span class="ml-2" data-toggle="tooltip" data-placement="top" title="{{translate('provide_a_WhatsApp_number_without_country_code')}}">
+<<<<<<< HEAD
                                 <img class="info-img" src="{{dynamicAsset(path: 'public/assets/back-end/img/info-circle.svg')}}" alt="img">
+=======
+                                <img class="info-img" src="{{asset('/public/assets/back-end/img/info-circle.svg')}}" alt="img">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </span>
                             <input type="text" class="form-control form-ellipsis" name="phone" value="{{ $whatsapp['phone'] }}" placeholder="{{translate('ex').':'.'1234567890'}}">
                         </div>

@@ -10,7 +10,11 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="_token" content="{{csrf_token()}}">
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
+=======
+    <link rel="shortcut icon" href="{{asset('storage/app/public/company')}}/{{$web_config['fav_icon']->value}}"/>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <link rel="stylesheet" href="{{ theme_asset('assets/css/fonts-init.css') }}"/>
     <link rel="stylesheet" href="{{ theme_asset('assets/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ theme_asset('assets/css/bootstrap-icons.min.css') }}"/>
@@ -20,7 +24,10 @@
     <link rel="stylesheet" href="{{ theme_asset('assets/css/toastr.css') }}"/>
 
     <link rel="stylesheet" href="{{ theme_asset('assets/plugins/select2/css/select2.min.css') }}">
+<<<<<<< HEAD
     <link rel="stylesheet" href="{{ theme_asset('assets/plugins/intl-tel-input/css/intlTelInput.css') }}">
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     <link rel="stylesheet" href="{{ theme_asset('assets/css/style.css') }}"/>
     @stack('css_or_js')
     <link rel="stylesheet" href="{{ theme_asset('assets/css/custom.css') }}"/>
@@ -145,9 +152,13 @@
       data-refundmessage="{{ translate('you_can_refund_request_after_the_product_is_delivered') }}"
       data-textshoptemporaryclose="{{ translate('This_shop_is_temporary_closed_or_on_vacation').' '.translate('You_cannot_add_product_to_cart_from_this_shop_for_now') }}"
 ></span>
+<<<<<<< HEAD
 <span class="system-default-country-code" data-value="{{ getWebConfig(name: 'country_code') ?? 'us' }}"></span>
 <span class="cannot_use_zero" data-text="{{ translate('cannot_Use_0_only') }}"></span>
 <span class="system-default-country-code" data-value="{{ getWebConfig(name: 'country_code') ?? 'us' }}"></span>
+=======
+<span class="cannot_use_zero" data-text="{{ translate('cannot_Use_0_only') }}"></span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @php($cookie = $web_config['cookie_setting'] ? json_decode($web_config['cookie_setting']['value'], true):null)
 @if($cookie && $cookie['status']==1)
     <section id="cookie-section"></section>

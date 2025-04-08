@@ -82,7 +82,11 @@ class PassportAuthController extends Controller
                 $medium = 'phone';
             } else {
                 $errors = [];
+<<<<<<< HEAD
                 $errors[] = ['code' => 'email', 'message' => translate('credentials_doesnt_match')];
+=======
+                $errors[] = ['code' => 'email', 'message' => translate('invalid_email_address_or_phone_number')];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 return response()->json([
                     'errors' => $errors
                 ], 403);
@@ -120,6 +124,7 @@ class PassportAuthController extends Controller
                     'errors' => $errors
                 ], 401);
             }
+<<<<<<< HEAD
             if (!$user->is_active) {
                 $errors = [];
                 $errors[] = ['code' => 'auth-001', 'message' => translate('your_account_is_suspended')];
@@ -129,6 +134,10 @@ class PassportAuthController extends Controller
             }
 
             if(auth()->attempt($data)){
+=======
+
+            if($user->is_active && auth()->attempt($data)){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $token = auth()->user()->createToken('LaravelAuthApp')->accessToken;
 
                 $user->login_hit_count = 0;
@@ -160,7 +169,11 @@ class PassportAuthController extends Controller
                     $user->save();
 
                     $errors = [];
+<<<<<<< HEAD
                     $errors[] = ['code' => 'auth-001', 'message' => translate('credentials_doesnt_match')];
+=======
+                    $errors[] = ['code' => 'auth-001', 'message' => translate('credentials_do_not_match_or_account_has_been_suspended')];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     return response()->json([
                         'errors' => $errors
                     ], 401);
@@ -185,7 +198,11 @@ class PassportAuthController extends Controller
                     $user->save();
 
                     $errors = [];
+<<<<<<< HEAD
                     $errors[] = ['code' => 'auth-001', 'message' => translate('credentials_doesnt_match')];
+=======
+                    $errors[] = ['code' => 'auth-001', 'message' => translate('credentials_do_not_match_or_account_has_been_suspended')];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     return response()->json([
                         'errors' => $errors
                     ], 401);
@@ -194,7 +211,11 @@ class PassportAuthController extends Controller
             }
         } else {
             $errors = [];
+<<<<<<< HEAD
             $errors[] = ['code' => 'auth-001', 'message' => translate('credentials_doesnt_match')];
+=======
+            $errors[] = ['code' => 'auth-001', 'message' => translate('customer_not_found_or_account_has_been_suspended')];
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             return response()->json([
                 'errors' => $errors
             ], 401);

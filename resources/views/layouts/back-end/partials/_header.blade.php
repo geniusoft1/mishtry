@@ -6,7 +6,11 @@ use Illuminate\Support\Facades\Session;
     <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-flush navbar-container shadow">
 
         <div class="navbar-nav-wrap">
+<<<<<<< HEAD
             <div class="navbar-brand-wrapper d-none d-sm-block d-xl-none">
+=======
+            <div class="navbar-brand-wrapper">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 @php($ecommerceLogo = getWebConfig('company_web_logo'))
                 <a class="navbar-brand" href="{{route('admin.dashboard.index')}}" aria-label="">
                     <img class="navbar-brand-logo"
@@ -26,8 +30,13 @@ use Illuminate\Support\Facades\Session;
             </div>
             <div class="navbar-nav-wrap-content-right"
                  style="{{$direction == "rtl" ? 'margin-left:unset; margin-right: auto' : 'margin-right:unset; margin-left: auto'}}">
+<<<<<<< HEAD
                 <ul class="navbar-nav align-items-center flex-row gap-xl-16px">
                     <li class="nav-item">
+=======
+                <ul class="navbar-nav align-items-center flex-row">
+                    <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="hs-unfold">
                             <div>
                                 @php( $local = session()->has('local')?session('local'):'en')
@@ -38,6 +47,7 @@ use Illuminate\Support\Facades\Session;
                                         @foreach(json_decode($lang['value'],true) as $data)
                                             @if($data['code']==$local)
                                                 <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
+<<<<<<< HEAD
                                                     src="{{dynamicAsset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
                                                     alt="{{$data['name']}}">
                                                 <span class="d-none d-sm-block">{{$data['name']}}</span>
@@ -46,13 +56,26 @@ use Illuminate\Support\Facades\Session;
                                         @endforeach
                                     </a>
                                     <ul class="dropdown-menu position-absolute">
+=======
+                                                     src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+                                                     alt="{{$data['name']}}">
+                                                {{$data['name']}}
+                                            @endif
+                                        @endforeach
+                                    </a>
+                                    <ul class="dropdown-menu">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         @foreach(json_decode($lang['value'],true) as $key =>$data)
                                             @if($data['status']==1)
                                                 <li class="change-language" data-action="{{route('change-language')}}" data-language-code="{{$data['code']}}">
                                                     <a class="dropdown-item py-1"
                                                        href="javascript:">
                                                         <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
+<<<<<<< HEAD
                                                                 src="{{dynamicAsset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+=======
+                                                                src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                 alt="{{$data['name']}}"/>
                                                         <span class="text-capitalize">{{$data['name']}}</span>
                                                     </a>
@@ -65,7 +88,11 @@ use Illuminate\Support\Facades\Session;
                         </div>
                     </li>
 
+<<<<<<< HEAD
                     <li class="nav-item">
+=======
+                    <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="hs-unfold">
                             <a title="Website home"
                                class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
@@ -76,7 +103,11 @@ use Illuminate\Support\Facades\Session;
                     </li>
 
                     @if(\App\Utils\Helpers::module_permission_check('support_section'))
+<<<<<<< HEAD
                         <li class="nav-item">
+=======
+                        <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <!-- Notification -->
                             <div class="hs-unfold">
                                 <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
@@ -92,7 +123,11 @@ use Illuminate\Support\Facades\Session;
                     @endif
 
                     @if(\App\Utils\Helpers::module_permission_check('order_management'))
+<<<<<<< HEAD
                         <li class="nav-item">
+=======
+                        <li class="nav-item d-none d-md-inline-block">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             <div class="hs-unfold">
                                 <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
                                    href="{{route('admin.orders.list',['status'=>'pending'])}}">
@@ -104,6 +139,18 @@ use Illuminate\Support\Facades\Session;
                         </li>
                     @endif
 
+<<<<<<< HEAD
+=======
+                    <li class="nav-item view-web-site-info">
+                        <div class="hs-unfold">
+                            <a href="javascript:"
+                               class="bg-white js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle open-info-web">
+                                <i class="tio-info"></i>
+                            </a>
+                        </div>
+                    </li>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     <li class="nav-item">
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker media align-items-center gap-3 navbar-dropdown-account-wrapper dropdown-toggle dropdown-toggle-left-arrow"
@@ -143,8 +190,14 @@ use Illuminate\Support\Facades\Session;
                                     <span class="text-truncate pr-2" title="Settings">{{ translate('settings')}}</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
+<<<<<<< HEAD
                                 <a class="dropdown-item" href="javascript:" data-toggle="modal"  data-target="#sign-out-modal">
                                     <span class="text-truncate pr-2" title="{{translate('sign_out')}}">{{translate('sign_out')}}</span>
+=======
+
+                                <a class="dropdown-item logout" href="javascript:" data-action="{{route('admin.logout')}}">
+                                    <span class="text-truncate pr-2" title="Sign out">{{ translate('sign_out')}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </a>
                             </div>
                         </div>
@@ -162,7 +215,11 @@ use Illuminate\Support\Facades\Session;
                             @foreach(json_decode($lang['value'],true) as $data)
                                 @if($data['code']==$local)
                                     <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
+<<<<<<< HEAD
                                          src="{{dynamicAsset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+=======
+                                         src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                          alt="{{$data['name']}}">
                                     {{$data['name']}}
                                 @endif
@@ -174,7 +231,11 @@ use Illuminate\Support\Facades\Session;
                                     <li class="change-language" data-action="{{route('change-language')}}" data-language-code="{{$data['code']}}">
                                         <a class="dropdown-item pb-1" href="javascript:">
                                             <img class="{{$direction == "rtl" ? 'ml-2' : 'mr-2'}}" width="20"
+<<<<<<< HEAD
                                                  src="{{dynamicAsset(path: 'public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+=======
+                                                 src="{{asset('public/assets/front-end/img/flags/'.$data['code'].'.png')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     alt="{{$data['name']}}"/>
                                             <span class="text-capitalize">{{$data['name']}}</span>
                                         </a>
@@ -219,3 +280,7 @@ use Illuminate\Support\Facades\Session;
 </div>
 <div id="headerFluid" class="d-none"></div>
 <div id="headerDouble" class="d-none"></div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

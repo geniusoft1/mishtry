@@ -24,8 +24,11 @@ enum SubCategory
         URI => 'status',
         VIEW => ''
     ];
+<<<<<<< HEAD
     const EXPORT = [
         URI => 'export',
         VIEW => ''
     ];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }

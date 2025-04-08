@@ -5887,6 +5887,7 @@
   'Want_to_Turn_OFF_Featured_Deal_Status' => 'Want to Turn OFF Featured Deal Status',
   'if_enabled_this_featured_deal_will_be_available_on_the_website_and_customer_app' => 'If enabled this featured deal will be available on the website and customer app',
   'if_disabled_this_featured_deal_will_be_hidden_from_the_website_and_customer_app' => 'If disabled this featured deal will be hidden from the website and customer app',
+<<<<<<< HEAD
   'language_change_successfully' => 'Language change successfully',
   'basic_information' => 'Basic information',
   'full_Name' => 'Full Name',
@@ -5905,4 +5906,6 @@
   'status_updated_failed' => 'Status updated failed',
   'do_you_want_to_sign_out' => 'Do you want to sign out',
   'do_not_Logout' => 'Do not Logout',
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 );

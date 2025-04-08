@@ -59,6 +59,10 @@ class OrderTransactionRepository implements OrderTransactionRepositoryInterface
             ->when(!empty($orderBy), function ($query) use ($orderBy) {
                 $query->orderBy(array_key_first($orderBy), array_values($orderBy)[0]);
             });
+<<<<<<< HEAD
+=======
+//        dd($searchValue);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $filters += ['searchValue' => $searchValue];
         return $dataLimit == 'all' ? $query->get() : $query->paginate($dataLimit)->appends($filters);
     }

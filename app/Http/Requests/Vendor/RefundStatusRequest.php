@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vendor;
 
+<<<<<<< HEAD
 use App\Traits\ResponseHandler;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
@@ -10,6 +11,13 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 class RefundStatusRequest extends FormRequest
 {
     use ResponseHandler;
+=======
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
+
+class RefundStatusRequest extends FormRequest
+{
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -32,6 +40,7 @@ class RefundStatusRequest extends FormRequest
                 'rejected_note' => $this->input('refund_status') == 'rejected' ? 'required': '',
             ];
         }
+<<<<<<< HEAD
         public function messages(): array
         {
             return [
@@ -43,4 +52,6 @@ class RefundStatusRequest extends FormRequest
         {
             throw new HttpResponseException(response()->json(['errors' => $this->errorProcessor($validator)]));
         }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }

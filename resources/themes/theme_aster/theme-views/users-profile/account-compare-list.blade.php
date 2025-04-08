@@ -39,7 +39,11 @@
                                                             <a href="javascript:"
                                                                data-action="{{route('product-compare.delete', ['id'=>$compareList['id']]) }}"
                                                                data-text="{{translate('want_to_delete_this_item').'?'}}"
+<<<<<<< HEAD
                                                                class="btn-link text-danger text-decoration-underline delete-action">
+=======
+                                                               class="btn-link text-danger text-decoration-underline ">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                 {{translate('remove')}}
                                                             </a>
                                                         </div>

@@ -7,7 +7,11 @@
     <div class="content container-fluid">
         <div class="mb-4">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/customer.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/customer.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('customer_list')}}
                 <span class="badge badge-soft-dark radius-50">{{count($customers)}}</span>
             </h2>
@@ -41,7 +45,11 @@
                                 <li>
                                     <a class="dropdown-item"
                                        href="{{route('admin.customer.export',['searchValue'=>request('searchValue')])}}">
+<<<<<<< HEAD
                                         <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                        <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{translate('excel')}}
                                     </a>
                                 </li>
@@ -152,7 +160,11 @@
             </div>
             @if(count($customers)==0)
                 <div class="text-center p-4">
+<<<<<<< HEAD
                     <img class="mb-3 w-160" src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                    <img class="mb-3 w-160" src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                          alt="Image Description">
                     <p class="mb-0">{{translate('no_data_to_show')}}</p>
                 </div>

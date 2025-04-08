@@ -303,35 +303,57 @@ class OrderController extends BaseController
         OrderStatusHistoryService     $orderStatusHistoryService,
     ): JsonResponse
     {
+<<<<<<< HEAD
         $order = $this->orderRepo->getFirstWhere(params: ['id' => $request['id']], relations: ['customer','seller.shop', 'deliveryMan']);
+=======
+        $order = $this->orderRepo->getFirstWhere(params: ['id' => $request['id']], relations: ['customer','seller.shop']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         if (!$order['is_guest'] && !isset($order['customer'])) {
             return response()->json(['customer_status' => 0], 200);
         }
 
+<<<<<<< HEAD
         if ($order['payment_method'] !='cash_on_delivery' && $request['order_status'] == 'delivered' && $order['payment_status'] != 'paid') {
+=======
+        if ($request['order_status'] == 'delivered' && $order['payment_status'] != 'paid') {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             return response()->json(['payment_status' => 0], 200);
         }
 
         $this->orderRepo->updateStockOnOrderStatusChange($request['id'], $request['order_status']);
         $this->orderRepo->update(id: $request['id'], data: ['order_status' => $request['order_status']]);
 
+<<<<<<< HEAD
         event(new OrderStatusEvent(key: $request['order_status'], type: 'customer', order: $order));
         if ($request->order_status == 'canceled') {
             event(new OrderStatusEvent(key: 'canceled', type: 'delivery_man', order: $order));
+=======
+        OrderStatusEvent::dispatch($request['order_status'], 'customer', $order);
+        if ($request->order_status == 'canceled') {
+            OrderStatusEvent::dispatch('canceled', 'delivery_man', $order);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $walletStatus = getWebConfig(name: 'wallet_status');
         $loyaltyPointStatus = getWebConfig(name: 'loyalty_point_status');
 
+<<<<<<< HEAD
         if ($walletStatus == 1 && $loyaltyPointStatus == 1 && !$order['is_guest'] && $request['order_status'] == 'delivered' && ($order['payment_method'] =='cash_on_delivery' ? $order['payment_status'] == 'unpaid' : $order['payment_status'] == 'paid') && $order['seller_id'] != null) {
+=======
+        if ($walletStatus == 1 && $loyaltyPointStatus == 1 && !$order['is_guest'] && $request['order_status'] == 'delivered' && $order['payment_status'] == 'paid' && $order['seller_id'] != null) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $this->loyaltyPointTransactionRepo->addLoyaltyPointTransaction(userId: $order['customer_id'], reference: $order['id'], amount: usdToDefaultCurrency(amount: $order['order_amount'] - $order['shipping_cost']), transactionType: 'order_place');
         }
 
         $refEarningStatus = getWebConfig(name: 'ref_earning_status') ?? 0;
         $refEarningExchangeRate = getWebConfig(name: 'ref_earning_exchange_rate') ?? 0;
 
+<<<<<<< HEAD
         if (!$order['is_guest'] && $refEarningStatus == 1 && $request['order_status'] == 'delivered' && ($order['payment_method'] =='cash_on_delivery' ? $order['payment_status'] == 'unpaid' : $order['payment_status'] == 'paid')) {
+=======
+        if (!$order['is_guest'] && $refEarningStatus == 1 && $request['order_status'] == 'delivered' && $order['payment_status'] == 'paid') {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
             $customer = $this->customerRepo->getFirstWhere(params: ['id' => $order['customer_id']]);
             $isFirstOrder = $this->orderRepo->getListWhereCount(filters: ['customer_id' => $order['customer_id'], 'order_status' => 'delivered', 'payment_status' => 'paid']);
@@ -387,7 +409,11 @@ class OrderController extends BaseController
 
     public function updateAddress(Request $request): RedirectResponse
     {
+<<<<<<< HEAD
         $order = $this->orderRepo->getFirstWhere(params: ['id' => $request['order_id']], relations: ['deliveryMan']);
+=======
+        $order = $this->orderRepo->getFirstWhere(params: ['id' => $request['order_id']]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $shippingAddressData = json_decode(json_encode($order['shipping_address_data']), true);
         $billingAddressData = json_decode(json_encode($order['billing_address_data']), true);
         $commonAddressData = [
@@ -419,16 +445,20 @@ class OrderController extends BaseController
             $this->orderRepo->update(id: $request['order_id'], data: $updateData);
         }
 
+<<<<<<< HEAD
         if ($order->delivery_type=='self_delivery' && $order->delivery_man_id) {
             OrderStatusEvent::dispatch('order_edit_message', 'delivery_man', $order);
         }
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         Toastr::success(translate('successfully_updated'));
         return back();
     }
 
     public function updatePaymentStatus(Request $request): JsonResponse
     {
+<<<<<<< HEAD
         $order = $this->orderRepo->getFirstWhere(params: ['id' => $request['id']]);
         if ($order['payment_status'] == 'paid'){
             return response()->json(['error'=>translate('when_payment_status_paid_then_you_can`t_change_payment_status_paid_to_unpaid').'.']);
@@ -439,6 +469,20 @@ class OrderController extends BaseController
         }
         $this->orderRepo->update(id: $request['id'], data: ['payment_status' => $request['payment_status']]);
         return response()->json($request['payment_status']);
+=======
+        if ($request->ajax()) {
+            $order = $this->orderRepo->getFirstWhere(params: ['id' => $request['id']]);
+
+            if ($order['is_guest'] == '0' && !isset($order['customer'])) {
+                return response()->json(['customer_status' => 0], 200);
+            }
+
+            $this->orderRepo->update(id: $request['id'], data: ['payment_status' => $request['payment_status']]);
+            return response()->json($request['payment_status']);
+        }
+
+        return response()->json(['message' => translate('invalid_access')], 401);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function updateDeliverInfo(Request $request): RedirectResponse
@@ -476,9 +520,13 @@ class OrderController extends BaseController
         $params = ['seller_id' => auth('seller')->id(), 'id' => $order_id];
         $this->orderRepo->updateWhere(params: $params, data: $orderData);
 
+<<<<<<< HEAD
         $order = $this->orderRepo->getFirstWhere(params: ['id' => $order_id], relations: ['deliveryMan']);
         event(new OrderStatusEvent(key: 'new_order_assigned_message', type: 'delivery_man', order: $order));
 
+=======
+        OrderStatusEvent::dispatch('new_order_assigned_message', 'delivery_man', $order);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return response()->json(['status' => true], 200);
     }
 
@@ -494,7 +542,10 @@ class OrderController extends BaseController
             OrderStatusEvent::dispatch('expected_delivery_date', 'delivery_man', $order);
             $message = translate("expected_delivery_date_added_successfully");
         } elseif ($fieldName == 'deliveryman_charge') {
+<<<<<<< HEAD
             OrderStatusEvent::dispatch('delivery_man_charge', 'delivery_man', $order);
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $message = translate("deliveryman_charge_added_successfully");
         }
 

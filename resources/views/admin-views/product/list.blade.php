@@ -7,7 +7,11 @@
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/inhouse-product-list.png') }}" alt="">
+=======
+                <img src="{{ asset('public/assets/back-end/img/inhouse-product-list.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 @if($type == 'in_house')
                     {{ translate('in_House_Product_List') }}
                 @elseif($type == 'seller')
@@ -145,7 +149,11 @@
                                         <li>
                                             <a class="dropdown-item"
                                                href="{{ route('admin.products.export-excel',['type'=>request('type')]) }}?brand_id={{request('brand_id') }}&searchValue={{ request('searchValue') }}&category_id={{request('category_id') }}&sub_category_id={{request('sub_category_id') }}&sub_sub_category_id={{request('sub_sub_category_id') }}&seller_id={{request('seller_id') }}&status={{request('status') }}">
+<<<<<<< HEAD
                                                 <img width="14" src="{{ dynamicAsset(path: 'public/assets/back-end/img/excel.png') }}"
+=======
+                                                <img width="14" src="{{ asset('/public/assets/back-end/img/excel.png') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                                 {{ translate('excel') }}
                                             </a>
@@ -173,8 +181,13 @@
                             <tr>
                                 <th>{{ translate('SL') }}</th>
                                 <th>{{ translate('product Name') }}</th>
+<<<<<<< HEAD
                                 <th class="text-center">{{ translate('product Type') }}</th>
                                 <th class="text-center">{{ translate('unit_price') }}</th>
+=======
+                                <th class="text-right">{{ translate('product Type') }}</th>
+                                <th class="text-right">{{ translate('selling_price') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <th class="text-center">{{ translate('show_as_featured') }}</th>
                                 <th class="text-center">{{ translate('active_status') }}</th>
                                 <th class="text-center">{{ translate('action') }}</th>
@@ -185,7 +198,11 @@
                                 <tr>
                                     <th scope="row">{{ $products->firstItem()+$key}}</th>
                                     <td>
+<<<<<<< HEAD
                                         <a href="{{ route('admin.products.view',['addedBy'=>$product['added_by'],'id'=>$product['id']]) }}"
+=======
+                                        <a href="{{ route('admin.products.view',[$product['id']]) }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                            class="media align-items-center gap-2">
                                             <img src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$product['thumbnail'], type: 'backend-product') }}"
                                                  class="avatar border" alt="">
@@ -194,10 +211,17 @@
                                         </span>
                                         </a>
                                     </td>
+<<<<<<< HEAD
                                     <td class="text-center">
                                         {{ translate(str_replace('_',' ',$product['product_type'])) }}
                                     </td>
                                     <td class="text-center">
+=======
+                                    <td class="text-right">
+                                        {{ translate(str_replace('_',' ',$product['product_type'])) }}
+                                    </td>
+                                    <td class="text-right">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product['unit_price']), currencyCode: getCurrencyCode()) }}
                                     </td>
                                     <td class="text-center">
@@ -255,7 +279,11 @@
                                                 <i class="tio-barcode"></i>
                                             </a>
                                             <a class="btn btn-outline-info btn-sm square-btn" title="View"
+<<<<<<< HEAD
                                                href="{{ route('admin.products.view',['addedBy'=>$product['added_by'],'id'=>$product['id']]) }}">
+=======
+                                               href="{{ route('admin.products.view',[$product['id']]) }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <i class="tio-invisible"></i>
                                             </a>
                                             <a class="btn btn-outline--primary btn-sm square-btn"
@@ -289,7 +317,11 @@
                     @if(count($products)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>

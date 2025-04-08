@@ -21,7 +21,11 @@ class ForgotPassword extends Controller
     public function reset_password_request(Request $request)
     {
         $validator = Validator::make($request->all(), [
+<<<<<<< HEAD
             'identity' => 'required',
+=======
+            'identity' => 'required|min:6',
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         ]);
 
         if ($validator->fails()) {

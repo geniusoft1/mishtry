@@ -7,7 +7,11 @@
         <div class="row justify-content-center align-items-center vh-100">
             <div class="col-12">
                 <div class="text-primary text-center">
+<<<<<<< HEAD
                     <img src="{{dynamicAsset(path: "public/assets/front-end/png/500.png")}}" alt="" class="img-fluid">
+=======
+                    <img src="{{asset("public/assets/front-end/png/500.png")}}" alt="" class="img-fluid">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </div>
 
                 <p class="text-center h4 lead py-2">

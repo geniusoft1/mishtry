@@ -16,9 +16,13 @@ class POSService
         if (session()->has(SessionKey::CART_NAME)){
             foreach (session(SessionKey::CART_NAME) as $item){
                 if (session()->has($item) && count(session($item)) > 1){
+<<<<<<< HEAD
                     if (isset(session($item)[0]) && is_array(session($item)[0]) && isset(session($item)[0]['customerOnHold']) && session($item)[0]['customerOnHold']) {
                         $totalHoldOrders++;
                     }
+=======
+                    $totalHoldOrders++;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 }
             }
         }

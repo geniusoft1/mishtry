@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ translate($role) }} | {{ translate('login')}}</title>
 
+<<<<<<< HEAD
     <link rel="shortcut icon" href="{{dynamicStorage(path: 'storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
 
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/google-fonts.css') }}">
@@ -14,6 +15,17 @@
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/theme.minc619.css?v=1.0') }}">
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/style.css') }}">
     <link rel="stylesheet" href="{{ dynamicAsset(path: 'public/assets/back-end/css/toastr.css') }}">
+=======
+    <link rel="shortcut icon" href="{{asset('storage/app/public/company/'.getWebConfig(name: 'company_fav_icon'))}}">
+
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/google-fonts.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/vendor.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/vendor/icon-set/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/theme.minc619.css?v=1.0') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/back-end/css/toastr.css') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 </head>
 
 <body>
@@ -138,11 +150,19 @@
 <span id="message-please-check-recaptcha" data-text="{{ translate('please_check_the_recaptcha') }}"></span>
 <span id="message-copied_success" data-text="{{ translate('copied_successfully') }}"></span>
 
+<<<<<<< HEAD
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor.min.js')}}"></script>
 
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/theme.min.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/toastr.js')}}"></script>
 <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/login.js')}}"></script>
+=======
+<script src="{{asset('public/assets/back-end/js/vendor.min.js')}}"></script>
+
+<script src="{{asset('public/assets/back-end/js/theme.min.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/toastr.js')}}"></script>
+<script src="{{asset('public/assets/back-end/js/admin/login.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 {!! Toastr::message() !!}
 
 @if ($errors->any())

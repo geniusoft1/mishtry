@@ -21,8 +21,12 @@ enum Product
 
     const VIEW = [
         URI => 'view',
+<<<<<<< HEAD
         VIEW => 'vendor-views.product.view',
         ROUTE => 'vendor.products.view'
+=======
+        VIEW => 'vendor-views.product.view'
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     ];
 
     const SKU_COMBINATION = [

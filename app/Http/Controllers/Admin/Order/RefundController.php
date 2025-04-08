@@ -16,15 +16,21 @@ use App\Enums\ExportFileNames\Admin\RefundRequest as RefundRequestExportFile;
 use App\Events\RefundEvent;
 use App\Exports\RefundRequestExport;
 use App\Http\Controllers\BaseController;
+<<<<<<< HEAD
 use App\Http\Requests\Admin\RefundStatusRequest;
 use App\Models\RefundStatus;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Services\RefundStatusService;
 use App\Services\RefundTransactionService;
 use App\Traits\CustomerTrait;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -65,7 +71,11 @@ class RefundController extends BaseController
             relations: ['order', 'order.seller', 'order.deliveryMan', 'product'],
             dataLimit: getWebConfig('pagination_limit'),
         );
+<<<<<<< HEAD
         return view(RefundRequest::LIST[VIEW], compact('refundList','status'));
+=======
+        return view(RefundRequest::LIST[VIEW], compact('refundList'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function getDetailsView($id): View
@@ -95,6 +105,7 @@ class RefundController extends BaseController
             ));
     }
 
+<<<<<<< HEAD
     public function updateRefundStatus(RefundStatusRequest $request, RefundStatusService $refundStatusService, RefundTransactionService $refundTransactionService): JsonResponse
     {
         $refund = $this->refundRequestRepo->getFirstWhere(params: ['id' => $request['id']]);
@@ -106,6 +117,16 @@ class RefundController extends BaseController
         if (!isset($user)) {
             return response()->json(['error'=>translate('this_account_has_been_deleted_you_can_not_modify_the_status').'.']);
 
+=======
+    public function updateRefundStatus(Request $request, RefundStatusService $refundStatusService, RefundTransactionService $refundTransactionService): RedirectResponse
+    {
+        $refund = $this->refundRequestRepo->getFirstWhere(params: ['id' => $request['id']]);
+        $user = $this->customerRepo->getFirstWhere(params: ['id' => $refund['customer_id']]);
+
+        if (!isset($user)) {
+            Toastr::warning(translate('this_account_has_been_deleted_you_can_not_modify_the_status'));
+            return back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         $loyaltyPointStatus = getWebConfig(name: 'loyalty_point_status');
@@ -113,8 +134,13 @@ class RefundController extends BaseController
 
         if ($loyaltyPointStatus == 1) {
             if ($user['loyalty_point'] < $loyaltyPoint && ($request['refund_status'] == 'refunded' || $request['refund_status'] == 'approved')) {
+<<<<<<< HEAD
                 return response()->json(['error'=>translate('customer_has_not_sufficient_loyalty_point_to_take_refund_for_this_order').'.']);
 
+=======
+                Toastr::warning(translate('customer_has_not_sufficient_loyalty_point_to_take_refund_for_this_order'));
+                return back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         }
 
@@ -143,12 +169,21 @@ class RefundController extends BaseController
             $this->refundStatusRepos->add(data: $dataArray['refundStatus']);
 
             RefundEvent::dispatch($request['refund_status'], $order);
+<<<<<<< HEAD
             return response()->json(['message'=>translate('refund_status_updated').'.']);
 
         } else {
             return response()->json(['error'=>translate('refunded_status_can_not_be_changed').'.']);
 
         }
+=======
+            Toastr::success(translate('refund_status_updated'));
+        } else {
+            Toastr::warning(translate('refunded_status_can_not_be_changed'));
+        }
+        return back();
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function exportList(Request $request, $status): BinaryFileResponse

@@ -60,7 +60,11 @@
             <div class="d-sm-none mb-4">
                 @if($sidebar_banner)
                     <a href="{{ $sidebar_banner['url'] }}">
+<<<<<<< HEAD
                         <img src="{{ getValidImage(path: 'storage/app/public/banner/'.($sidebar_banner ? $sidebar_banner['photo'] : ''), type:'banner') }}"
+=======
+                        <img src="{{ getValidImage(path: 'storage/app/public/banner/'.($sidebar_banner ? $sidebar_banner['photo'] : ''), type:'banner', source: theme_asset('assets/img/top-side-banner-placeholder.png')) }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             alt="" class="dark-support rounded w-100">
                     </a>
                 @else

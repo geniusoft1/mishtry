@@ -3,6 +3,7 @@
 @section('title',translate('contact_us'))
 
 @push('css_or_js')
+<<<<<<< HEAD
     <meta property="og:image" content="{{dynamicStorage(path: 'storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
     <meta property="og:title" content="Contact {{$web_config['name']->value}} "/>
     <meta property="og:url" content="{{env('APP_URL')}}">
@@ -12,6 +13,16 @@
     <meta property="twitter:url" content="{{env('APP_URL')}}">
     <meta property="twitter:description" content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
     <link rel="stylesheet" href="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/css/intlTelInput.css') }}">
+=======
+    <meta property="og:image" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="og:title" content="Contact {{$web_config['name']->value}} "/>
+    <meta property="og:url" content="{{env('APP_URL')}}">
+    <meta property="og:description" content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
+    <meta property="twitter:card" content="{{asset('storage/app/public/company')}}/{{$web_config['web_logo']->value}}"/>
+    <meta property="twitter:title" content="Contact {{$web_config['name']->value}}"/>
+    <meta property="twitter:url" content="{{env('APP_URL')}}">
+    <meta property="twitter:description" content="{{ substr(strip_tags(str_replace('&nbsp;', ' ', $web_config['about']->value)),0,160) }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 
 @section('content')
@@ -27,7 +38,11 @@
     <div class="container rtl text-align-direction">
         <div class="row no-gutters py-5">
             <div class="col-lg-6 iframe-full-height-wrap ">
+<<<<<<< HEAD
                 <img class="for-contact-image" src="{{theme_asset(path: "public/assets/front-end/png/contact.png")}}" alt="">
+=======
+                <img class="for-contact-image" src="{{asset("public/assets/front-end/png/contact.png")}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </div>
             <div class="col-lg-6">
                 <div class="card">
@@ -55,6 +70,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="cf-phone">{{translate('your_phone')}}</label>
+<<<<<<< HEAD
                                         <input class="form-control mobile_number phone-input-with-country-picker" type="number"
                                                value="{{ old('mobile_number') }}" placeholder="{{translate('contact_number')}}" required>
 
@@ -62,6 +78,11 @@
                                             <input type="hidden" class="country-picker-country-code w-50" name="country_code" readonly>
                                             <input type="hidden" class="country-picker-phone-number w-50" name="mobile_number" readonly>
                                         </div>
+=======
+                                        <input class="form-control mobile_number" type="text" name="mobile_number"
+                                               value="{{ old('mobile_number') }}" placeholder="{{translate('contact_number')}}" required>
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -136,7 +157,10 @@
     </script>
 @endif
 
+<<<<<<< HEAD
 <script src="{{ theme_asset(path: 'public/assets/front-end/plugin/intl-tel-input/js/intlTelInput.js') }}"></script>
 <script src="{{ theme_asset(path: 'public/assets/front-end/js/country-picker-init.js') }}"></script>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush
 

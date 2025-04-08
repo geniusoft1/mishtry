@@ -9,7 +9,11 @@
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2 align-items-center">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/seller_sale.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/seller_sale.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('product_Report')}}
             </h2>
         </div>
@@ -95,7 +99,11 @@
                             <li>
                                 <a class="dropdown-item"
                                    href="{{ route('admin.stock.product-stock-export', ['sort' => request('sort'), 'category_id' => request('category_id'), 'seller_id' => request('seller_id'), 'search' => request('search')]) }}">
+<<<<<<< HEAD
                                     <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                    <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     {{translate('excel')}}
                                 </a>
                             </li>
@@ -129,7 +137,11 @@
                                 <td>{{$products->firstItem()+$key}}</td>
                                 <td>
                                     <div class="p-name">
+<<<<<<< HEAD
                                         <a href="{{route('admin.products.view',['addedBy'=>$data['added_by'],'id'=>$data['id']])}}"
+=======
+                                        <a href="{{route('admin.products.view',[$data['id']])}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                            class="media align-items-center gap-2 title-color">
                                             <span>{{\Illuminate\Support\Str::limit($data['name'],20)}}</span>
                                         </a>
@@ -155,7 +167,11 @@
                                 <td colspan="5">
                                     <div class="text-center p-4">
                                         <img class="mb-3 w-160"
+<<<<<<< HEAD
                                              src="{{dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg')}}"
+=======
+                                             src="{{asset('public/assets/back-end/svg/illustrations/sorry.svg')}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="Image Description">
                                         <p class="mb-0">{{ translate('no_data_to_show')}}</p>
                                     </div>

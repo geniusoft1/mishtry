@@ -7,7 +7,11 @@
         <div class="page-title overlay py-5 __opacity-half background-custom-fit"
              @if ($pageTitleBanner)
                  @if (File::exists(base_path('storage/app/public/banner/'.json_decode($pageTitleBanner['value'])->image)))
+<<<<<<< HEAD
                      data-bg-img="{{ dynamicStorage(path: 'storage/app/public/banner/'.json_decode($pageTitleBanner['value'])->image) }}"
+=======
+                     data-bg-img="{{ asset('storage/app/public/banner/'.json_decode($pageTitleBanner['value'])->image) }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                  @else
                      data-bg-img="{{theme_asset('assets/img/media/page-title-bg.png')}}"
                  @endif

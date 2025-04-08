@@ -92,7 +92,11 @@ class BannerController extends BaseController
         $data = $this->bannerService->getProcessedData(request: $request, image: $banner['photo']);
         $this->bannerRepo->update(id:$banner['id'], data:$data);
         Toastr::success(translate('banner_updated_successfully'));
+<<<<<<< HEAD
         return redirect()->route(Banner::UPDATE[ROUTE]);
+=======
+        return back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function updateStatus(Request $request): JsonResponse

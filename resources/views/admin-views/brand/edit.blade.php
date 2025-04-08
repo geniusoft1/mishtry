@@ -7,7 +7,11 @@
 
         <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
             <h2 class="h1 mb-0 align-items-center d-flex gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/brand.png') }}" alt="">
+=======
+                <img width="20" src="{{ asset('public/assets/back-end/img/brand.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('brand_Update') }}
             </h2>
         </div>
@@ -95,5 +99,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ dynamicAsset(path: 'public/assets/back-end/js/products-management.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/back-end/js/products-management.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

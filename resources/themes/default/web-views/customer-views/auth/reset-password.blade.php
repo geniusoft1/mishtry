@@ -25,7 +25,11 @@
                             <label for="si-password">{{ translate('new_password')}}</label>
                             <div class="password-toggle">
                                 <input class="form-control rtl" name="password" type="password" id="si-password"
+<<<<<<< HEAD
                                        required placeholder="{{ translate('enter_new_password') }}">
+=======
+                                       required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <label class="password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox"><i
                                         class="czi-eye password-toggle-indicator"></i><span
@@ -38,7 +42,11 @@
                             <label for="si-password">{{ translate('confirm_password')}}</label>
                             <div class="password-toggle rtl">
                                 <input class="form-control" name="confirm_password" type="password" id="si-password"
+<<<<<<< HEAD
                                        required placeholder="{{ translate('enter_confirm_password') }}">
+=======
+                                       required>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <label class="password-toggle-btn">
                                     <input class="custom-control-input" type="checkbox"><i
                                         class="czi-eye password-toggle-indicator"></i><span

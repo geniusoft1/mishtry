@@ -70,7 +70,11 @@
 
                             <div class="text-center mt-4">
                                 <a href="{{route('customer.auth.login')}}" class="btn btn-sm btn--primary">
+<<<<<<< HEAD
                                     {{ translate('sign_in')}}
+=======
+                                    {{ translate('login')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </a>
                             </div>
                         </div>
@@ -82,5 +86,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{ theme_asset(path: 'public/assets/front-end/js/verify-otp.js') }}"></script>
+=======
+    <script src="{{ asset('public/assets/front-end/js/verify-otp.js') }}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

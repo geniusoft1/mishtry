@@ -116,7 +116,11 @@
                                     @if($web_config['seller_registration'])
                                         <li>
                                             <a class="text-capitalize"
+<<<<<<< HEAD
                                                href="{{route('vendor.auth.registration.index')}}">{{translate('open_your_store')}}</a>
+=======
+                                               href="{{route('shop.apply')}}">{{translate('open_your_store')}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </li>
                                     @endif
                                     <li>

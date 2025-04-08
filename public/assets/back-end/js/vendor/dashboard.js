@@ -128,9 +128,21 @@ $(document).ready(function () {
         console.log(url.replace(':type', type))
         $.get({
             url: url.replace(':type', type),
+<<<<<<< HEAD
             success: function (data) {
                 $('#order_stats').html(data.view)
             },
+=======
+            beforeSend: function () {
+                $('#loading').fadeIn();
+            },
+            success: function (data) {
+                $('#order_stats').html(data.view)
+            },
+            complete: function () {
+                $('#loading').fadeOut();
+            }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         });
     });
 });

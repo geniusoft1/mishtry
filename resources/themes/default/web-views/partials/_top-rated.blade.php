@@ -3,7 +3,11 @@
         <div class="card-body p-xl-35">
             <div class="row d-flex justify-content-between mx-1 mb-3">
                 <div>
+<<<<<<< HEAD
                     <img class="size-30" src="{{theme_asset(path: "public/assets/front-end/png/top-rated.png")}}"
+=======
+                    <img class="size-30" src="{{asset("public/assets/front-end/png/top-rated.png")}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                          alt="">
                     <span class="font-bold pl-1">{{ translate('top_rated')}}</span>
                 </div>
@@ -21,6 +25,7 @@
                             <a class="__best-selling" href="{{route('product',$top->product->slug)}}">
                                 @if($top->product->discount > 0)
                                     <div class="d-flex">
+<<<<<<< HEAD
                                     <span class="for-discount-value p-1 pl-2 pr-2 font-bold fs-13">
                                         <span class="direction-ltr d-block">
                                             @if ($top->product->discount_type == 'percent')
@@ -29,6 +34,14 @@
                                                 -{{ webCurrencyConverter(amount: $top->product->discount) }}
                                             @endif
                                         </span>
+=======
+                                    <span class="for-discount-value p-1 pl-2 pr-2">
+                                        @if ($top->product->discount_type == 'percent')
+                                            {{round($top->product->discount)}}%
+                                        @elseif($top->product->discount_type =='flat')
+                                            {{ webCurrencyConverter(amount: $top->product->discount) }}
+                                        @endif {{translate('off')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </span>
                                     </div>
                                 @endif
@@ -58,7 +71,11 @@
                                                         @endif
                                                     @endfor
                                                     <label class="badge-style">
+<<<<<<< HEAD
                                                         ( {{ count($top->product['reviews']) }} )
+=======
+                                                        ( {{$top->product->reviews_count}} )
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </label>
                                                 </span>
                                             </div>

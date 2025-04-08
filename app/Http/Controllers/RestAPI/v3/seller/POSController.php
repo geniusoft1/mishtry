@@ -87,7 +87,11 @@ class POSController extends Controller
     public function get_product_by_barcode(Request $request)
     {
         $seller = $request->seller;
+<<<<<<< HEAD
         $product = Product::withCount('reviews')->where([
+=======
+        $product = Product::where([
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'added_by'=>'seller',
             'user_id'=>$seller->id,
             'code' => $request->code
@@ -106,7 +110,11 @@ class POSController extends Controller
         $seller = $request->seller;
         $search = $request['name'];
 
+<<<<<<< HEAD
         $products = Product::withCount('reviews')->where(['added_by' => 'seller', 'user_id' => $seller['id'], 'status'=>1])
+=======
+        $products = Product::where(['added_by' => 'seller', 'user_id' => $seller['id'], 'status'=>1])
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->when($request->has('category_id') && $request['category_id'] != 0, function ($query) use ($request) {
                 $category_ids = json_decode($request->category_id);
                 $query->where(function ($query) use ($category_ids) {
@@ -161,14 +169,22 @@ class POSController extends Controller
         {
             if(is_array($c))
             {
+<<<<<<< HEAD
                 $product = Product::withCount('reviews')->find($c['id']);
+=======
+                $product = Product::find($c['id']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                 $discount_on_product = 0;
                 $product_subtotal = ($c['price']) * $c['quantity'];
                 $discount_on_product += ($c['discount'] * $c['quantity']);
                 if($product)
                 {
+<<<<<<< HEAD
                     $tax = Helpers::tax_calculation(product: $product, price: $c['price'], tax: $product['tax'], tax_type: $product['tax_type']);
+=======
+                    $tax = Helpers::tax_calculation($c['price'], $product['tax'], $product['tax_type']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $price = $product['tax_model']=='include' ? $c['price']-$tax : $c['price'];
 
                     $or_d = [

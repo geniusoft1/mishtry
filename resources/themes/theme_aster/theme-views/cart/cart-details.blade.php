@@ -71,11 +71,17 @@
                                                     </a>
                                                 @else
                                                     <a href="{{route('shopView',['id'=>$cartItem->seller_id])}}">
+<<<<<<< HEAD
                                                         @if(get_shop_name($cartItem['seller_id']))
                                                             <h5>{{ get_shop_name($cartItem['seller_id']) }}</h5>
                                                         @else
                                                             <h5 class="text-danger">{{ translate('vendor_not_available') }}</h5>
                                                         @endif
+=======
+                                                        <h5>
+                                                            {{ get_shop_name($cartItem['seller_id']) }}
+                                                        </h5>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     </a>
                                                 @endif
                                                 @if ($verify_status['minimum_order_amount'] > $verify_status['amount'])
@@ -101,6 +107,7 @@
                                                     $shippings=Helpers::get_shipping_methods($cartItem['seller_id'],$cartItem['seller_is'])
                                                 @endphp
                                                 @if($physical_product && $shippingMethod=='sellerwise_shipping' && $shipping_type == 'order_wise')
+<<<<<<< HEAD
                                                     @if(count($shippings) > 0)
                                                         <div class="border bg-white rounded custom-ps-3">
                                                             <div class="shiiping-method-btn d-flex gap-2 p-2 flex-wrap">
@@ -138,6 +145,37 @@
                                                             {{ translate('shipping_Not_Available') }}
                                                         </span>
                                                     @endif
+=======
+                                                    <div class="border bg-white rounded custom-ps-3">
+                                                        <div class="shiiping-method-btn d-flex gap-2 p-2 flex-wrap">
+                                                            <div
+                                                                class="flex-middle flex-nowrap fw-semibold text-dark gap-2">
+                                                                <i class="bi bi-truck"></i>
+                                                                {{ translate('Shipping_Method') }}:
+                                                            </div>
+                                                            <div class="dropdown">
+                                                                <button type="button" class="border-0 bg-transparent d-flex gap-2 align-items-center dropdown-toggle text-dark p-0" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        <?php
+                                                                        $shippings_title = translate('choose_shipping_method');
+                                                                        foreach ($shippings as $shipping) {
+                                                                            if ($choosen_shipping['shipping_method_id'] == $shipping['id']) {
+                                                                                $shippings_title = ucfirst($shipping['title']) . ' ( ' . $shipping['duration'] . ' ) ' . Helpers::currency_converter($shipping['cost']);
+                                                                            }
+                                                                        }
+                                                                        ?>
+                                                                    {{ $shippings_title }}
+                                                                </button>
+                                                                <ul class="dropdown-menu dropdown-left-auto bs-dropdown-min-width--8rem">
+                                                                    @foreach($shippings as $shipping)
+                                                                        <li class="cursor-pointer set-shipping-id" data-id="{{$shipping['id']}}" data-cart-group="{{$cartItem['cart_group_id']}}">
+                                                                            {{$shipping['title'].' ( '.$shipping['duration'].' ) '.Helpers::currency_converter($shipping['cost'])}}
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 @endif
                                             @endif
                                         </div>
@@ -169,6 +207,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($group as $cart_key=>$cartItem)
+<<<<<<< HEAD
                                         @if($cartItem->allProducts)
                                             @php($product = $cartItem->allProducts)
                                         @else
@@ -199,6 +238,9 @@
                                             }
                                         ?>
 
+=======
+                                        @php($product = $cartItem->allProducts)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <tr>
                                             <td>
                                                 <div class="media align-items-center gap-3">
@@ -206,18 +248,30 @@
                                                         class="avatar avatar-xxl rounded border position-relative overflow-hidden">
                                                         <img alt="{{ translate('product') }}"
                                                             src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$cartItem['thumbnail'], type: 'product') }}"
+<<<<<<< HEAD
                                                             class="dark-support img-fit rounded img-fluid overflow-hidden {{ $cartItem->allProducts ? ($product->status == 0 ?'custom-cart-opacity-50':'') : 'custom-cart-opacity-50' }}">
 
                                                         @if ($checkProductStatus == 0)
+=======
+                                                            class="dark-support img-fit rounded img-fluid overflow-hidden {{ $product->status == 0?'blur-section':'' }}">
+
+                                                        @if ($product->status == 0)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                             <span class="temporary-closed position-absolute text-center p-2">
                                                                 <span class="text-capitalize">{{ translate('not_available') }}</span>
                                                             </span>
                                                         @endif
                                                     </div>
                                                     <div
+<<<<<<< HEAD
                                                         class="media-body d-flex gap-1 flex-column {{ $checkProductStatus == 0 ? 'custom-cart-opacity-50' : '' }}">
                                                         <h6 class="text-truncate text-capitalize width--20ch" >
                                                             <a href="{{ $checkProductStatus ? route('product', $cartItem['slug']):'javascript:' }}">{{$cartItem['name']}}</a>
+=======
+                                                        class="media-body d-flex gap-1 flex-column {{ $product->status == 0?'blur-section':'' }}">
+                                                        <h6 class="text-truncate text-capitalize width--20ch" >
+                                                            <a href="{{ $product->status == 1?route('product',$cartItem['slug']):'javascript:' }}">{{$cartItem['name']}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                         </h6>
                                                         @foreach(json_decode($cartItem['variations'],true) as $key1 =>$variation)
                                                             <div class="fs-12">{{$key1}} : {{$variation}}</div>
@@ -228,7 +282,11 @@
                                                 </div>
                                             </td>
                                             <td class="text-center">
+<<<<<<< HEAD
                                                 @if ($checkProductStatus == 1)
+=======
+                                                @if ($product->status == 1)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                     <div class="quantity quantity--style-two d-inline-flex">
                                                         <span
                                                             class="quantity__minus cart-qty-btn update-cart-quantity-list-cart-data"
@@ -293,7 +351,11 @@
                                     <div class="free-delivery-area px-3 mb-3">
                                         <div class="d-flex align-items-center gap-2">
                                             <img
+<<<<<<< HEAD
                                                 src="{{ dynamicAsset(path: 'public/assets/front-end/img/icons/free-shipping.png') }}"
+=======
+                                                src="{{ asset('public/assets/front-end/img/icons/free-shipping.png') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 alt="{{translate('image')}}" width="40">
                                             @if ($free_delivery_status['amount_need'] <= 0)
                                                 <span
@@ -316,6 +378,7 @@
                             </div>
                             <div class="d-flex flex-column d-sm-none">
                                 @foreach($group as $cart_key=>$cartItem)
+<<<<<<< HEAD
                                     @if($cartItem->allProducts)
                                         @php($product = $cartItem->allProducts)
                                     @endif
@@ -344,6 +407,9 @@
                                         }
                                     ?>
 
+=======
+                                    @php($product = $cartItem->allProducts)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <div
                                         class="border-bottom d-flex align-items-start justify-content-between gap-2 py-2">
                                         <div class="media gap-2">
@@ -351,6 +417,7 @@
                                                 class="avatar avatar-lg rounded border position-relative overflow-hidden">
                                                 <img
                                                     src="{{ getValidImage(path: 'storage/app/public/product/thumbnail/'.$cartItem['thumbnail'], type: 'product') }}"
+<<<<<<< HEAD
                                                     class="dark-support img-fit rounded img-fluid overflow-hidden {{ $checkProductStatus == 0 ? 'custom-cart-opacity-50' : '' }}"
                                                     alt="">
                                                 @if ($checkProductStatus == 0)
@@ -364,6 +431,19 @@
                                                     <a href="{{ $checkProductStatus ? route('product', $cartItem['slug']) : 'javascript:' }}">
                                                         {{ $cartItem['name'] }}
                                                     </a>
+=======
+                                                    class="dark-support img-fit rounded img-fluid overflow-hidden {{ $product->status == 0?'blur-section':'' }}"
+                                                    alt="">
+                                                @if ($product->status == 0)
+                                                    <span class="temporary-closed position-absolute text-center p-2">
+                                                <span>{{ translate('N/A') }}</span>
+                                            </span>
+                                                @endif
+                                            </div>
+                                            <div class="media-body d-flex gap-1 flex-column {{ $product->status == 0?'blur-section':'' }}">
+                                                <h6 class="text-truncate text-capitalize width--20ch">
+                                                    <a href="{{route('product',$cartItem['slug'])}}">{{$cartItem['name']}}</a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </h6>
                                                 @foreach(json_decode($cartItem['variations'],true) as $key1 =>$variation)
                                                     <div class="fs-12">{{$key1}} : {{$variation}}</div>
@@ -382,7 +462,11 @@
                                         </div>
 
                                         <div class="quantity quantity--style-two flex-column d-inline-flex">
+<<<<<<< HEAD
                                             @if ($checkProductStatus == 1)
+=======
+                                            @if ($product->status == 1)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 <span class="quantity__minus update-cart-quantity-mobile-list-cart-data"
                                                       data-min-order="{{ $product->minimum_order_qty }}"
                                                       data-prevent=true
@@ -430,7 +514,11 @@
                                     <div class="free-delivery-area px-3 mb-3">
                                         <div class="d-flex align-items-center gap-3">
                                             <img
+<<<<<<< HEAD
                                                 src="{{ dynamicAsset(path: 'public/assets/front-end/img/icons/free-shipping.png') }}"
+=======
+                                                src="{{ asset('public/assets/front-end/img/icons/free-shipping.png') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 alt="" width="40">
                                             @if ($free_delivery_status['amount_need'] <= 0)
                                                 <span

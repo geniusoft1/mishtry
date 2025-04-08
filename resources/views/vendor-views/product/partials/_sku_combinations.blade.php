@@ -69,6 +69,7 @@
                     </td>
                     <td>
                         <input type="number" name="price_{{ $str }}" value="{{ $unitPrice }}" min="0" step="0.01"
+<<<<<<< HEAD
                                class="form-control variation-price-input remove-symbol" required
                                placeholder="{{ translate('ex').': 100' }}">
                     </td>
@@ -80,6 +81,19 @@
                         <input type="number" name="qty_{{ $str }}" value="1" min="1"
                                max="1000000" step="1" class="form-control remove-symbol" required
                                placeholder="{{ translate('ex').': 5' }}">
+=======
+                               class="form-control variation-price-input" required
+                               placeholder="{{ translate('ex') }}: 535">
+                    </td>
+                    <td>
+                        <input type="text" name="sku_{{ $str }}" value="{{ $sku }}" class="form-control" required
+                               placeholder="{{ translate('ex') }}: MCU47V593M">
+                    </td>
+                    <td>
+                        <input type="number" name="qty_{{ $str }}" value="1" min="1"
+                               max="1000000" step="1" class="form-control" required
+                               placeholder="{{ translate('ex') }}: 5">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     </td>
                 </tr>
             @endif

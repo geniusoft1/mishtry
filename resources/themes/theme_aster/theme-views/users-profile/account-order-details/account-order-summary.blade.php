@@ -172,6 +172,7 @@
                                                             <div class="d-flex justify-content-center gap-2">
                                                                 @if($order->order_type == 'default_type')
                                                                     @if($order->order_status=='delivered')
+<<<<<<< HEAD
                                                                         <button class="btn btn-primary rounded-pill text-nowrap"
                                                                                 data-bs-toggle="modal"
                                                                                 data-bs-target="#reviewModal{{$detail->id}}">
@@ -181,6 +182,11 @@
                                                                                 {{ translate('review') }}
                                                                             @endif
                                                                         </button>
+=======
+                                                                        <button class="btn btn-primary rounded-pill"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#reviewModal{{$detail->id}}">{{translate('review')}}</button>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                                         @include('theme-views.layouts.partials.modal._review',['id'=>$detail->id,'order_details'=>$detail,])
                                                                         @if($detail->refund_request !=0)
                                                                             <a class="btn btn-outline-primary rounded-pill text-nowrap text-capitalize"

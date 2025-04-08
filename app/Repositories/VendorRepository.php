@@ -56,6 +56,7 @@ class VendorRepository implements VendorRepositoryInterface
     public function getListWhere(array $orderBy=[], string $searchValue = null, array $filters = [], array $relations = [], int|string $dataLimit = DEFAULT_DATA_LIMIT, int $offset = null):  Collection|LengthAwarePaginator
     {
         $query = $this->vendor->where($filters)->with($relations)
+<<<<<<< HEAD
             ->when($searchValue, function ($query) use ($searchValue) {
                 $searchTerms = explode(' ', $searchValue);
                 $query->where(function ($query) use ($searchTerms) {
@@ -69,6 +70,16 @@ class VendorRepository implements VendorRepositoryInterface
                             });
                     }
                 });
+=======
+            ->when($searchValue, function ($query) use($searchValue){
+                $query->orWhere('f_name', 'like', "%$searchValue%")
+                    ->orWhere('l_name', 'like', "%$searchValue%")
+                    ->orWhere('phone', 'like', "%$searchValue%")
+                    ->orWhere('email', 'like', "%$searchValue%")
+                    ->orWhereHas('shop', function ($query) use($searchValue) {
+                        $query->where('name', 'like', "%$searchValue%");
+                    });
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             })
             ->when(!empty($relations) && in_array('product', $relations), function ($query) {
                 $query->withCount('product');

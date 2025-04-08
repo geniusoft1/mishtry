@@ -85,6 +85,10 @@ trait PushNotificationTrait
 
             /** end delivery man*/
         } catch (\Exception $e) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
     }
 
@@ -125,7 +129,11 @@ trait PushNotificationTrait
         }
 
     }
+<<<<<<< HEAD
     protected function withdrawStatusUpdateNotification(string $key,string $type,string $lang, int $status ,string $fcmToken):void
+=======
+    protected function withdrawStatusUpdateNotification(string $key,string $type,string $lang, int $status ,$fcmToken):void
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $value = $this->pushNotificationMessage($key,$type, $lang);
         if ($value != null) {
@@ -138,6 +146,7 @@ trait PushNotificationTrait
             $this->sendPushNotificationToDevice($fcmToken, $data);
         }
     }
+<<<<<<< HEAD
     protected function customerStatusUpdateNotification(string $key,string $type,string $lang, string $status ,string $fcmToken):void
     {
         $value = $this->pushNotificationMessage($key,$type, $lang);
@@ -164,6 +173,8 @@ trait PushNotificationTrait
             $this->sendPushNotificationToDevice($fcmToken, $data);
         }
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     protected function cashCollectNotification(string $key,string $type,string $lang,float $amount,string $fcmToken):void
     {
         $value = $this->pushNotificationMessage($key, $type, $lang);
@@ -232,10 +243,13 @@ trait PushNotificationTrait
                 'cash_collect_by_admin_message' => 'cash_collect_by_admin_message',
                 'fund_added_by_admin_message' => 'fund_added_by_admin_message',
                 'delivery_man_charge' => 'delivery_man_charge',
+<<<<<<< HEAD
                 'product_request_approved_message' => 'product_request_approved_message',
                 'product_request_rejected_message' => 'product_request_rejected_message',
                 'customer_block_message' => 'customer_block_message',
                 'customer_unblock_message' => 'customer_unblock_message',
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ];
             $data = NotificationMessage::with(['translations' => function ($query) use ($lang) {
                 $query->where('locale', $lang);
@@ -268,7 +282,11 @@ trait PushNotificationTrait
             "content-type: application/json"
         );
 
+<<<<<<< HEAD
         if (isset($data['order_id']) == false) {
+=======
+        if (isset($data['order_id']) === false) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $data['order_id'] = null;
         }
 

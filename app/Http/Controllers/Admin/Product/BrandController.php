@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Contracts\Repositories\BrandRepositoryInterface;
+<<<<<<< HEAD
 use App\Contracts\Repositories\ProductRepositoryInterface;
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 use App\Contracts\Repositories\TranslationRepositoryInterface;
 use App\Enums\ExportFileNames\Admin\Brand as BrandExport;
 use App\Enums\ViewPaths\Admin\Brand;
@@ -26,7 +29,10 @@ class BrandController extends BaseController
 {
     public function __construct(
         private readonly BrandRepositoryInterface           $brandRepo,
+<<<<<<< HEAD
         private readonly ProductRepositoryInterface           $productRepo,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         private readonly TranslationRepositoryInterface     $translationRepo,
     )
     {
@@ -45,7 +51,11 @@ class BrandController extends BaseController
 
     public function getList(Request $request): Application|Factory|View
     {
+<<<<<<< HEAD
         $brands = $this->brandRepo->getListWhere(orderBy:['id'=>'desc'],searchValue:$request->get('searchValue'), dataLimit: getWebConfig(name: 'pagination_limit'));
+=======
+        $brands = $this->brandRepo->getListWhere(searchValue:$request->get('searchValue'), dataLimit: getWebConfig(name: 'pagination_limit'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return view(Brand::LIST[VIEW], compact('brands'));
     }
 
@@ -56,7 +66,11 @@ class BrandController extends BaseController
         return view(Brand::ADD[VIEW], compact( 'language', 'defaultLanguage'));
     }
 
+<<<<<<< HEAD
     public function getUpdateView(string|int $id): View|RedirectResponse
+=======
+    public function getUpdateView(string|int $id): View
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     {
         $brand = $this->brandRepo->getFirstWhere(params:['id'=>$id], relations: ['translations']);
         $language = getWebConfig(name: 'pnc_language') ?? null;
@@ -73,15 +87,24 @@ class BrandController extends BaseController
         return response()->json(['success' => 1, 'message' => translate('status_updated_successfully')], 200);
     }
 
+<<<<<<< HEAD
     public function delete(Request $request, BrandService $brandService): RedirectResponse
     {
         $this->productRepo->updateByParams(params:['brand_id'=>$request['id']],data:['brand_id' =>$request['brand_id'],'sub_category_id'=>null,'sub_sub_category_id'=>null]);
+=======
+    public function delete(Request $request, BrandService $brandService): JsonResponse
+    {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $brand = $this->brandRepo->getFirstWhere(params:['id'=>$request['id']]);
         $brandService->deleteImage(data:$brand);
         $this->translationRepo->delete(model:'App\Models\Brand', id:$request['id']);
         $this->brandRepo->delete(params: ['id'=>$request['id']]);
+<<<<<<< HEAD
         Toastr::success(translate('brand_deleted_successfully'));
         return redirect()->back();
+=======
+        return response()->json(['message' => translate('brand_deleted_successfully')], 200);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
 
@@ -92,7 +115,11 @@ class BrandController extends BaseController
         $this->translationRepo->add(request:$request, model:'App\Models\Brand', id:$savedAttributes->id);
 
         Toastr::success(translate('brand_added_successfully'));
+<<<<<<< HEAD
         return redirect()->route('admin.brand.list');
+=======
+        return back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function update(BrandUpdateRequest $request, $id, BrandService $brandService): RedirectResponse
@@ -103,7 +130,11 @@ class BrandController extends BaseController
         $this->translationRepo->update(request:$request, model:'App\Models\Brand', id:$request['id']);
 
         Toastr::success(translate('brand_updated_successfully'));
+<<<<<<< HEAD
         return redirect()->route('admin.brand.list');
+=======
+        return back();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function exportList(Request $request): BinaryFileResponse

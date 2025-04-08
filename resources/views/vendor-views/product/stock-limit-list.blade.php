@@ -47,6 +47,7 @@
                                 <select name="qty_order_sort" class="form-control action-select-onchange-get-view"
                                         data-url-prefix="{{ route('vendor.products.stock-limit-list') }}/?sortOrderQty=">
                                     <option value="default" {{ $sortOrderQty== "default"?'selected':''}}>
+<<<<<<< HEAD
                                         {{ translate('default') }}
                                     </option>
                                     <option value="quantity_asc" {{ $sortOrderQty== "quantity_asc"?'selected':''}}>
@@ -60,6 +61,21 @@
                                     </option>
                                     <option value="order_desc" {{ $sortOrderQty== "order_desc"?'selected':''}}>
                                         {{ translate('order_volume(high_to_low)') }}
+=======
+                                        {{ translate('default_sort') }}
+                                    </option>
+                                    <option value="quantity_asc" {{ $sortOrderQty== "quantity_asc"?'selected':''}}>
+                                        {{ translate('quantity_sort_by_(low_to_high)') }}
+                                    </option>
+                                    <option value="quantity_desc" {{ $sortOrderQty== "quantity_desc"?'selected':''}}>
+                                        {{ translate('quantity_sort_by_(high_to_low)') }}
+                                    </option>
+                                    <option value="order_asc" {{ $sortOrderQty== "order_asc"?'selected':''}}>
+                                        {{ translate('order_sort_by_(low_to_high)') }}
+                                    </option>
+                                    <option value="order_desc" {{ $sortOrderQty== "order_desc"?'selected':''}}>
+                                        {{ translate('order_sort_by_(high_to_low)') }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </option>
                                 </select>
                             </div>
@@ -74,7 +90,12 @@
                                 <tr>
                                     <th>{{ translate('SL') }}</th>
                                     <th>{{ translate('product_Name') }}</th>
+<<<<<<< HEAD
                                     <th>{{ translate('unit_price') }}</th>
+=======
+                                    <th>{{ translate('product_Type') }}</th>
+                                    <th>{{ translate('selling_price') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <th>{{ translate('verify_status') }}</th>
                                     <th class="text-center">{{ translate('active_Status') }}</th>
                                     <th class="text-center">{{ translate('quantity') }}</th>
@@ -90,13 +111,21 @@
                                            class="media align-items-center gap-2">
                                             <img
                                                 src="{{ productImagePath(type: 'thumbnail') }}/{{ $product['thumbnail']}}"
+<<<<<<< HEAD
                                                 data-onerror="{{ dynamicAsset(path: '/public/assets/back-end/img/brand-logo.png') }}"
+=======
+                                                data-onerror="{{ asset('/public/assets/back-end/img/brand-logo.png') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 class="avatar border onerror-image" alt="">
                                             <span class="media-body title-color hover-c1">
                                                 {{ Str::limit($product['name'], 20) }}
                                             </span>
                                         </a>
                                     </td>
+<<<<<<< HEAD
+=======
+                                    <td>{{ ucfirst($product['product_type']) }}</td>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     <td>
                                         {{ setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product['unit_price']), currencyCode: getCurrencyCode()) }}
                                     </td>
@@ -170,7 +199,11 @@
                     @if(count($products)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="Image Description">
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>

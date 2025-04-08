@@ -50,7 +50,10 @@
                                                     <input type="password" minlength="6" id="password" class="form-control" name="password" placeholder="{{translate('ex').':'.'7+'.translate('character')}}">
                                                     <i class="bi bi-eye-slash-fill togglePassword"></i>
                                                 </div>
+<<<<<<< HEAD
                                                 <span class="text-danger mx-1 password-error"></span>
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
@@ -101,7 +104,11 @@
         </div>
     </main>
 @endsection
+<<<<<<< HEAD
 @push('script')
     <script src="{{theme_asset('assets/js/password-strength.js')}}"></script>
 @endpush
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 

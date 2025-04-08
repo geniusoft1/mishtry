@@ -12,7 +12,10 @@
     $('.stopPropagation').on('click', function (e) {
         e.stopPropagation();
     })
+<<<<<<< HEAD
     $('[data-toggle="tooltip"]').tooltip()
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 })(jQuery);
 
 $(document).ready(function() {
@@ -31,8 +34,11 @@ $(document).ready(function() {
             }
         });
     }
+<<<<<<< HEAD
 
     getReferralCodeFromURL()
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 });
 
 toastr.options = {
@@ -100,7 +106,10 @@ function getReferralCodeFromURL() {
         if (referralCodeParameter) {
             let referralCodeInput = $('#referral_code');
             if ($('#is-request-customer-auth-sign-up').data('value'))
+<<<<<<< HEAD
                 console.log(referralCodeInput.length)
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 if (referralCodeInput.length) {
                     referralCodeInput.val(referralCodeParameter);
                 } else {
@@ -110,6 +119,10 @@ function getReferralCodeFromURL() {
         }
     }
 }
+<<<<<<< HEAD
+=======
+getReferralCodeFromURL();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 $('.web-announcement-slideUp').on('click', function () {
     $('#announcement').slideUp(300);
@@ -461,6 +474,7 @@ $('.rating-label-wrap input[type=range]').on('change', function () {
     let ratingContent = $('.rating_content_delivery_man');
     let rattingTextAreaClass = $('.text-area-class');
     let rattingMessages = $('#message-ratingContent');
+<<<<<<< HEAD
     let htmlDir = $('#system-session-direction').data('value');
     let position = 'left';
     if (htmlDir === 'rtl') {
@@ -485,6 +499,27 @@ $('.rating-label-wrap input[type=range]').on('change', function () {
             break;
         case "5":
             ratingContent.text(rattingMessages.data('excellent')).css(position, '155px');
+=======
+    switch (ratingVal) {
+        case "1":
+            ratingContent.text(rattingMessages.data('poor')).css('left', '5px');
+            rattingTextAreaClass.attr("placeholder", "");
+            break;
+        case "2":
+            ratingContent.text(rattingMessages.data('average')).css('left', '36px');
+            rattingTextAreaClass.attr("placeholder", "");
+            break;
+        case "3":
+            ratingContent.text(rattingMessages.data('good')).css('left', '85px');
+            rattingTextAreaClass.attr("placeholder", rattingMessages.data('good-message'));
+            break;
+        case "4":
+            ratingContent.text(rattingMessages.data('good2')).css('left', '112px');
+            rattingTextAreaClass.attr("placeholder", rattingMessages.data('good2-message'));
+            break;
+        case "5":
+            ratingContent.text(rattingMessages.data('excellent')).css('left', '155px');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             rattingTextAreaClass.attr("placeholder", rattingMessages.data('excellent-message'));
             break;
         default:
@@ -499,9 +534,21 @@ $('#add_fund_to_wallet_form_btn').on('click', function(){
 })
 
 $('#add-fund-amount-input').on('keyup', function(){
+<<<<<<< HEAD
     if (!isNaN($(this).val()) && $(this).val() < 0) {
         $(this).val(0);
         toastr.error($('#message-cannot-input-minus-value').data('text'));
+=======
+    if($(this).val() == ''){
+        $('#add-fund-list-area').slideUp();
+    }else{
+        if (!isNaN($(this).val()) && $(this).val() < 0) {
+            $(this).val(0);
+            toastr.error($('#message-cannot-input-minus-value').data('text'));
+        } else {
+            $('#add-fund-list-area').slideDown();
+        }
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 })
 
@@ -543,6 +590,7 @@ $("#customer-login-form").on('submit', function (e) {
 })
 
 $("#customer-register-form").on('submit', function (e) {
+<<<<<<< HEAD
     e.preventDefault();
     $.ajax({
         type: "POST",
@@ -596,6 +644,18 @@ $('.remove-img-row-by-key').on('click', function () {
             $('.img_row' + key).remove();
         },
     });
+=======
+    var response = grecaptcha.getResponse();
+    if (response.length === 0) {
+        e.preventDefault();
+        toastr.error($('#message-please-check-recaptcha').data('text'));
+    }
+})
+
+$('.remove-img-row-by-key').on('click', function(){
+    let key = $(this).data('key');
+    $('.img_row' + key).remove();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 })
 
 $('.customer-account-delete-by-route').on('click', function () {
@@ -616,6 +676,7 @@ function showInstantImage(link) {
     $('#show-modal-view').modal('toggle')
 }
 
+<<<<<<< HEAD
 function couponCode() {
     $('#apply-coupon-code').on('click', function (){
         $.ajaxSetup({
@@ -657,6 +718,49 @@ function couponCode() {
 }
 
 couponCode()
+=======
+$('#apply-coupon-code').on('click', function (){
+    couponCode();
+})
+
+function couponCode() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+        }
+    });
+    $.ajax({
+        type: "POST",
+        url: $('#route-coupon-apply').data('url'),
+        data: $('#coupon-code-ajax').serializeArray(),
+        success: function (data) {
+            let messages = data.messages;
+            if (data.status) {
+                messages.forEach(
+                    function (message, index) {
+                        toastr.success(message, index, {
+                            CloseButton: true,
+                            ProgressBar: true
+                        });
+                    }
+                );
+            } else {
+                messages.forEach(
+                    function (message, index) {
+                        toastr.error(message, index, {
+                            CloseButton: true,
+                            ProgressBar: true
+                        });
+                    }
+                );
+            }
+            setTimeout(function () {
+                location.reload();
+            }, 2000);
+        }
+    });
+}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 $('.password-toggle-btn').on('click',function(){
     let checkbox = $(this).find('input[type=checkbox]');
@@ -748,9 +852,12 @@ $(".search-bar-input-mobile").keyup(function () {
             },
             success: function (data) {
                 $('.search-result-box').empty().html(data.result)
+<<<<<<< HEAD
                 $('.search-result-product').on('mouseover', function (){
                     $(".search-bar-input-mobile").val($(this).data('product-name'))
                 })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             },
             complete: function () {
                 $('#loading').hide();
@@ -776,9 +883,12 @@ $(".search-bar-input").keyup(function () {
             },
             success: function (data) {
                 $('.search-result-box').empty().html(data.result)
+<<<<<<< HEAD
                 $('.search-result-product').on('mouseover', function (){
                     $(".search-bar-input").val($(this).data('product-name'))
                 })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             },
             complete: function () {
                 $('#loading').hide();
@@ -886,10 +996,16 @@ function productQuickView(product_id) {
             $('#loading').show();
         },
         success: function (data) {
+<<<<<<< HEAD
             $('#quick-view-modal').empty().html(data.view);
             renderOwlCarouselSilder()
             commonFunctionalityForProductView();
             $('#quick-view').modal('show')
+=======
+            $('#quick-view').modal('show');
+            $('#quick-view-modal').empty().html(data.view);
+            commonFunctionalityForProductView();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         },
         complete: function () {
             $('#loading').hide();
@@ -930,12 +1046,18 @@ $('.minimum-order-amount-message').on('click', function() {
 
 function productQuickViewFunctionalityInitialize() {
     cartQuantityInitialize();
+<<<<<<< HEAD
     console.log('Called from 875');
     getVariantPrice();
     $('#add-to-cart-form input').on('change', function () {
         console.log('Called from 878');
         getVariantPrice();
 
+=======
+    getVariantPrice();
+    $('#add-to-cart-form input').on('change', function () {
+        getVariantPrice();
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     });
 
     $(document).ready(function () {
@@ -960,6 +1082,7 @@ function addToCart(form_id = 'add-to-cart-form', redirect_to_checkout=false) {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
             }
         });
+<<<<<<< HEAD
 
         let existCartItem = $('.in_cart_key[name="key"]').val();
 
@@ -970,6 +1093,10 @@ function addToCart(form_id = 'add-to-cart-form', redirect_to_checkout=false) {
 
         $.post({
             url: formActionUrl,
+=======
+        $.post({
+            url: $('#route-cart-add').data('url'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             data: $('#' + form_id).serializeArray(),
             beforeSend: function () {
                 $('#loading').show();
@@ -982,11 +1109,14 @@ function addToCart(form_id = 'add-to-cart-form', redirect_to_checkout=false) {
                         CloseButton: true,
                         ProgressBar: true
                     });
+<<<<<<< HEAD
 
                     let actionAddToCartBtn = $('.action-add-to-cart-form');
                     $('.in_cart_key[name="key"]').val(response.in_cart_key);
                     actionAddToCartBtn.html(actionAddToCartBtn.data('update-text'))
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     $('.call-when-done').click();
                     if(redirect_to_checkout) {
                         location.href = $('#route-checkout-details').data('url');
@@ -1039,6 +1169,7 @@ function checkoutFromCartList() {
         beforeSend: function () {
             $('#loading').show();
         },
+<<<<<<< HEAD
         success: function (response) {
             if(response.status === 0) {
                 response.message.map(function (message) {
@@ -1047,6 +1178,10 @@ function checkoutFromCartList() {
             }else{
                 location.href = response.redirect ? response.redirect : $('#route-checkout-details').data('url');
             }
+=======
+        success: function (data) {
+            location.href = $('#route-checkout-details').data('url');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         },
         complete: function () {
             $('#loading').hide();
@@ -1061,6 +1196,10 @@ function orderSummaryStickyFunction()
     $(window).on('scroll', function () {
         const elementOffset = offsetElement.offset().top;
         const scrollTop = $(window).scrollTop();
+<<<<<<< HEAD
+=======
+        console.log("scrollTop:", scrollTop, "elementOffset:", elementOffset);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if (scrollTop >= elementOffset) {
             stickyElement.addClass('stick');
         } else {
@@ -1116,6 +1255,10 @@ cartListQuantityUpdateInit()
 function actionCheckoutFunctionInit() {
     $('.action-checkout-function').on('click', function (){
         let getRoute = $('#route-action-checkout-function').data('route');
+<<<<<<< HEAD
+=======
+        console.log(getRoute)
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if (getRoute && getRoute.toString() === "shop-cart") {
             checkoutFromCartList()
         }else if(getRoute && getRoute.toString() === "checkout-details") {
@@ -1124,12 +1267,15 @@ function actionCheckoutFunctionInit() {
             checkoutFromPayment()
         }
     })
+<<<<<<< HEAD
 
     $('.action-set-shipping-id').on('change', function (){
         let cartGroupId = $(this).data('product-id');
         let id = $(this).val();
         setShippingId(id, cartGroupId)
     })
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 }
 
 actionCheckoutFunctionInit()
@@ -1142,7 +1288,10 @@ function removeFromCart(key) {
         $('#cod-for-cart').hide();
         updateNavCart();
         $('#cart-summary').empty().html(response.data);
+<<<<<<< HEAD
         couponCode()
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         toastr.info($('#message-item-has-been-removed-from-cart').data('text'), {
             CloseButton: true,
             ProgressBar: true
@@ -1256,7 +1405,10 @@ function updateQuantity(key, element) {
     }, function (data) {
         updateNavCart();
         $('#cart-summary').empty().html(data);
+<<<<<<< HEAD
         couponCode()
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     });
 }
 
@@ -1322,7 +1474,10 @@ function updateCartQuantity(cart_id, product_id, action, event) {
                     } else {
                         toastr.success(response["message"]);
                     }
+<<<<<<< HEAD
                     $('.in_cart_key[name="key"]').val(response.in_cart_key);
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                     response["qty"] <= 1
                         ? $(`.quantity__minus${cart_id}`).html(
                             '<i class="tio-delete-outlined text-danger fs-10"></i>'
@@ -1356,7 +1511,11 @@ function updateCartQuantity(cart_id, product_id, action, event) {
                         $('.amount_need_to_fullfill').removeClass('d-none');
                     }
                     const progressBar = document.querySelector('.progress-bar');
+<<<<<<< HEAD
                     if(progressBar) {
+=======
+                    if (progressBar) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         progressBar.style.width = response.free_delivery_status.percentage + '%';
                     }
                     if (response["qty"] == cart_quantity_of.data("min")) {
@@ -1389,7 +1548,11 @@ $('#add-to-cart-form input').on('change', function () {
 });
 
 function getVariantPrice() {
+<<<<<<< HEAD
     if (($('#add-to-cart-form input[name=quantity]').val() > 0 && checkAddToCartValidity()) || ($('#add-to-cart-form input[name=quantity]').val() > 0 && checkAddToCartValidity())) {
+=======
+    if ($('#add-to-cart-form input[name=quantity]').val() > 0 && checkAddToCartValidity()) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
@@ -1403,6 +1566,7 @@ function getVariantPrice() {
                 $('#add-to-cart-form #chosen_price_div').removeClass('d-none');
                 $('#add-to-cart-form #chosen_price_div #chosen_price').html(data.price);
                 $('#chosen_price_mobile').html(data.price);
+<<<<<<< HEAD
                 $('#set-tax-amount-mobile').html(data.update_tax);
                 $('#set-tax-amount').html(data.update_tax);
                 $('#set-discount-amount').html(data.discount);
@@ -1431,6 +1595,13 @@ function getVariantPrice() {
                     $('.in_cart_key[name="key"]').val(data.in_cart_key);
                     actionAddToCartBtn.html(actionAddToCartBtn.data('add-text'))
                 }
+=======
+                $('#set-tax-amount-mobile').html(data.tax);
+                $('#set-tax-amount').html(data.tax);
+                $('#set-discount-amount').html(data.discount);
+                $('#available-quantity').html(data.quantity);
+                $('.cart-qty-field').attr('max', data.quantity);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
         });
     }
@@ -1478,6 +1649,7 @@ $('#vendor-remember-input-checked').on('change', function () {
     }
 })
 
+<<<<<<< HEAD
 $('#exampleInputPassword, #exampleRepeatPassword').on('keyup', function () {
     let password = $("#exampleInputPassword").val();
     let passwordRepeat = $("#exampleRepeatPassword").val();
@@ -1661,3 +1833,15 @@ $('.password-check').on('keyup keypress change click', function () {
             passwordError.addClass('d-none').empty();
     }
 });
+=======
+$('#exampleInputPassword ,#exampleRepeatPassword').on('keyup',function () {
+    let password = $("#exampleInputPassword").val();
+    let passwordRepeat = $("#exampleRepeatPassword").val();
+    if (password && passwordRepeat && password.toString() === passwordRepeat.toString()){
+        $('.pass').hide();
+    }
+    else{
+        $('.pass').show();
+    }
+})
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

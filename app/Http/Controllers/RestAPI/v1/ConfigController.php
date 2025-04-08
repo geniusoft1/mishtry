@@ -49,7 +49,11 @@ class ConfigController extends Controller
         if($offline_payment_status){
             $offline_payment = [
                 'name' => 'offline_payment',
+<<<<<<< HEAD
                 'image' => dynamicAsset(path: 'public/assets/back-end/img/pay-offline.png'),
+=======
+                'image' => asset('public/assets/back-end/img/pay-offline.png'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ];
         }
 
@@ -74,10 +78,14 @@ class ConfigController extends Controller
         $admin_shipping = ShippingType::where('seller_id',0)->first();
         $shipping_type = isset($admin_shipping)==true?$admin_shipping->shipping_type:'order_wise';
 
+<<<<<<< HEAD
         $company_logo = dynamicStorage(path: "storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_web_logo'])->first()->value;
         $company_fav_icon = dynamicStorage(path: "storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_fav_icon'])->first()->value;
         $companyShopBanner = getWebConfig(name: 'shop_banner');
         $company_cover_image = dynamicStorage(path: "storage/app/public/logo/").'/'.$companyShopBanner;
+=======
+        $company_logo = asset("storage/app/public/company/").'/'.BusinessSetting::where(['type'=>'company_web_logo'])->first()->value;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         return response()->json([
             'brand_setting' => BusinessSetting::where('type', 'product_brand')->first()->value,
@@ -90,14 +98,18 @@ class ConfigController extends Controller
             'company_phone' => Helpers::get_business_settings('company_phone'),
             'company_email' => Helpers::get_business_settings('company_email'),
             'company_logo' => $company_logo,
+<<<<<<< HEAD
             'company_cover_image' => $company_cover_image,
             'company_name' => getWebConfig(name: 'company_name'),
             'company_fav_icon' => $company_fav_icon,
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'delivery_country_restriction' => Helpers::get_business_settings('delivery_country_restriction'),
             'delivery_zip_code_area_restriction' => Helpers::get_business_settings('delivery_zip_code_area_restriction'),
             'base_urls' => [
                 'product_image_url' => ProductManager::product_image_path('product'),
                 'product_thumbnail_url' => ProductManager::product_image_path('thumbnail'),
+<<<<<<< HEAD
                 'digital_product_url' => dynamicStorage(path: 'storage/app/public/product/digital-product'),
                 'brand_image_url' => dynamicStorage(path: 'storage/app/public/brand'),
                 'customer_image_url' => dynamicStorage(path: 'storage/app/public/profile'),
@@ -110,6 +122,20 @@ class ConfigController extends Controller
                 'delivery_man_image_url' => dynamicStorage(path: 'storage/app/public/delivery-man'),
                 'support_ticket_image_url' => dynamicStorage(path: 'storage/app/public/support-ticket'),
                 'chatting_image_url' => dynamicStorage(path: 'storage/app/public/chatting'),
+=======
+                'digital_product_url' => asset('storage/app/public/product/digital-product'),
+                'brand_image_url' => asset('storage/app/public/brand'),
+                'customer_image_url' => asset('storage/app/public/profile'),
+                'banner_image_url' => asset('storage/app/public/banner'),
+                'category_image_url' => asset('storage/app/public/category'),
+                'review_image_url' => asset('storage/app/public'),
+                'seller_image_url' => asset('storage/app/public/seller'),
+                'shop_image_url' => asset('storage/app/public/shop'),
+                'notification_image_url' => asset('storage/app/public/notification'),
+                'delivery_man_image_url' => asset('storage/app/public/delivery-man'),
+                'support_ticket_image_url' => asset('storage/app/public/support-ticket'),
+                'chatting_image_url' => asset('storage/app/public/chatting'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ],
             'static_urls' => [
                 'contact_us' => route('contacts'),
@@ -151,7 +177,11 @@ class ConfigController extends Controller
             'loyalty_point_minimum_point'=>Helpers::get_business_settings('loyalty_point_minimum_point'),
             'payment_methods' => $payment_methods,
             'offline_payment' => $offline_payment,
+<<<<<<< HEAD
             'payment_method_image_path' => dynamicStorage(path: 'storage/app/public/payment_modules/gateway_image'),
+=======
+            'payment_method_image_path' => asset('storage/app/public/payment_modules/gateway_image'),
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             'ref_earning_status' => BusinessSetting::where('type', 'ref_earning_status')->first()->value ?? 0,
             'active_theme' => theme_root_path(),
             'popular_tags'=>Tag::orderBy('visit_count', 'desc')->take(15)->get(),

@@ -68,6 +68,10 @@ class SellerListExport implements FromView, ShouldAutoSize, WithStyles,WithColum
     }
     public function setImage($workSheet) {
         $this->data['sellers']->each(function($item,$index) use($workSheet) {
+<<<<<<< HEAD
+=======
+            // dd(storage_path('app/public/shop/'.$item->image));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $drawing = new Drawing();
             $drawing->setName($item->f_name);
             $drawing->setDescription($item->f_name);

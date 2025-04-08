@@ -44,10 +44,13 @@ enum DeliveryMan
         URI => 'order-wise-earning',
         VIEW => 'admin-views.delivery-man.earning-statement.earning'
     ];
+<<<<<<< HEAD
     const ORDER_WISE_EARNING_LIST_BY_FILTER = [
         URI => 'order-list-by-filer',
         VIEW => 'admin-views.delivery-man.earning-statement._table'
     ];
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     const ORDER_HISTORY_LOG = [
         URI => 'order-history-log',

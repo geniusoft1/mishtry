@@ -6,7 +6,11 @@
     <div class="content container-fluid">
         <div class="d-flex justify-content-between align-items-center gap-3 mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/business-setup.png') }}" alt="">
+=======
+                <img src="{{ asset('public/assets/back-end/img/business-setup.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{ translate('business_Setup') }}
             </h2>
 
@@ -22,7 +26,11 @@
 
                 <div class="dropdown-menu dropdown-menu-right bg-aliceblue border border-color-primary-light p-4 dropdown-w-lg">
                     <div class="d-flex align-items-center gap-2 mb-3">
+<<<<<<< HEAD
                         <img width="20" src="{{ dynamicAsset(path: 'public/assets/back-end/img/note.png') }}" alt="">
+=======
+                        <img width="20" src="{{ asset('public/assets/back-end/img/note.png') }}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <h5 class="text-primary mb-0">{{ translate('note') }}</h5>
                     </div>
                     <p class="title-color font-weight-medium mb-0">{{ translate('please_click_the_Save_button_below_to_save_all_the_changes') }}</p>
@@ -30,6 +38,11 @@
             </div>
         </div>
 
+<<<<<<< HEAD
+=======
+        @include('admin-views.business-settings.business-setup-inline-menu')
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <div class="card mb-3">
             <div class="card-body">
                 <form action="{{route('admin.product-settings.inhouse-shop-temporary-close') }}" method="post"

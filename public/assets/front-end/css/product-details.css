@@ -225,6 +225,15 @@ figure {
     font-size: 22px !important;
 }
 
+<<<<<<< HEAD
+=======
+.text-muted {
+    font-weight: 600;
+    font-size: 20px;
+    color: #6a6a6a !important;
+}
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 .list-unstyled li {
     font-weight: 700;
     font-size: 20px;

@@ -85,7 +85,11 @@ class LoginController extends Controller
                 ]);
             } catch (\Exception $exception) {}
         } else {
+<<<<<<< HEAD
             if (strtolower($request['default_recaptcha_id_customer_login']) != strtolower(Session('default_recaptcha_id_customer_login'))) {
+=======
+            if (strtolower($request->default_recaptcha_id_customer_login) != strtolower(Session('default_recaptcha_id_customer_login'))) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 if($request->ajax()) {
                     return response()->json([
                         'status'=>'error',
@@ -111,11 +115,19 @@ class LoginController extends Controller
             if($request->ajax()) {
                 return response()->json([
                     'status'=>'error',
+<<<<<<< HEAD
                     'message'=>translate('credentials_doesnt_match'),
                     'redirect_url'=>''
                 ]);
             }else{
                 Toastr::error(translate('credentials_doesnt_match'));
+=======
+                    'message'=>translate('credentials_do_not_match_or_account_has_been_suspended'),
+                    'redirect_url'=>''
+                ]);
+            }else{
+                Toastr::error(translate('credentials_do_not_match_or_account_has_been_suspended'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 return back()->withInput();
             }
         }
@@ -163,6 +175,7 @@ class LoginController extends Controller
             }
         }
 
+<<<<<<< HEAD
         if (isset($user) && auth('customer')->attempt(['email' => $user['email'], 'password' => $request['password']], $remember)) {
 
             if (!$user->is_active) {
@@ -178,6 +191,9 @@ class LoginController extends Controller
                 }
             }
 
+=======
+        if (isset($user) && $user->is_active && auth('customer')->attempt(['email' => $user['email'], 'password' => $request->password], $remember)) {
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             $wish_list = Wishlist::whereHas('wishlistProduct',function($q){
                 return $q;
             })->where('customer_id', auth('customer')->user()->id)->pluck('product_id')->toArray();
@@ -239,10 +255,17 @@ class LoginController extends Controller
 
                 $ajax_message = [
                     'status'=>'error',
+<<<<<<< HEAD
                     'message'=> translate('credentials_doesnt_match'),
                     'redirect_url'=>''
                 ];
                 Toastr::error(translate('credentials_doesnt_match'));
+=======
+                    'message'=> translate('credentials_do_not_match_or_account_has_been_suspended'),
+                    'redirect_url'=>''
+                ];
+                Toastr::error(translate('credentials_do_not_match_or_account_has_been_suspended'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
             }elseif($user->login_hit_count >= $max_login_hit &&  $user->is_temp_blocked == 0){
                 $user->is_temp_blocked = 1;
@@ -261,10 +284,17 @@ class LoginController extends Controller
             }else{
                 $ajax_message = [
                     'status'=>'error',
+<<<<<<< HEAD
                     'message'=> translate('credentials_doesnt_match'),
                     'redirect_url'=>''
                 ];
                 Toastr::error(translate('credentials_doesnt_match'));
+=======
+                    'message'=> translate('credentials_do_not_match_or_account_has_been_suspended'),
+                    'redirect_url'=>''
+                ];
+                Toastr::error(translate('credentials_do_not_match_or_account_has_been_suspended'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
                 $user->login_hit_count += 1;
                 $user->save();

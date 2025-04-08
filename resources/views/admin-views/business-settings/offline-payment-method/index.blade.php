@@ -6,11 +6,19 @@
     <div class="content container-fluid">
         <div class="mb-4 pb-2">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/3rd-party.png')}}" alt="">
                 {{translate('3rd_party')}}
             </h2>
         </div>
         @include('admin-views.business-settings.third-party-payment-method-menu')
+=======
+                <img src="{{asset('/public/assets/back-end/img/3rd-party.png')}}" alt="">
+                {{translate('3rd_party')}}
+            </h2>
+        </div>
+        @include('admin-views.business-settings.third-party-inline-menu')
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         <nav>
             <div class="nav nav-tabs mb-3 border-0" role="tablist">
               <a class="nav-link {{ !request()->has('status') ? 'active':'' }}" href="{{route('admin.business-settings.offline-payment-method.index')}}">{{ translate('all') }}</a>

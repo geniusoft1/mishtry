@@ -5,7 +5,11 @@
             <div>
                 <a href="{{route('about-us')}}">
                     <div class="text-center">
+<<<<<<< HEAD
                         <img class="size-60" src="{{theme_asset(path: "public/assets/front-end/png/about-company.png")}}"
+=======
+                        <img class="size-60" src="{{asset("public/assets/front-end/png/about-company.png")}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="">
                     </div>
                     <div class="text-center">
@@ -20,7 +24,11 @@
             <div>
                 <a href="{{route('contacts')}}">
                     <div class="text-center">
+<<<<<<< HEAD
                         <img class="size-60" src="{{theme_asset(path: "public/assets/front-end/png/contact-us.png")}}"
+=======
+                        <img class="size-60" src="{{asset("public/assets/front-end/png/contact-us.png")}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="">
                     </div>
                     <div class="text-center">
@@ -35,7 +43,11 @@
             <div>
                 <a href="{{route('helpTopic')}}">
                     <div class="text-center">
+<<<<<<< HEAD
                         <img class="size-60" src="{{theme_asset(path: "public/assets/front-end/png/faq.png")}}"
+=======
+                        <img class="size-60" src="{{asset("public/assets/front-end/png/faq.png")}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                              alt="">
                     </div>
                     <div class="text-center">
@@ -54,8 +66,13 @@
             <div class="container text-center __pb-13px">
 
                 <div
+<<<<<<< HEAD
                     class="row mt-3 pb-3 ">
                     <div class="col-md-3 footer-web-logo text-center text-md-start ">
+=======
+                    class="row text-center text-md-start mt-3 pb-3 ">
+                    <div class="col-md-3 footer-web-logo">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <a class="d-block" href="{{route('home')}}">
                             <img class="{{Session::get('direction') === "rtl" ? 'right-align' : ''}}"
                                  src="{{ getValidImage(path: 'storage/app/public/company/'.$web_config['footer_logo']->value, type: 'logo') }}"
@@ -74,7 +91,11 @@
                             @if($web_config['ios']['status'])
                                 <div class="me-2 mb-2">
                                     <a class="" href="{{ $web_config['ios']['link'] }}" role="button">
+<<<<<<< HEAD
                                         <img width="100" src="{{theme_asset(path: "public/assets/front-end/png/apple_app.png")}}"
+=======
+                                        <img width="100" src="{{asset("public/assets/front-end/png/apple_app.png")}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </a>
                                 </div>
@@ -83,7 +104,11 @@
                             @if($web_config['android']['status'])
                                 <div class="me-2 mb-2">
                                     <a href="{{ $web_config['android']['link'] }}" role="button">
+<<<<<<< HEAD
                                         <img width="100" src="{{theme_asset(path: "public/assets/front-end/png/google_app.png")}}"
+=======
+                                        <img width="100" src="{{asset("public/assets/front-end/png/google_app.png")}}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                              alt="">
                                     </a>
                                 </div>
@@ -92,8 +117,14 @@
                     </div>
                     <div class="col-md-9">
                         <div class="row">
+<<<<<<< HEAD
                             <div class="col-sm-3 col-6 footer-padding-bottom text-start">
                                 <h6 class="text-uppercase mobile-fs-12 font-semi-bold footer-header">{{ translate('special')}}</h6>
+=======
+
+                            <div class="col-md-3 footer-padding-bottom">
+                                <h6 class="text-uppercase mb-4 font-weight-bold footer-header">{{ translate('special')}}</h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <ul class="widget-list __pb-10px">
                                     @php($flash_deals=\App\Models\FlashDeal::where(['status'=>1,'deal_type'=>'flash_deal'])->whereDate('start_date','<=',date('Y-m-d'))->whereDate('end_date','>=',date('Y-m-d'))->first())
                                     @if(isset($flash_deals))
@@ -131,8 +162,13 @@
 
                                 </ul>
                             </div>
+<<<<<<< HEAD
                             <div class="col-sm-4 col-6 footer-padding-bottom text-start">
                                 <h6 class="text-uppercase mobile-fs-12 font-semi-bold footer-header">{{ translate('account_&_shipping_info')}}</h6>
+=======
+                            <div class="col-md-4 footer-padding-bottom">
+                                <h6 class="text-uppercase mb-4 font-weight-bold footer-header">{{ translate('account_&_shipping_info')}}</h6>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 @php($refund_policy = getWebConfig(name: 'refund-policy'))
                                 @php($return_policy = getWebConfig(name: 'return-policy'))
                                 @php($cancellation_policy = getWebConfig(name: 'cancellation-policy'))
@@ -214,10 +250,17 @@
                                     </ul>
                                 @endif
                             </div>
+<<<<<<< HEAD
                             <div class="col-sm-5 footer-padding-bottom offset-max-sm--1 pb-3 pb-sm-0">
                                 <div class="mb-2">
                                     <h6 class="text-uppercase mobile-fs-12 font-semi-bold footer-header text-center text-sm-start">{{ translate('newsletter')}}</h6>
                                     <div class="text-center text-sm-start mobile-fs-12">{{ translate('subscribe_to_our_new_channel_to_get_latest_updates')}}</div>
+=======
+                            <div class="col-md-5 footer-padding-bottom">
+                                <div class="mb-2">
+                                    <h6 class="text-uppercase mb-4 font-weight-bold footer-header">{{ translate('newsletter')}}</h6>
+                                    <span>{{ translate('subscribe_to_our_new_channel_to_get_latest_updates')}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </div>
                                 <div class="text-nowrap mb-4 position-relative">
                                     <form action="{{ route('subscription') }}" method="post">
@@ -238,7 +281,11 @@
                                     class="row d-flex align-items-center mobile-view-center-align justify-content-center justify-content-md-start">
                                     <div class="me-3">
                                         <span
+<<<<<<< HEAD
                                             class="mb-4 font-weight-bold footer-header text-capitalize">{{ translate('start_a_conversation')}}</span>
+=======
+                                            class="mb-4 font-weight-bold footer-header">{{ translate('start_a_conversation')}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                     <div
                                         class="flex-grow-1 d-none d-md-block {{Session::get('direction') === "rtl" ? 'mr-4 mx-sm-4' : 'mx-sm-4'}}">
@@ -250,10 +297,14 @@
                                         <div class="">
                                             <a class="widget-list-link" href="{{ 'tel:'.$web_config['phone']->value }}">
                                                 <span class="">
+<<<<<<< HEAD
                                                     <i class="fa fa-phone  me-2 mt-2 mb-2"></i>
                                                     <span class="direction-ltr">
                                                         {{getWebConfig(name: 'company_phone')}}
                                                     </span>
+=======
+                                                    <i class="fa fa-phone m-2"></i>{{getWebConfig(name: 'company_phone')}}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                 </span>
                                             </a>
 
@@ -261,6 +312,7 @@
                                         <div>
                                             <a class="widget-list-link"
                                                href="{{ 'mailto:'.getWebConfig(name: 'company_email') }}">
+<<<<<<< HEAD
                                                 <span><i class="fa fa-envelope  me-2 mt-2 mb-2"></i> {{getWebConfig(name: 'company_email')}} </span>
                                             </a>
                                         </div>
@@ -275,6 +327,20 @@
                                                     <span><i class="fa fa-user-o  me-2 mt-2 mb-2"></i> {{ translate('support_ticket')}} </span>
                                                 </a>
                                                 <br class="d-none d-md-block" />
+=======
+                                                <span><i class="fa fa-envelope m-2"></i> {{getWebConfig(name: 'company_email')}} </span>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            @if(auth('customer')->check())
+                                                <a class="widget-list-link" href="{{route('account-tickets')}}">
+                                                    <span><i class="fa fa-user-o m-2"></i> {{ translate('support_ticket')}} </span>
+                                                </a><br>
+                                            @else
+                                                <a class="widget-list-link" href="{{route('customer.auth.login')}}">
+                                                    <span><i class="fa fa-user-o m-2"></i> {{ translate('support_ticket')}} </span>
+                                                </a><br>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             @endif
                                         </div>
                                     </div>
@@ -282,9 +348,16 @@
                             </div>
                             <div class="col-md-5 ">
                                 <div
+<<<<<<< HEAD
                                     class="row pl-2 d-flex align-items-center mobile-view-center-align justify-content-center justify-content-md-start pb-0">
                                     <div class="d-none d-md-block">
                                         <span class="mb-4 font-weight-bold footer-header">{{ translate('address')}}</span>
+=======
+                                    class="row pl-2 d-flex align-items-center mobile-view-center-align justify-content-center justify-content-md-start">
+                                    <div>
+                                        <span
+                                            class="mb-4 font-weight-bold footer-header">{{ translate('address')}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     </div>
                                     <div
                                         class="flex-grow-1 d-none d-md-block {{Session::get('direction') === "rtl" ? 'mr-3 ' : 'ml-3'}}">
@@ -293,8 +366,13 @@
                                 </div>
                                 <div class="pl-2">
                                     <span
+<<<<<<< HEAD
                                         class="__text-14px d-flex align-items-center justify-content-center justify-content-sm-start">
                                         <i class="fa fa-map-marker me-2 mt-2 mb-2"></i>
+=======
+                                        class="__text-14px d-flex align-items-sm-center flex-column flex-sm-row justify-content-center">
+                                        <i class="fa fa-map-marker m-2"></i>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         <span>{{ getWebConfig(name: 'shop_address')}}</span>
                                     </span>
                                 </div>

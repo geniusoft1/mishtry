@@ -1,14 +1,23 @@
 @extends('layouts.back-end.app-seller')
 
+<<<<<<< HEAD
 @section('title', translate($type=='new-request'?'pending_products':($type=='approved'?'approved_products':'product_list')))
+=======
+@section('title', translate('product_List'))
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 @section('content')
     <div class="content container-fluid">
 
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex gap-2">
+<<<<<<< HEAD
                 <img src="{{ dynamicAsset(path: 'public/assets/back-end/img/inhouse-product-list.png') }}" alt="">
                 {{ translate($type=='new-request'?'pending_for_approval_products':($type=='approved'?'approved_products':'product_list')) }}
+=======
+                <img src="{{ asset('public/assets/back-end/img/inhouse-product-list.png') }}" alt="">
+                {{ translate('product_List') }}
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 <span class="badge badge-soft-dark radius-50 fz-14 ml-1">
                     {{ $products->total() }}
                 </span>
@@ -42,7 +51,11 @@
                             <div class="form-group">
                                 <label for="name" class="title-color">{{ translate('category') }}</label>
                                 <select class="js-select2-custom form-control action-get-request-onchange" name="category_id"
+<<<<<<< HEAD
                                         data-url-prefix="{{ url('/vendor/products/get-categories?parent_id=') }}"
+=======
+                                        data-url-prefix="{{ url('/seller/product/get-categories?parent_id=') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         data-element-id="sub-category-select"
                                         data-element-type="select">
                                     <option value="{{ old('category_id') }}" selected
@@ -62,7 +75,11 @@
                                 <label for="name" class="title-color">{{ translate('sub_Category') }}</label>
                                 <select class="js-select2-custom form-control action-get-request-onchange" name="sub_category_id"
                                         id="sub-category-select"
+<<<<<<< HEAD
                                         data-url-prefix="{{ url('/vendor/products/get-categories?parent_id=') }}"
+=======
+                                        data-url-prefix="{{ url('/seller/product/get-categories?parent_id=') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         data-element-id="sub-sub-category-select"
                                         data-element-type="select">
                                     <option value="{{request('sub_category_id') != null ? request('sub_category_id') : null}}"
@@ -131,15 +148,24 @@
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li>
                                             <a class="dropdown-item"
+<<<<<<< HEAD
                                                href="{{ route('vendor.products.export-excel', ['type'=>$type,'brand_id'=>request('brand_id'),'category_id'=>request('category_id'),'sub_category_id'=>request('sub_category_id'),'sub_sub_category_id'=>request('sub_sub_category_id'),'searchValue'=>request('searchValue')]) }}">
                                                 <img width="14" src="{{ dynamicAsset(path: 'public/assets/back-end/img/excel.png') }}"
+=======
+                                               href="{{ route('vendor.products.export-excel', ['brand_id'=>request('brand_id'),'category_id'=>request('category_id'),'sub_category_id'=>request('sub_category_id'),'sub_sub_category_id'=>request('sub_sub_category_id'),'searchValue'=>request('searchValue')]) }}">
+                                                <img width="14" src="{{ asset('public/assets/back-end/img/excel.png') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                                      alt="">
                                                 {{ translate('excel') }}
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
+<<<<<<< HEAD
                                 @if($type != 'new-request' )
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <a href="{{ route('vendor.products.stock-limit-list') }}" class="btn btn-info">
                                     <i class="tio-add-circle"></i>
                                     <span class="text">{{ translate('limited_Stocks') }}</span>
@@ -148,7 +174,10 @@
                                     <i class="tio-add"></i>
                                     <span class="text">{{ translate('add_new_product') }}</span>
                                 </a>
+<<<<<<< HEAD
                                 @endif
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                             </div>
                         </div>
                     </div>
@@ -159,6 +188,7 @@
                             <thead class="thead-light thead-50 text-capitalize">
                             <tr>
                                 <th>{{ translate('SL') }}</th>
+<<<<<<< HEAD
                                 <th class="text-capitalize">{{ translate('product_name') }}</th>
                                 <th class="text-center text-capitalize">{{ translate('product_type') }}</th>
                                 <th class="text-center text-capitalize">{{ translate('unit_price') }}</th>
@@ -166,6 +196,13 @@
                                 @if($type != 'new-request' )
                                 <th class="text-center text-capitalize">{{ translate('active_status') }}</th>
                                 @endif
+=======
+                                <th>{{ translate('product Name') }}</th>
+                                <th class="text-right">{{ translate('product Type') }}</th>
+                                <th class="text-right">{{ translate('selling_price') }}</th>
+                                <th class="text-center">{{ translate('verify_status') }}</th>
+                                <th class="text-center">{{ translate('active_status') }}</th>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <th class="text-center">{{ translate('action') }}</th>
                             </tr>
                             </thead>
@@ -183,6 +220,7 @@
                                         </span>
                                         </a>
                                     </td>
+<<<<<<< HEAD
                                     <td class="text-center">
                                         {{ translate($product['product_type']) }}
                                     </td>
@@ -192,12 +230,24 @@
                                     <td class="text-center">
                                         @if($product->request_status == 0)
                                             <label class="badge badge-soft-warning">{{translate('pending')}}</label>
+=======
+                                    <td class="text-right">
+                                        {{ translate($product['product_type']) }}
+                                    </td>
+                                    <td class="text-right">
+                                        {{setCurrencySymbol(amount: usdToDefaultCurrency(amount: $product['unit_price']), currencyCode: getCurrencyCode()) }}
+                                    </td>
+                                    <td>
+                                        @if($product->request_status == 0)
+                                            <label class="badge badge-soft-warning">{{translate('new_Request')}}</label>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         @elseif($product->request_status == 1)
                                             <label class="badge badge-soft-success">{{translate('approved')}}</label>
                                         @elseif($product->request_status == 2)
                                             <label class="badge badge-soft-danger">{{translate('denied')}}</label>
                                         @endif
                                     </td>
+<<<<<<< HEAD
                                     @if($type != 'new-request' )
                                         <td class="text-center">
                                             @php($productName = str_replace("'",'`',$product['name']))
@@ -236,6 +286,42 @@
                                                     <i class="tio-invisible"></i>
                                                 </a>
                                             @endif
+=======
+                                    <td class="text-center">
+                                        @php($productName = str_replace("'",'`',$product['name']))
+                                        <form action="{{ route('vendor.products.status-update') }}" method="post" data-from="product-status"
+                                              id="product-status{{ $product['id']}}-form" class="admin-product-status-form">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{ $product['id']}}">
+                                            <label class="switcher mx-auto">
+                                                <input type="checkbox" class="switcher_input toggle-switch-message"
+                                                       name="status"
+                                                       id="product-status{{ $product['id'] }}" value="1"
+                                                       {{ $product['status'] == 1 ? 'checked' : '' }}
+                                                       data-modal-id="toggle-status-modal"
+                                                       data-toggle-id="product-status{{ $product['id'] }}"
+                                                       data-on-image="product-status-on.png"
+                                                       data-off-image="product-status-off.png"
+                                                       data-on-title="{{ translate('Want_to_Turn_ON').' '.$productName.' '.translate('status') }}"
+                                                       data-off-title="{{ translate('Want_to_Turn_OFF').' '.$productName.' '.translate('status') }}"
+                                                       data-on-message="<p>{{ translate('if_enabled_this_product_will_be_available_on_the_website_and_customer_app') }}</p>"
+                                                       data-off-message="<p>{{ translate('if_disabled_this_product_will_be_hidden_from_the_website_and_customer_app') }}</p>">
+                                                <span class="switcher_control"></span>
+                                            </label>
+                                        </form>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex justify-content-center gap-2">
+                                            <a class="btn btn-outline-info btn-sm square-btn"
+                                               title="{{ translate('barcode') }}"
+                                               href="{{ route('vendor.products.barcode', [$product['id']]) }}">
+                                                <i class="tio-barcode"></i>
+                                            </a>
+                                            <a class="btn btn-outline-info btn-sm square-btn" title="{{ translate('view') }}"
+                                               href="{{ route('vendor.products.view', [$product['id']]) }}">
+                                                <i class="tio-invisible"></i>
+                                            </a>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             <a class="btn btn-outline--primary btn-sm square-btn"
                                                title="{{ translate('edit') }}"
                                                href="{{ route('vendor.products.update',[$product['id']]) }}">
@@ -267,7 +353,11 @@
                     @if(count($products)==0)
                         <div class="text-center p-4">
                             <img class="mb-3 w-160"
+<<<<<<< HEAD
                                  src="{{ dynamicAsset(path: 'public/assets/back-end/svg/illustrations/sorry.svg') }}"
+=======
+                                 src="{{ asset('public/assets/back-end/svg/illustrations/sorry.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                  alt="{{translate('image_description')}}">
                             <p class="mb-0">{{ translate('no_data_to_show') }}</p>
                         </div>

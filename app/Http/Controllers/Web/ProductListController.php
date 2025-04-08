@@ -104,7 +104,11 @@ class ProductListController extends Controller
         if ($request['data_from'] == 'featured_deal') {
             $featured_deal_id = FlashDeal::where(['status'=>1])->where(['deal_type'=>'feature_deal'])->pluck('id')->first();
             $featured_deal_product_ids = FlashDealProduct::where('flash_deal_id',$featured_deal_id)->pluck('product_id')->toArray();
+<<<<<<< HEAD
             $query = Product::with(['reviews'])->withCount('reviews')->active()->whereIn('id', $featured_deal_product_ids);
+=======
+            $query = Product::with(['reviews'])->active()->whereIn('id', $featured_deal_product_ids);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['data_from'] == 'search') {
@@ -137,7 +141,11 @@ class ProductListController extends Controller
         }
 
         if ($request['data_from'] == 'discounted') {
+<<<<<<< HEAD
             $query = Product::with(['reviews'])->withCount('reviews')->active()->where('discount', '!=', 0);
+=======
+            $query = Product::with(['reviews'])->active()->where('discount', '!=', 0);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['sort_by'] == 'latest') {
@@ -205,7 +213,11 @@ class ProductListController extends Controller
             'compareList'=>function($query){
                 return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
             }
+<<<<<<< HEAD
         ])->withCount('reviews');
+=======
+        ]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $product_ids = [];
         if ($request['data_from'] == 'category') {
@@ -287,7 +299,11 @@ class ProductListController extends Controller
                 'compareList'=>function($query){
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
+<<<<<<< HEAD
             ])->active()->withCount('reviews')->where('featured', 1);
+=======
+            ])->active()->where('featured', 1);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['data_from'] == 'featured_deal') {
@@ -301,7 +317,11 @@ class ProductListController extends Controller
                 'compareList'=>function($query){
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
+<<<<<<< HEAD
             ])->active()->withCount('reviews')->whereIn('id', $featured_deal_product_ids);
+=======
+            ])->active()->whereIn('id', $featured_deal_product_ids);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         if ($request['data_from'] == 'search') {
             $key = explode(' ', $request['name']);
@@ -346,7 +366,11 @@ class ProductListController extends Controller
                 'compareList'=>function($query){
                     return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
                 }
+<<<<<<< HEAD
             ])->active()->withCount('reviews')->where('discount', '!=', 0);
+=======
+            ])->active()->where('discount', '!=', 0);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
         if(!$request['data_from'] && !$request['name'] && $request['ratings']){
             $query = $query ?? $porduct_data;
@@ -470,7 +494,11 @@ class ProductListController extends Controller
                         },
                         'compareList'=>function($query){
                             return $query->where('user_id', Auth::guard('customer')->user()->id ?? 0);
+<<<<<<< HEAD
                         }])->withCount('reviews');
+=======
+                        }]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $product_ids = [];
         if ($request['data_from'] == 'category') {
@@ -548,17 +576,27 @@ class ProductListController extends Controller
         }
 
         if ($request['data_from'] == 'featured') {
+<<<<<<< HEAD
             $query = Product::with(['reviews'])->active()->withCount('reviews')->where('featured', 1);
+=======
+            $query = Product::with(['reviews'])->active()->where('featured', 1);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request->has('shop_id') && $request['shop_id'] == 0) {
             $query = Product::active()
                     ->with(['reviews'])
+<<<<<<< HEAD
                     ->withCount('reviews')
                     ->where(['added_by'=>'admin','featured'=>1]);
         }elseif($request->has('shop_id') && $request['shop_id'] != 0){
             $query = Product::active()
                         ->withCount('reviews')
+=======
+                    ->where(['added_by'=>'admin','featured'=>1]);
+        }elseif($request->has('shop_id') && $request['shop_id'] != 0){
+            $query = Product::active()
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         ->where(['added_by' => 'seller', 'featured' => 1])
                         ->with(['reviews', 'seller.shop' => function($query) use ($request) {
                             $query->where('id', $request->shop_id);
@@ -606,7 +644,11 @@ class ProductListController extends Controller
             $company_name = Helpers::get_business_settings('company_name');
 
             if (strpos($request['name'], $company_name) !== false) {
+<<<<<<< HEAD
                 $inhouse_product = Product::active()->withCount('reviews')->Where('added_by', 'admin')->pluck('id');
+=======
+                $inhouse_product = Product::active()->Where('added_by', 'admin')->pluck('id');
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             }
 
             $product_ids = $product_ids->merge($seller_products)->merge($inhouse_product);
@@ -629,7 +671,11 @@ class ProductListController extends Controller
         }
 
         if ($request['data_from'] == 'discounted') {
+<<<<<<< HEAD
             $query = Product::with(['reviews'])->active()->withCount('reviews')->where('discount', '!=', 0);
+=======
+            $query = Product::with(['reviews'])->active()->where('discount', '!=', 0);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['sort_by'] == 'latest') {
@@ -678,7 +724,10 @@ class ProductListController extends Controller
         // Colors Start
         $colors_in_shop_merge = [];
         $colors_collection = Product::active()
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where('colors', '!=', '[]')
             ->pluck('colors')
             ->unique()
@@ -716,7 +765,11 @@ class ProductListController extends Controller
     {
         $request['sort_by'] == null ? $request['sort_by'] == 'latest' : $request['sort_by'];
 
+<<<<<<< HEAD
         $porduct_data = Product::active()->with(['reviews','rating'])->withCount('reviews');
+=======
+        $porduct_data = Product::active()->with(['reviews','rating']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
         $product_ids = [];
         if ($request['data_from'] == 'category') {
@@ -791,13 +844,21 @@ class ProductListController extends Controller
         }
 
         if ($request['data_from'] == 'featured') {
+<<<<<<< HEAD
             $query = Product::with(['reviews'])->active()->withCount('reviews')->where('featured', 1);
+=======
+            $query = Product::with(['reviews'])->active()->where('featured', 1);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['data_from'] == 'featured_deal') {
             $featured_deal_id = FlashDeal::where(['status'=>1])->where(['deal_type'=>'feature_deal'])->pluck('id')->first();
             $featured_deal_product_ids = FlashDealProduct::where('flash_deal_id',$featured_deal_id)->pluck('product_id')->toArray();
+<<<<<<< HEAD
             $query = Product::with(['reviews'])->active()->withCount('reviews')->whereIn('id', $featured_deal_product_ids);
+=======
+            $query = Product::with(['reviews'])->active()->whereIn('id', $featured_deal_product_ids);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['data_from'] == 'search') {
@@ -828,7 +889,11 @@ class ProductListController extends Controller
         }
 
         if ($request['data_from'] == 'discounted') {
+<<<<<<< HEAD
             $query = Product::with(['reviews'])->active()->withCount('reviews')->where('discount', '!=', 0);
+=======
+            $query = Product::with(['reviews'])->active()->where('discount', '!=', 0);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         }
 
         if ($request['sort_by'] == 'latest') {
@@ -895,7 +960,10 @@ class ProductListController extends Controller
         // Colors Start
         $colors_in_shop_merge = [];
         $colors_collection = Product::active()
+<<<<<<< HEAD
             ->withCount('reviews')
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             ->where('colors', '!=', '[]')
             ->pluck('colors')
             ->unique()

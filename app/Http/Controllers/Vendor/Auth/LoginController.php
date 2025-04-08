@@ -12,11 +12,17 @@ use App\Services\VendorService;
 use App\Traits\RecaptchaTrait;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Contracts\View\View;
+<<<<<<< HEAD
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+=======
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
 class LoginController extends Controller
 {
@@ -25,7 +31,11 @@ class LoginController extends Controller
     public function __construct(
         private readonly VendorRepositoryInterface $vendorRepo,
         private readonly VendorService             $vendorService,
+<<<<<<< HEAD
         private readonly VendorWalletRepository    $vendorWalletRepo,
+=======
+        private readonly VendorWalletRepository    $vendorWalletRepository,
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     )
     {
@@ -52,9 +62,16 @@ class LoginController extends Controller
         return view(Auth::VENDOR_LOGIN[VIEW], compact('recaptchaBuilder', 'recaptcha'));
     }
 
+<<<<<<< HEAD
     public function login(LoginRequest $request): JsonResponse
     {
         $recaptcha = getWebConfig(name: 'recaptcha');
+=======
+    public function login(LoginRequest $request): RedirectResponse
+    {
+        $recaptcha = getWebConfig(name: 'recaptcha');
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         if (isset($recaptcha) && $recaptcha['status'] == 1) {
             $request->validate([
                 'g-recaptcha-response' => [
@@ -72,6 +89,7 @@ class LoginController extends Controller
             ]);
         } else {
             if ($recaptcha['status'] != 1 && strtolower($request->vendorRecaptchaKey) != strtolower(Session(SessionKey::VENDOR_RECAPTCHA_KEY))) {
+<<<<<<< HEAD
                 return response()->json(['error'=>translate('captcha_failed').'!']);
             }
         }
@@ -96,12 +114,45 @@ class LoginController extends Controller
             return response()->json(['error'=>translate('credentials_doesnt_match').'!']);
 
         }
+=======
+                Session::forget(SessionKey::VENDOR_RECAPTCHA_KEY);
+                return back()->withErrors(translate('captcha_failed'));
+            }
+        }
+
+        $vendor = $this->vendorRepo->getFirstWhere(['identity' => $request['email']]);
+        if (isset($vendor) && $vendor['status'] !== 'approved') {
+            $statusMessages = [
+                'pending' => translate('your_account_is_not_approved_yet') . '.',
+                'suspended' => translate('your_account_has_been_suspended') . '!'
+            ];
+            return redirect()->back()
+                ->withInput($request->only('email', 'remember'))
+                ->withErrors([$statusMessages[$vendor->status]]);
+        }
+
+        if ($this->vendorService->isLoginSuccessful($request->email, $request->password, $request->remember)) {
+            if ($this->vendorWalletRepository->getFirstWhere(params:['id'=>auth('seller')->id()]) === false) {
+                $this->vendorWalletRepository->add($this->vendorService->getInitialWalletData());
+            }
+            Toastr::info(translate('welcome_to_your_dashboard') . '!');
+            return redirect()->route('vendor.dashboard.index');
+        }
+
+        return redirect()->back()
+            ->withInput($request->only('email', 'remember'))
+            ->withErrors([translate('credentials_do_not_match_or_your_account_has_been_suspended')]);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
     }
 
     public function logout(): RedirectResponse
     {
         $this->vendorService->logout();
+<<<<<<< HEAD
         Toastr::success(translate('logged_out_successfully').'.');
+=======
+        session()->flash('success', translate('logged_out_successfully'));
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return redirect()->route('vendor.auth.login');
     }
 }

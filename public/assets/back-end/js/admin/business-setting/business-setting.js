@@ -1,8 +1,12 @@
 'use strict';
+<<<<<<< HEAD
 $(document).on('ready',function (){
     initAutocomplete()
 
 })
+=======
+
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 $('#free-delivery-responsibility').on('change', function () {
     let getAmountAdminArea = $('#free-delivery-over-amount-admin-area');
     if ($(this).val() === 'admin') {
@@ -122,6 +126,7 @@ $('#software-update-form').on('submit', function (e) {
         }
     });
 });
+<<<<<<< HEAD
 
 function initAutocomplete() {
     let latitude = $("#get-default-latitude").data('latitude');
@@ -215,3 +220,5 @@ function initAutocomplete() {
     });
 };
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017

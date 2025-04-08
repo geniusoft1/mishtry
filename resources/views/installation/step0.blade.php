@@ -38,14 +38,22 @@
                         <div class="col-sm-6">
                             <div class="d-flex gap-4 align-items-center flex-wrap">
                                 <img alt=""
+<<<<<<< HEAD
                                     src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/database-name.svg') }}">
+=======
+                                    src="{{ asset('public/assets/installation/assets/img/svg-icons/database-name.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 <div>{{ "Database Name" }}</div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="d-flex gap-4 align-items-center flex-wrap">
                                 <img
+<<<<<<< HEAD
                                     src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/database-password.svg') }}"
+=======
+                                    src="{{ asset('public/assets/installation/assets/img/svg-icons/database-password.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     alt="">
                                 <div>{{ "Database Password" }}</div>
                             </div>
@@ -53,7 +61,11 @@
                         <div class="col-sm-6">
                             <div class="d-flex gap-4 align-items-center flex-wrap">
                                 <img
+<<<<<<< HEAD
                                     src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/database-username.svg') }}"
+=======
+                                    src="{{ asset('public/assets/installation/assets/img/svg-icons/database-username.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     alt="">
                                 <div>{{ "Database Username" }}</div>
                             </div>
@@ -61,7 +73,11 @@
                         <div class="col-sm-6">
                             <div class="d-flex gap-4 align-items-center flex-wrap">
                                 <img
+<<<<<<< HEAD
                                     src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/database-hostname.svg') }}"
+=======
+                                    src="{{ asset('public/assets/installation/assets/img/svg-icons/database-hostname.svg') }}"
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                     alt="">
                                 <div>{{ "Database Host Name" }}</div>
                             </div>

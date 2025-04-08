@@ -8,7 +8,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2 text-capitalize">
+<<<<<<< HEAD
                 <img src="{{dynamicAsset(path: 'public/assets/back-end/img/add-new-seller.png')}}" alt="">
+=======
+                <img src="{{asset('/public/assets/back-end/img/add-new-seller.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('employee_role_setup')}}
             </h2>
         </div>
@@ -136,7 +140,11 @@
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li>
                                     <a class="dropdown-item" href="{{route('admin.custom-role.export',['searchValue'=>request('searchValue')])}}">
+<<<<<<< HEAD
                                         <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
+=======
+                                        <img width="14" src="{{asset('/public/assets/back-end/img/excel.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         {{translate('excel')}}
                                     </a>
                                 </li>
@@ -167,6 +175,7 @@
                                     @if($role['module_access'] != null)
                                         @foreach((array)json_decode($role['module_access']) as $module)
                                             @if($module == 'report')
+<<<<<<< HEAD
                                                 {{translate('reports_and_analytics').(!$loop->last ? ',': '')}} <br>
                                             @elseif($module == 'user_section')
                                                 {{translate('user_management').(!$loop->last ? ',': '')}} <br>
@@ -174,6 +183,15 @@
                                                 {{translate('Help_&_Support_Section').(!$loop->last ? ',': '')}} <br>
                                             @else
                                                 {{translate(str_replace('_',' ', $module)).(!$loop->last ? ',': '')}} <br>
+=======
+                                                {{translate('reports_and_analytics')}} <br>
+                                            @elseif($module == 'user_section')
+                                                {{translate('user_management')}} <br>
+                                            @elseif($module == 'support_section')
+                                                {{translate('Help_&_Support_Section')}} <br>
+                                            @else
+                                                {{translate(str_replace('_',' ', $module))}} <br>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                             @endif
                                         @endforeach
                                     @endif
@@ -223,5 +241,9 @@
 @endsection
 
 @push('script')
+<<<<<<< HEAD
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/admin/custom-role.js')}}"></script>
+=======
+    <script src="{{asset('public/assets/back-end/js/admin/custom-role.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

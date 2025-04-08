@@ -10,7 +10,11 @@
     <div class="content container-fluid">
         <div class="mb-3">
             <h2 class="h1 mb-0 text-capitalize d-flex align-items-center gap-2">
+<<<<<<< HEAD
                 <img width="20" src="{{dynamicAsset(path: 'public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+=======
+                <img width="20" src="{{asset('/public/assets/back-end/img/withdraw-icon.png')}}" alt="">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 {{translate('withdraw_Request')}}
             </h2>
         </div>
@@ -32,12 +36,16 @@
                                         <i class="tio-chevron-down"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
+<<<<<<< HEAD
                                     <li>
                                         <a class="dropdown-item withdraw-request-file-export" href="javascript:" data-action="{{route('vendor.delivery-man.withdraw.export')}}">
                                             <img width="14" src="{{dynamicAsset(path: 'public/assets/back-end/img/excel.png')}}" alt="">
                                             {{translate('Excel')}}
                                         </a>
                                     </li>
+=======
+                                    <li><a class="dropdown-item" href="{{route('vendor.delivery-man.withdraw.export')}}">{{translate('Excel')}}</a></li>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                 </ul>
                                 <select name="delivery_withdraw_status_filter" class="custom-select min-w-120 max-w-200 status-filter">
                                     <option value="all" >{{translate('all')}}</option>
@@ -57,10 +65,17 @@
         </div>
     </div>
     <span id="get-status-filter-route" data-action="{{ route('vendor.delivery-man.withdraw.index') }}"></span>
+<<<<<<< HEAD
     <div class="withdraw-info-sidebar-wrap withdraw-details-view">
     </div>
 @endsection
 
 @push('script_2')
     <script src="{{dynamicAsset(path: 'public/assets/back-end/js/vendor/withdraw.js')}}"></script>
+=======
+@endsection
+
+@push('script_2')
+    <script src="{{asset('public/assets/back-end/js/vendor/withdraw.js')}}"></script>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 @endpush

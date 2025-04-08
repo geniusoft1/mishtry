@@ -23,7 +23,11 @@
                 <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip"
                       data-bs-title="Admin setup">
 
+<<<<<<< HEAD
                     <img src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info.svg') }}" alt="" class="svg">
+=======
+                    <img src="{{ asset('public/assets/installation/assets/img/svg-icons/info.svg') }}" alt="" class="svg">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 </span>
             </a>
         </div>
@@ -70,7 +74,11 @@
                                               data-bs-html="true"
                                               data-bs-title="Provide an valid number. This number will be use to send verification code and other attachments in future">
                                             <img class="svg" alt=""
+<<<<<<< HEAD
                                                  src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+=======
+                                                 src="{{ asset('public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </label>
 
@@ -89,7 +97,11 @@
                                               data-bs-html="true"
                                               data-bs-title="Provide an valid email. This email will be use to send verification code and other attachments in future">
                                             <img class="svg" alt=""
+<<<<<<< HEAD
                                                  src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+=======
+                                                 src="{{ asset('public/assets/installation/assets/img/svg-icons/info2.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </span>
                                     </label>
 
@@ -123,9 +135,15 @@
                                                placeholder="Ex: 8+ character" minlength="8">
                                         <div class="togglePassword">
                                             <img alt="" class="svg eye"
+<<<<<<< HEAD
                                                 src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/eye.svg') }}">
                                             <img alt="" class="svg eye-off"
                                                 src="{{ dynamicAsset(path: 'public/assets/installation/assets/img/svg-icons/eye-off.svg') }}">
+=======
+                                                src="{{ asset('public/assets/installation/assets/img/svg-icons/eye.svg') }}">
+                                            <img alt="" class="svg eye-off"
+                                                src="{{ asset('public/assets/installation/assets/img/svg-icons/eye-off.svg') }}">
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                                         </div>
                                     </div>
                                 </div>

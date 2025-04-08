@@ -99,10 +99,13 @@ class Cart extends Model
     {
         return $this->belongsTo(Seller::class, 'seller_id');
     }
+<<<<<<< HEAD
     public function shop(): BelongsTo
     {
         return $this->belongsTo(Shop::class, 'seller_id', 'seller_id');
     }
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
 
     public function allProducts(): BelongsTo
     {

@@ -4,11 +4,19 @@
             <div class="col-md-4 d-flex mb-3">
                 <div class="media media-ie-fix me-4">
                     <img class="rounded-circle __img-64 object-cover"
+<<<<<<< HEAD
                          src="{{ isset($productReview->user) ? getValidImage(path: 'storage/app/public/profile/'.$productReview->user->image, type: 'avatar') : theme_asset(path: 'public/assets/front-end/img/image-place-holder.png') }}"
                          alt="{{isset($productReview->user)?$productReview->user->f_name : translate('not exist')}}"/>
                     <div
                         class="media-body {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}} text-body">
                         <span class="mb-0 text-body font-semi-bold fs-13">{{isset($productReview->user)?$productReview->user->f_name.' '.$productReview->user->l_name : translate('not exist')}}</span>
+=======
+                         src="{{ isset($productReview->user) ? getValidImage(path: 'storage/app/public/profile/'.$productReview->user->image, type: 'avatar') : asset('public/assets/front-end/img/image-place-holder.png') }}"
+                         alt="{{isset($productReview->user)?$productReview->user->f_name : translate('not exist')}}"/>
+                    <div
+                        class="media-body {{Session::get('direction') === "rtl" ? 'pr-3' : 'pl-3'}} text-body">
+                        <span class="font-size-sm mb-0 text-body">{{isset($productReview->user)?$productReview->user->f_name.' '.$productReview->user->l_name : translate('not exist')}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                         <div class="d-flex ">
                             <div class="me-2">
                                 <i class="sr-star czi-star-filled active"></i>
@@ -32,7 +40,11 @@
                 @endif
             </div>
             <div class="col-md-2 text-body">
+<<<<<<< HEAD
                 <span class="float-end font-semi-bold fs-13">{{isset($productReview->updated_at) ? $productReview->updated_at->format('M-d-Y') : ''}}</span>
+=======
+                <span class="float-end">{{isset($productReview->updated_at) ? $productReview->updated_at->format('M-d-Y') : ''}}</span>
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
             </div>
         </div>
     </div>

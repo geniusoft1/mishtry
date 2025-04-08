@@ -39,7 +39,11 @@ class BannerController extends Controller
         foreach ($banners as $banner) {
             if ($banner['resource_type'] == 'product' && !in_array($banner['resource_id'], $productIds)) {
                 $productIds[] = $banner['resource_id'];
+<<<<<<< HEAD
                 $product = Product::withCount('reviews')->find($banner['resource_id']);
+=======
+                $product = Product::find($banner['resource_id']);
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $banner['product'] = Helpers::product_data_formatting($product);
             }
             $data[] = $banner;

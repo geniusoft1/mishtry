@@ -18,12 +18,19 @@ class BrandManager
         $user = Helpers::get_customer($request);
 
         $products = Product::active()
+<<<<<<< HEAD
             ->withCount(['reviews','wishList' => function($query) use($user){
+=======
+            ->withCount(['wishList' => function($query) use($user){
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
                 $query->where('customer_id', $user != 'offline' ? $user->id : '0');
             }])
             ->where(['brand_id' => $brand_id])
             ->get();
+<<<<<<< HEAD
 
+=======
+>>>>>>> a84d0c1780c81a25f2e894da52e9d099ac87d017
         return Helpers::product_data_formatting($products, true);
     }
 
